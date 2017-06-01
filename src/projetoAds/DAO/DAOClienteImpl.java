@@ -2,6 +2,7 @@ package projetoAds.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import projetoAds.classesBasicas.Cliente;
@@ -68,18 +69,31 @@ public class DAOClienteImpl implements DAOCliente {
             g.desconectar(c);
     }
 
-    public Cliente pesquisar(Cliente cpf) throws ConexaoException, DAOException {
-        return null;
+    @Override
+    public Cliente pesquisar(String cli_cpf) throws ConexaoException, DAOException {
+        Connection c = g.conectar();
+        String sql = "SELECT id, descricao FROM turmas WHERE (registro=?)";
+        Cliente a = null;
+        try{
+            PreparedStatement pstm = c.prepareStatement(sql);
+            pstm.setString(1, cli_cpf);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.next()){
+                a = new Cliente();
+                a.setCli_id(rs.getInt("id") );
+                a.setCli_cpf(rs.getString("registro") );
+            }
+            return ;
+        }catch(SQLException e){
+            throw new DAOException(e);
+        }finally{
+            g.desconectar(c);
+        }
     }
 
     @Override
     public ArrayList<Cliente> listar() throws ConexaoException, DAOException {
         return null;
-    }
-
-    @Override
-    public Cliente pesquisar(String cli_cpf) throws ConexaoException, DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

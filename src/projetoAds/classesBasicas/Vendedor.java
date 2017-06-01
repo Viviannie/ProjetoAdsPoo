@@ -3,6 +3,7 @@ package projetoAds.classesBasicas;
 public class Vendedor {
     private Integer vend_cod;
     private String vend_nome;
+    private Integer vend_id;
 
     /**
      * @return the vend_cod
@@ -30,6 +31,20 @@ public class Vendedor {
      */
     public void setVend_nome(String vend_nome) {
         this.vend_nome = vend_nome;
+    }
+
+     /**
+     * @return the vend_id
+     */
+    public Integer getVend_id() {
+        return vend_id;
+    }
+
+     /**
+     * @param vend_id the vend_id to set
+     */
+    public void setVend_id(Integer vend_id) {
+        this.vend_id = vend_id;
     }
     
     
