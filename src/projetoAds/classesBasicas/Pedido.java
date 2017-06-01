@@ -91,7 +91,7 @@ public class Pedido {
     }
 
     /**
-     * @return the pedidoProduto
+     * @return the edidoProduto
      */
     public ArrayList<PedidoProduto> getPedidoProduto() {
         return pedidoProduto;

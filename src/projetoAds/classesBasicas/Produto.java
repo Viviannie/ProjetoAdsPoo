@@ -7,10 +7,12 @@ import java.util.ArrayList;
  * @author aluno
  */
 public class Produto {
+
     private Integer prd_estoqueminimo;
     private Integer prd_estoqueatual;
     private String prd_desc;
     private Integer prd_cod;
+    private Integer prd_id;
     private ArrayList<Fornecedor> fornecedor;
 
     /**
@@ -70,6 +72,20 @@ public class Produto {
     }
 
     /**
+     * @return the prd_id
+     */
+    public Integer getPrd_id() {
+        return prd_id;
+    }
+
+    /**
+     * @param prd_id the prd_id to set
+     */
+    public void setPrd_id(Integer prd_id) {
+        this.prd_id = prd_id;
+    }
+
+    /**
      * @return the fornecedor
      */
     public ArrayList<Fornecedor> getFornecedor() {
@@ -82,5 +98,5 @@ public class Produto {
     public void setFornecedor(ArrayList<Fornecedor> fornecedor) {
         this.fornecedor = fornecedor;
     }
-    
+
 }
