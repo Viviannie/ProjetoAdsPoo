@@ -49,11 +49,20 @@ public interface DAOCliente {
     public Cliente pesquisar(String cli_cpf) throws ConexaoException, DAOException;
 
     /**
+     *
+     * @param cli_id
+     * @return
+     * @throws ConexaoException
+     * @throws DAOException
+     */
+    public Cliente pesquisar(Integer cli_id) throws ConexaoException, DAOException;
+    /**
      * Retorna uma lista com todos os registros de Clientes
      *
      * @return Objeto contendo todos os registros encontrados
      * @throws ConexaoException
      * @throws DAOException
      */
+    
     public ArrayList<Cliente> listar() throws ConexaoException, DAOException;
 }
