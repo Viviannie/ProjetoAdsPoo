@@ -84,7 +84,7 @@ public class DAOClienteImpl implements DAOCliente {
                 a.setCli_id(rs.getInt("id") );
                 a.setCli_cpf(rs.getString("cpf") );
             }
-            return ;
+            return a;
         }catch(SQLException e){
             throw new DAOException(e);
         }finally{
