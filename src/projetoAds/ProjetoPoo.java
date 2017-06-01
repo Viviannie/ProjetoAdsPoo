@@ -11,12 +11,13 @@ import projetoAds.excecao.ConexaoException;
 public class ProjetoPoo {
     
     /**
-     *
+     * @testanto
      * @param args
      */
     public static void main(String[] args){
         ConexaoBD c;
         c = Conectar.getInstancia();
+        
         
     try{
         c.conectar();
