@@ -28,7 +28,7 @@ public class DAOClienteImpl implements DAOCliente{
         pstm.executeUpdate();
     }catch(SQLException e){
         throw new DAOException(e);
-    } finally{
+    } finally{                      //o bloco do finally será sempre executado, sempre. 
         g.desconectar(c);
     }  
 }
