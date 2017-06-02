@@ -1,16 +1,16 @@
 package projetoAds.DAO;
 
-import java.sql.Connection;//Gera conexão
-import java.sql.PreparedStatement;//usado para CRUD no bd passando parametros (?)
-import java.sql.ResultSet;// coletor dos resultados.
-import java.sql.SQLException;//Excexão padrão de sql
-import java.sql.Statement;//Usado para CRUD no bd
-import java.util.ArrayList;//List
-import projetoAds.classesBasicas.Cliente;//Classe ao qual essa DAO está implementando
-import projetoAds.conexao.Conectar;//Gera Conexão
-import projetoAds.conexao.ConexaoBD;//Gerenciador da conexão
-import projetoAds.excecao.ConexaoException;//Classe de erro para Conexão
-import projetoAds.excecao.DAOException;//Classe de erro para as DAO
+import java.sql.Connection; //Gera conexão
+import java.sql.PreparedStatement;  //usado para CRUD no bd passando parametros (?)
+import java.sql.ResultSet;  //coletor dos resultados.
+import java.sql.SQLException;   //Excexão padrão de sql
+import java.sql.Statement;  //Usado para CRUD no bd
+import java.util.ArrayList; //Lista
+import projetoAds.classesBasicas.Cliente;   //Classe ao qual essa DAO está implementando
+import projetoAds.conexao.Conectar; //Gera Conexão
+import projetoAds.conexao.ConexaoBD;    //Gerenciador da conexão
+import projetoAds.excecao.ConexaoException; //Classe de erro para Conexão
+import projetoAds.excecao.DAOException; //Classe de erro para as DAO
 
 /**
  *
