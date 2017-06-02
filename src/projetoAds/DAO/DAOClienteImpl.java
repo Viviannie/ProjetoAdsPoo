@@ -31,11 +31,11 @@ public class DAOClienteImpl implements DAOCliente {
         String sql = "INSERT INTO cliente (cli_nome) VALUES (?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, cliente.getCli_nome());
+            pstm.setString(1, cliente.getCli_nome());//Referente ao indice da interogação
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
-        } finally {                      //o bloco do finally será sempre executado, sempre. 
+        } finally {          //o bloco do finally será sempre executado, sempre. 
             con.desconectar(c);
         }
     }
