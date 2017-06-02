@@ -1,16 +1,16 @@
 package projetoAds.DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import projetoAds.classesBasicas.Cliente;
-import projetoAds.conexao.Conectar;
-import projetoAds.conexao.ConexaoBD;
-import projetoAds.excecao.ConexaoException;
-import projetoAds.excecao.DAOException;
+import java.sql.Connection;//Gera conexão
+import java.sql.PreparedStatement;//usado para CRUD no bd passando parametros (?)
+import java.sql.ResultSet;// coletor dos resultados.
+import java.sql.SQLException;//Excexão padrão de sql
+import java.sql.Statement;//Usado para CRUD no bd
+import java.util.ArrayList;//List
+import projetoAds.classesBasicas.Cliente;//Classe ao qual essa DAO está implementando
+import projetoAds.conexao.Conectar;//Gera Conexão
+import projetoAds.conexao.ConexaoBD;//Gerenciador da conexão
+import projetoAds.excecao.ConexaoException;//Classe de erro para Conexão
+import projetoAds.excecao.DAOException;//Classe de erro para as DAO
 
 /**
  *
@@ -75,17 +75,17 @@ public class DAOClienteImpl implements DAOCliente {
     public Cliente pesquisar(String cli_cpf) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT id, descricao FROM turmas WHERE (cpf=?)";
-        Cliente a = null;
+        Cliente cli = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, cli_cpf);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
-                a = new Cliente();
-                a.setCli_id(rs.getInt("id"));
-                a.setCli_cpf(rs.getString("cpf"));
+                cli = new Cliente();
+                cli.setCli_id(rs.getInt("id"));
+                cli.setCli_cpf(rs.getString("cpf"));
             }
-            return a;
+            return cli;
         } catch (SQLException e) {
             throw new DAOException(e);
         } finally {
@@ -97,17 +97,17 @@ public class DAOClienteImpl implements DAOCliente {
     public Cliente pesquisar(Integer cli_id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT id, descricao FROM turmas WHERE (id=?)";
-        Cliente a = null;
+        Cliente cli = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, cli_id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
-                a = new Cliente();
-                a.setCli_id(rs.getInt("id"));
-                a.setCli_cpf(rs.getString("cpf"));
+                cli = new Cliente();
+                cli.setCli_id(rs.getInt("id"));
+                cli.setCli_cpf(rs.getString("cpf"));
             }
-            return a;
+            return cli;
         } catch (SQLException e) {
             throw new DAOException(e);
         } finally {
@@ -120,15 +120,15 @@ public class DAOClienteImpl implements DAOCliente {
         Connection c = con.conectar();
         String sql = "SELECT id, descricao FROM turmas WHERE (cpf=?)";
         ArrayList<Cliente> lista = new ArrayList();
-        Cliente a;
+        Cliente cli;
         try {
             Statement stm = c.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
-                a = new Cliente();
-                a.setCli_id(rs.getInt("id"));
-                a.setCli_cpf(rs.getString("cpf"));
-                lista.add(a);
+                cli = new Cliente();
+                cli.setCli_id(rs.getInt("id"));
+                cli.setCli_cpf(rs.getString("cpf"));
+                lista.add(cli);
             }
             return lista;
         } catch (SQLException e) {
