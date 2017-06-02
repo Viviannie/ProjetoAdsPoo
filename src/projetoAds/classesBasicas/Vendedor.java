@@ -1,5 +1,10 @@
 package projetoAds.classesBasicas;
 
+/**
+  *
+  * @author Grupo Programação Orientada a Objetos
+  */
+
 public class Vendedor {
     private Integer vend_cod;
     private String vend_nome;

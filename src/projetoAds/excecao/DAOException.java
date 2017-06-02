@@ -1,6 +1,5 @@
 package projetoAds.excecao;
 /**
- *
  * @author Aluno
  */
 public class DAOException extends Exception {

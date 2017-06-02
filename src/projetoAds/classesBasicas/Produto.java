@@ -3,12 +3,12 @@ package projetoAds.classesBasicas;
 import java.util.ArrayList;
 
 /**
- *
- * @author aluno
- */
+  *
+  * @author Grupo Programação Orientada a Objetos
+  */
 public class Produto {
 
-    private Integer prd_estoqueminimo;
+    private Integer prd_estoqueminino;
     private Integer prd_estoqueatual;
     private String prd_desc;
     private Integer prd_cod;
@@ -19,14 +19,14 @@ public class Produto {
      * @return the prd_estoqueminimo
      */
     public Integer getPrd_estoqueminimo() {
-        return prd_estoqueminimo;
+        return prd_estoqueminino;
     }
 
     /**
      * @param prd_estoqueminimo the prd_estoqueminimo to set
      */
     public void setPrd_estoqueminimo(Integer prd_estoqueminimo) {
-        this.prd_estoqueminimo = prd_estoqueminimo;
+        this.prd_estoqueminino = prd_estoqueminimo;
     }
 
     /**

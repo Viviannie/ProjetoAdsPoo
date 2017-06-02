@@ -1,11 +1,11 @@
 package projetoAds.DAO;
 import java.util.ArrayList;
-import projetoAds.classesBasicas.Vendedor;
+import projetoAds.classesBasicas.Vendedor;//Classe ao qual a DAO é refenrete
 import projetoAds.excecao.DAOException;
 import projetoAds.excecao.ConexaoException;
+
 /**
- *
- * @author Jefferson Fabrício
+ * @author Grupo Programação Orientada a Objetos
  */
 public interface DAOVendedor {
     /**

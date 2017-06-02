@@ -7,15 +7,14 @@ import java.util.ResourceBundle;    //Usando para lê arquivos
 import projetoAds.excecao.ConexaoException;
 
 /**
- *
- * @author aluno
- */
+  * @author Grupo Programação Orientada a Objetos
+  */
 //Encapsulamento
 public class Conectar implements ConexaoBD {
 
     private final String url;
-    private final String usu;
-    private final String sen;
+    private final String usuario;
+    private final String senha;
     private static Conectar instancia;
 
     /**
@@ -23,10 +22,10 @@ public class Conectar implements ConexaoBD {
      * Arquivo recebe: url, usuário e senha.
      */
     private Conectar() {
-        ResourceBundle rb = ResourceBundle.getBundle("projetoAds.conexao.configBanco");
-        url = rb.getString("url");
-        usu = rb.getString("usu");
-        sen = rb.getString("sen");
+        ResourceBundle resb = ResourceBundle.getBundle("projetoAds.conexao.configBanco");
+        url = resb.getString("url");
+        usuario = resb.getString("usuario");
+        senha = resb.getString("senha");
     }
 
     //@Singleton 
@@ -45,19 +44,19 @@ public class Conectar implements ConexaoBD {
     @Override
     public Connection conectar() throws ConexaoException {
 
-        Connection c;
+        Connection con;
         try {
-            c = DriverManager.getConnection(url, usu, sen);
-            return c;
+            con = DriverManager.getConnection(url, usuario, senha);
+            return con;
         } catch (SQLException e) {
             throw new ConexaoException(e);
         }
     }
 
     @Override
-    public void desconectar(Connection c) throws ConexaoException {
+    public void desconectar(Connection con) throws ConexaoException {
         try {
-            c.close();
+            con.close();
         } catch (SQLException e) {
             throw new ConexaoException(e);
         }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author aluno
+ * @author Grupo Programação Orientada a Objetos
  */
 public class Pedido {
 
