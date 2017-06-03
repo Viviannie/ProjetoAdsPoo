@@ -28,7 +28,7 @@ public class DAOProdutoImpl implements DAOProduto {
     public void incluir(Produto produto) throws ConexaoException, DAOException {
 
         Connection c = con.conectar();
-        String sql = "INSERT INTO produto (prd_desc) VALUES (?)";
+        String sql = "INSERT INTO produto (prd_desc, prd_estoqueminimo, prd_estoqueatual) VALUES (?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, produto.getPrd_desc());   //Referente ao indice da interogação
@@ -45,12 +45,10 @@ public class DAOProdutoImpl implements DAOProduto {
     @Override
     public void excluir(Produto produto) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "DELETE FROM produto WHERE (id=?)";
+        String sql = "DELETE FROM produto WHERE (prd_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, produto.getPrd_desc());
-            pstm.setInt(2, produto.getPrd_estoqueminimo());
-            pstm.setInt(3, produto.getPrd_estoqueatual());
+            pstm.setInt(1, produto.getPrd_id());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -62,12 +60,13 @@ public class DAOProdutoImpl implements DAOProduto {
     @Override
     public void alterar(Produto produto) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE produto SET descricao=? WHERE (id=?)";
+        String sql = "UPDATE produto SET prd_desc=?, prd_estoqueminimo=?, prd_estoqueatual=?  WHERE (prd_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, produto.getPrd_desc());
             pstm.setInt(2, produto.getPrd_estoqueminimo());
-            pstm.setInt(3, produto.getPrd_estoqueatual());          
+            pstm.setInt(3, produto.getPrd_estoqueatual());
+            pstm.setInt(4, produto.getPrd_id());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -77,17 +76,20 @@ public class DAOProdutoImpl implements DAOProduto {
     }
 
     @Override
-    public Produto pesquisar(Integer prd_cod) throws ConexaoException, DAOException {
+    public Produto pesquisar(Integer prd_id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT id, descricao FROM produto WHERE (id=?)";
+        String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual FROM produto WHERE (prd_id=?)";
         Produto prd = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, prd_cod);
+            pstm.setInt(1, prd_id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 prd = new Produto();
-                prd.setPrd_id(rs.getInt("id"));             
+                prd.setPrd_id(rs.getInt("prd_id"));
+                prd.setPrd_desc(rs.getString("prd_desc"));
+                prd.setPrd_estoqueminimo(rs.getInt("prd_estoqueminimo"));
+                prd.setPrd_estoqueatual(rs.getInt("prd_estoqueatual"));
             }
             return prd;
         } catch (SQLException e) {
@@ -96,11 +98,11 @@ public class DAOProdutoImpl implements DAOProduto {
             con.desconectar(c);
         }
     }
-     
+
     @Override
     public ArrayList<Produto> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT id, descricao FROM produto WHERE (id=?)";
+        String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual FROM produto WHERE (prd_id=?)";
         ArrayList<Produto> lista = new ArrayList();
         Produto prd;
         try {
@@ -108,7 +110,10 @@ public class DAOProdutoImpl implements DAOProduto {
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 prd = new Produto();
-                prd.setPrd_id(rs.getInt("id"));
+                prd.setPrd_id(rs.getInt("prd_id"));
+                prd.setPrd_desc(rs.getString("prd_desc"));
+                prd.setPrd_estoqueminimo(rs.getInt("prd_estoqueminimo"));
+                prd.setPrd_estoqueatual(rs.getInt("prd_estoqueatual"));
                 lista.add(prd);
             }
             return lista;
