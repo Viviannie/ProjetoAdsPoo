@@ -7,7 +7,7 @@ import projetoAds.excecao.ConexaoException;
 
 /**
  *
- * @author Aluno
+ * @author Grupo Programação Orientada a Objetos
  */
 public interface DAOProduto {
 

@@ -2,7 +2,7 @@ package projetoAds.classesBasicas;
 
 /**
  *
- * @author Aluno
+ * @author Grupo Programação Orientada a Objetos
  */
 public class FormaPag {
 

@@ -7,7 +7,7 @@ import projetoAds.excecao.DAOException;
 
 /**
  *
- * @author Aluno
+ * @author Grupo Programação Orientada a Objetos
  */
 public interface DAOCliente {
 
