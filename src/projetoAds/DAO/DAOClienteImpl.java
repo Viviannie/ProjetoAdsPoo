@@ -58,7 +58,7 @@ public class DAOClienteImpl implements DAOCliente {
     @Override
     public void alterar(Cliente cliente) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE turmas SET descricao=? WHERE (id=?)";
+        String sql = "UPDATE Cliente SET Cli_nome=? WHERE (id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, cliente.getCli_nome());
