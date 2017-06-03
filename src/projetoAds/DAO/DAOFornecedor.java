@@ -5,7 +5,7 @@ import projetoAds.excecao.DAOException;
 import projetoAds.excecao.ConexaoException;//Classe de Erro
 /**
  *
- * @author Jefferson Fabrício
+ * @author Grupo Programação Orientada a Objetos
  */
 public interface DAOFornecedor {
     /**
