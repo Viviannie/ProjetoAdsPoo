@@ -34,12 +34,12 @@ public interface DAOPagamento {
     
     /**
       * Busca um registro no BD com o Codigo do pagamento informado
-      * @param pag_cod Parametro da busca
+      * @param pag_id Parametro da busca
       * @return Objeto encontrado ou null
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public Pagamento pesquisar(String pag_cod) throws ConexaoException,DAOException;
+    public Pagamento pesquisar(String pag_id) throws ConexaoException,DAOException;
 
     /**
       * Retorna uma lista com todos os registros dos pagamentos

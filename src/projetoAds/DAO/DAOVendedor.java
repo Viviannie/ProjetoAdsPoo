@@ -34,12 +34,12 @@ public interface DAOVendedor {
     
     /**
       * Busca um registro no BD com o CPF informado
-      * @param vend_cod Parametro da busca
+      * @param vend_id Parametro da busca
       * @return Objeto encontrado ou null
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public Vendedor pesquisar(Integer vend_cod) throws ConexaoException,DAOException;
+    public Vendedor pesquisar(Integer vend_id) throws ConexaoException,DAOException;
 
     /**
       * Retorna uma lista com todos os registros do vendedor

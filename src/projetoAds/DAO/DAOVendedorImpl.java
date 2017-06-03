@@ -43,10 +43,10 @@ public class DAOVendedorImpl implements DAOVendedor {
     @Override
     public void excluir(Vendedor vendedor) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "DELETE FROM vendedor WHERE (id=?)";
+        String sql = "DELETE FROM vendedor WHERE (vend_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, vendedor.getVend_nome());
+            pstm.setInt(1, vendedor.getVend_id());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -58,7 +58,7 @@ public class DAOVendedorImpl implements DAOVendedor {
     @Override
     public void alterar(Vendedor vendedor) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE vendedor SET descricao=? WHERE (id=?)";
+        String sql = "UPDATE vendedor SET vend_nome=? WHERE (vend_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, vendedor.getVend_nome());
@@ -74,7 +74,7 @@ public class DAOVendedorImpl implements DAOVendedor {
     @Override
     public Vendedor pesquisar(Integer vend_id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT id, descricao FROM vendedor WHERE (cod=?)";
+        String sql = "SELECT vend_id, vend_nome FROM vendedor WHERE (vend_id=?)";
         Vendedor vend = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -82,7 +82,9 @@ public class DAOVendedorImpl implements DAOVendedor {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 vend = new Vendedor();
-                vend.setVend_id(rs.getInt("id"));
+                vend.setVend_id(rs.getInt("vend_id"));
+                vend.setVend_nome(rs.getString("vend_nome"));
+                
             }
             return vend;
         } catch (SQLException e) {
@@ -95,7 +97,7 @@ public class DAOVendedorImpl implements DAOVendedor {
     @Override
     public ArrayList<Vendedor> listar() throws ConexaoException,DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT id, descricao FROM vendedor WHERE (id=?)";
+        String sql = "SELECT vend_id, vend_nome FROM vendedor WHERE (id=?)";
         ArrayList<Vendedor> lista = new ArrayList();
         Vendedor vend;
         try {
@@ -103,7 +105,8 @@ public class DAOVendedorImpl implements DAOVendedor {
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 vend = new Vendedor();
-                vend.setVend_id(rs.getInt("id"));
+                vend.setVend_id(rs.getInt("vend_id"));
+                vend.setVend_nome(rs.getString("vend_nome"));
                 lista.add(vend);
             }
             return lista;

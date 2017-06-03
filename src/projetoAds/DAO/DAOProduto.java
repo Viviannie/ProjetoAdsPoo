@@ -41,12 +41,12 @@ public interface DAOProduto {
     /**
      * Busca um registro no BD com o Codigo do produto informado
      *
-     * @param prd_cod Parametro da busca
+     * @param prd_id Parametro da busca
      * @return Objeto encontrado ou null
      * @throws ConexaoException
      * @throws DAOException
      */
-    public Produto pesquisar(Integer prd_cod) throws ConexaoException, DAOException;
+    public Produto pesquisar(Integer prd_id) throws ConexaoException, DAOException;
 
     /**
      * Retorna uma lista com todos os registros dos produtos
