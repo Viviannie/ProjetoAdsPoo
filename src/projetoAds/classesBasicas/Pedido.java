@@ -104,9 +104,7 @@ public class Pedido {
         this.pedidoProduto = pedidoProduto;
     }
 
-}
-
-class PedidoProduto {
+private class PedidoProduto {
 
     private Double prc_unitario;
     private Integer qtd_produtos;
@@ -146,4 +144,5 @@ class PedidoProduto {
         this.qtd_produtos = qtd_produtos;
     }
 
+}
 }
