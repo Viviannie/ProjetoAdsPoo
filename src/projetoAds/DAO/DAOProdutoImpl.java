@@ -87,7 +87,7 @@ public class DAOProdutoImpl implements DAOProduto {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 prd = new Produto();
-                prd.setPrd_cod(rs.getInt("id"));             
+                prd.setPrd_id(rs.getInt("id"));             
             }
             return prd;
         } catch (SQLException e) {
