@@ -6,27 +6,12 @@ package projetoAds.classesBasicas;
  */
 public class Pagamento {
 
-    private String pag_cod;
     private Double pag_valor;
     private Integer pag_id;
     private Pedido pedido;
 
     public Pagamento() {
         pedido = new Pedido();
-    }
-
-    /**
-     * @return the pag_cod
-     */
-    public String getPag_cod() {
-        return pag_cod;
-    }
-
-    /**
-     * @param pag_cod the pag_cod to set
-     */
-    public void setPag_cod(String pag_cod) {
-        this.pag_cod = pag_cod;
     }
 
     /**

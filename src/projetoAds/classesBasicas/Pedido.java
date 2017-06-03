@@ -8,8 +8,7 @@ import java.util.ArrayList;
  */
 public class Pedido {
 
-    private String ped_data;
-    private Integer ped_cod;
+    private String ped_data;   
     private Integer ped_id;
     private Cliente cliente;
     private Vendedor vendedor;
@@ -32,20 +31,6 @@ public class Pedido {
      */
     public void setPed_data(String ped_data) {
         this.ped_data = ped_data;
-    }
-
-    /**
-     * @return the ped_numero
-     */
-    public Integer getPed_cod() {
-        return ped_cod;
-    }
-
-    /**
-     * @param ped_cod the ped_numero to set
-     */
-    public void setPed_cod(Integer ped_cod) {
-        this.ped_cod = ped_cod;
     }
 
     /**
@@ -108,8 +93,8 @@ private class PedidoProduto {
 
     private Double prc_unitario;
     private Integer qtd_produtos;
-    private Produto produto;             
-    private Fornecedor fornecedor;       
+    private final Produto produto;             
+    private final Fornecedor fornecedor;       
 
     public PedidoProduto(){
         produto = new Produto();

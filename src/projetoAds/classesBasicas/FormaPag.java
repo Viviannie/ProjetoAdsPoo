@@ -6,27 +6,12 @@ package projetoAds.classesBasicas;
  */
 public class FormaPag {
 
-    private String frm_cod;
     private String frm_desc;
     private Integer frm_id;
     private Pagamento pagamento;
 
     public FormaPag() {
         pagamento = new Pagamento();    //Criando a ligação entre as entidades
-    }
-
-    /**
-     * @return the forma_cod
-     */
-    public String getFrm_cod() {
-        return frm_cod;
-    }
-
-    /**
-     * @param frm_cod the frm_cod to set
-     */
-    public void setFrm_cod(String frm_cod) {
-        this.frm_cod = frm_cod;
     }
 
     /**

@@ -7,7 +7,6 @@ public class Cliente {
 
     private String cli_cpf;
     private String cli_nome;
-    private Integer cli_id;
 
     /**
      * @return the cli_cpf
@@ -37,19 +36,4 @@ public class Cliente {
         this.cli_nome = cli_nome;
     }
 
-    /**
-     * @return the cli_id
-     */
-    public Integer getCli_id() {
-        return cli_id;
-    }
-
-    /**
-     * @param cli_id the cli_id to set
-     */
-    public void setCli_id(Integer cli_id) {
-        this.cli_id = cli_id;
-    }
-    
-    
 }

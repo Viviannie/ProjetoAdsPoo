@@ -3,15 +3,14 @@ package projetoAds.classesBasicas;
 import java.util.ArrayList;
 
 /**
-  *
-  * @author Aluno
-  */
+ *
+ * @author Aluno
+ */
 public class Produto {
 
     private Integer prd_estoqueminino;
     private Integer prd_estoqueatual;
     private String prd_desc;
-    private Integer prd_cod;
     private Integer prd_id;
     private ArrayList<Fornecedor> fornecedor;
 
@@ -55,20 +54,6 @@ public class Produto {
      */
     public void setPrd_desc(String prd_desc) {
         this.prd_desc = prd_desc;
-    }
-
-    /**
-     * @return the prd_cod
-     */
-    public Integer getPrd_cod() {
-        return prd_cod;
-    }
-
-    /**
-     * @param prd_cod the prd_cod to set
-     */
-    public void setPrd_cod(Integer prd_cod) {
-        this.prd_cod = prd_cod;
     }
 
     /**
