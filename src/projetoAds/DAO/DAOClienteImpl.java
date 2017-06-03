@@ -58,11 +58,11 @@ public class DAOClienteImpl implements DAOCliente {
     @Override
     public void alterar(Cliente cliente) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE Cliente SET Cli_nome=? WHERE (id=?)";
+        String sql = "UPDATE Cliente SET Cli_nome=? WHERE (cli_cpf=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);   //Traduz a linguagem para SQL
             pstm.setString(1, cliente.getCli_nome());
-            pstm.setInt(2, cliente.getCli_id());
+            pstm.setString(2, cliente.getCli_cpf());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -74,37 +74,14 @@ public class DAOClienteImpl implements DAOCliente {
     @Override
     public Cliente pesquisar(String cli_cpf) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT id, descricao FROM turmas WHERE (cpf=?)";
+        String sql = "SELECT cpf, descricao FROM turmas WHERE (cli_cpf=?)";
         Cliente cli = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, cli_cpf);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
-                cli = new Cliente();
-                cli.setCli_id(rs.getInt("id"));
-                cli.setCli_cpf(rs.getString("cpf"));
-            }
-            return cli;
-        } catch (SQLException e) {
-            throw new DAOException(e);
-        } finally {
-            con.desconectar(c);
-        }
-    }
-
-    @Override
-    public Cliente pesquisar(Integer cli_id) throws ConexaoException, DAOException {
-        Connection c = con.conectar();
-        String sql = "SELECT id, descricao FROM turmas WHERE (id=?)";
-        Cliente cli = null;
-        try {
-            PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, cli_id);
-            ResultSet rs = pstm.executeQuery();
-            if (rs.next()) {
-                cli = new Cliente();
-                cli.setCli_id(rs.getInt("id"));
+                cli = new Cliente();                
                 cli.setCli_cpf(rs.getString("cpf"));
             }
             return cli;
@@ -118,7 +95,7 @@ public class DAOClienteImpl implements DAOCliente {
     @Override
     public ArrayList<Cliente> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT id, descricao FROM turmas WHERE (cpf=?)";
+        String sql = "SELECT cpf, descricao FROM turmas WHERE (cli_cpf=?)";
         ArrayList<Cliente> lista = new ArrayList();
         Cliente cli;
         try {
@@ -126,7 +103,6 @@ public class DAOClienteImpl implements DAOCliente {
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 cli = new Cliente();
-                cli.setCli_id(rs.getInt("id"));
                 cli.setCli_cpf(rs.getString("cpf"));
                 lista.add(cli);
             }
