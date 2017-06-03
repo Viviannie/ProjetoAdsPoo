@@ -47,5 +47,6 @@ public interface DAOVendedor {
       * @throws ConexaoException
       * @throws DAOException 
       */
+    
     public ArrayList<Vendedor> listar() throws ConexaoException,DAOException;
 }

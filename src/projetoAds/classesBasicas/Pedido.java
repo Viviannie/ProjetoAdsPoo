@@ -110,9 +110,14 @@ class PedidoProduto {
 
     private Double prc_unitario;
     private Integer qtd_produtos;
-    private Produto produto;            //Por que é o código do pedido e 
-    private Fornecedor fornecedor;      //do produto e não o tipo [tabela] e a tabela?
+    private Produto produto;             
+    private Fornecedor fornecedor;       
 
+    public PedidoProduto(){
+        produto = new Produto();
+        fornecedor = new Fornecedor();
+    }
+        
     /**
      * @return the prc_unitario
      */
