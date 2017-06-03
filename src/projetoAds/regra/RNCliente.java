@@ -1,4 +1,5 @@
 package projetoAds.regra;
+import projetoAds.excecao.RegraException;
 
 /**
  *

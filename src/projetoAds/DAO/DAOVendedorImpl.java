@@ -97,7 +97,7 @@ public class DAOVendedorImpl implements DAOVendedor {
     @Override
     public ArrayList<Vendedor> listar() throws ConexaoException,DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT vend_id, vend_nome FROM vendedor WHERE (vend_id=?)";
+        String sql = "SELECT vend_id, vend_nome FROM vendedor";
         ArrayList<Vendedor> lista = new ArrayList();
         Vendedor vend;
         try {

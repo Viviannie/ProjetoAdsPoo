@@ -97,7 +97,7 @@ public class DAOClienteImpl implements DAOCliente {
     @Override
     public ArrayList<Cliente> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT cli_cpf, cli_nome FROM cliente WHERE (cli_cpf=?)";
+        String sql = "SELECT cli_cpf, cli_nome FROM cliente";
         ArrayList<Cliente> lista = new ArrayList();
         Cliente cli;
         try {
