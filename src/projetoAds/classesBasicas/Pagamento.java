@@ -2,14 +2,14 @@ package projetoAds.classesBasicas;
 
 /**
  *
- * @author Grupo Programação Orientada a Objetos
+ * @author Aluno
  */
 public class Pagamento {
 
     private String pag_cod;
     private Double pag_valor;
-    private Pedido pedido;
     private Integer pag_id;
+    private Pedido pedido;
 
     public Pagamento() {
         pedido = new Pedido();

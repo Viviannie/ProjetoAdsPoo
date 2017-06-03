@@ -18,7 +18,7 @@ public class Conectar implements ConexaoBD {
     private static Conectar instancia;
 
     /**
-     * Abaixo o ResourceBundle Recebe o local que o arquivo vai está Atráves do
+     * Abaixo, o ResourceBundle Recebe o local que o arquivo vai estar, atráves do
      * Arquivo recebe: url, usuário e senha.
      */
     private Conectar() {
@@ -27,6 +27,12 @@ public class Conectar implements ConexaoBD {
         usuario = resb.getString("usuario");
         senha = resb.getString("senha");
     }
+    
+    /*
+    * Criado para limitar a quantidade de instâncias e para ter apenas uma
+    * conexão.
+    * Retorna a instância da classe.
+    */
 
     //@Singleton 
     public static Conectar getInstancia() {           //precisa ser static

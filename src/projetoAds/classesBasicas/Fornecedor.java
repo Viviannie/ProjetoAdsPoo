@@ -1,7 +1,7 @@
 package projetoAds.classesBasicas;
 
 /**
- * @author Grupo Programação Orientada a Objetos
+ * @author Aluno
  */
 public class Fornecedor {
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Grupo Programação Orientada a Objetos
+ * @author Aluno
  */
 public class Pedido {
 
@@ -110,8 +110,8 @@ class PedidoProduto {
 
     private Double prc_unitario;
     private Integer qtd_produtos;
-    private Integer prd_cod;                    //isso não entra aqui?
-    private Integer ped_cod;
+    private Integer prd_cod;                  //Por que é o código do pedido e 
+    private Integer ped_cod;                  //do produto e não o tipo [tabela] e a tabela?
 
     /**
      * @return the prc_unitario
