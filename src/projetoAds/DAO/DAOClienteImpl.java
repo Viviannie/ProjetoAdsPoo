@@ -14,7 +14,7 @@ import projetoAds.excecao.DAOException; //Classe de erro para as DAO
 
 /**
  *
- * @author Aluno
+ * @author Grupo Programação Orientada a Objetoss
  */
 public class DAOClienteImpl implements DAOCliente {
 
