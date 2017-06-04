@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Pedido {
 
-    private String ped_data;   
+    private String ped_data;
     private Integer ped_id;
     private Cliente cliente;
     private Vendedor vendedor;
@@ -75,59 +75,60 @@ public class Pedido {
         this.vendedor = vendedor;
     }
 
-    /**
-     * @return the edidoProduto
-     */
     public ArrayList<PedidoProduto> getPedidoProduto() {
         return pedidoProduto;
     }
 
-    /**
-     * @param pedidoProduto the pedidoProduto to set
-     */
     public void setPedidoProduto(ArrayList<PedidoProduto> pedidoProduto) {
         this.pedidoProduto = pedidoProduto;
     }
 
-private class PedidoProduto {
-
-    private Double prc_unitario;
-    private Integer qtd_produtos;
-    private final Produto produto;             
-    private final Fornecedor fornecedor;       
-
-    public PedidoProduto(){
-        produto = new Produto();
-        fornecedor = new Fornecedor();
-    }
-        
     /**
-     * @return the prc_unitario
+     * @return the edidoProduto
      */
-    public Double getPrc_unitario() {
-        return prc_unitario;
-    }
+    private class PedidoProduto {
 
-    /**
-     * @param prc_unitario the prc_unitario to set
-     */
-    public void setPrc_unitario(Double prc_unitario) {
-        this.prc_unitario = prc_unitario;
-    }
+        private Double prc_unitario;
+        private Integer qtd_produtos;
+        private Produto produto;
+        private Fornecedor fornecedor;
 
-    /**
-     * @return the qtd_produtos
-     */
-    public Integer getQtd_produtos() {
-        return qtd_produtos;
-    }
+        public PedidoProduto() {
+            produto = new Produto();
+            fornecedor = new Fornecedor();
+        }
 
-    /**
-     * @param qtd_produtos the qtd_produtos to set
-     */
-    public void setQtd_produtos(Integer qtd_produtos) {
-        this.qtd_produtos = qtd_produtos;
-    }
+        public Double getPrc_unitario() {
+            return prc_unitario;
+        }
 
-}
+        public void setPrc_unitario(Double prc_unitario) {
+            this.prc_unitario = prc_unitario;
+        }
+
+        public Integer getQtd_produtos() {
+            return qtd_produtos;
+        }
+
+        public void setQtd_produtos(Integer qtd_produtos) {
+            this.qtd_produtos = qtd_produtos;
+        }
+
+        public Produto getProduto() {
+            return produto;
+        }
+
+        public void setProduto(Produto produto) {
+            this.produto = produto;
+        }
+
+        public Fornecedor getFornecedor() {
+            return fornecedor;
+        }
+
+        public void setFornecedor(Fornecedor fornecedor) {
+            this.fornecedor = fornecedor;
+        }
+
+    }
 }
