@@ -24,7 +24,7 @@ public class FormaPag {
     /**
      * @param frm_desc the frm_desc to set
      */
-    public void setFem_desc(String frm_desc) {
+    public void setFrm_desc(String frm_desc) {
         this.frm_desc = frm_desc;
     }
 
