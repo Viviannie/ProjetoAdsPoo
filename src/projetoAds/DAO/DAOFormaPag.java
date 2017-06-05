@@ -39,7 +39,7 @@ public interface DAOFormaPag {
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public FormaPag pesquisar(String frm_id) throws ConexaoException,DAOException;
+    public FormaPag pesquisar(Integer frm_id) throws ConexaoException,DAOException;
 
     /**
       * Retorna uma lista com todos os registros do Pagamento
