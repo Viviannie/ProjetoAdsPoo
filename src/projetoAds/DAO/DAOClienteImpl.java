@@ -31,7 +31,7 @@ public class DAOClienteImpl implements DAOCliente {
         String sql = "INSERT INTO cliente (cli_nome, cli_cpf) VALUES (?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, cliente.getCli_nome());//Referente ao indice da interrogação
+            pstm.setString(1, cliente.getCli_nome());   //Referente ao indice da interrogação
             pstm.setString(2, cliente.getCli_cpf());
             pstm.executeUpdate();
         } catch (SQLException e) {
