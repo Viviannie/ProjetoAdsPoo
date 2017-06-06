@@ -1,4 +1,5 @@
 package projetoAds.regra;
+import projetoAds.classesBasicas.Cliente;
 import projetoAds.excecao.RegraException;
 
 /**
@@ -8,6 +9,6 @@ import projetoAds.excecao.RegraException;
 public class RNCliente {
     
     //precisa validar
-    public void incluir(Turma t) throws RegraException{
-        if()
+    public void incluir(Cliente t) throws RegraException{
+    }
 }

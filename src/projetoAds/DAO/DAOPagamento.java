@@ -39,7 +39,7 @@ public interface DAOPagamento {
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public Pagamento pesquisar(String pag_id) throws ConexaoException,DAOException;
+    public Pagamento pesquisar(Integer pag_id) throws ConexaoException,DAOException;
 
     /**
       * Retorna uma lista com todos os registros dos pagamentos
