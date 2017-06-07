@@ -12,12 +12,10 @@ public class Pedido {
     private Integer ped_id;
     private Cliente cliente;
     private Vendedor vendedor;
-    private ArrayList<PedidoProduto> pedidoProduto;
 
     public Pedido() {
         cliente = new Cliente();
         vendedor = new Vendedor();
-        pedidoProduto = new ArrayList<>();
     }
     
 
@@ -77,60 +75,4 @@ public class Pedido {
         this.vendedor = vendedor;
     }
 
-    public ArrayList<PedidoProduto> getPedidoProduto() {
-        return pedidoProduto;
-    }
-
-    public void setPedidoProduto(ArrayList<PedidoProduto> pedidoProduto) {
-        this.pedidoProduto = pedidoProduto;
-    }
-
-    /**
-     * @return the edidoProduto
-     */
-    private class PedidoProduto {
-
-        private Double prc_unitario;
-        private Integer qtd_produtos;
-        private Produto produto;
-        private Fornecedor fornecedor;
-
-        public PedidoProduto() {
-            produto = new Produto();
-            fornecedor = new Fornecedor();
-        }
-
-        public Double getPrc_unitario() {
-            return prc_unitario;
-        }
-
-        public void setPrc_unitario(Double prc_unitario) {
-            this.prc_unitario = prc_unitario;
-        }
-
-        public Integer getQtd_produtos() {
-            return qtd_produtos;
-        }
-
-        public void setQtd_produtos(Integer qtd_produtos) {
-            this.qtd_produtos = qtd_produtos;
-        }
-
-        public Produto getProduto() {
-            return produto;
-        }
-
-        public void setProduto(Produto produto) {
-            this.produto = produto;
-        }
-
-        public Fornecedor getFornecedor() {
-            return fornecedor;
-        }
-
-        public void setFornecedor(Fornecedor fornecedor) {
-            this.fornecedor = fornecedor;
-        }
-
-    }
 }
