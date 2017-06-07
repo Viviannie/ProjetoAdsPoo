@@ -59,11 +59,12 @@ public class DAOClienteImpl implements DAOCliente {
     @Override
     public void alterar(Cliente cliente) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE Cliente SET Cli_nome=? WHERE (cli_cpf=?)";
+        String sql = "UPDATE Cliente SET Cli_cpf=?, Cli_nome=? WHERE (cli_cpf=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);   //Traduz a linguagem para SQL
-            pstm.setString(1, cliente.getCli_nome());
-            pstm.setString(2, cliente.getCli_cpf());
+            pstm.setString(1, cliente.getCli_cpf());
+            pstm.setString(2, cliente.getCli_nome());
+            pstm.setString(3, cliente.getCli_cpf());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -80,6 +81,28 @@ public class DAOClienteImpl implements DAOCliente {
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, cli_cpf);
+            ResultSet rs = pstm.executeQuery(); //variável que recebe resultado do select
+            if (rs.next()) {
+                cli = new Cliente();
+                cli.setCli_cpf(rs.getString("cli_cpf"));
+                cli.setCli_nome(rs.getString("cli_nome"));
+            }
+            return cli;
+        } catch (SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            con.desconectar(c);
+        }
+    }
+    
+    @Override
+    public Cliente pesquisarNome(String cli_nome) throws ConexaoException, DAOException {
+        Connection c = con.conectar();
+        String sql = "SELECT cli_cpf, cli_nome FROM cliente WHERE (cli_nome like ?)";
+        Cliente cli = null;
+        try {
+            PreparedStatement pstm = c.prepareStatement(sql);
+            pstm.setString(1, cli_nome);
             ResultSet rs = pstm.executeQuery(); //variável que recebe resultado do select
             if (rs.next()) {
                 cli = new Cliente();
