@@ -8,6 +8,8 @@ package projetoAds.regra;
 import projetoAds.DAO.DAOVendedor;
 import projetoAds.DAO.DAOVendedorImpl;
 import projetoAds.classesBasicas.Vendedor;
+import projetoAds.excecao.ConexaoException;
+import projetoAds.excecao.DAOException;
 import projetoAds.excecao.RegraException;
 
 /**
@@ -15,57 +17,51 @@ import projetoAds.excecao.RegraException;
  * @author Annie
  */
 public class RNVendedor {
-    
+
     private final DAOVendedor dao = new DAOVendedorImpl();
-    
-    public void validar(Vendedor a)throws RegraException{
-        if((a.getVend_Id()==null)||(a.getNome().trim().equals(""))){
+
+    public void validar(Vendedor a) throws RegraException {
+        if ((a.getVend_id() == null) || (a.getVend_nome().trim().equals(" "))) {
             throw new RegraException("Nome inválido");
         }
-        if((a.getCpf()==null)||(a.getCpf().trim().equals(""))||(a.getCpf().trim().length()!=11)){
-            throw new RegraException("CPF inválido");
-        }
-        if(a.getTurma().getId()==null){
-            throw new RegraException("Turma inválida");
-        }
     }
-    
-    public void verificaDuplicidade(Aluno  t)throws RegraException{
-        try{
-            Aluno x = dao.pesquisar(t.getCpf());
-            if(x!=null){
-                throw new RegraException("Aluno já existe.");
+
+    public void verificaDuplicidade(Vendedor v) throws RegraException {
+        try {
+            Vendedor x = dao.pesquisar(v.getVend_id());
+            if (x != null) {
+                throw new RegraException("Vendedor já existe.");
             }
-        }catch(ConexaoException | DAOException e){
+        } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
-    
-    public void incluir(Aluno  t)throws RegraException{
-         try{
-            dao.incluir(t);
-        }catch(ConexaoException | DAOException e){
+
+    public void incluir(Vendedor v) throws RegraException {
+        try {
+            dao.incluir(v);
+        } catch (ConexaoException | DAOException e) {
             throw new RegraException();
         }
     }
-    
-    public void excluir(Aluno t)throws RegraException{
-        if(t.getId()==null){
+
+    public void excluir(Vendedor v) throws RegraException {
+        if (v.getVend_id() == null) {
             throw new RegraException("ID inválido!");
         }
-        
-        try{
-            Aluno x = dao.pesquisar(t.getId());
-            if(x==null){
+
+        try {
+            Vendedor x = dao.pesquisar(v.getVend_id());
+            if (x == null) {
                 throw new RegraException("ID informado não existe.");
             }
-        }catch(ConexaoException | DAOException e){
+        } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
-        
-        try{
-            dao.excluir(t);
-        }catch(ConexaoException | DAOException e){
+
+        try {
+            dao.excluir(v);
+        } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
