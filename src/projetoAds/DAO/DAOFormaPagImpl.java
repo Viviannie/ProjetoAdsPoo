@@ -76,7 +76,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public FormaPag pesquisar(Integer frm_id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT frm_id, frm_desc, pag_id FROM forma_pag WHERE frm_id=?)";
+        String sql = "SELECT frm_id, pag_id FROM forma_pag WHERE frm_id=?)";
         FormaPag formaPag = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -96,6 +96,29 @@ public class DAOFormaPagImpl implements DAOFormaPag {
         }
     }
 
+    @Override
+    public FormaPag pesquisar(String frm_desc) throws ConexaoException,DAOException {
+        Connection c = con.conectar();
+        String sql = "SELECT frm_desc, pag_id FROM forma_pag WHERE frm_id=?)";
+        FormaPag formaPag = null;
+        try {
+            PreparedStatement pstm = c.prepareStatement(sql);
+            pstm.setString(1, frm_desc);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                formaPag = new FormaPag();
+                formaPag.setFrm_id(rs.getInt("frm_id"));
+                formaPag.setFrm_desc(rs.getString("frm_desc"));
+                formaPag.getPagamento().setPag_id(rs.getInt("pag_id"));
+            }
+            return formaPag;
+        } catch (SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            con.desconectar(c);
+        }
+    }
+    
     @Override
     public ArrayList<FormaPag> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
