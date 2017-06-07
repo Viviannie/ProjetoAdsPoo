@@ -17,7 +17,9 @@ public class Pedido {
     public Pedido() {
         cliente = new Cliente();
         vendedor = new Vendedor();
+        pedidoProduto = new ArrayList<>();
     }
+    
 
     /**
      * @return the ped_data
