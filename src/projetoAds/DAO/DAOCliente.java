@@ -39,7 +39,7 @@ public interface DAOCliente {
     public void alterar(Cliente cliente) throws ConexaoException, DAOException;
 
     /**
-     * Busca um registro no BD com o CPF informado
+     * Busca um registro no BD com a Descricao informada
      *
      * @param cli_cpf Parametro da busca
      * @return Objeto encontrado ou null
@@ -55,6 +55,5 @@ public interface DAOCliente {
      * @throws ConexaoException
      * @throws DAOException
      */
-    
     public ArrayList<Cliente> listar() throws ConexaoException, DAOException;
 }

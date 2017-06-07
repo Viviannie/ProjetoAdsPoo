@@ -42,6 +42,15 @@ public interface DAOFormaPag {
     public FormaPag pesquisar(Integer frm_id) throws ConexaoException,DAOException;
 
     /**
+      * Busca um registro no BD com o codigo do pagamento informado
+      * @param frm_desc Parametro da busca
+      * @return Objeto encontrado ou null
+      * @throws ConexaoException
+      * @throws DAOException 
+      */
+    public FormaPag pesquisar(String frm_desc) throws ConexaoException,DAOException;
+    
+    /**
       * Retorna uma lista com todos os registros do Pagamento
       * @return Objeto contendo todos os registros encontrados
       * @throws ConexaoException

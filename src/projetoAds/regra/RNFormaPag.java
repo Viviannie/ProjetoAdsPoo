@@ -1,9 +1,9 @@
 package projetoAds.regra;
 
 import java.util.ArrayList;
-import projetoAds.DAO.DAOCliente;
-import projetoAds.DAO.DAOClienteImpl;
-import projetoAds.classesBasicas.Cliente;
+import projetoAds.DAO.DAOFormaPag;
+import projetoAds.DAO.DAOFormaPagImpl;
+import projetoAds.classesBasicas.FormaPag;
 import projetoAds.excecao.ConexaoException;
 import projetoAds.excecao.DAOException;
 import projetoAds.excecao.RegraException;
@@ -12,44 +12,51 @@ import projetoAds.excecao.RegraException;
  *
  * @author Annie
  */
-public class RNCliente {
+public class RNFormaPag {
 
-    //precisa validar
-    private final DAOCliente dao = new DAOClienteImpl();
+    private final DAOFormaPag dao = new DAOFormaPagImpl();
 
-    public void incluir(Cliente c) throws RegraException {
+    public void incluir(FormaPag f) throws RegraException {
         try {
-            dao.incluir(c);
+            dao.incluir(f);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public void excluir(Cliente c) throws RegraException {
+    public void excluir(FormaPag f) throws RegraException {
         try {
-            dao.excluir(c);
+            dao.excluir(f);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public void alterar(Cliente c) throws RegraException {
+    public void alterar(FormaPag f) throws RegraException {
         try {
-            dao.alterar(c);
+            dao.alterar(f);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public Cliente pesquisar(String cli_cpf) throws RegraException {
+    public FormaPag pesquisar(String frm_desc) throws RegraException {
         try {
-            return dao.pesquisar(cli_cpf);
+            return dao.pesquisar(frm_desc);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public ArrayList<Cliente> listar() throws RegraException {
+    public FormaPag pesquisar(Integer frm_id) throws RegraException {
+        try {
+            return dao.pesquisar(frm_id);
+        } catch (ConexaoException | DAOException e) {
+            throw new RegraException(e.getMessage());
+        }
+    }
+
+    public ArrayList<FormaPag> listar() throws RegraException {
         try {
             return dao.listar();
         } catch (ConexaoException | DAOException e) {
@@ -60,32 +67,37 @@ public class RNCliente {
     /**
      * Verifica se os campos estão preenchidos corretamente
      *
-     * @param c Objeto com os dados
+     * @param f Objeto com os dados
      * @throws RegraException
      */
-    public void validar(Cliente c) throws RegraException {
+    public void validar(FormaPag f) throws RegraException {
 
-        if ((c.getCli_nome() == null) || (c.getCli_nome().trim().equals(""))) {
-            throw new RegraException("Nome inválido");
+        if (f.getFrm_id() == null) {
+            throw new RegraException("ID inválida.");
         }
-        if ((c.getCli_cpf() == null) || (c.getCli_cpf().trim().equals("")) || (c.getCli_cpf().trim().length() != 11)) {
-            throw new RegraException("CPF inválido");
+
+        if ((f.getFrm_desc() == null) || (f.getFrm_desc().trim().equals("")))  {
+            throw new RegraException("Descrição inválida.");
+        }
+        
+        if(f.getPagamento().getPag_id() == null){
+            throw new RegraException("Pagamento inválido.");
         }
     }
 
     /**
      * Verifica se uma nova descrição já existe no BD
      *
-     * @param c Objeto com os dados
+     * @param f Objeto com os dados
      * @throws RegraException
      */
-    public void verificaDuplicidade(Cliente c) throws RegraException {
+    public void verificaDuplicidade(FormaPag f) throws RegraException {
 
         try {
 
-            Cliente x = dao.pesquisar(c.getCli_cpf());
+            FormaPag x = dao.pesquisar(f.getFrm_id());
             if (x != null) {
-                throw new RegraException("Cliente existente.");
+                throw new RegraException("Forma de pagamento existente.");
             }
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
@@ -99,15 +111,17 @@ public class RNCliente {
      * @throws RegraException Caso o ID não seja localizado
      */
     public void validaCpf(String cli_cpf) throws RegraException {
-        
+
         if (cli_cpf == null) {
             throw new RegraException("CPF inválido!");
         }
+
         try {
-            Cliente x = dao.pesquisar(cli_cpf);
+            FormaPag x = dao.pesquisar(cli_cpf);
             if (x == null) {
                 throw new RegraException("CPF informado não existe.");
             }
+
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
