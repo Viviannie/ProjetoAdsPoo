@@ -1,9 +1,9 @@
 package projetoAds.regra;
 
 import java.util.ArrayList;
-import projetoAds.DAO.DAOFormaPag;
-import projetoAds.DAO.DAOFormaPagImpl;
-import projetoAds.classesBasicas.FormaPag;
+import projetoAds.DAO.DAOPagamento;
+import projetoAds.DAO.DAOPagamentoImpl;
+import projetoAds.classesBasicas.Pagamento;
 import projetoAds.excecao.ConexaoException;
 import projetoAds.excecao.DAOException;
 import projetoAds.excecao.RegraException;
@@ -12,51 +12,43 @@ import projetoAds.excecao.RegraException;
  *
  * @author Annie
  */
-public class RNFormaPag {
+public class RNPagamento {
 
-    private final DAOFormaPag dao = new DAOFormaPagImpl();
+    private final DAOPagamento dao = new DAOPagamentoImpl();
 
-    public void incluir(FormaPag f) throws RegraException {
+    public void incluir(Pagamento g) throws RegraException {
         try {
-            dao.incluir(f);
+            dao.incluir(g);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public void excluir(FormaPag f) throws RegraException {
+    public void excluir(Pagamento g) throws RegraException {
         try {
-            dao.excluir(f);
+            dao.excluir(g);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public void alterar(FormaPag f) throws RegraException {
+    public void alterar(Pagamento g) throws RegraException {
         try {
-            dao.alterar(f);
+            dao.alterar(g);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public FormaPag pesquisar(String frm_desc) throws RegraException {
+    public Pagamento pesquisar(Integer pag_id) throws RegraException {
         try {
-            return dao.pesquisar(frm_desc);
+            return dao.pesquisar(pag_id);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public FormaPag pesquisar(Integer frm_id) throws RegraException {
-        try {
-            return dao.pesquisar(frm_id);
-        } catch (ConexaoException | DAOException e) {
-            throw new RegraException(e.getMessage());
-        }
-    }
-
-    public ArrayList<FormaPag> listar() throws RegraException {
+    public ArrayList<Pagamento> listar() throws RegraException {
         try {
             return dao.listar();
         } catch (ConexaoException | DAOException e) {
@@ -67,37 +59,37 @@ public class RNFormaPag {
     /**
      * Verifica se os campos estão preenchidos corretamente
      *
-     * @param f Objeto com os dados
+     * @param g Objeto com os dados
      * @throws RegraException
      */
-    public void validar(FormaPag f) throws RegraException {
+    public void validar(Pagamento g) throws RegraException {
 
-        if (f.getFrm_id() == null) {
-            throw new RegraException("ID inválida.");
-        }
-
-        if ((f.getFrm_desc() == null) || (f.getFrm_desc().trim().equals("")))  {
-            throw new RegraException("Descrição inválida.");
+        if (g.getPag_valor().equals(null) {
+            throw new RegraException("Valor inválido.");
         }
         
-        if(f.getPagamento().getPag_id() == null){
-            throw new RegraException("Pagamento inválido.");
+        if (g.getPag_id() == null) {
+            throw new RegraException("ID inválido.");
+        }
+        
+        if(g.getPedido().getPed_id()== null){
+            throw new RegraException("Pedido inválido.");
         }
     }
 
     /**
      * Verifica se uma nova descrição já existe no BD
      *
-     * @param f Objeto com os dados
+     * @param g Objeto com os dados
      * @throws RegraException
      */
-    public void verificaDuplicidade(FormaPag f) throws RegraException {
+    public void verificaDuplicidade(Pagamento g) throws RegraException {
 
         try {
 
-            FormaPag x = dao.pesquisar(f.getFrm_id());
+            Pagamento x = dao.pesquisar(g.getPag_id());
             if (x != null) {
-                throw new RegraException("Forma de pagamento existente.");
+                throw new RegraException("Pagamento já efetuado.");
             }
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
@@ -107,21 +99,19 @@ public class RNFormaPag {
     /**
      * Verifica se um ID passado é válido e existe no BD
      *
-     * @param frm_id Para validação
+     * @param pag_id Para validação
      * @throws RegraException Caso o ID não seja localizado
      */
-    public void validaId(Integer frm_id) throws RegraException {
+    public void validaId(Integer pag_id) throws RegraException {
 
-        if (frm_id == null) {
+        if (pag_id == null) {
             throw new RegraException("ID inválido!");
         }
-
         try {
-            FormaPag x = dao.pesquisar(frm_id);
+            Pagamento x = dao.pesquisar(pag_id);
             if (x == null) {
                 throw new RegraException("ID informado não existe.");
             }
-
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
