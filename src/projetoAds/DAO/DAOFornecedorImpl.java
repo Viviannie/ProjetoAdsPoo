@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import projetoAds.classesBasicas.Fornecedor;
-import projetoAds.classesBasicas.Pagamento;
 import projetoAds.conexao.Conectar;
 import projetoAds.conexao.ConexaoBD;
 import projetoAds.excecao.ConexaoException;
@@ -60,11 +59,12 @@ public class DAOFornecedorImpl implements DAOFornecedor {
     @Override
     public void alterar(Fornecedor fornecedor) throws ConexaoException, DAOException {
     Connection c = con.conectar();
-        String sql = "UPDATE fornecedor SET frn_cnpj=?, frn_razao WHERE (frn_cnpj=?)";
+        String sql = "UPDATE fornecedor SET frn_cnpj=?, frn_razao=? WHERE (frn_cnpj=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, fornecedor.getFrn_cnpj());
             pstm.setString(2, fornecedor.getFrn_razao());
+            pstm.setString(3, fornecedor.getFrn_cnpj());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);

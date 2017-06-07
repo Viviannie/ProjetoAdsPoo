@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import projetoAds.classesBasicas.Pedido;
-import projetoAds.classesBasicas.Produto;
 import projetoAds.conexao.Conectar;
 import projetoAds.conexao.ConexaoBD;
 import projetoAds.excecao.ConexaoException;
@@ -65,11 +64,12 @@ public class DAOPedidoImpl implements DAOPedido {
     @Override
     public void alterar(Pedido pedido) throws ConexaoException, DAOException {
     Connection c = con.conectar();
-        String sql = "UPDATE pedido SET ped_id=?, ped_data WHERE (ped_id=?)";
+        String sql = "UPDATE pedido SET ped_id=?, ped_data=? WHERE (ped_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, pedido.getPed_id());
             pstm.setString(2, pedido.getPed_data());
+            pstm.setInt(3, pedido.getPed_id());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
