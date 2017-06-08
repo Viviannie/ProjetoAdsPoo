@@ -12,17 +12,11 @@ import projetoAds.conexao.ConexaoBD;
 import projetoAds.excecao.ConexaoException;
 import projetoAds.excecao.DAOException;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author Matheus
- */
-public class DAOPedidoImpl implements DAOPedido {
+  * @author Grupo Programação Orientada a Objetos
+  */
+
+public class DAOPedidoImpl implements DAOPedido{
       private ConexaoBD con;
     
     public DAOPedidoImpl(){
@@ -35,8 +29,8 @@ public class DAOPedidoImpl implements DAOPedido {
         String sql = "INSERT INTO pedido (ped_id, ped_data) VALUES (?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pedido.getPed_id());   //Referente ao indice da interogação
-            pstm.setString(2, pedido.getPed_data());
+            pstm.setInt(1, pedido.getId());   //Referente ao indice da interogação
+            pstm.setString(2, pedido.getData());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -51,7 +45,7 @@ public class DAOPedidoImpl implements DAOPedido {
         String sql = "DELETE FROM pedido WHERE (prd_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pedido.getPed_id());
+            pstm.setInt(1, pedido.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -66,9 +60,9 @@ public class DAOPedidoImpl implements DAOPedido {
         String sql = "UPDATE pedido SET ped_id=?, ped_data=? WHERE (ped_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pedido.getPed_id());
-            pstm.setString(2, pedido.getPed_data());
-            pstm.setInt(3, pedido.getPed_id());
+            pstm.setInt(1, pedido.getId());
+            pstm.setString(2, pedido.getData());
+            pstm.setInt(3, pedido.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -88,8 +82,8 @@ public class DAOPedidoImpl implements DAOPedido {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 ped = new Pedido();
-                ped.setPed_id(rs.getInt("ped_id"));
-                ped.setPed_data(rs.getString("prd_data"));
+                ped.setId(rs.getInt("ped_id"));
+                ped.setData(rs.getString("prd_data"));
             }
             return ped;
         } catch (SQLException e) {
@@ -110,8 +104,8 @@ public class DAOPedidoImpl implements DAOPedido {
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 ped = new Pedido();
-                ped.setPed_id(rs.getInt("ped_id"));
-                ped.setPed_data(rs.getString("ped_data"));
+                ped.setId(rs.getInt("ped_id"));
+                ped.setData(rs.getString("ped_data"));
                 lista.add(ped);
             }
             return lista;

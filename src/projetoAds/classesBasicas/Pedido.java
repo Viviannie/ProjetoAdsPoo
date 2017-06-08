@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Pedido {
 
     private String data;
-    private Integer codigo;
+    private Integer id;
     private Cliente cliente;
     private Vendedor vendedor;
     private PedidoProduto pedidoProduto;
@@ -40,15 +40,15 @@ public class Pedido {
     /**
      * @return the codigo
      */
-    public Integer getCodigo() {
-        return codigo;
+    public Integer getId() {
+        return id;
     }
 
     /**
-     * @param codigo the codigo to set
+     * @param id the codigo to set
      */
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**

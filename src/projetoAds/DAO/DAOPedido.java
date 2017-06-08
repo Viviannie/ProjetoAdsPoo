@@ -35,13 +35,13 @@ public interface DAOPedido {
     public void alterar(Pedido pedido) throws ConexaoException, DAOException;
     
     /**
-      * Busca um registro no BD com o codigo do Pedido informado
-      * @param codigo Parametro da busca
+      * Busca um registro no BD com o id do Pedido informado
+      * @param id Parametro da busca
       * @return Objeto encontrado ou null
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public Pedido pesquisar(Integer codigo) throws ConexaoException, DAOException;
+    public Pedido pesquisar(Integer id) throws ConexaoException, DAOException;
     
     /**
       * Busca um registro no BD com o data do Pedido informado
