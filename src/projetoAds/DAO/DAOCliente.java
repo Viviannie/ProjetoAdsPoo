@@ -41,22 +41,22 @@ public interface DAOCliente {
     /**
      * Busca um registro no BD com a Descricao informada
      *
-     * @param cli_nome Parametro da busca
+     * @param nome Parametro da busca
      * @return Objeto encontrado ou null
      * @throws ConexaoException
      * @throws DAOException
      */
-    public Cliente pesquisarNome(String cli_nome) throws ConexaoException, DAOException;
+    public Cliente pesquisarNome(String nome) throws ConexaoException, DAOException;
     
     /**
      * Busca um registro no BD com a Descricao informada
      *
-     * @param cli_cpf Parametro da busca
+     * @param cpf Parametro da busca
      * @return Objeto encontrado ou null
      * @throws ConexaoException
      * @throws DAOException
      */
-    public Cliente pesquisar(String cli_cpf) throws ConexaoException, DAOException;
+    public Cliente pesquisar(String cpf) throws ConexaoException, DAOException;
 
     /**
      * Retorna uma lista com todos os registros de Clientes
