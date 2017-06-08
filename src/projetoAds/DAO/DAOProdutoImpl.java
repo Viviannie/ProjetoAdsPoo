@@ -99,6 +99,30 @@ public class DAOProdutoImpl implements DAOProduto {
     }
 
     @Override
+    public Produto pesquisar(String prd_desc) throws ConexaoException, DAOException {
+        Connection c = con.conectar();
+        String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual FROM produto WHERE (prd_id=?)";
+        Produto prd = null;
+        try {
+            PreparedStatement pstm = c.prepareStatement(sql);
+            pstm.setString(1, prd_desc);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                prd = new Produto();
+                prd.setPrd_id(rs.getInt("prd_id"));
+                prd.setPrd_desc(rs.getString("prd_desc"));
+                prd.setPrd_estoqueminimo(rs.getInt("prd_estoqueminimo"));
+                prd.setPrd_estoqueatual(rs.getInt("prd_estoqueatual"));
+            }
+            return prd;
+        } catch (SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            con.desconectar(c);
+        }
+    }
+
+    @Override
     public ArrayList<Produto> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual FROM produto";

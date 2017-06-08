@@ -45,6 +45,15 @@ public interface DAOProduto {
     public Produto pesquisar(Integer prd_id) throws ConexaoException, DAOException;
 
     /**
+     * Busca um registro no BD com a descrição do produto informado
+     * @param prd_desc Parametro da busca
+     * @return Objeto encontrado ou null
+     * @throws ConexaoException
+     * @throws DAOException
+     */
+    public Produto pesquisar(String prd_desc) throws ConexaoException, DAOException;
+
+    /**
      * Retorna uma lista com todos os registros dos produtos
      * @return Objeto contendo todos os registros encontrados
      * @throws ConexaoException
