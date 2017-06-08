@@ -10,7 +10,7 @@ import projetoAds.excecao.RegraException;
 
 /**
  *
- * @author Annie
+ * @author Grupo Programa Orientada a Objetos
  */
 public class RNPagamento {
 
@@ -64,15 +64,15 @@ public class RNPagamento {
      */
     public void validar(Pagamento g) throws RegraException {
 
-        if (g.getPag_valor() == 0.0) {
+        if (g.getValor() == 0.0) {
             throw new RegraException("Valor inválido.");
         }
         
-        if (g.getPag_id() == null) {
+        if (g.geId() == null) {
             throw new RegraException("ID inválido.");
         }
         
-        if(g.getPedido().getPed_id()== null){
+        if(g.getPedido().getId()== null){
             throw new RegraException("Pedido inválido.");
         }
     }
@@ -87,7 +87,7 @@ public class RNPagamento {
 
         try {
 
-            Pagamento x = dao.pesquisar(g.getPag_id());
+            Pagamento x = dao.pesquisar(g.getId());
             if (x != null) {
                 throw new RegraException("Pagamento já efetuado.");
             }
@@ -99,16 +99,16 @@ public class RNPagamento {
     /**
      * Verifica se um ID passado é válido e existe no BD
      *
-     * @param pag_id Para validação
+     * @param id Para validação
      * @throws RegraException Caso o ID não seja localizado
      */
-    public void validaId(Integer pag_id) throws RegraException {
+    public void validaId(Integer id) throws RegraException {
 
-        if (pag_id == null) {
+        if (id == null) {
             throw new RegraException("ID inválido!");
         }
         try {
-            Pagamento x = dao.pesquisar(pag_id);
+            Pagamento x = dao.pesquisar(id);
             if (x == null) {
                 throw new RegraException("ID informado não existe.");
             }

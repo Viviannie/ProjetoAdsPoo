@@ -14,7 +14,7 @@ import projetoAds.excecao.DAOException;
 
 /**
  *
- * @author Grupo
+ * @author Grupo Programação Orientada a Objetos
  */
 public class DAOFormaPagImpl implements DAOFormaPag {
 
@@ -27,7 +27,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public void incluir(FormaPag formaPag) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "INSERT INTO FormaPag (id, desc, id) VALUES (?,?,?)";
+        String sql = "INSERT INTO Forma_Pag (frm_id, frm_desc, pag_id) VALUES (?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, formaPag.getId());
@@ -44,7 +44,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public void excluir(FormaPag formaPag) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "DELETE FROM FormaPag WHERE id = ?";
+        String sql = "DELETE FROM Forma_Pag WHERE frm_id = ?";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, formaPag.getId());
@@ -59,7 +59,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public void alterar(FormaPag formaPag) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE FormaPag SET frm_desc=?, id=? WHERE frm_id=?)";
+        String sql = "UPDATE FormaPag SET frm_desc=?, frm_id=? WHERE frm_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, formaPag.getDesc());
@@ -76,7 +76,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public FormaPag pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT frm_id, pag_id FROM forma_pag WHERE id=?)";
+        String sql = "SELECT frm_id, pag_id FROM forma_pag WHERE frm_id=?)";
         FormaPag formaPag = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -84,9 +84,9 @@ public class DAOFormaPagImpl implements DAOFormaPag {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 formaPag = new FormaPag();
-                formaPag.setFrm_id(rs.getInt("frm_id"));
-                formaPag.setFrm_desc(rs.getString("frm_desc"));
-                formaPag.getPagamento().setPag_id(rs.getInt("pag_id"));
+                formaPag.setId(rs.getInt("id"));
+                formaPag.setDesc(rs.getString("desc"));
+                formaPag.getPagamento().setId(rs.getInt("id"));
             }
             return formaPag;
         } catch (SQLException e) {
@@ -107,9 +107,9 @@ public class DAOFormaPagImpl implements DAOFormaPag {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 formaPag = new FormaPag();
-                formaPag.setFrm_id(rs.getInt("frm_id"));
-                formaPag.setFrm_desc(rs.getString("frm_desc"));
-                formaPag.getPagamento().setPag_id(rs.getInt("pag_id"));
+                formaPag.setId(rs.getInt("frm_id"));
+                formaPag.setDesc(rs.getString("frm_desc"));
+                formaPag.getPagamento().setId(rs.getInt("pag_id"));
             }
             return formaPag;
         } catch (SQLException e) {
@@ -130,9 +130,9 @@ public class DAOFormaPagImpl implements DAOFormaPag {
             ResultSet rs = stm.executeQuery("sql");
             while (rs.next()) {
                 formaPag = new FormaPag();
-                formaPag.setFrm_id(rs.getInt("frm_id"));
-                formaPag.setFrm_desc(rs.getString("frm_desc"));
-                formaPag.getPagamento().setPag_id(rs.getInt("pag_id"));
+                formaPag.setId(rs.getInt("frm_id"));
+                formaPag.setDesc(rs.getString("frm_desc"));
+                formaPag.getPagamento().setId(rs.getInt("pag_id"));
                 lista.add(formaPag);
             }
             return lista;
