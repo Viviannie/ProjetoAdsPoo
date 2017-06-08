@@ -7,8 +7,8 @@ import java.util.ArrayList;
   */
 public class Pedido {
 
-    private String ped_data;
-    private Integer ped_id;
+    private String data;
+    private Integer codigo;
     private Cliente cliente;
     private Vendedor vendedor;
     private PedidoProduto pedidoProduto;
@@ -18,34 +18,33 @@ public class Pedido {
         vendedor = new Vendedor();
         pedidoProduto = new PedidoProduto();
     }
-    
 
     /**
-     * @return the ped_data
+     * @return the data
      */
-    public String getPed_data() {
-        return ped_data;
+    public String getData() {
+        return data;
     }
 
     /**
-     * @param ped_data the ped_data to set
+     * @param data the data to set
      */
-    public void setPed_data(String ped_data) {
-        this.ped_data = ped_data;
+    public void setData(String data) {
+        this.data = data;
     }
 
     /**
-     * @return the ped_id
+     * @return the codigo
      */
-    public Integer getPed_id() {
-        return ped_id;
+    public Integer getCodigo() {
+        return codigo;
     }
 
     /**
-     * @param ped_id the ped_id to set
+     * @param codigo the codigo to set
      */
-    public void setPed_id(Integer ped_id) {
-        this.ped_id = ped_id;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     /**
@@ -75,11 +74,19 @@ public class Pedido {
     public void setVendedor(Vendedor vendedor) {
         this.vendedor = vendedor;
     }
-    
+
     /**
-     * @param pedidoProduto the pedido/produto to set
+     * @return the pedidoProduto
+     */
+    public PedidoProduto getPedidoProduto() {
+        return pedidoProduto;
+    }
+
+    /**
+     * @param pedidoProduto the pedidoProduto to set
      */
     public void setPedidoProduto(PedidoProduto pedidoProduto) {
         this.pedidoProduto = pedidoProduto;
     }
+ 
 }
