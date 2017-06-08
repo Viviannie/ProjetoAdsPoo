@@ -92,7 +92,28 @@ public class DAOPedidoImpl implements DAOPedido{
             con.desconectar(c);
         }
     }
-
+    @Override
+    public Pedido pesquisar(String data) throws ConexaoException, DAOException {
+        Connection c = con.conectar();
+        String sql = "SELECT ped_id, ped_data FROM pedido WHERE (ped_data=?)";
+        Pedido ped = null;
+        try {
+            PreparedStatement pstm = c.prepareStatement(sql);
+            pstm.setString(1, data);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                ped = new Pedido();
+                ped.setId(rs.getInt("ped_id"));
+                ped.setData(rs.getString("prd_data"));
+            }
+            return ped;
+        } catch (SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            con.desconectar(c);
+        }
+    }
+    
     @Override
     public ArrayList<Pedido> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
@@ -116,4 +137,5 @@ public class DAOPedidoImpl implements DAOPedido{
         }
     
     }
+
 }
