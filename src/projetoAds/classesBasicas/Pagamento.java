@@ -6,8 +6,8 @@ package projetoAds.classesBasicas;
  */
 public class Pagamento {
 
-    private Double pag_valor;
-    private Integer pag_id;
+    private Double valor;
+    private Integer id;
     private Pedido pedido;
 
     public Pagamento() {
@@ -15,17 +15,17 @@ public class Pagamento {
     }
 
     /**
-     * @return the pag_valor
+     * @return the valor
      */
-    public double getPag_valor() {
-        return pag_valor;
+    public double getValor() {
+        return valor;
     }
 
     /**
-     * @param pag_valor the pag_valor to set
+     * @param valor the valor to set
      */
-    public void setPag_valor(Double pag_valor) {
-        this.pag_valor = pag_valor;
+    public void setValor(Double valor) {
+        this.valor = valor;
     }
 
     /**
@@ -43,17 +43,17 @@ public class Pagamento {
     }
 
     /**
-     * @return the pag_id
+     * @return the id
      */
-    public Integer getPag_id() {
-        return pag_id;
+    public Integer getId() {
+        return id;
     }
 
     /**
-     * @param pag_id the pag_id to set
+     * @param id the id to set
      */
-    public void setPag_id(Integer pag_id) {
-        this.pag_id = pag_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 }

@@ -27,12 +27,12 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public void incluir(FormaPag formaPag) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "INSERT INTO forma_pag (frm_id, frm_desc, pag_id) VALUES (?,?,?)";
+        String sql = "INSERT INTO FormaPag (id, desc, id) VALUES (?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, formaPag.getFrm_id());
-            pstm.setString(2, formaPag.getFrm_desc());
-            pstm.setInt(3, formaPag.getPagamento().getPag_id());
+            pstm.setInt(1, formaPag.getId());
+            pstm.setString(2, formaPag.getDesc());
+            pstm.setInt(3, formaPag.getPagamento().getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -44,10 +44,10 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public void excluir(FormaPag formaPag) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "DELETE FROM forma_pag WHERE frm_id = ?";
+        String sql = "DELETE FROM FormaPag WHERE id = ?";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, formaPag.getFrm_id());
+            pstm.setInt(1, formaPag.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -59,12 +59,12 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public void alterar(FormaPag formaPag) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE forma_pag SET frm_desc=?, pag_id=? WHERE frm_id=?)";
+        String sql = "UPDATE FormaPag SET frm_desc=?, id=? WHERE frm_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, formaPag.getFrm_desc());
-            pstm.setInt(2, formaPag.getPagamento().getPag_id());
-            pstm.setInt(3, formaPag.getFrm_id());
+            pstm.setString(1, formaPag.getDesc());
+            pstm.setInt(2, formaPag.getPagamento().getId());
+            pstm.setInt(3, formaPag.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -74,13 +74,13 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     }
 
     @Override
-    public FormaPag pesquisar(Integer frm_id) throws ConexaoException, DAOException {
+    public FormaPag pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT frm_id, pag_id FROM forma_pag WHERE frm_id=?)";
+        String sql = "SELECT frm_id, pag_id FROM forma_pag WHERE id=?)";
         FormaPag formaPag = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, frm_id);
+            pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 formaPag = new FormaPag();
