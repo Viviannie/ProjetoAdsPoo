@@ -64,7 +64,7 @@ public class RNPagamento {
      */
     public void validar(Pagamento g) throws RegraException {
 
-        if (g.getPag_valor().equals(null) {
+        if (g.getPag_valor() == 0.0) {
             throw new RegraException("Valor inválido.");
         }
         
