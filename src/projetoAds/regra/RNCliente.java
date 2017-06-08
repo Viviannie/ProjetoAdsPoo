@@ -40,7 +40,13 @@ public class RNCliente {
             throw new RegraException(e.getMessage());
         }
     }
-
+    public Cliente pesquisarNome (String cli_nome) throws RegraException {
+        try {
+            return dao.pesquisar(cli_nome);
+        } catch (ConexaoException | DAOException e) {
+            throw new RegraException(e.getMessage());
+        }
+    }
     public Cliente pesquisar(String cli_cpf) throws RegraException {
         try {
             return dao.pesquisar(cli_cpf);

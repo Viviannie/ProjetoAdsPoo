@@ -12,10 +12,12 @@ public class Pedido {
     private Integer ped_id;
     private Cliente cliente;
     private Vendedor vendedor;
+    private PedidoProduto pedidoProduto;
 
     public Pedido() {
         cliente = new Cliente();
         vendedor = new Vendedor();
+        pedidoProduto = new PedidoProduto();
     }
     
 
@@ -74,5 +76,11 @@ public class Pedido {
     public void setVendedor(Vendedor vendedor) {
         this.vendedor = vendedor;
     }
-
+    
+    /**
+     * @param pedidoProduto the pedido/produto to set
+     */
+    public void setPedidoProduto(PedidoProduto pedidoProduto) {
+        this.pedidoProduto = pedidoProduto;
+    }
 }

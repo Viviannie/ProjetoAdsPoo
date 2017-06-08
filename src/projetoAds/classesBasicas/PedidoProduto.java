@@ -7,7 +7,7 @@ package projetoAds.classesBasicas;
 
 /**
  *
- * @author aluno
+ * @author Aluno
  */
 public class PedidoProduto {
 
