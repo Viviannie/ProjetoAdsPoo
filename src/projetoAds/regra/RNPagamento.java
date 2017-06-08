@@ -68,11 +68,11 @@ public class RNPagamento {
             throw new RegraException("Valor inválido.");
         }
         
-        if (g.geId() == null) {
+        if (g.getId() == null) {
             throw new RegraException("ID inválido.");
         }
         
-        if(g.getPedido().getId()== null){
+        if(g.getPedido() == null){
             throw new RegraException("Pedido inválido.");
         }
     }
