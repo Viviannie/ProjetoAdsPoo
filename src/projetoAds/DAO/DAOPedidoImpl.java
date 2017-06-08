@@ -31,7 +31,7 @@ public class DAOPedidoImpl implements DAOPedido {
 
     @Override
     public void incluir(Pedido pedido) throws ConexaoException, DAOException {
-    Connection c = con.conectar();
+        Connection c = con.conectar();
         String sql = "INSERT INTO pedido (ped_id, ped_data) VALUES (?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -57,13 +57,12 @@ public class DAOPedidoImpl implements DAOPedido {
             throw new DAOException(e);
         } finally {
             con.desconectar(c);
-        }
-    
+        } 
     }
 
     @Override
     public void alterar(Pedido pedido) throws ConexaoException, DAOException {
-    Connection c = con.conectar();
+        Connection c = con.conectar();
         String sql = "UPDATE pedido SET ped_id=?, ped_data=? WHERE (ped_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -75,11 +74,12 @@ public class DAOPedidoImpl implements DAOPedido {
             throw new DAOException(e);
         } finally {
             con.desconectar(c);
-        }}
+        }
+    }
 
     @Override
     public Pedido pesquisar(Integer ped_id) throws ConexaoException, DAOException {
-    Connection c = con.conectar();
+        Connection c = con.conectar();
         String sql = "SELECT ped_id, ped_data FROM pedido WHERE (ped_id=?)";
         Pedido ped = null;
         try {
@@ -96,11 +96,12 @@ public class DAOPedidoImpl implements DAOPedido {
             throw new DAOException(e);
         } finally {
             con.desconectar(c);
-        }}
+        }
+    }
 
     @Override
     public ArrayList<Pedido> listar() throws ConexaoException, DAOException {
-    Connection c = con.conectar();
+        Connection c = con.conectar();
         String sql = "SELECT ped_id, ped_data FROM pedido";
         ArrayList<Pedido> lista = new ArrayList();
         Pedido ped;
