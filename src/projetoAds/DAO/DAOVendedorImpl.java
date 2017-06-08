@@ -14,7 +14,7 @@ import projetoAds.excecao.DAOException;
 
 /**
  *
- * @author Grupo Programação Orientada a Objetos
+ * @author Grupo
  */
 public class DAOVendedorImpl implements DAOVendedor {
 
@@ -26,7 +26,6 @@ public class DAOVendedorImpl implements DAOVendedor {
 
     @Override
     public void incluir(Vendedor vendedor) throws ConexaoException, DAOException {
-
         Connection c = con.conectar();
         String sql = "INSERT INTO vendedor (vend_nome) VALUES (?)";
         try {
@@ -84,7 +83,6 @@ public class DAOVendedorImpl implements DAOVendedor {
                 vend = new Vendedor();
                 vend.setVend_id(rs.getInt("vend_id"));
                 vend.setVend_nome(rs.getString("vend_nome"));
-                
             }
             return vend;
         } catch (SQLException e) {

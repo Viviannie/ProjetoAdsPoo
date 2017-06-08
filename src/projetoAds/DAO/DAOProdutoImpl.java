@@ -14,7 +14,7 @@ import projetoAds.excecao.DAOException;
 
 /**
  *
- * @author Grupo Programação Orientada a Objetos
+ * @author Grupo
  */
 public class DAOProdutoImpl implements DAOProduto {
 
@@ -26,7 +26,6 @@ public class DAOProdutoImpl implements DAOProduto {
 
     @Override
     public void incluir(Produto produto) throws ConexaoException, DAOException {
-
         Connection c = con.conectar();
         String sql = "INSERT INTO produto (prd_desc, prd_estoqueminimo, prd_estoqueatual) VALUES (?,?,?)";
         try {

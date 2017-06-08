@@ -7,13 +7,12 @@ import projetoAds.excecao.ConexaoException;
 
 /**
  *
- * @author Grupo Programação Orientada a Objetos
+ * @author Grupo
  */
 public interface DAOProduto {
 
     /**
      * Inclui uma novo produto no BD
-     *
      * @param produto Objeto com os dados validados
      * @throws ConexaoException
      * @throws DAOException
@@ -22,8 +21,7 @@ public interface DAOProduto {
 
     /**
      * Exclui um produto do BD
-     *
-     * @param produto Objeto
+     * @param produto Objeto com o ID do registro
      * @throws ConexaoException
      * @throws DAOException
      */
@@ -31,16 +29,14 @@ public interface DAOProduto {
 
     /**
      * Altera um registro do BD
-     *
-     * @param produto Objeto com todos os dados validados
+     * @param produto Objeto com o ID do registro
      * @throws ConexaoException
      * @throws DAOException
      */
     public void alterar(Produto produto) throws ConexaoException, DAOException;
 
     /**
-     * Busca um registro no BD com o Codigo do produto informado
-     *
+     * Busca um registro no BD com o ID do produto informado
      * @param prd_id Parametro da busca
      * @return Objeto encontrado ou null
      * @throws ConexaoException
@@ -50,7 +46,6 @@ public interface DAOProduto {
 
     /**
      * Retorna uma lista com todos os registros dos produtos
-     *
      * @return Objeto contendo todos os registros encontrados
      * @throws ConexaoException
      * @throws DAOException

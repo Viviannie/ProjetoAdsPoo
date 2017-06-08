@@ -5,7 +5,7 @@ import projetoAds.excecao.DAOException;
 import projetoAds.excecao.ConexaoException;
 
 /**
- * @author Grupo Programação Orientada a Objetos
+ * @author Grupo
  */
 public interface DAOVendedor {
     /**
@@ -26,14 +26,14 @@ public interface DAOVendedor {
     
     /**
       * Altera um registro do BD
-      * @param vendedor Objeto com todos os dados validados
+      * @param vendedor Objeto com o ID do registro
       * @throws ConexaoException
       * @throws DAOException 
       */
     public void alterar(Vendedor vendedor) throws ConexaoException,DAOException;
     
     /**
-      * Busca um registro no BD com o CPF informado
+      * Busca um registro no BD com o ID informado
       * @param vend_id Parametro da busca
       * @return Objeto encontrado ou null
       * @throws ConexaoException
