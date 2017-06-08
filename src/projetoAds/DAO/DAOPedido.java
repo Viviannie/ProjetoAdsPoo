@@ -4,12 +4,11 @@ import projetoAds.classesBasicas.Pedido;
 import projetoAds.excecao.DAOException;
 import projetoAds.excecao.ConexaoException;
 /**
- *
- * @author Grupo Programação Orientada a Objetos
- */
+  * @author Grupo Programação Orientada a Objetos
+  */
 public interface DAOPedido {
     /**
-      * Inclui uma novo pedido no BD
+      * Inclui um novo pedido no BD
       * @param pedido Objeto com os dados validados
       * @throws ConexaoException
       * @throws DAOException 
@@ -32,7 +31,7 @@ public interface DAOPedido {
     public void alterar(Pedido pedido) throws ConexaoException, DAOException;
     
     /**
-      * Busca um registro no BD com o Codigo do fornecedor informado
+      * Busca um registro no BD com o id do Pedido informado
       * @param ped_id Parametro da busca
       * @return Objeto encontrado ou null
       * @throws ConexaoException
