@@ -93,6 +93,28 @@ public class DAOVendedorImpl implements DAOVendedor {
     }
 
     @Override
+    public Vendedor pesquisar(String vend_nome) throws ConexaoException, DAOException {
+        Connection c = con.conectar();
+        String sql = "SELECT vend_id, vend_nome FROM vendedor WHERE (vend_nome=?)";
+        Vendedor vend = null;
+        try {
+            PreparedStatement pstm = c.prepareStatement(sql);
+            pstm.setString(1, vend_nome);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                vend = new Vendedor();
+                vend.setVend_id(rs.getInt("vend_id"));
+                vend.setVend_nome(rs.getString("vend_nome"));
+            }
+            return vend;
+        } catch (SQLException e) {
+            throw new DAOException(e);
+        } finally {
+            con.desconectar(c);
+        }
+    }
+
+    @Override
     public ArrayList<Vendedor> listar() throws ConexaoException,DAOException {
         Connection c = con.conectar();
         String sql = "SELECT vend_id, vend_nome FROM vendedor";

@@ -42,6 +42,15 @@ public interface DAOVendedor {
     public Vendedor pesquisar(Integer vend_id) throws ConexaoException,DAOException;
 
     /**
+      * Busca um registro no BD com o Nome informado
+      * @param vend_nome Parametro da busca
+      * @return Objeto encontrado ou null
+      * @throws ConexaoException
+      * @throws DAOException 
+      */
+    public Vendedor pesquisar(String vend_nome) throws ConexaoException,DAOException;
+
+    /**
       * Retorna uma lista com todos os registros do vendedor
       * @return Objeto contendo todos os registros encontrados
       * @throws ConexaoException
