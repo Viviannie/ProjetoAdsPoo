@@ -9,7 +9,10 @@ public class PedidoProduto {
         private Integer quantidade_produtos;
         private Produto produto;
         private Pedido pedido;
-
+    /**
+      * usado por padrão para que seja criada uma instancia
+      * dos objetos utilizados
+      */
         public PedidoProduto() {
             produto = new Produto();
             pedido = new Pedido();

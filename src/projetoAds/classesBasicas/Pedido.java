@@ -12,7 +12,11 @@ public class Pedido {
     private Cliente cliente;
     private Vendedor vendedor;
     private PedidoProduto pedidoProduto;
-
+    
+    /**
+      * usado por padrão para que seja criada uma instancia 
+      * dos objetos utilizados
+      */
     public Pedido() {
         cliente = new Cliente();
         vendedor = new Vendedor();
