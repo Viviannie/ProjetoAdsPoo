@@ -3,9 +3,8 @@ package projetoAds.classesBasicas;
 import java.util.ArrayList;
 
 /**
- *
- * @author Grupo Programação Orientada a Objetos
- */
+  * @author Grupo Programação Orientada a Objetos
+  */
 public class Pedido {
 
     private String ped_data;
