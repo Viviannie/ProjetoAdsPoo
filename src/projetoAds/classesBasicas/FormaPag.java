@@ -6,8 +6,8 @@ package projetoAds.classesBasicas;
  */
 public class FormaPag {
 
-    private String frm_desc;
-    private Integer frm_id;
+    private String desc;
+    private Integer id;
     private Pagamento pagamento;
 
     public FormaPag() {
@@ -15,17 +15,17 @@ public class FormaPag {
     }
 
     /**
-     * @return the forma_desc
+     * @return the desc
      */
-    public String getFrm_desc() {
-        return frm_desc;
+    public String getDesc() {
+        return desc;
     }
 
     /**
-     * @param frm_desc the frm_desc to set
+     * @param desc the desc to set
      */
-    public void setFrm_desc(String frm_desc) {
-        this.frm_desc = frm_desc;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     /**
@@ -43,17 +43,17 @@ public class FormaPag {
     }
 
     /**
-     * @return the frm_id
+     * @return the id
      */
-    public Integer getFrm_id() {
-        return frm_id;
+    public Integer getId() {
+        return id;
     }
 
     /**
-     * @param frm_id the frm_id to set
+     * @param id the id to set
      */
-    public void setFrm_id(Integer frm_id) {
-        this.frm_id = frm_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 }
