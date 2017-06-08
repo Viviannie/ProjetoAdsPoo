@@ -5,8 +5,8 @@ package projetoAds.classesBasicas;
   */
 public class PedidoProduto {
 
-        private Double prc_unitario;
-        private Integer qtd_produtos;
+        private Double preco_unitario;
+        private Integer quantidade_produtos;
         private Produto produto;
         private Pedido pedido;
 
@@ -15,36 +15,60 @@ public class PedidoProduto {
             pedido = new Pedido();
         }
 
-        public Double getPrc_unitario() {
-            return prc_unitario;
-        }
+    /**
+     * @return the preco_unitario
+     */
+    public Double getPreco_unitario() {
+        return preco_unitario;
+    }
 
-        public void setPrc_unitario(Double prc_unitario) {
-            this.prc_unitario = prc_unitario;
-        }
+    /**
+     * @param preco_unitario the preco_unitario to set
+     */
+    public void setPreco_unitario(Double preco_unitario) {
+        this.preco_unitario = preco_unitario;
+    }
 
-        public Integer getQtd_produtos() {
-            return qtd_produtos;
-        }
+    /**
+     * @return the quantidade_produtos
+     */
+    public Integer getQuantidade_produtos() {
+        return quantidade_produtos;
+    }
 
-        public void setQtd_produtos(Integer qtd_produtos) {
-            this.qtd_produtos = qtd_produtos;
-        }
+    /**
+     * @param quantidade_produtos the quantidade_produtos to set
+     */
+    public void setQuantidade_produtos(Integer quantidade_produtos) {
+        this.quantidade_produtos = quantidade_produtos;
+    }
 
-        public Produto getProduto() {
-            return produto;
-        }
+    /**
+     * @return the produto
+     */
+    public Produto getProduto() {
+        return produto;
+    }
 
-        public void setProduto(Produto produto) {
-            this.produto = produto;
-        }
+    /**
+     * @param produto the produto to set
+     */
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
 
-        public Pedido getPedido() {
-            return pedido;
-        }
+    /**
+     * @return the pedido
+     */
+    public Pedido getPedido() {
+        return pedido;
+    }
 
-        public void setPedido(Pedido pedido) {
-            this.pedido = pedido;
-        }
+    /**
+     * @param pedido the pedido to set
+     */
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
 
     }
