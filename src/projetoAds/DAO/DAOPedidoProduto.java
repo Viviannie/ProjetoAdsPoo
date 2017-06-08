@@ -36,7 +36,7 @@ public interface DAOPedidoProduto {
       * Busca um registro no BD com o id do Pedido informado
       * @param ped_id Parametro da busca
       * @return Objeto encontrado ou null
-      * @throws ConexaoException
+      * @throws ConexaoException                  ######CAUTION##### -- REVIEW
       * @throws DAOException 
       */
     public PedidoProduto pesquisar(Integer ped_id) throws ConexaoException, DAOException;
