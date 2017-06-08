@@ -2,7 +2,7 @@ package projetoAds.excecao;
 
 /**
  *
- * @author Annie
+ * @author Grupo Programação Orientada a Objetos
  */
 public class RegraException extends Exception{
     

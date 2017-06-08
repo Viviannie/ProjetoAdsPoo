@@ -7,7 +7,7 @@ import projetoAds.regra.RNCliente;
 
 /**
  *
- * @author Annie
+ * @author Grupo Programação Orientada a Objetos
  */
 public class Fachada {
     

@@ -3,7 +3,7 @@ package projetoAds.excecao;
 /**
  * Classe de Erros Herda da Classe Exception
  *
- * @author Aluno
+ * @author Grupo Programação Orientada a Objetos
  */
 public class ConexaoException extends Exception {
 
