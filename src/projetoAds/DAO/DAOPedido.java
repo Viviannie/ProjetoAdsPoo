@@ -3,10 +3,13 @@ import java.util.ArrayList;
 import projetoAds.classesBasicas.Pedido;
 import projetoAds.excecao.DAOException;
 import projetoAds.excecao.ConexaoException;
+
 /**
   * @author Grupo Programação Orientada a Objetos
   */
+
 public interface DAOPedido {
+    
     /**
       * Inclui um novo pedido no BD
       * @param pedido Objeto com os dados validados
@@ -14,6 +17,7 @@ public interface DAOPedido {
       * @throws DAOException 
       */
     public void incluir(Pedido pedido) throws ConexaoException,DAOException;
+    
     /**
       * Exclui um pedido do BD
       * @param pedido Objeto
@@ -23,7 +27,7 @@ public interface DAOPedido {
     public void excluir(Pedido pedido) throws ConexaoException, DAOException;
     
     /**
-      * Altera um registro do BD
+      * Altera um registro pedido no BD
       * @param pedido Objeto com todos os dados validados
       * @throws ConexaoException
       * @throws DAOException 
@@ -31,13 +35,22 @@ public interface DAOPedido {
     public void alterar(Pedido pedido) throws ConexaoException, DAOException;
     
     /**
-      * Busca um registro no BD com o id do Pedido informado
-      * @param ped_id Parametro da busca
+      * Busca um registro no BD com o codigo do Pedido informado
+      * @param codigo Parametro da busca
       * @return Objeto encontrado ou null
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public Pedido pesquisar(Integer ped_id) throws ConexaoException, DAOException;
+    public Pedido pesquisar(Integer codigo) throws ConexaoException, DAOException;
+    
+    /**
+      * Busca um registro no BD com o data do Pedido informado
+      * @param data Parametro da busca
+      * @return Objeto encontrado ou null
+      * @throws ConexaoException
+      * @throws DAOException 
+      */
+    public Pedido pesquisar(String data) throws ConexaoException, DAOException;
     
     /**
       * Retorna uma lista com todos os registros dos Pedidos
