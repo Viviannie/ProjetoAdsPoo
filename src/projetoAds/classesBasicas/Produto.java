@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Grupo Programação Orientada a Objetos
+ * @author Grupo
  */
 public class Produto {
 
