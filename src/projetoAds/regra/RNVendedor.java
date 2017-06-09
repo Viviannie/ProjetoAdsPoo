@@ -20,15 +20,15 @@ public class RNVendedor {
 
     private final DAOVendedor dao = new DAOVendedorImpl();
 
-    public void validar(Vendedor a) throws RegraException {
-        if ((a.getVend_id() == null) || (a.getVend_nome().trim().equals(" "))) {
+    public void validar(Vendedor v) throws RegraException {
+        if ((v.getId() == null) || (v.getNome().trim().equals(" "))) {
             throw new RegraException("Nome inválido");
         }
     }
 
     public void verificaDuplicidade(Vendedor v) throws RegraException {
         try {
-            Vendedor x = dao.pesquisar(v.getVend_id());
+            Vendedor x = dao.pesquisar(v.getId());
             if (x != null) {
                 throw new RegraException("Vendedor já existe.");
             }
@@ -46,12 +46,12 @@ public class RNVendedor {
     }
 
     public void excluir(Vendedor v) throws RegraException {
-        if (v.getVend_id() == null) {
+        if (v.getId() == null) {
             throw new RegraException("ID inválido!");
         }
 
         try {
-            Vendedor x = dao.pesquisar(v.getVend_id());
+            Vendedor x = dao.pesquisar(v.getId());
             if (x == null) {
                 throw new RegraException("ID informado não existe.");
             }
