@@ -63,12 +63,12 @@ public class RNPedido {
      */
     public void validar(Pedido pedido) throws RegraException {
 
-        if (pedido.getId() == null) {
-            throw new RegraException("ID inválido.");
+        if ((pedido.getId() == null) | (pedido.getId() == 0)){
+             throw new RegraException("ID inválido.");
         }
         
-        if (pedido.getData() == null) {
-            throw new RegraException("Data inválida.");
+        if ((pedido.getData() == null) | (pedido.getId() == 0)){
+             throw new RegraException("Data inválida.");
         }
     }
 
@@ -81,7 +81,6 @@ public class RNPedido {
     public void verificaDuplicidade(Pedido pedido) throws RegraException {
 
         try {
-
             Pedido ped = dao.pesquisar(pedido.getId());
             if (ped != null) {
                 throw new RegraException("Pedido já realizado.");
@@ -99,7 +98,7 @@ public class RNPedido {
      */
     public void validaId(Integer id) throws RegraException {
 
-        if (id == null) {
+        if ((id == null) | (id == 0)){
             throw new RegraException("ID inválido!");
         }
         try {
