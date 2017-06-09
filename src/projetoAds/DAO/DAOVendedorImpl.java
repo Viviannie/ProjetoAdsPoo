@@ -14,7 +14,7 @@ import projetoAds.excecao.DAOException;
 
 /**
  *
- * @author Grupo
+ * @author Grupo Programação Orientada a Objetos
  */
 public class DAOVendedorImpl implements DAOVendedor {
 
@@ -71,13 +71,13 @@ public class DAOVendedorImpl implements DAOVendedor {
     }
 
     @Override
-    public Vendedor pesquisar(Integer vend_id) throws ConexaoException, DAOException {
+    public Vendedor pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT vend_id, vend_nome FROM vendedor WHERE (vend_id=?)";
         Vendedor vend = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, vend_id);
+            pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 vend = new Vendedor();
@@ -93,13 +93,13 @@ public class DAOVendedorImpl implements DAOVendedor {
     }
 
     @Override
-    public Vendedor pesquisar(String vend_nome) throws ConexaoException, DAOException {
+    public Vendedor pesquisar(String nome) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT vend_id, vend_nome FROM vendedor WHERE (vend_nome=?)";
         Vendedor vend = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, vend_nome);
+            pstm.setString(1, nome);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 vend = new Vendedor();

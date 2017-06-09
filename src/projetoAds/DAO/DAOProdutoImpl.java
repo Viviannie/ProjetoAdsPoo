@@ -14,7 +14,7 @@ import projetoAds.excecao.DAOException;
 
 /**
  *
- * @author Grupo
+ * @author Grupo Programação Orientada a Objetos
  */
 public class DAOProdutoImpl implements DAOProduto {
 
@@ -77,13 +77,13 @@ public class DAOProdutoImpl implements DAOProduto {
     }
 
     @Override
-    public Produto pesquisar(Integer prd_id) throws ConexaoException, DAOException {
+    public Produto pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual, fbr_cnpj FROM produto WHERE (prd_id=?)";
         Produto prd = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, prd_id);
+            pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 prd = new Produto();
@@ -102,13 +102,13 @@ public class DAOProdutoImpl implements DAOProduto {
     }
 
     @Override
-    public Produto pesquisar(String prd_desc) throws ConexaoException, DAOException {
+    public Produto pesquisar(String desc) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual, fbr_cnpj FROM produto WHERE (prd_id=?)";
         Produto prd = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, prd_desc);
+            pstm.setString(1, desc);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 prd = new Produto();

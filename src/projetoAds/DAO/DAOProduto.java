@@ -7,7 +7,7 @@ import projetoAds.excecao.ConexaoException;
 
 /**
  *
- * @author Grupo
+ * @author Grupo Programação Orientada a Objetos
  */
 public interface DAOProduto {
 
@@ -37,21 +37,21 @@ public interface DAOProduto {
 
     /**
      * Busca um registro no BD com o ID do produto informado
-     * @param prd_id Parametro da busca
+     * @param id Parametro da busca
      * @return Objeto encontrado ou null
      * @throws ConexaoException
      * @throws DAOException
      */
-    public Produto pesquisar(Integer prd_id) throws ConexaoException, DAOException;
+    public Produto pesquisar(Integer id) throws ConexaoException, DAOException;
 
     /**
      * Busca um registro no BD com a descrição do produto informado
-     * @param prd_desc Parametro da busca
+     * @param desc Parametro da busca
      * @return Objeto encontrado ou null
      * @throws ConexaoException
      * @throws DAOException
      */
-    public Produto pesquisar(String prd_desc) throws ConexaoException, DAOException;
+    public Produto pesquisar(String desc) throws ConexaoException, DAOException;
 
     /**
      * Retorna uma lista com todos os registros dos produtos

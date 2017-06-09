@@ -5,7 +5,7 @@ import projetoAds.excecao.DAOException;
 import projetoAds.excecao.ConexaoException;
 
 /**
- * @author Grupo
+ * @author Grupo Programação Orientada a Objetos
  */
 public interface DAOVendedor {
     /**
@@ -34,21 +34,21 @@ public interface DAOVendedor {
     
     /**
       * Busca um registro no BD com o ID informado
-      * @param vend_id Parametro da busca
+      * @param id Parametro da busca
       * @return Objeto encontrado ou null
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public Vendedor pesquisar(Integer vend_id) throws ConexaoException,DAOException;
+    public Vendedor pesquisar(Integer id) throws ConexaoException,DAOException;
 
     /**
       * Busca um registro no BD com o Nome informado
-      * @param vend_nome Parametro da busca
+      * @param nome Parametro da busca
       * @return Objeto encontrado ou null
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public Vendedor pesquisar(String vend_nome) throws ConexaoException,DAOException;
+    public Vendedor pesquisar(String nome) throws ConexaoException,DAOException;
 
     /**
       * Retorna uma lista com todos os registros do vendedor
