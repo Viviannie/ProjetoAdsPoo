@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import projetoAds.classesBasicas.Cliente;
 import projetoAds.excecao.RegraException;
 import projetoAds.regra.RNCliente;
+import projetoAds.regra.RNPagamento;
 
 /**
  *
@@ -13,6 +14,7 @@ public class Fachada {
     
     private static Fachada instancia;
     private static RNCliente rnCliente;
+    private static RNPagamento rnPagamento;
     
     private Fachada(){
         rnCliente = new RNCliente();
@@ -55,5 +57,7 @@ public class Fachada {
     public ArrayList<Cliente> listarCliente()throws RegraException{
         return rnCliente.listar();
     }
+    
+    
 }
 
