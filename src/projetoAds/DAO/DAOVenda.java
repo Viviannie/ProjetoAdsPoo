@@ -42,7 +42,7 @@ public interface DAOVenda {
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public Pedido pesquisar(Integer id) throws ConexaoException, DAOException;
+    public Venda pesquisar(Integer id) throws ConexaoException, DAOException;
 
     
     /**

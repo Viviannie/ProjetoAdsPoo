@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import projetoAds.classesBasicas.Pedido;
 import projetoAds.classesBasicas.Venda;
 import projetoAds.conexao.Conectar;
 import projetoAds.conexao.ConexaoBD;
@@ -76,13 +77,14 @@ public class DAOVendaImpl implements DAOVenda {
     }
 
     @Override
-    public Venda pesquisar(Integer ped_id) throws ConexaoException, DAOException {
+    public Venda pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT ped_id, prd_id, prc_unitario, qtd_produtos FROM pedido WHERE (ped_id=?)";
+        String sql;
+        sql = "SELECT venda.ped_id, venda.prd_id, venda.prc_unitario, venda.qtd_produtos FROM pedido JOIN venda ON venda.ped_id = pedido.id WHERE (ped_id=?)";
         Venda vend = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, ped_id);
+            pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 vend = new Venda();
@@ -98,7 +100,8 @@ public class DAOVendaImpl implements DAOVenda {
             con.desconectar(c);
         }
     }
-
+    
+    // primeiro devo saber quem é o id e ai listar a partir desse id
     @Override
     public ArrayList<Venda> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
