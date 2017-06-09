@@ -27,7 +27,7 @@ public class DAOPagamentoImpl implements DAOPagamento {
     @Override
     public void incluir(Pagamento pagamento) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "INSERT INTO pagamento (fag_id, fag_valor, ped_id) VALUES (?,?,?)";
+        String sql = "INSERT INTO pagamento (pag_id, pag_valor, ped_id) VALUES (?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, pagamento.getId());
@@ -44,7 +44,7 @@ public class DAOPagamentoImpl implements DAOPagamento {
     @Override
     public void excluir(Pagamento pagamento) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "DELETE FROM pagamento WHERE pag_id = ?";
+        String sql = "DELETE FROM pagamento WHERE pag_id=?";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, pagamento.getId());
@@ -74,13 +74,13 @@ public class DAOPagamentoImpl implements DAOPagamento {
     }
 
     @Override
-    public Pagamento pesquisar(Integer pag_id) throws ConexaoException, DAOException {
+    public Pagamento pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT pag_id, pag_valor, ped_id FROM pagamento WHERE pag_id=?)";
         Pagamento pagamento = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pag_id);
+            pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 pagamento = new Pagamento();
@@ -104,7 +104,7 @@ public class DAOPagamentoImpl implements DAOPagamento {
         Pagamento pagamento;
         try {
             Statement stm = c.createStatement();
-            ResultSet rs = stm.executeQuery("sql");
+            ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 pagamento = new Pagamento();
                 pagamento.setId(rs.getInt("pag_id"));

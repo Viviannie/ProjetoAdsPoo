@@ -18,7 +18,7 @@ import projetoAds.excecao.DAOException;
  */
 public class DAOFormaPagImpl implements DAOFormaPag {
 
-    private ConexaoBD con;
+    private final ConexaoBD con;        //por que o netbeans pede para colocar como final?
     
     public DAOFormaPagImpl() {
         con = Conectar.getInstancia();
@@ -44,7 +44,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public void excluir(FormaPag formaPag) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "DELETE FROM Forma_Pag WHERE frm_id = ?";
+        String sql = "DELETE FROM Forma_Pag WHERE (frm_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, formaPag.getId());
@@ -59,12 +59,12 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public void alterar(FormaPag formaPag) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE FormaPag SET frm_desc=?, frm_id=? WHERE frm_id=?)";
+        String sql = "UPDATE Forma_Pag SET frm_id=?, frm_desc=? WHERE (frm_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, formaPag.getDesc());
-            pstm.setInt(2, formaPag.getPagamento().getId());
-            pstm.setInt(3, formaPag.getId());
+            pstm.setInt(1, formaPag.getId());
+            pstm.setString(2, formaPag.getDesc());
+            pstm.setInt(3, formaPag.getId());            
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -76,7 +76,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public FormaPag pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT frm_id, pag_id FROM forma_pag WHERE frm_id=?)";
+        String sql = "SELECT frm_id, frm_desc, pag_id FROM Forma_Pag WHERE (frm_id=?)";
         FormaPag formaPag = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -84,9 +84,9 @@ public class DAOFormaPagImpl implements DAOFormaPag {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 formaPag = new FormaPag();
-                formaPag.setId(rs.getInt("id"));
-                formaPag.setDesc(rs.getString("desc"));
-                formaPag.getPagamento().setId(rs.getInt("id"));
+                formaPag.setId(rs.getInt("frm_id"));
+                formaPag.setDesc(rs.getString("frm_desc"));
+                formaPag.getPagamento().setId(rs.getInt("pag_id"));
             }
             return formaPag;
         } catch (SQLException e) {
@@ -99,7 +99,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public FormaPag pesquisar(String desc) throws ConexaoException,DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT frm_desc, pag_id FROM forma_pag WHERE frm_id=?)";
+        String sql = "SELECT frm_id, frm_desc, pag_id FROM Forma_Pag WHERE (frm_desc=?)";
         FormaPag formaPag = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -122,12 +122,12 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public ArrayList<FormaPag> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT frm_id, frm_desc, pag_id FROM forma_pag";
+        String sql = "SELECT frm_id, frm_desc, pag_id FROM Forma_Pag";
         ArrayList<FormaPag> lista = new ArrayList();
         FormaPag formaPag;
         try {
             Statement stm = c.createStatement();
-            ResultSet rs = stm.executeQuery("sql");
+            ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 formaPag = new FormaPag();
                 formaPag.setId(rs.getInt("frm_id"));
