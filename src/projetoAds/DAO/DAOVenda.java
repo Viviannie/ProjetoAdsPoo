@@ -9,6 +9,7 @@ import projetoAds.excecao.DAOException;
 /**
   * @author Grupo Programação Orientada a Objetos
   */
+
 public interface DAOVenda {
     /**
       * Inclui uma novo pedido no BD
@@ -17,6 +18,7 @@ public interface DAOVenda {
       * @throws DAOException 
       */
     public void incluir(Venda venda) throws ConexaoException,DAOException;
+    
     /**
       * Exclui um pedido com produots no BD
       * @param venda Objeto
