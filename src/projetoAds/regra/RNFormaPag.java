@@ -40,17 +40,17 @@ public class RNFormaPag {
         }
     }
 
-    public FormaPag pesquisar(String desc) throws RegraException {
+    public FormaPag pesquisar(Integer id) throws RegraException {
         try {
-            return dao.pesquisar(desc);
+            return dao.pesquisar(id);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public FormaPag pesquisar(Integer id) throws RegraException {
+    public FormaPag pesquisar(String desc) throws RegraException {
         try {
-            return dao.pesquisar(id);
+            return dao.pesquisar(desc);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
@@ -66,7 +66,6 @@ public class RNFormaPag {
 
     /**
      * Verifica se os campos estão preenchidos corretamente
-     *
      * @param f Objeto com os dados
      * @throws RegraException
      */
@@ -76,18 +75,17 @@ public class RNFormaPag {
             throw new RegraException("ID inválida.");
         }
 
-        if ((f.getDesc() == null) || (f.getDesc().trim().equals(" ")))  {
+        if ((f.getDesc() == null) || (f.getDesc().trim().equals(" "))) {
             throw new RegraException("Descrição inválida.");
         }
-        
-        if(f.getPagamento().getId() == null){
+
+        if (f.getPagamento().getId() == null) {
             throw new RegraException("Pagamento inválido.");
         }
     }
 
     /**
-     * Verifica se uma nova descrição já existe no BD
-     *
+     * Verifica se a nova descrição já existe no BD
      * @param f Objeto com os dados
      * @throws RegraException
      */
@@ -95,7 +93,7 @@ public class RNFormaPag {
 
         try {
 
-            FormaPag x = dao.pesquisar(f.getId());
+            FormaPag x = dao.pesquisar(f.getDesc());    //duvida
             if (x != null) {
                 throw new RegraException("Forma de pagamento existente.");
             }
@@ -106,14 +104,13 @@ public class RNFormaPag {
 
     /**
      * Verifica se um ID passado é válido e existe no BD
-     *
      * @param id Para validação
      * @throws RegraException Caso o ID não seja localizado
      */
     public void validaId(Integer id) throws RegraException {
 
         if (id == null) {
-            throw new RegraException("ID inválido!");
+            throw new RegraException("ID inválida.");
         }
 
         try {

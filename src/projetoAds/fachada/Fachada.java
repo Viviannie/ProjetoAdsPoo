@@ -2,6 +2,7 @@ package projetoAds.fachada;
 
 import java.util.ArrayList;
 import projetoAds.classesBasicas.Cliente;
+import projetoAds.classesBasicas.Pagamento;
 import projetoAds.excecao.RegraException;
 import projetoAds.regra.RNCliente;
 import projetoAds.regra.RNPagamento;
@@ -18,6 +19,7 @@ public class Fachada {
     
     private Fachada(){
         rnCliente = new RNCliente();
+        rnPagamento = new RNPagamento();
     }
     
     public static Fachada getInstancia(){
@@ -26,6 +28,10 @@ public class Fachada {
         }
         return instancia;
     }
+    
+    /*#########################################################################
+     * CLIENTE
+     *########################################################################*/
     
     public void salvarCliente(Cliente c) throws RegraException{
         rnCliente.validar(c);
@@ -57,6 +63,17 @@ public class Fachada {
     public ArrayList<Cliente> listarCliente()throws RegraException{
         return rnCliente.listar();
     }
+    
+    /*#########################################################################
+     * PAGAMENTO
+     *########################################################################*/
+    
+    public void salvarPagamento(Pagamento g) throws RegraException{ //por que teve que colocar a exceção?
+        rnPagamento.validar(g);
+        rnPagamento.verificaDuplicidade(g);
+        rnPagamento.incluir(g);
+    }
+    
     
     
 }

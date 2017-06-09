@@ -14,7 +14,7 @@ import projetoAds.excecao.RegraException;
  */
 public class RNPagamento {
 
-    private final DAOPagamento dao = new DAOPagamentoImpl();
+    private final DAOPagamento dao = new DAOPagamentoImpl();    //por que final?
 
     public void incluir(Pagamento g) throws RegraException {
         try {
@@ -58,7 +58,6 @@ public class RNPagamento {
 
     /**
      * Verifica se os campos estão preenchidos corretamente
-     *
      * @param g Objeto com os dados
      * @throws RegraException
      */
@@ -69,7 +68,7 @@ public class RNPagamento {
         }
         
         if (g.getId() == null) {
-            throw new RegraException("ID inválido.");
+            throw new RegraException("ID inválida.");
         }
         
         if(g.getPedido().getId() == null){
@@ -79,7 +78,6 @@ public class RNPagamento {
 
     /**
      * Verifica se uma nova descrição já existe no BD
-     *
      * @param g Objeto com os dados
      * @throws RegraException
      */
@@ -91,6 +89,11 @@ public class RNPagamento {
             if (x != null) {
                 throw new RegraException("Pagamento já efetuado.");
             }
+            
+            if(x == x){
+                throw new RegraException("Pedido duplicado.");
+            }
+            
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
@@ -105,12 +108,12 @@ public class RNPagamento {
     public void validaId(Integer id) throws RegraException {
 
         if (id == null) {
-            throw new RegraException("ID inválido!");
+            throw new RegraException("ID inválida.");
         }
         try {
             Pagamento x = dao.pesquisar(id);
             if (x == null) {
-                throw new RegraException("ID informado não existe.");
+                throw new RegraException("ID informada não existente.");
             }
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
