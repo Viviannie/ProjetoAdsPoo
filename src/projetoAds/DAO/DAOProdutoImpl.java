@@ -129,7 +129,7 @@ public class DAOProdutoImpl implements DAOProduto {
     @Override
     public ArrayList<Produto> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual FROM produto";
+        String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual, fbr_cnpj FROM produto";
         ArrayList<Produto> lista = new ArrayList();
         Produto prd;
         try {
@@ -141,6 +141,7 @@ public class DAOProdutoImpl implements DAOProduto {
                 prd.setDesc(rs.getString("prd_desc"));
                 prd.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
                 prd.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
+                prd.getFabricante().setCnpj(rs.getString("fbr_cnpj"));
                 lista.add(prd);
             }
             return lista;
