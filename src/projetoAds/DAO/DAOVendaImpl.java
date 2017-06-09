@@ -25,7 +25,7 @@ public class DAOVendaImpl implements DAOVenda {
     @Override
     public void incluir(Venda venda) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "INSERT INTO pedidoproduto (ped_id, prd_id, prc_unitario, qtd_produtos) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO venda (ped_id, prd_id, prc_unitario, qtd_produtos) VALUES (?,?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, venda.getPedido().getId());   //Referente ao indice da interogação
@@ -43,7 +43,7 @@ public class DAOVendaImpl implements DAOVenda {
     @Override
     public void excluir(Venda pedidoProduto) throws ConexaoException, DAOException {
        Connection c = con.conectar();
-        String sql = "DELETE FROM pedidoproduto WHERE (ped_id=?)";
+        String sql = "DELETE FROM venda WHERE (ped_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, pedidoProduto.getPedido().getId());           
