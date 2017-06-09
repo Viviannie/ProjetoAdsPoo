@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projetoAds.DAO;
 
 import java.sql.Connection;
@@ -11,33 +6,32 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import projetoAds.classesBasicas.PedidoProduto;
+import projetoAds.classesBasicas.Venda;
 import projetoAds.conexao.Conectar;
 import projetoAds.conexao.ConexaoBD;
 import projetoAds.excecao.ConexaoException;
 import projetoAds.excecao.DAOException;
 
 /**
- *
- * @author aluno
- */
-public class DAOPedidoProdutoImpl implements DAOPedidoProduto {
+  * @author Grupo Programação Orientada a Objetos
+  */
+public class DAOVendaImpl implements DAOVenda {
     private ConexaoBD con;
     
-    public DAOPedidoProdutoImpl(){
+    public DAOVendaImpl(){
         con = Conectar.getInstancia();
     }
 
     @Override
-    public void incluir(PedidoProduto pedidoProduto) throws ConexaoException, DAOException {
+    public void incluir(Venda venda) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "INSERT INTO pedidoproduto (ped_id, prd_id, prc_unitario, qtd_produtos) VALUES (?,?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pedidoProduto.getPedido().getPed_id());   //Referente ao indice da interogação
-            pstm.setInt(2, pedidoProduto.getProduto().getPrd_id());
-            pstm.setDouble(3, pedidoProduto.getPrc_unitario());
-            pstm.setInt(4, pedidoProduto.getQtd_produtos());
+            pstm.setInt(1, venda.getPedido().getId());   //Referente ao indice da interogação
+            pstm.setInt(2, venda.getProduto().getId());
+            pstm.setDouble(3, venda.getPrecoUnitario());
+            pstm.setInt(4, venda.getQuantidadeProduto());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -47,12 +41,12 @@ public class DAOPedidoProdutoImpl implements DAOPedidoProduto {
     }
 
     @Override
-    public void excluir(PedidoProduto pedidoProduto) throws ConexaoException, DAOException {
+    public void excluir(Venda pedidoProduto) throws ConexaoException, DAOException {
        Connection c = con.conectar();
         String sql = "DELETE FROM pedidoproduto WHERE (ped_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pedidoProduto.getPedido().getPed_id());           
+            pstm.setInt(1, pedidoProduto.getPedido().getId());           
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -62,17 +56,17 @@ public class DAOPedidoProdutoImpl implements DAOPedidoProduto {
     }
 
     @Override
-    public void alterar(PedidoProduto pedidoProduto) throws ConexaoException, DAOException {
+    public void alterar(Venda venda) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "UPDATE pedido SET ped_id=?, prd_id=?, prc_unitario=?, qtd_produtos=? WHERE (ped_id=?, prd_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pedidoProduto.getPedido().getPed_id());
-            pstm.setInt(2, pedidoProduto.getProduto().getPrd_id());
-            pstm.setDouble(3, pedidoProduto.getPrc_unitario());
-            pstm.setInt(4, pedidoProduto.getQtd_produtos());
-            pstm.setInt(5, pedidoProduto.getPedido().getPed_id());
-            pstm.setInt(6, pedidoProduto.getProduto().getPrd_id());
+            pstm.setInt(1, venda.getPedido().getId());
+            pstm.setInt(2, venda.getProduto().getId());
+            pstm.setDouble(3, venda.getPrecoUnitario());
+            pstm.setInt(4, venda.getQuantidadeProduto());
+            pstm.setInt(5, venda.getPedido().getId());
+            pstm.setInt(6, venda.getProduto().getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -82,22 +76,22 @@ public class DAOPedidoProdutoImpl implements DAOPedidoProduto {
     }
 
     @Override
-    public PedidoProduto pesquisar(Integer ped_id) throws ConexaoException, DAOException {
+    public Venda pesquisar(Integer ped_id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT ped_id, prd_id, prc_unitario, qtd_produtos FROM pedido WHERE (ped_id=?)";
-        PedidoProduto pedPrd = null;
+        Venda vend = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, ped_id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
-                pedPrd = new PedidoProduto();
-                pedPrd.getPedido().setPed_id(rs.getInt("ped_id"));
-                pedPrd.getProduto().setPrd_id(rs.getInt("prd_id"));
-                pedPrd.setPrc_unitario(rs.getDouble("prc_unitario"));
-                pedPrd.setQtd_produtos(rs.getInt("qtd_produtos"));
+                vend = new Venda();
+                vend.getPedido().setId(rs.getInt("ped_id"));
+                vend.getProduto().setId(rs.getInt("prd_id"));
+                vend.getPrecoUnitario(rs.getDouble("prc_unitario"));
+                vend.setQuantidadeProduto(rs.getInt("qtd_produtos"));
             }
-            return pedPrd;
+            return vend;
         } catch (SQLException e) {
             throw new DAOException(e);
         } finally {
@@ -106,21 +100,21 @@ public class DAOPedidoProdutoImpl implements DAOPedidoProduto {
     }
 
     @Override
-    public ArrayList<PedidoProduto> listar() throws ConexaoException, DAOException {
+    public ArrayList<Venda> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT ped_id, prd_id, prc_unitario, qtd_produtos FROM pedido";
-        ArrayList<PedidoProduto> lista = new ArrayList();
-        PedidoProduto pedPrd;
+        ArrayList<Venda> lista = new ArrayList();
+        Venda vend;
         try {
             Statement stm = c.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
-                pedPrd = new PedidoProduto();
-                pedPrd.getPedido().setPed_id(rs.getInt("ped_id"));
-                pedPrd.getProduto().setPrd_id(rs.getInt("prd_id"));
-                pedPrd.setPrc_unitario(rs.getDouble("prc_unitario"));
-                pedPrd.setQtd_produtos(rs.getInt("qtd_produtos"));
-                lista.add(pedPrd);
+                vend = new Venda();
+                vend.getPedido().setId(rs.getInt("ped_id"));
+                vend.getProduto().setId(rs.getInt("prd_id"));
+                vend.getPrecoUnitario(rs.getDouble("prc_unitario"));
+                vend.getQuantidadeProduto(rs.getInt("qtd_produtos"));
+                lista.add(vend);
             }
             return lista;
         } catch (SQLException e) {

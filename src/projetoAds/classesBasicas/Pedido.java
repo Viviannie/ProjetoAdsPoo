@@ -9,7 +9,7 @@ public class Pedido {
     private Integer id;
     private Cliente cliente;
     private Vendedor vendedor;
-    private PedidoProduto pedidoProduto;
+    private Venda venda;
     
     /**
       * usado por padrão para que seja criada uma instancia 
@@ -18,7 +18,7 @@ public class Pedido {
     public Pedido() {
         cliente = new Cliente();
         vendedor = new Vendedor();
-        pedidoProduto = new PedidoProduto();
+        venda = new Venda();
     }
 
     /**
@@ -78,17 +78,17 @@ public class Pedido {
     }
 
     /**
-     * @return the pedidoProduto
+     * @return the venda
      */
-    public PedidoProduto getPedidoProduto() {
-        return pedidoProduto;
+    public Venda getVenda() {
+        return venda;
     }
 
     /**
-     * @param pedidoProduto the pedidoProduto to set
+     * @param venda the venda to set
      */
-    public void setPedidoProduto(PedidoProduto pedidoProduto) {
-        this.pedidoProduto = pedidoProduto;
+    public void setVenda(Venda venda) {
+        this.venda = venda;
     }
  
 }

@@ -3,7 +3,7 @@ package projetoAds.classesBasicas;
 /**
   * @author Grupo Programação Orientada a Objetos
   */
-public class PedidoProduto {
+public class Venda {
 
         private Double precoUnitario;
         private Integer quantidadeProduto;
@@ -13,7 +13,7 @@ public class PedidoProduto {
       * usado por padrão para que seja criada uma instancia
       * dos objetos utilizados
       */
-        public PedidoProduto() {
+        public Venda() {
             produto = new Produto();
             pedido = new Pedido();
         }

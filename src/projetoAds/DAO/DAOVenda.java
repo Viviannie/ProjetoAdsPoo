@@ -1,45 +1,45 @@
 package projetoAds.DAO;
 
 import java.util.ArrayList;
-import projetoAds.classesBasicas.PedidoProduto;
+import projetoAds.classesBasicas.Venda;
 import projetoAds.excecao.ConexaoException;
 import projetoAds.excecao.DAOException;
 
 /**
   * @author Grupo Programação Orientada a Objetos
   */
-public interface DAOPedidoProduto {
+public interface DAOVenda {
     /**
       * Inclui uma novo pedido no BD
-      * @param pedidoProduto Objeto com os dados validados
+      * @param venda Objeto com os dados validados
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public void incluir(PedidoProduto pedidoProduto) throws ConexaoException,DAOException;
+    public void incluir(Venda venda) throws ConexaoException,DAOException;
     /**
       * Exclui um pedido com produots no BD
-      * @param pedidoProduto Objeto
+      * @param venda Objeto
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public void excluir(PedidoProduto pedidoProduto) throws ConexaoException, DAOException;
+    public void excluir(Venda venda) throws ConexaoException, DAOException;
     
     /**
       * Altera um registro do BD
-      * @param pedidoProduto Objeto com todos os dados validados
+      * @param venda Objeto com todos os dados validados
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public void alterar(PedidoProduto pedidoProduto) throws ConexaoException, DAOException;
+    public void alterar(Venda venda) throws ConexaoException, DAOException;
     
     /**
       * Busca um registro no BD com o id do Pedido informado
-      * @param ped_id Parametro da busca
+      * @param id Parametro da busca
       * @return Objeto encontrado ou null
       * @throws ConexaoException                  ######CAUTION##### -- REVIEW
       * @throws DAOException 
       */
-    public PedidoProduto pesquisar(Integer ped_id) throws ConexaoException, DAOException;
+    public Venda pesquisar(Integer id) throws ConexaoException, DAOException;
 
     
     /**
@@ -48,5 +48,5 @@ public interface DAOPedidoProduto {
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public ArrayList<PedidoProduto> listar() throws ConexaoException, DAOException;
+    public ArrayList<Venda> listar() throws ConexaoException, DAOException;
 }
