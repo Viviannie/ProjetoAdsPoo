@@ -35,7 +35,7 @@ public class DAOVendaImpl implements DAOVenda {
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
-        } finally {          //o bloco do finally será sempre executado, sempre. 
+        } finally {
             con.desconectar(c);
         }
     }
@@ -58,7 +58,7 @@ public class DAOVendaImpl implements DAOVenda {
     @Override
     public void alterar(Venda venda) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE pedido SET ped_id=?, prd_id=?, prc_unitario=?, qtd_produtos=? WHERE (ped_id=?, prd_id=?)";
+        String sql = "UPDATE venda SET ped_id=?, prd_id=?, prc_unitario=?, qtd_produtos=? WHERE (ped_id=?, prd_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, venda.getPedido().getId());
@@ -79,7 +79,7 @@ public class DAOVendaImpl implements DAOVenda {
     public Venda pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql;
-        sql = "SELECT venda.ped_id, venda.prd_id, venda.prc_unitario, venda.qtd_produtos FROM pedido JOIN venda ON venda.ped_id = pedido.id WHERE (ped_id=?)";
+        sql = "SELECT venda.ped_id, venda.prd_id, venda.prc_unitario, venda.qtd_produtos FROM venda JOIN pedido ON venda.ped_id = pedido.id WHERE (pedido.ped_id=?)";
         Venda vend = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
