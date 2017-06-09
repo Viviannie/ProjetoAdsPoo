@@ -97,13 +97,13 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     }
 
     @Override
-    public FormaPag pesquisar(String frm_desc) throws ConexaoException,DAOException {
+    public FormaPag pesquisar(String desc) throws ConexaoException,DAOException {
         Connection c = con.conectar();
         String sql = "SELECT frm_desc, pag_id FROM forma_pag WHERE frm_id=?)";
         FormaPag formaPag = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, frm_desc);
+            pstm.setString(1, desc);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 formaPag = new FormaPag();

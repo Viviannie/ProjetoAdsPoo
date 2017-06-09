@@ -40,9 +40,9 @@ public class RNPagamento {
         }
     }
 
-    public Pagamento pesquisar(Integer pag_id) throws RegraException {
+    public Pagamento pesquisar(Integer id) throws RegraException {
         try {
-            return dao.pesquisar(pag_id);
+            return dao.pesquisar(id);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
@@ -72,7 +72,7 @@ public class RNPagamento {
             throw new RegraException("ID inválido.");
         }
         
-        if(g.getPedido() == null){
+        if(g.getPedido().getId() == null){
             throw new RegraException("Pedido inválido.");
         }
     }
