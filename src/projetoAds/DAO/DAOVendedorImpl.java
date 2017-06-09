@@ -30,7 +30,7 @@ public class DAOVendedorImpl implements DAOVendedor {
         String sql = "INSERT INTO vendedor (vend_nome) VALUES (?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, vendedor.getVend_nome()); //Referente ao indice da interogação
+            pstm.setString(1, vendedor.getNome()); //Referente ao indice da interogação
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -45,7 +45,7 @@ public class DAOVendedorImpl implements DAOVendedor {
         String sql = "DELETE FROM vendedor WHERE (vend_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, vendedor.getVend_id());
+            pstm.setInt(1, vendedor.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -60,8 +60,8 @@ public class DAOVendedorImpl implements DAOVendedor {
         String sql = "UPDATE vendedor SET vend_nome=? WHERE (vend_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, vendedor.getVend_nome());
-            pstm.setInt(2, vendedor.getVend_id());
+            pstm.setString(1, vendedor.getNome());
+            pstm.setInt(2, vendedor.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -81,8 +81,8 @@ public class DAOVendedorImpl implements DAOVendedor {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 vend = new Vendedor();
-                vend.setVend_id(rs.getInt("vend_id"));
-                vend.setVend_nome(rs.getString("vend_nome"));
+                vend.setId(rs.getInt("vend_id"));
+                vend.setNome(rs.getString("vend_nome"));
             }
             return vend;
         } catch (SQLException e) {
@@ -103,8 +103,8 @@ public class DAOVendedorImpl implements DAOVendedor {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 vend = new Vendedor();
-                vend.setVend_id(rs.getInt("vend_id"));
-                vend.setVend_nome(rs.getString("vend_nome"));
+                vend.setId(rs.getInt("vend_id"));
+                vend.setNome(rs.getString("vend_nome"));
             }
             return vend;
         } catch (SQLException e) {
@@ -125,8 +125,8 @@ public class DAOVendedorImpl implements DAOVendedor {
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 vend = new Vendedor();
-                vend.setVend_id(rs.getInt("vend_id"));
-                vend.setVend_nome(rs.getString("vend_nome"));
+                vend.setId(rs.getInt("vend_id"));
+                vend.setNome(rs.getString("vend_nome"));
                 lista.add(vend);
             }
             return lista;
