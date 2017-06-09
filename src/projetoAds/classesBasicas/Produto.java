@@ -1,87 +1,85 @@
 package projetoAds.classesBasicas;
 
-import java.util.ArrayList;
-
 /**
  *
- * @author Grupo
+ * @author Grupo Programação Orientada a Objetos
  */
 public class Produto {
 
-    private Integer prd_estoqueminino;
-    private Integer prd_estoqueatual;
-    private String prd_desc;
-    private Integer prd_id;
-    private ArrayList<Fornecedor> fornecedor;
+    private Integer estoqueMinino;
+    private Integer estoqueAtual;
+    private String desc;
+    private Integer id;
+    private Fabricante fabricante;
 
     /**
-     * @return the prd_estoqueminimo
+     * @return the estoqueMinino
      */
-    public Integer getPrd_estoqueminimo() {
-        return prd_estoqueminino;
+    public Integer getEstoqueMinino() {
+        return estoqueMinino;
     }
 
     /**
-     * @param prd_estoqueminimo the prd_estoqueminimo to set
+     * @param estoqueMinino the estoqueMinino to set
      */
-    public void setPrd_estoqueminimo(Integer prd_estoqueminimo) {
-        this.prd_estoqueminino = prd_estoqueminimo;
+    public void setEstoqueMinino(Integer estoqueMinino) {
+        this.estoqueMinino = estoqueMinino;
     }
 
     /**
-     * @return the prd_estoqueatual
+     * @return the estoqueAtual
      */
-    public Integer getPrd_estoqueatual() {
-        return prd_estoqueatual;
+    public Integer getEstoqueAtual() {
+        return estoqueAtual;
     }
 
     /**
-     * @param prd_estoqueatual the prd_estoqueatual to set
+     * @param estoqueAtual the estoqueAtual to set
      */
-    public void setPrd_estoqueatual(Integer prd_estoqueatual) {
-        this.prd_estoqueatual = prd_estoqueatual;
+    public void setEstoqueAtual(Integer estoqueAtual) {
+        this.estoqueAtual = estoqueAtual;
     }
 
     /**
-     * @return the prd_desc
+     * @return the desc
      */
-    public String getPrd_desc() {
-        return prd_desc;
+    public String getDesc() {
+        return desc;
     }
 
     /**
-     * @param prd_desc the prd_desc to set
+     * @param desc the desc to set
      */
-    public void setPrd_desc(String prd_desc) {
-        this.prd_desc = prd_desc;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     /**
-     * @return the prd_id
+     * @return the id
      */
-    public Integer getPrd_id() {
-        return prd_id;
+    public Integer getId() {
+        return id;
     }
 
     /**
-     * @param prd_id the prd_id to set
+     * @param id the id to set
      */
-    public void setPrd_id(Integer prd_id) {
-        this.prd_id = prd_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**
-     * @return the fornecedor
+     * @return the fabricante
      */
-    public ArrayList<Fornecedor> getFornecedor() {
-        return fornecedor;
+    public Fabricante getFabricante() {
+        return fabricante;
     }
 
     /**
-     * @param fornecedor the fornecedor to set
+     * @param fabricante the fabricante to set
      */
-    public void setFornecedor(ArrayList<Fornecedor> fornecedor) {
-        this.fornecedor = fornecedor;
+    public void setFabricante(Fabricante fabricante) {
+        this.fabricante = fabricante;
     }
 
 }

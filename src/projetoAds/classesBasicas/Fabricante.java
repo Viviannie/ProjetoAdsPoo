@@ -16,7 +16,7 @@ public class Fabricante {
     }
 
     /**
-     * @param razao the frn_razao to set
+     * @param razao the razao to set
      */
     public void setRazao(String razao) {
         this.razao = razao;

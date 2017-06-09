@@ -2,39 +2,39 @@ package projetoAds.classesBasicas;
 
 /**
  *
- * @author Grupo
+ * @author Grupo Programação Orientada a Objetos
  */
 public class Vendedor {
 
-    private String vend_nome;
-    private Integer vend_id;
+    private String nome;
+    private Integer id;
 
     /**
-     * @return the vend_nome
+     * @return the nome
      */
-    public String getVend_nome() {
-        return vend_nome;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param vend_nome the vend_nome to set
+     * @param nome the nome to set
      */
-    public void setVend_nome(String vend_nome) {
-        this.vend_nome = vend_nome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     /**
-     * @return the vend_id
+     * @return the id
      */
-    public Integer getVend_id() {
-        return vend_id;
+    public Integer getId() {
+        return id;
     }
 
     /**
-     * @param vend_id the vend_id to set
+     * @param id the id to set
      */
-    public void setVend_id(Integer vend_id) {
-        this.vend_id = vend_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 }
