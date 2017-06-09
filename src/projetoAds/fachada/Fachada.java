@@ -2,6 +2,7 @@ package projetoAds.fachada;
 
 import java.util.ArrayList;
 import projetoAds.classesBasicas.Cliente;
+import projetoAds.classesBasicas.FormaPag;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.excecao.RegraException;
 import projetoAds.regra.RNCliente;
@@ -35,6 +36,7 @@ public class Fachada {
     /*#########################################################################
      * CLIENTE
      *########################################################################*/
+    
     public void salvarCliente(Cliente c) throws RegraException {
         rnCliente.validar(c);
         rnCliente.verificaDuplicidade(c);
@@ -69,6 +71,7 @@ public class Fachada {
     /*#########################################################################
      * PAGAMENTO
      *########################################################################*/
+    
     public void salvarPagamento(Pagamento g) throws RegraException { //por que teve que colocar a exceção?
         rnPagamento.validar(g);
         rnPagamento.verificaDuplicidade(g);
@@ -86,12 +89,47 @@ public class Fachada {
         rnPagamento.alterar(g);
     }
 
-    public Pagamento pesquisarPagamentoPorId(Pagamento g) throws RegraException{
+    public Pagamento pesquisarPagamentoPorId(Pagamento g) throws RegraException {
         rnPagamento.validaId(g.getId());
         return rnPagamento.pesquisar(g.getId());
     }
 
-    public ArrayList<Pagamento> listarPagamentos() throws RegraException{
+    public ArrayList<Pagamento> listarPagamentos() throws RegraException {
         return rnPagamento.listar();
     }
-}
+
+    /*#########################################################################
+     * FORMAPAG
+     *########################################################################*/
+    
+    public void salvarFormaPag(FormaPag f) throws RegraException{
+        rnFormaPag.validar(f);
+        rnFormaPag.verificaDuplicidade(f);
+        rnFormaPag.incluir(f);
+    }
+    
+    public void excluirFormaPag(FormaPag f) throws RegraException{
+        rnFormaPag.validaId(f.getId());
+        rnFormaPag.excluir(f);
+    }
+    
+    public void alterarFormaPag(FormaPag f) throws RegraException{
+        rnFormaPag.validar(f);
+        rnFormaPag.validaId(f.getId());
+        rnFormaPag.alterar(f);
+    }
+    
+    public FormaPag pesquisarFormaPagPorId(FormaPag f) throws RegraException {
+        rnFormaPag.validaId(f.getId());
+        return rnFormaPag.pesquisar(f.getId());
+    }
+    
+    public FormaPag pesquisarFormaPagPorDesc(FormaPag f) throws RegraException{
+        rnFormaPag.validar(f);
+        return rnFormaPag.pesquisar(f.getDesc());
+    }
+    
+    public ArrayList<FormaPag> listarFormaPag() throws RegraException {
+        return rnFormaPag.listar();
+    }
+}    
