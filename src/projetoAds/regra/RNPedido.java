@@ -39,9 +39,9 @@ public class RNPedido {
         }
     }
 
-    public Pedido pesquisar(Integer peg_id) throws RegraException {
+    public Pedido pesquisar(Integer id) throws RegraException {
         try {
-            return dao.pesquisar(peg_id);
+            return dao.pesquisar(id);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
