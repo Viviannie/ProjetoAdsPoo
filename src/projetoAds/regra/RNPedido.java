@@ -9,32 +9,31 @@ import projetoAds.excecao.DAOException;
 import projetoAds.excecao.RegraException;
 
 /**
- *
- * @author Annie
- */
+  * @author Grupo Programação Orientada a Objetos
+  */
 public class RNPedido {
     
     private final DAOPedido dao = new DAOPedidoImpl();
 
-    public void incluir(Pedido d) throws RegraException {
+    public void incluir(Pedido pedido) throws RegraException {
         try {
-            dao.incluir(d);
+            dao.incluir(pedido);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public void excluir(Pedido d) throws RegraException {
+    public void excluir(Pedido pedido) throws RegraException {
         try {
-            dao.excluir(d);
+            dao.excluir(pedido);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public void alterar(Pedido d) throws RegraException {
+    public void alterar(Pedido pedido) throws RegraException {
         try {
-            dao.alterar(d);
+            dao.alterar(pedido);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
@@ -59,40 +58,32 @@ public class RNPedido {
     /**
      * Verifica se os campos estão preenchidos corretamente
      *
-     * @param d Objeto com os dados
+     * @param pedido Objeto com os dados
      * @throws RegraException
      */
-    public void validar(Pedido d) throws RegraException {
+    public void validar(Pedido pedido) throws RegraException {
 
-        if (d.getPed_id() == null) {
+        if (pedido.getId() == null) {
             throw new RegraException("ID inválido.");
         }
         
-        if (d.getPed_data() == null) {
+        if (pedido.getData() == null) {
             throw new RegraException("Data inválida.");
-        }
-        
-        if(d.getCliente().getCli_cpf() == null){
-            throw new RegraException("CPF inválido.");
-        }
-        
-        if(d.getVendedor().getVend_id() == null){
-            throw new RegraException("ID inválido.");
         }
     }
 
     /**
      * Verifica se uma nova descrição já existe no BD
      *
-     * @param d Objeto com os dados
+     * @param pedido Objeto com os dados
      * @throws RegraException
      */
-    public void verificaDuplicidade(Pedido d) throws RegraException {
+    public void verificaDuplicidade(Pedido pedido) throws RegraException {
 
         try {
 
-            Pedido x = dao.pesquisar(d.getPed_id());
-            if (x != null) {
+            Pedido ped = dao.pesquisar(pedido.getId());
+            if (ped != null) {
                 throw new RegraException("Pedido já realizado.");
             }
         } catch (ConexaoException | DAOException e) {
@@ -103,16 +94,16 @@ public class RNPedido {
     /**
      * Verifica se um ID passado é válido e existe no BD
      *
-     * @param ped_id Para validação
+     * @param id Para validação
      * @throws RegraException Caso o ID não seja localizado
      */
-    public void validaId(Integer ped_id) throws RegraException {
+    public void validaId(Integer id) throws RegraException {
 
-        if (ped_id == null) {
+        if (id == null) {
             throw new RegraException("ID inválido!");
         }
         try {
-            Pedido x = dao.pesquisar(ped_id);
+            Pedido x = dao.pesquisar(id);
             if (x == null) {
                 throw new RegraException("ID informado não existe.");
             }

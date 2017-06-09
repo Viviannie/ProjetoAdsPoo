@@ -1,7 +1,7 @@
 package projetoAds.classesBasicas;
 
 /**
- * @author Grupo Projeto ADS
+ * @author Grupo Programação Orientada a Objetos
  */
 public class Cliente {
 
