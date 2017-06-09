@@ -27,12 +27,13 @@ public class DAOProdutoImpl implements DAOProduto {
     @Override
     public void incluir(Produto produto) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "INSERT INTO produto (prd_desc, prd_estoqueminimo, prd_estoqueatual) VALUES (?,?,?)";
+        String sql = "INSERT INTO produto (prd_desc, prd_estoqueminimo, prd_estoqueatual, fbr_cnpj) VALUES (?,?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, produto.getDesc());   //Referente ao indice da interogação
             pstm.setInt(2, produto.getEstoqueMinimo());
             pstm.setInt(3, produto.getEstoqueAtual());
+            pstm.setString(4, produto.getFabricante().getCnpj());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -59,13 +60,14 @@ public class DAOProdutoImpl implements DAOProduto {
     @Override
     public void alterar(Produto produto) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE produto SET prd_desc=?, prd_estoqueminimo=?, prd_estoqueatual=?  WHERE (prd_id=?)";
+        String sql = "UPDATE produto SET prd_desc=?, prd_estoqueminimo=?, prd_estoqueatual=? fbr_cnpj=? WHERE (prd_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, produto.getDesc());
             pstm.setInt(2, produto.getEstoqueMinimo());
             pstm.setInt(3, produto.getEstoqueAtual());
-            pstm.setInt(4, produto.getId());
+            pstm.setString(4, produto.getFabricante().getCnpj());
+            pstm.setInt(5, produto.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -77,7 +79,7 @@ public class DAOProdutoImpl implements DAOProduto {
     @Override
     public Produto pesquisar(Integer prd_id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual FROM produto WHERE (prd_id=?)";
+        String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual, fbr_cnpj FROM produto WHERE (prd_id=?)";
         Produto prd = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -89,6 +91,7 @@ public class DAOProdutoImpl implements DAOProduto {
                 prd.setDesc(rs.getString("prd_desc"));
                 prd.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
                 prd.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
+                prd.getFabricante().setCnpj(rs.getString("fbr_cnpj"));
             }
             return prd;
         } catch (SQLException e) {
@@ -101,7 +104,7 @@ public class DAOProdutoImpl implements DAOProduto {
     @Override
     public Produto pesquisar(String prd_desc) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual FROM produto WHERE (prd_id=?)";
+        String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual, fbr_cnpj FROM produto WHERE (prd_id=?)";
         Produto prd = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -113,6 +116,7 @@ public class DAOProdutoImpl implements DAOProduto {
                 prd.setDesc(rs.getString("prd_desc"));
                 prd.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
                 prd.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
+                prd.getFabricante().setCnpj(rs.getString("fbr_cnpj"));
             }
             return prd;
         } catch (SQLException e) {
