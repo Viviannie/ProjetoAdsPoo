@@ -30,9 +30,9 @@ public class DAOProdutoImpl implements DAOProduto {
         String sql = "INSERT INTO produto (prd_desc, prd_estoqueminimo, prd_estoqueatual) VALUES (?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, produto.getPrd_desc());   //Referente ao indice da interogação
-            pstm.setInt(2, produto.getPrd_estoqueminimo());
-            pstm.setInt(3, produto.getPrd_estoqueatual());
+            pstm.setString(1, produto.getDesc());   //Referente ao indice da interogação
+            pstm.setInt(2, produto.getEstoqueMinimo());
+            pstm.setInt(3, produto.getEstoqueAtual());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -47,7 +47,7 @@ public class DAOProdutoImpl implements DAOProduto {
         String sql = "DELETE FROM produto WHERE (prd_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, produto.getPrd_id());
+            pstm.setInt(1, produto.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -62,10 +62,10 @@ public class DAOProdutoImpl implements DAOProduto {
         String sql = "UPDATE produto SET prd_desc=?, prd_estoqueminimo=?, prd_estoqueatual=?  WHERE (prd_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, produto.getPrd_desc());
-            pstm.setInt(2, produto.getPrd_estoqueminimo());
-            pstm.setInt(3, produto.getPrd_estoqueatual());
-            pstm.setInt(4, produto.getPrd_id());
+            pstm.setString(1, produto.getDesc());
+            pstm.setInt(2, produto.getEstoqueMinimo());
+            pstm.setInt(3, produto.getEstoqueAtual());
+            pstm.setInt(4, produto.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -85,10 +85,10 @@ public class DAOProdutoImpl implements DAOProduto {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 prd = new Produto();
-                prd.setPrd_id(rs.getInt("prd_id"));
-                prd.setPrd_desc(rs.getString("prd_desc"));
-                prd.setPrd_estoqueminimo(rs.getInt("prd_estoqueminimo"));
-                prd.setPrd_estoqueatual(rs.getInt("prd_estoqueatual"));
+                prd.setId(rs.getInt("prd_id"));
+                prd.setDesc(rs.getString("prd_desc"));
+                prd.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
+                prd.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
             }
             return prd;
         } catch (SQLException e) {
@@ -109,10 +109,10 @@ public class DAOProdutoImpl implements DAOProduto {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 prd = new Produto();
-                prd.setPrd_id(rs.getInt("prd_id"));
-                prd.setPrd_desc(rs.getString("prd_desc"));
-                prd.setPrd_estoqueminimo(rs.getInt("prd_estoqueminimo"));
-                prd.setPrd_estoqueatual(rs.getInt("prd_estoqueatual"));
+                prd.setId(rs.getInt("prd_id"));
+                prd.setDesc(rs.getString("prd_desc"));
+                prd.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
+                prd.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
             }
             return prd;
         } catch (SQLException e) {
@@ -133,10 +133,10 @@ public class DAOProdutoImpl implements DAOProduto {
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 prd = new Produto();
-                prd.setPrd_id(rs.getInt("prd_id"));
-                prd.setPrd_desc(rs.getString("prd_desc"));
-                prd.setPrd_estoqueminimo(rs.getInt("prd_estoqueminimo"));
-                prd.setPrd_estoqueatual(rs.getInt("prd_estoqueatual"));
+                prd.setId(rs.getInt("prd_id"));
+                prd.setDesc(rs.getString("prd_desc"));
+                prd.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
+                prd.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
                 lista.add(prd);
             }
             return lista;
