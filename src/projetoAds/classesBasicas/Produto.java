@@ -11,6 +11,10 @@ public class Produto {
     private String desc;
     private Integer id;
     private Fabricante fabricante;
+    
+    public Produto(){
+        fabricante = new Fabricante();
+    }
 
     /**
      * @return the estoqueMinimo
