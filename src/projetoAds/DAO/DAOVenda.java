@@ -1,6 +1,7 @@
 package projetoAds.DAO;
 
 import java.util.ArrayList;
+import projetoAds.classesBasicas.Pedido;
 import projetoAds.classesBasicas.Venda;
 import projetoAds.excecao.ConexaoException;
 import projetoAds.excecao.DAOException;
@@ -36,10 +37,10 @@ public interface DAOVenda {
       * Busca um registro no BD com o id do Pedido informado
       * @param id Parametro da busca
       * @return Objeto encontrado ou null
-      * @throws ConexaoException                  ######CAUTION##### -- REVIEW
+      * @throws ConexaoException
       * @throws DAOException 
       */
-    public Venda pesquisar(Integer id) throws ConexaoException, DAOException;
+    public Pedido pesquisar(Integer id) throws ConexaoException, DAOException;
 
     
     /**

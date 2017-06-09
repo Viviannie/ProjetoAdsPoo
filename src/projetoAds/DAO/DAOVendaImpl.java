@@ -16,7 +16,7 @@ import projetoAds.excecao.DAOException;
   * @author Grupo Programação Orientada a Objetos
   */
 public class DAOVendaImpl implements DAOVenda {
-    private ConexaoBD con;
+    private final ConexaoBD con; //why final?
     
     public DAOVendaImpl(){
         con = Conectar.getInstancia();
