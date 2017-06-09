@@ -9,9 +9,8 @@ import projetoAds.excecao.DAOException;
 import projetoAds.excecao.RegraException;
 
 /**
- *
- * @author Annie
- */
+  * @author Grupo Programação Orientada a Objetos
+  */
 public class RNCliente {
 
     //precisa validar
