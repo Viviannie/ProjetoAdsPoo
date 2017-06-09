@@ -17,7 +17,7 @@ import projetoAds.excecao.DAOException;
   */
 
 public class DAOPedidoImpl implements DAOPedido{
-      private ConexaoBD con;
+      private final ConexaoBD con; //why final?
     
     public DAOPedidoImpl(){
         con = Conectar.getInstancia();
@@ -34,7 +34,7 @@ public class DAOPedidoImpl implements DAOPedido{
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
-        } finally {          //o bloco do finally será sempre executado, sempre. 
+        } finally {
             con.desconectar(c);
         }
     }
