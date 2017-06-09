@@ -14,7 +14,7 @@ import projetoAds.excecao.DAOException;
 
 /**
  *
- * @author GRUPO
+ * @author Grupo Programação Orientada a Objetos
  */
 public class DAOPagamentoImpl implements DAOPagamento {
     
@@ -30,9 +30,9 @@ public class DAOPagamentoImpl implements DAOPagamento {
         String sql = "INSERT INTO pagamento (fag_id, fag_valor, ped_id) VALUES (?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pagamento.getPag_id());
-            pstm.setDouble(2, pagamento.getPag_valor());
-            pstm.setInt(3, pagamento.getPedido().getPed_id());
+            pstm.setInt(1, pagamento.getId());
+            pstm.setDouble(2, pagamento.getValor());
+            pstm.setInt(3, pagamento.getPedido().getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -47,7 +47,7 @@ public class DAOPagamentoImpl implements DAOPagamento {
         String sql = "DELETE FROM pagamento WHERE pag_id = ?";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pagamento.getPag_id());
+            pstm.setInt(1, pagamento.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -62,9 +62,9 @@ public class DAOPagamentoImpl implements DAOPagamento {
         String sql = "UPDATE pagamento SET pag_valor=?, ped_id=? WHERE pag_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setDouble(1, pagamento.getPag_valor());
-            pstm.setInt(2, pagamento.getPedido().getPed_id());
-            pstm.setInt(3, pagamento.getPag_id());
+            pstm.setDouble(1, pagamento.getValor());
+            pstm.setInt(2, pagamento.getPedido().getId());
+            pstm.setInt(3, pagamento.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -84,9 +84,9 @@ public class DAOPagamentoImpl implements DAOPagamento {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 pagamento = new Pagamento();
-                pagamento.setPag_id(rs.getInt("pag_id"));
-                pagamento.setPag_valor(rs.getDouble("pag_valor"));
-                pagamento.getPedido().setPed_id(rs.getInt("ped_id"));
+                pagamento.setId(rs.getInt("pag_id"));
+                pagamento.setValor(rs.getDouble("pag_valor"));
+                pagamento.getPedido().setId(rs.getInt("ped_id"));
             }
             return pagamento;
         } catch (SQLException e) {
@@ -107,9 +107,9 @@ public class DAOPagamentoImpl implements DAOPagamento {
             ResultSet rs = stm.executeQuery("sql");
             while (rs.next()) {
                 pagamento = new Pagamento();
-                pagamento.setPag_id(rs.getInt("pag_id"));
-                pagamento.setPag_valor(rs.getDouble("pag_valor"));
-                pagamento.getPedido().setPed_id(rs.getInt("ped_id"));
+                pagamento.setId(rs.getInt("pag_id"));
+                pagamento.setValor(rs.getDouble("pag_valor"));
+                pagamento.getPedido().setId(rs.getInt("ped_id"));
                 lista.add(pagamento);
             }
             return lista;

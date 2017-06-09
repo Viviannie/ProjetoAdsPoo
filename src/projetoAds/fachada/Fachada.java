@@ -32,24 +32,24 @@ public class Fachada {
     }
     
     public void excluirCliente(Cliente c)throws RegraException{
-        rnCliente.validaCpf(c.getCli_cpf());
+        rnCliente.validaCpf(c.getCpf());
         rnCliente.excluir(c);
     }
     
     public void alterarCliente(Cliente c)throws RegraException{
         rnCliente.validar(c);
-        rnCliente.validaCpf(c.getCli_cpf());
+        rnCliente.validaCpf(c.getCpf());
         rnCliente.alterar(c);
     }
     
     public Cliente pesquisarClienteNome(Cliente c)throws RegraException{
         rnCliente.validar(c);
-        return rnCliente.pesquisar(c.getCli_nome());
+        return rnCliente.pesquisar(c.getNome());
     }
     
     public Cliente pesquisarClienteCpf(Cliente c)throws RegraException{
-        rnCliente.validaCpf(c.getCli_cpf());
-        return rnCliente.pesquisar(c.getCli_cpf());
+        rnCliente.validaCpf(c.getCpf());
+        return rnCliente.pesquisar(c.getCpf());
     }
     
     public ArrayList<Cliente> listarCliente()throws RegraException{
