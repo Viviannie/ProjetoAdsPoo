@@ -1,7 +1,5 @@
 package projetoAds.classesBasicas;
 
-import java.util.ArrayList;
-
 /**
   * @author Grupo Programação Orientada a Objetos
   */

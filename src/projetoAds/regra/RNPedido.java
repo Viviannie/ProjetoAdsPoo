@@ -70,20 +70,12 @@ public class RNPedido {
         if (pedido.getData() == null) {
             throw new RegraException("Data inválida.");
         }
-        
-        if(pedido.getCliente().getCli_cpf() == null){
-            throw new RegraException("CPF inválido.");
-        }
-        
-        if(pedido.getVendedor().getVend_id() == null){
-            throw new RegraException("ID inválido.");
-        }
     }
 
     /**
      * Verifica se uma nova descrição já existe no BD
      *
-     * @param d Objeto com os dados
+     * @param pedido Objeto com os dados
      * @throws RegraException
      */
     public void verificaDuplicidade(Pedido pedido) throws RegraException {
