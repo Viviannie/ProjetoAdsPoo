@@ -61,7 +61,7 @@ public interface DAOCliente {
     /**
      * Retorna uma lista com todos os registros de Clientes
      *
-     * @return Objeto contendo todos os registros encontrados
+     * @return Objeto contendo tdoos os registros encontrados
      * @throws ConexaoException
      * @throws DAOException
      */
