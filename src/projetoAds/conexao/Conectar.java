@@ -35,7 +35,7 @@ public class Conectar implements ConexaoBD {
     */
 
     //@Singleton 
-    public static Conectar getInstancia() {           //precisa ser static
+    public static Conectar getInstancia() {
         if (instancia == null) {
             instancia = new Conectar();
         }
@@ -49,11 +49,10 @@ public class Conectar implements ConexaoBD {
      */
     @Override
     public Connection conectar() throws ConexaoException {
-
         Connection con;
         try {
             con = DriverManager.getConnection(url, usuario, senha);
-            return con;
+            return con;//Retorna uma conexão com o bd se todos os dados acima forém validos
         } catch (SQLException e) {
             throw new ConexaoException(e);
         }
@@ -62,7 +61,7 @@ public class Conectar implements ConexaoBD {
     @Override
     public void desconectar(Connection con) throws ConexaoException {
         try {
-            con.close();
+            con.close(); // Encerra a conexão com o bd
         } catch (SQLException e) {
             throw new ConexaoException(e);
         }
