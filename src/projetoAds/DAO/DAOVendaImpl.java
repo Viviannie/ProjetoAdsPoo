@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import projetoAds.classesBasicas.Pedido;
 import projetoAds.classesBasicas.Venda;
 import projetoAds.conexao.Conectar;
 import projetoAds.conexao.ConexaoBD;
@@ -91,7 +90,7 @@ public class DAOVendaImpl implements DAOVenda {
                 vend.getPedido().setId(rs.getInt("ped_id"));
                 vend.getProduto().setId(rs.getInt("prd_id"));
                 vend.getPrecoUnitario(rs.getDouble("prc_unitario"));
-                vend.setQuantidadeProduto(rs.getInt("qtd_produtos"));
+                vend.getQuantidadeProduto(rs.getInt("qtd_produtos"));
             }
             return vend;
         } catch (SQLException e) {
