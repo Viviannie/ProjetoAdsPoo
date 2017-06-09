@@ -6,24 +6,24 @@ package projetoAds.classesBasicas;
  */
 public class Produto {
 
-    private Integer estoqueMinino;
+    private Integer estoqueMinimo;
     private Integer estoqueAtual;
     private String desc;
     private Integer id;
     private Fabricante fabricante;
 
     /**
-     * @return the estoqueMinino
+     * @return the estoqueMinimo
      */
-    public Integer getEstoqueMinino() {
-        return estoqueMinino;
+    public Integer getEstoqueMinimo() {
+        return estoqueMinimo;
     }
 
     /**
-     * @param estoqueMinino the estoqueMinino to set
+     * @param estoqueMinimo the estoqueMinimo to set
      */
-    public void setEstoqueMinino(Integer estoqueMinino) {
-        this.estoqueMinino = estoqueMinino;
+    public void setEstoqueMinimo(Integer estoqueMinimo) {
+        this.estoqueMinimo = estoqueMinimo;
     }
 
     /**
