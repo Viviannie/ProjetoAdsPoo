@@ -89,8 +89,8 @@ public class DAOVendaImpl implements DAOVenda {
                 vend = new Venda();
                 vend.getPedido().setId(rs.getInt("ped_id"));
                 vend.getProduto().setId(rs.getInt("prd_id"));
-                vend.getPrecoUnitario(rs.getDouble("prc_unitario"));
-                vend.getQuantidadeProduto(rs.getInt("qtd_produtos"));
+                vend.setPrecoUnitario(rs.getDouble("prc_unitario"));
+                vend.setQuantidadeProduto(rs.getInt("qtd_produtos"));
             }
             return vend;
         } catch (SQLException e) {
@@ -114,8 +114,8 @@ public class DAOVendaImpl implements DAOVenda {
                 vend = new Venda();
                 vend.getPedido().setId(rs.getInt("ped_id"));
                 vend.getProduto().setId(rs.getInt("prd_id"));
-                vend.getPrecoUnitario(rs.getDouble("prc_unitario"));
-                vend.getQuantidadeProduto(rs.getInt("qtd_produtos"));
+                vend.setPrecoUnitario(rs.getDouble("prc_unitario"));
+                vend.setQuantidadeProduto(rs.getInt("qtd_produtos"));
                 lista.add(vend);
             }
             return lista;

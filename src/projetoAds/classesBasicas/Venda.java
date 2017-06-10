@@ -26,14 +26,6 @@ public class Venda {
     }
     
     /**
-      * @param precoUnitario
-      * @return the precoUnitario a partir do preço que foi informado
-      */
-    public Double getPrecoUnitario(Double precoUnitario) {
-        return precoUnitario;
-    }
-
-    /**
       * @param precoUnitario the precoUnitario to set
       */
     public void setPrecoUnitario(Double precoUnitario) {
