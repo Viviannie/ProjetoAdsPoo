@@ -81,6 +81,20 @@ public class RNFormaPag {
         }
     }
 
+    public void verificaDuplicidade(FormaPag f) throws RegraException {
+
+        try {
+
+            FormaPag x = dao.pesquisar(f.getId());
+            if (x != null) {
+                throw new RegraException("Forma de pagamento já escolhida.");
+            }
+
+        } catch (ConexaoException | DAOException e) {
+            throw new RegraException(e.getMessage());
+        }
+    }
+    
     /**
      * Verifica se um ID passado é válido e existe no BD
      *

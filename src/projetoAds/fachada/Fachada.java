@@ -108,6 +108,11 @@ public class Fachada {
         return rnPagamento.pesquisar(g.getId());
     }
 
+    /**
+     *
+     * @return
+     * @throws RegraException
+     */
     public ArrayList<Pagamento> listarPagamentos() throws RegraException {
         return rnPagamento.listar();
     }

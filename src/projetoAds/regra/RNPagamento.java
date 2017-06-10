@@ -73,6 +73,10 @@ public class RNPagamento {
         }
 
         if (g.getFormaPag().getId() == null) {
+            throw new RegraException("Forma de pagamento inválida.");
+        }
+        
+        if (g.getPedido().getId() == null){
             throw new RegraException("Pedido inválido.");
         }
     }
@@ -87,9 +91,9 @@ public class RNPagamento {
 
         try {
 
-            Pagamento x = dao.pesquisar(g.getId());
+            Pagamento x = dao.pesquisar(g.getFormaPag().getId());
             if (x != null) {
-                throw new RegraException("Pagamento já efetuado.");
+                throw new RegraException("Forma de pagamento já escolhida.");
             }
 
         } catch (ConexaoException | DAOException e) {
