@@ -100,7 +100,6 @@ public class DAOVendaImpl implements DAOVenda {
         }
     }
     
-    // primeiro devo saber quem é o id e ai listar a partir desse id
     @Override
     public ArrayList<Venda> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
