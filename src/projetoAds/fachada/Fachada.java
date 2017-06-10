@@ -108,7 +108,6 @@ public class Fachada {
     
     public void salvarFormaPag(FormaPag f) throws RegraException{
         rnFormaPag.validar(f);
-        rnFormaPag.verificaDuplicidade(f);
         rnFormaPag.incluir(f);
     }
     

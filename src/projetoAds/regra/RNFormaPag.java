@@ -79,29 +79,6 @@ public class RNFormaPag {
         if ((f.getDesc() == null) || (f.getDesc().trim().equals(" "))) {
             throw new RegraException("Descrição inválida.");
         }
-
-        if (f.getPagamento().getId() == null) {
-            throw new RegraException("Pagamento inválido.");
-        }
-    }
-
-    /**
-     * Verifica se a nova descrição já existe no BD
-     *
-     * @param f Objeto com os dados
-     * @throws RegraException
-     */
-    public void verificaDuplicidade(FormaPag f) throws RegraException {
-
-        try {
-
-            FormaPag x = dao.pesquisar(f.getDesc()); 
-            if (x != null) {
-                throw new RegraException("Forma de pagamento existente.");
-            }
-        } catch (ConexaoException | DAOException e) {
-            throw new RegraException(e.getMessage());
-        }
     }
 
     /**

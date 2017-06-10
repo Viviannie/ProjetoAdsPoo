@@ -8,10 +8,24 @@ public class Pagamento {
 
     private Double valor;
     private Integer id;
-    private Pedido pedido;
+    private FormaPag formapag;
 
     public Pagamento() {
-        pedido = new Pedido();
+        formapag = new FormaPag();
+    }
+
+    /**
+     * @return the FormaPag
+     */
+    public FormaPag getFormaPag() {
+        return formapag;
+    }
+
+    /**
+     * @param formapag the valor to set
+     */
+    public void setFormaPag(FormaPag formapag) {
+        this.formapag = formapag;
     }
 
     /**
@@ -26,20 +40,6 @@ public class Pagamento {
      */
     public void setValor(Double valor) {
         this.valor = valor;
-    }
-
-    /**
-     * @return the pedido
-     */
-    public Pedido getPedido() {
-        return pedido;
-    }
-
-    /**
-     * @param pedido the pedido to set
-     */
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
     }
 
     /**

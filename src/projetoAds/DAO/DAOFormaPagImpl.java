@@ -27,12 +27,11 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public void incluir(FormaPag formaPag) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "INSERT INTO Forma_Pag (frm_id, frm_desc, pag_id) VALUES (?,?,?)";
+        String sql = "INSERT INTO Forma_Pag (frm_id, frm_desc) VALUES (?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, formaPag.getId());
             pstm.setString(2, formaPag.getDesc());
-            pstm.setInt(3, formaPag.getPagamento().getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -76,7 +75,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public FormaPag pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT frm_id, frm_desc, pag_id FROM Forma_Pag WHERE (frm_id=?)";
+        String sql = "SELECT frm_id, frm_desc FROM Forma_Pag WHERE (frm_id=?)";
         FormaPag formaPag = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -86,7 +85,6 @@ public class DAOFormaPagImpl implements DAOFormaPag {
                 formaPag = new FormaPag();
                 formaPag.setId(rs.getInt("frm_id"));
                 formaPag.setDesc(rs.getString("frm_desc"));
-                formaPag.getPagamento().setId(rs.getInt("pag_id"));
             }
             return formaPag;
         } catch (SQLException e) {
@@ -99,7 +97,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public FormaPag pesquisar(String desc) throws ConexaoException,DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT frm_id, frm_desc, pag_id FROM Forma_Pag WHERE (frm_desc=?)";
+        String sql = "SELECT frm_id, frm_desc FROM Forma_Pag WHERE (frm_desc=?)";
         FormaPag formaPag = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -109,7 +107,6 @@ public class DAOFormaPagImpl implements DAOFormaPag {
                 formaPag = new FormaPag();
                 formaPag.setId(rs.getInt("frm_id"));
                 formaPag.setDesc(rs.getString("frm_desc"));
-                formaPag.getPagamento().setId(rs.getInt("pag_id"));
             }
             return formaPag;
         } catch (SQLException e) {
@@ -122,7 +119,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
     @Override
     public ArrayList<FormaPag> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT frm_id, frm_desc, pag_id FROM Forma_Pag";
+        String sql = "SELECT frm_id, frm_desc FROM Forma_Pag";
         ArrayList<FormaPag> lista = new ArrayList();
         FormaPag formaPag;
         try {
@@ -132,7 +129,6 @@ public class DAOFormaPagImpl implements DAOFormaPag {
                 formaPag = new FormaPag();
                 formaPag.setId(rs.getInt("frm_id"));
                 formaPag.setDesc(rs.getString("frm_desc"));
-                formaPag.getPagamento().setId(rs.getInt("pag_id"));
                 lista.add(formaPag);
             }
             return lista;

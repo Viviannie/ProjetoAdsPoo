@@ -72,7 +72,7 @@ public class RNPagamento {
             throw new RegraException("ID inválida.");
         }
 
-        if (g.getPedido().getId() == null) {
+        if (g.getFormaPag().getId() == null) {
             throw new RegraException("Pedido inválido.");
         }
     }

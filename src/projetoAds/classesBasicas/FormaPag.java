@@ -8,11 +8,6 @@ public class FormaPag {
 
     private String desc;
     private Integer id;
-    private Pagamento pagamento;
-
-    public FormaPag() {
-        pagamento = new Pagamento();    //Criando a ligação entre as entidades
-    }
 
     /**
      * @return the desc
@@ -26,20 +21,6 @@ public class FormaPag {
      */
     public void setDesc(String desc) {
         this.desc = desc;
-    }
-
-    /**
-     * @return the pagamento
-     */
-    public Pagamento getPagamento() {
-        return pagamento;
-    }
-
-    /**
-     * @param pagamento the pagamento to set
-     */
-    public void setPagamento(Pagamento pagamento) {
-        this.pagamento = pagamento;
     }
 
     /**

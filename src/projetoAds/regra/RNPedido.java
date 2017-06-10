@@ -73,24 +73,6 @@ public class RNPedido {
     }
 
     /**
-     * Verifica se uma nova descrição já existe no BD
-     *
-     * @param pedido Objeto com os dados
-     * @throws RegraException
-     */
-    public void verificaDuplicidade(Pedido pedido) throws RegraException {
-
-        try {
-            Pedido ped = dao.pesquisar(pedido.getId());
-            if (ped != null) {
-                throw new RegraException("Pedido já realizado.");
-            }
-        } catch (ConexaoException | DAOException e) {
-            throw new RegraException(e.getMessage());
-        }
-    }
-
-    /**
      * Verifica se um ID passado é válido e existe no BD
      *
      * @param id Para validação
