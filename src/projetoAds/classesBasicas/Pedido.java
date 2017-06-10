@@ -1,5 +1,7 @@
 package projetoAds.classesBasicas;
 
+import java.util.ArrayList;
+
 /**
   * @author Grupo Programação Orientada a Objetos
   */
@@ -9,7 +11,7 @@ public class Pedido {
     private Integer id;
     private Cliente cliente;
     private Vendedor vendedor;
-    private Venda venda;
+    private ArrayList<Venda> venda;
     
     /**
       * usado por padrão para que seja criada uma instancia 
@@ -18,7 +20,7 @@ public class Pedido {
     public Pedido() {
         cliente = new Cliente();
         vendedor = new Vendedor();
-        venda = new Venda();
+        venda = new ArrayList<>();
     }
 
     /**
@@ -36,14 +38,14 @@ public class Pedido {
     }
 
     /**
-     * @return the codigo
+     * @return the id
      */
     public Integer getId() {
         return id;
     }
 
     /**
-     * @param id the codigo to set
+     * @param id the id to set
      */
     public void setId(Integer id) {
         this.id = id;
@@ -80,14 +82,14 @@ public class Pedido {
     /**
      * @return the venda
      */
-    public Venda getVenda() {
+    public ArrayList<Venda> getVenda() {
         return venda;
     }
 
     /**
      * @param venda the venda to set
      */
-    public void setVenda(Venda venda) {
+    public void setVenda(ArrayList<Venda> venda) {
         this.venda = venda;
     }
  
