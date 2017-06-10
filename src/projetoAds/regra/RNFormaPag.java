@@ -85,7 +85,7 @@ public class RNFormaPag {
 
         try {
 
-            FormaPag x = dao.pesquisar(f.getId());
+            FormaPag x = dao.pesquisar(f.getDesc());
             if (x != null) {
                 throw new RegraException("Forma de pagamento já escolhida.");
             }
@@ -111,6 +111,23 @@ public class RNFormaPag {
             FormaPag x = dao.pesquisar(id);
             if (x == null) {
                 throw new RegraException("ID informado não existe.");
+            }
+
+        } catch (ConexaoException | DAOException e) {
+            throw new RegraException(e.getMessage());
+        }
+    }
+    
+    public void validaDesc(String desc) throws RegraException {
+
+        if (desc == null) {
+            throw new RegraException("Descrição inválida.");
+        }
+
+        try {
+            FormaPag x = dao.pesquisar(desc);
+            if (x == null) {
+                throw new RegraException("Descrição informada não existe.");
             }
 
         } catch (ConexaoException | DAOException e) {

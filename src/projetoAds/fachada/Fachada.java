@@ -94,7 +94,7 @@ public class Fachada {
     
     public void salvarPagamento(Pagamento g) throws RegraException { //por que teve que colocar a exceção?
         rnPagamento.validar(g);
-        rnPagamento.verificaDuplicidade(g);
+        rnPagamento.validaId(g.getId());
         rnPagamento.incluir(g);
     }
 
@@ -129,6 +129,7 @@ public class Fachada {
     
     public void salvarFormaPag(FormaPag f) throws RegraException{
         rnFormaPag.validar(f);
+        rnFormaPag.verificaDuplicidade(f);
         rnFormaPag.incluir(f);
     }
     
@@ -149,7 +150,7 @@ public class Fachada {
     }
     
     public FormaPag pesquisarFormaPagPorDesc(FormaPag f) throws RegraException{
-        rnFormaPag.validar(f);
+        rnFormaPag.validaDesc(f.getDesc());
         return rnFormaPag.pesquisar(f.getDesc());
     }
     

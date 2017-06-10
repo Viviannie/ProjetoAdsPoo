@@ -75,29 +75,9 @@ public class RNPagamento {
         if (g.getFormaPag().getId() == null) {
             throw new RegraException("Forma de pagamento inválida.");
         }
-        
-        if (g.getPedido().getId() == null){
+
+        if (g.getPedido().getId() == null) {
             throw new RegraException("Pedido inválido.");
-        }
-    }
-
-    /**
-     * Verifica se uma nova descrição já existe no BD
-     *
-     * @param g Objeto com os dados
-     * @throws RegraException
-     */
-    public void verificaDuplicidade(Pagamento g) throws RegraException {
-
-        try {
-
-            Pagamento x = dao.pesquisar(g.getFormaPag().getId());
-            if (x != null) {
-                throw new RegraException("Forma de pagamento já escolhida.");
-            }
-
-        } catch (ConexaoException | DAOException e) {
-            throw new RegraException(e.getMessage());
         }
     }
 
