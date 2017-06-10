@@ -39,16 +39,16 @@ public class RNCliente {
             throw new RegraException(e.getMessage());
         }
     }
-    public Cliente pesquisarNome (String cli_nome) throws RegraException {
+    public Cliente pesquisarNome (String nome) throws RegraException {
         try {
-            return dao.pesquisar(cli_nome);
+            return dao.pesquisar(nome);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
-    public Cliente pesquisar(String cli_cpf) throws RegraException {
+    public Cliente pesquisar(String cpf) throws RegraException {
         try {
-            return dao.pesquisar(cli_cpf);
+            return dao.pesquisar(cpf);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
@@ -70,10 +70,10 @@ public class RNCliente {
      */
     public void validar(Cliente c) throws RegraException {
 
-        if ((c.getCli_nome() == null) || (c.getCli_nome().trim().equals(""))) {
+        if ((c.getNome() == null) || (c.getNome().trim().equals(""))) {
             throw new RegraException("Nome inválido");
         }
-        if ((c.getCli_cpf() == null) || (c.getCli_cpf().trim().equals("")) || (c.getCli_cpf().trim().length() != 11)) {
+        if ((c.getCpf() == null) || (c.getCpf().trim().equals("")) || (c.getCpf().trim().length() != 11)) {
             throw new RegraException("CPF inválido");
         }
     }
@@ -88,7 +88,7 @@ public class RNCliente {
 
         try {
 
-            Cliente x = dao.pesquisar(c.getCli_cpf());
+            Cliente x = dao.pesquisar(c.getCpf());
             if (x != null) {
                 throw new RegraException("Cliente existente.");
             }
@@ -100,16 +100,16 @@ public class RNCliente {
     /**
      * Verifica se um ID passado é válido e existe no BD
      *
-     * @param cli_cpf Para validação
+     * @param cpf Para validação
      * @throws RegraException Caso o ID não seja localizado
      */
-    public void validaCpf(String cli_cpf) throws RegraException {
+    public void validaCpf(String cpf) throws RegraException {
         
-        if (cli_cpf == null) {
+        if (cpf == null) {
             throw new RegraException("CPF inválido!");
         }
         try {
-            Cliente x = dao.pesquisar(cli_cpf);
+            Cliente x = dao.pesquisar(cpf);
             if (x == null) {
                 throw new RegraException("CPF informado não existe.");
             }
