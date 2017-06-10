@@ -198,7 +198,7 @@ public class Fachada {
     public Pedido pesquisar(Integer id) throws RegraException {
         return null; // falta implementar
     }
-    public ArrayList<Pedido> listar() throws RegraException {
+    public ArrayList<Pedido> listarPedido() throws RegraException {
         return rnPedido.listar(); // falta implementar
     }
     
@@ -215,10 +215,10 @@ public class Fachada {
     public void alterar(Venda venda) throws RegraException {
         rnVenda.alterar(venda); // falta implementar
     }
-    public Venda pesquisar(Integer id) throws RegraException {
+    public Venda pesquisarVenda(Integer id) throws RegraException {
         return null; // falta implementar
     }
-    public ArrayList<Venda> listar() throws RegraException {
+    public ArrayList<Venda> listarVenda() throws RegraException {
         return rnVenda.listar(); // falta implementar
     }
     
