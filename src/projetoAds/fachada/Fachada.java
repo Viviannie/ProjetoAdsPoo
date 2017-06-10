@@ -11,6 +11,7 @@ import projetoAds.excecao.RegraException;
 import projetoAds.regra.RNCliente;
 import projetoAds.regra.RNFormaPag;
 import projetoAds.regra.RNPagamento;
+import projetoAds.regra.RNPedido;
 import projetoAds.regra.RNVenda;
 import projetoAds.regra.RNVendedor;
 
@@ -26,6 +27,7 @@ public class Fachada {
     private static RNFormaPag rnFormaPag;
     private static RNVendedor rnVendedor;
     private static RNVenda rnVenda;
+    private static RNPedido rnPedido;
 
     private Fachada() {
         rnCliente = new RNCliente();
@@ -180,10 +182,25 @@ public class Fachada {
      * Pedido
      *########################################################################*/
     
+    public void incluir(Pedido pedido) throws RegraException {
+        rnPedido.incluir(pedido); // falta implementar
+    }
     
+    public void excluir(Pedido pedido) throws RegraException {
+        rnPedido.excluir(pedido); // falta implementar
+    }
+    public void alterar(Pedido pedido) throws RegraException {
+        rnPedido.alterar(pedido); // falta implementar
+    }
+    public Pedido pesquisar(Integer id) throws RegraException {
+        return null; // falta implementar
+    }
+    public ArrayList<Pedido> listar() throws RegraException {
+        return rnPedido.listar(); // falta implementar
+    }
     
     /*#########################################################################
-     * VENDA
+     * Venda
      *########################################################################*/
     public void incluir(Venda venda) throws RegraException {
         rnVenda.incluir(venda); // falta implementar
