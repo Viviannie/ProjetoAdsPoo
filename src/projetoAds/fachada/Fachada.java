@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import projetoAds.classesBasicas.Cliente;
 import projetoAds.classesBasicas.FormaPag;
 import projetoAds.classesBasicas.Pagamento;
+import projetoAds.classesBasicas.Pedido;
+import projetoAds.classesBasicas.Venda;
 import projetoAds.classesBasicas.Vendedor;
 import projetoAds.excecao.RegraException;
 import projetoAds.regra.RNCliente;
 import projetoAds.regra.RNFormaPag;
 import projetoAds.regra.RNPagamento;
+import projetoAds.regra.RNVenda;
 import projetoAds.regra.RNVendedor;
 
 /**
@@ -22,12 +25,14 @@ public class Fachada {
     private static RNPagamento rnPagamento;
     private static RNFormaPag rnFormaPag;
     private static RNVendedor rnVendedor;
+    private static RNVenda rnVenda;
 
     private Fachada() {
         rnCliente = new RNCliente();
         rnPagamento = new RNPagamento();
         rnFormaPag = new RNFormaPag();
         rnVendedor = new RNVendedor();
+        rnVenda = new RNVenda();
     }
 
     public static Fachada getInstancia() {
@@ -171,4 +176,29 @@ public class Fachada {
         return rnVendedor.listar();
     }
     
+    /*#########################################################################
+     * Pedido
+     *########################################################################*/
+    
+    
+    
+    /*#########################################################################
+     * VENDA
+     *########################################################################*/
+    public void incluir(Venda venda) throws RegraException {
+        rnVenda.incluir(venda); // falta implementar
+    }
+    
+    public void excluir(Venda venda) throws RegraException {
+        rnVenda.excluir(venda); // falta implementar
+    }
+    public void alterar(Venda venda) throws RegraException {
+        rnVenda.alterar(venda); // falta implementar
+    }
+    public Venda pesquisar(Integer id) throws RegraException {
+        return null; // falta implementar
+    }
+    public ArrayList<Venda> listar() throws RegraException {
+        return rnVenda.listar(); // falta implementar
+    }
 }    
