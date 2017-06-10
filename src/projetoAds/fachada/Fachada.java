@@ -6,6 +6,7 @@ import projetoAds.classesBasicas.Fabricante;
 import projetoAds.classesBasicas.FormaPag;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.classesBasicas.Pedido;
+import projetoAds.classesBasicas.Produto;
 import projetoAds.classesBasicas.Venda;
 import projetoAds.classesBasicas.Vendedor;
 import projetoAds.excecao.RegraException;
@@ -14,6 +15,7 @@ import projetoAds.regra.RNFabricante;
 import projetoAds.regra.RNFormaPag;
 import projetoAds.regra.RNPagamento;
 import projetoAds.regra.RNPedido;
+import projetoAds.regra.RNProduto;
 import projetoAds.regra.RNVenda;
 import projetoAds.regra.RNVendedor;
 
@@ -31,6 +33,7 @@ public class Fachada {
     private static RNVenda rnVenda;
     private static RNPedido rnPedido;
     private static RNFabricante rnFabricante;
+    private static RNProduto rnProduto;
 
     private Fachada() {
         rnCliente = new RNCliente();
@@ -38,6 +41,9 @@ public class Fachada {
         rnFormaPag = new RNFormaPag();
         rnVendedor = new RNVendedor();
         rnVenda = new RNVenda();
+        rnPedido = new RNPedido();
+        rnFabricante = new RNFabricante();
+        rnProduto = new RNProduto();
     }
 
     public static Fachada getInstancia() {
@@ -256,4 +262,42 @@ public class Fachada {
     public ArrayList<Fabricante> listarFabricante() throws RegraException {
         return rnFabricante.listar();
     }
+    
+    /*#########################################################################
+     * PRODUTO
+     *########################################################################*/
+    
+    public void salvarProduto(Produto p) throws RegraException {
+        rnProduto.validar(p);
+        rnFabricante.validaCnpj(p.getFabricante().getCnpj());
+        rnProduto.verificaDuplicidade(p);
+        rnProduto.incluir(p);
+    }
+
+    public void excluirProduto(Produto p) throws RegraException {
+        rnProduto.validaId(p.getId());
+        rnProduto.excluir(p);
+    }
+
+    public void alterarProduto(Produto p) throws RegraException {
+        rnProduto.validar(p);
+        rnFabricante.validaCnpj(p.getFabricante().getCnpj());
+        rnProduto.validaId(p.getId());
+        rnProduto.alterar(p);
+    }
+
+    public Produto pesquisarProdutoDesc(Produto p) throws RegraException {
+        rnProduto.validaDesc(p.getDesc());
+        return rnProduto.pesquisar(p.getDesc());
+    }
+
+    public Produto pesquisarProdutoId(Produto p) throws RegraException {
+        rnProduto.validaId(p.getId());
+        return rnProduto.pesquisar(p.getId());
+    }
+
+    public ArrayList<Produto> listarProduto() throws RegraException {
+        return rnProduto.listar();
+    }
+    
 }    
