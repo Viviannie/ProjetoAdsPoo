@@ -161,23 +161,23 @@ public class Fachada {
      * VENDEDOR
      *########################################################################*/
     
-    public void salvarCliente(Vendedor v) throws RegraException {
+    public void salvarVendedor(Vendedor v) throws RegraException {
         rnVendedor.validar(v);
         rnVendedor.incluir(v);
     }
 
-    public void excluirCliente(Vendedor v) throws RegraException {
+    public void excluirVendedor(Vendedor v) throws RegraException {
         rnVendedor.validaId(v.getId());
         rnVendedor.excluir(v);
     }
 
-    public void alterarCliente(Vendedor v) throws RegraException {
+    public void alterarVendedor(Vendedor v) throws RegraException {
         rnVendedor.validar(v);
         rnVendedor.validaId(v.getId());
         rnVendedor.alterar(v);
     }
 
-    public Vendedor pesquisarClienteNome(Vendedor v) throws RegraException {
+    public Vendedor pesquisarVendedorNome(Vendedor v) throws RegraException {
         rnVendedor.validar(v);
         return rnVendedor.pesquisar(v.getNome());
     }
