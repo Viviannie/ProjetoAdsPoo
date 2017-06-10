@@ -67,7 +67,7 @@ public class RNPedido {
              throw new RegraException("ID inválido.");
         }
         
-        if ((pedido.getData() == null) | (pedido.getId() == 0)){
+        if ((pedido.getData() == null) | (pedido.getData().trim().equals(""))){
              throw new RegraException("Data inválida.");
         }
     }
