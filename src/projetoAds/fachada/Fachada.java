@@ -2,6 +2,7 @@ package projetoAds.fachada;
 
 import java.util.ArrayList;
 import projetoAds.classesBasicas.Cliente;
+import projetoAds.classesBasicas.Fabricante;
 import projetoAds.classesBasicas.FormaPag;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.classesBasicas.Pedido;
@@ -9,6 +10,7 @@ import projetoAds.classesBasicas.Venda;
 import projetoAds.classesBasicas.Vendedor;
 import projetoAds.excecao.RegraException;
 import projetoAds.regra.RNCliente;
+import projetoAds.regra.RNFabricante;
 import projetoAds.regra.RNFormaPag;
 import projetoAds.regra.RNPagamento;
 import projetoAds.regra.RNPedido;
@@ -28,6 +30,7 @@ public class Fachada {
     private static RNVendedor rnVendedor;
     private static RNVenda rnVenda;
     private static RNPedido rnPedido;
+    private static RNFabricante rnFabricante;
 
     private Fachada() {
         rnCliente = new RNCliente();
@@ -217,5 +220,40 @@ public class Fachada {
     }
     public ArrayList<Venda> listar() throws RegraException {
         return rnVenda.listar(); // falta implementar
+    }
+    
+    /*#########################################################################
+     * Fabricante
+     *########################################################################*/
+    
+    public void salvarFabricante(Fabricante f) throws RegraException {
+        rnFabricante.validar(f);
+        rnFabricante.verificaDuplicidade(f);
+        rnFabricante.incluir(f);
+    }
+
+    public void excluirFabricante(Fabricante f) throws RegraException {
+        rnFabricante.validaCnpj(f.getCnpj());
+        rnFabricante.excluir(f);
+    }
+
+    public void alterarFabricante(Fabricante f) throws RegraException {
+        rnFabricante.validar(f);
+        rnFabricante.validaCnpj(f.getCnpj());
+        rnFabricante.alterar(f);
+    }
+
+    public Fabricante pesquisarFabricanteRazao(Fabricante f) throws RegraException {
+        rnFabricante.validar(f);
+        return rnFabricante.pesquisar(f.getRazao());
+    }
+
+    public Fabricante pesquisarFabricanteCnpj(Fabricante f) throws RegraException {
+        rnFabricante.validaCnpj(f.getCnpj());
+        return rnFabricante.pesquisar(f.getCnpj());
+    }
+
+    public ArrayList<Fabricante> listarFabricante() throws RegraException {
+        return rnFabricante.listar();
     }
 }    
