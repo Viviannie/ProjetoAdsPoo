@@ -2,13 +2,19 @@ package projetoAds.fachada;
 
 import java.util.ArrayList;
 import projetoAds.classesBasicas.Cliente;
+import projetoAds.classesBasicas.Fabricante;
 import projetoAds.classesBasicas.FormaPag;
 import projetoAds.classesBasicas.Pagamento;
+import projetoAds.classesBasicas.Pedido;
+import projetoAds.classesBasicas.Venda;
 import projetoAds.classesBasicas.Vendedor;
 import projetoAds.excecao.RegraException;
 import projetoAds.regra.RNCliente;
+import projetoAds.regra.RNFabricante;
 import projetoAds.regra.RNFormaPag;
 import projetoAds.regra.RNPagamento;
+import projetoAds.regra.RNPedido;
+import projetoAds.regra.RNVenda;
 import projetoAds.regra.RNVendedor;
 
 /**
@@ -22,12 +28,16 @@ public class Fachada {
     private static RNPagamento rnPagamento;
     private static RNFormaPag rnFormaPag;
     private static RNVendedor rnVendedor;
+    private static RNVenda rnVenda;
+    private static RNPedido rnPedido;
+    private static RNFabricante rnFabricante;
 
     private Fachada() {
         rnCliente = new RNCliente();
         rnPagamento = new RNPagamento();
         rnFormaPag = new RNFormaPag();
         rnVendedor = new RNVendedor();
+        rnVenda = new RNVenda();
     }
 
     public static Fachada getInstancia() {
@@ -170,4 +180,79 @@ public class Fachada {
         return rnVendedor.listar();
     }
     
+    /*#########################################################################
+     * Pedido
+     *########################################################################*/
+    
+    public void incluir(Pedido pedido) throws RegraException {
+        rnPedido.incluir(pedido); // falta implementar
+    }
+    
+    public void excluir(Pedido pedido) throws RegraException {
+        rnPedido.excluir(pedido); // falta implementar
+    }
+    public void alterar(Pedido pedido) throws RegraException {
+        rnPedido.alterar(pedido); // falta implementar
+    }
+    public Pedido pesquisar(Integer id) throws RegraException {
+        return null; // falta implementar
+    }
+    public ArrayList<Pedido> listarPedido() throws RegraException {
+        return rnPedido.listar(); // falta implementar
+    }
+    
+    /*#########################################################################
+     * Venda
+     *########################################################################*/
+    public void incluir(Venda venda) throws RegraException {
+        rnVenda.incluir(venda); // falta implementar
+    }
+    
+    public void excluir(Venda venda) throws RegraException {
+        rnVenda.excluir(venda); // falta implementar
+    }
+    public void alterar(Venda venda) throws RegraException {
+        rnVenda.alterar(venda); // falta implementar
+    }
+    public Venda pesquisarVenda(Integer id) throws RegraException {
+        return null; // falta implementar
+    }
+    public ArrayList<Venda> listarVenda() throws RegraException {
+        return rnVenda.listar(); // falta implementar
+    }
+    
+    /*#########################################################################
+     * Fabricante
+     *########################################################################*/
+    
+    public void salvarFabricante(Fabricante f) throws RegraException {
+        rnFabricante.validar(f);
+        rnFabricante.verificaDuplicidade(f);
+        rnFabricante.incluir(f);
+    }
+
+    public void excluirFabricante(Fabricante f) throws RegraException {
+        rnFabricante.validaCnpj(f.getCnpj());
+        rnFabricante.excluir(f);
+    }
+
+    public void alterarFabricante(Fabricante f) throws RegraException {
+        rnFabricante.validar(f);
+        rnFabricante.validaCnpj(f.getCnpj());
+        rnFabricante.alterar(f);
+    }
+
+    public Fabricante pesquisarFabricanteRazao(Fabricante f) throws RegraException {
+        rnFabricante.validar(f);
+        return rnFabricante.pesquisar(f.getRazao());
+    }
+
+    public Fabricante pesquisarFabricanteCnpj(Fabricante f) throws RegraException {
+        rnFabricante.validaCnpj(f.getCnpj());
+        return rnFabricante.pesquisar(f.getCnpj());
+    }
+
+    public ArrayList<Fabricante> listarFabricante() throws RegraException {
+        return rnFabricante.listar();
+    }
 }    
