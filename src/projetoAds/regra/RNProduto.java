@@ -89,6 +89,25 @@ public class RNProduto {
             throw new RegraException(e.getMessage());
         }
     }
+    /**
+     * Verifica se um Descrição passado é válido e existe no BD
+     *
+     * @param desc Para validação
+     * @throws RegraException Caso o desc não seja localizado
+     */
+    public void validaDesc(String desc) throws RegraException {
+        if ((desc == null) || (desc.trim().equals(""))) {
+            throw new RegraException("Descrição inválido!");
+        }
+        try {
+            Produto x = dao.pesquisar(desc);
+            if (x == null) {
+                throw new RegraException("Descrição informada não existe.");
+            }
+        } catch (ConexaoException | DAOException e) {
+            throw new RegraException(e.getMessage());
+        }
+    }
 
     /**
      * Verifica se os campos estão preenchidos corretamente
