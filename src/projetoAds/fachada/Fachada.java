@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import projetoAds.classesBasicas.Cliente;
 import projetoAds.classesBasicas.FormaPag;
 import projetoAds.classesBasicas.Pagamento;
+import projetoAds.classesBasicas.Vendedor;
 import projetoAds.excecao.RegraException;
 import projetoAds.regra.RNCliente;
 import projetoAds.regra.RNFormaPag;
 import projetoAds.regra.RNPagamento;
+import projetoAds.regra.RNVendedor;
 
 /**
  *
@@ -19,11 +21,13 @@ public class Fachada {
     private static RNCliente rnCliente;
     private static RNPagamento rnPagamento;
     private static RNFormaPag rnFormaPag;
+    private static RNVendedor rnVendedor;
 
     private Fachada() {
         rnCliente = new RNCliente();
         rnPagamento = new RNPagamento();
         rnFormaPag = new RNFormaPag();
+        rnVendedor = new RNVendedor();
     }
 
     public static Fachada getInstancia() {
@@ -132,4 +136,39 @@ public class Fachada {
     public ArrayList<FormaPag> listarFormaPag() throws RegraException {
         return rnFormaPag.listar();
     }
+    
+    /*#########################################################################
+     * VENDEDOR
+     *########################################################################*/
+    
+    public void salvarCliente(Vendedor v) throws RegraException {
+        rnVendedor.validar(v);
+        rnVendedor.incluir(v);
+    }
+
+    public void excluirCliente(Vendedor v) throws RegraException {
+        rnVendedor.validaId(v.getId());
+        rnVendedor.excluir(v);
+    }
+
+    public void alterarCliente(Vendedor v) throws RegraException {
+        rnVendedor.validar(v);
+        rnVendedor.validaId(v.getId());
+        rnVendedor.alterar(v);
+    }
+
+    public Vendedor pesquisarClienteNome(Vendedor v) throws RegraException {
+        rnVendedor.validar(v);
+        return rnVendedor.pesquisar(v.getNome());
+    }
+
+    public Vendedor pesquisarVendedorId(Vendedor c) throws RegraException {
+        rnVendedor.validaId(c.getId());
+        return rnVendedor.pesquisar(c.getId());
+    }
+
+    public ArrayList<Vendedor> listarVendedor() throws RegraException {
+        return rnVendedor.listar();
+    }
+    
 }    

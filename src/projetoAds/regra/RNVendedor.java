@@ -15,7 +15,7 @@ import projetoAds.excecao.RegraException;
 
 /**
  *
- * @author Annie
+ * @author Grupo Programação Orientada a Objetos
  */
 public class RNVendedor {
 
@@ -98,23 +98,6 @@ public class RNVendedor {
     public void validar(Vendedor v) throws RegraException {
         if ((v.getNome() == null) || (v.getNome().trim().equals(""))) {
             throw new RegraException("Nome inválido");
-        }
-    }
-
-    /**
-     * Verifica se um novo nome já existe no BD
-     *
-     * @param v Objeto com os dados
-     * @throws RegraException
-     */
-    public void verificaDuplicidade(Vendedor v) throws RegraException {
-        try {
-            Vendedor x = dao.pesquisar(v.getNome());
-            if (x != null) {
-                throw new RegraException("Vendedor já existe.");
-            }
-        } catch (ConexaoException | DAOException e) {
-            throw new RegraException(e.getMessage());
         }
     }
 
