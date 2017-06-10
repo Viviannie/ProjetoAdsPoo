@@ -66,6 +66,7 @@ public class RNFormaPag {
 
     /**
      * Verifica se os campos estão preenchidos corretamente
+     *
      * @param f Objeto com os dados
      * @throws RegraException
      */
@@ -86,6 +87,7 @@ public class RNFormaPag {
 
     /**
      * Verifica se a nova descrição já existe no BD
+     *
      * @param f Objeto com os dados
      * @throws RegraException
      */
@@ -93,7 +95,7 @@ public class RNFormaPag {
 
         try {
 
-            FormaPag x = dao.pesquisar(f.getDesc());    //duvida
+            FormaPag x = dao.pesquisar(f.getDesc()); 
             if (x != null) {
                 throw new RegraException("Forma de pagamento existente.");
             }
@@ -104,6 +106,7 @@ public class RNFormaPag {
 
     /**
      * Verifica se um ID passado é válido e existe no BD
+     *
      * @param id Para validação
      * @throws RegraException Caso o ID não seja localizado
      */

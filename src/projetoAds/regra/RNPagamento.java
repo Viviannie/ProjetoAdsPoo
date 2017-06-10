@@ -58,6 +58,7 @@ public class RNPagamento {
 
     /**
      * Verifica se os campos estão preenchidos corretamente
+     *
      * @param g Objeto com os dados
      * @throws RegraException
      */
@@ -66,18 +67,19 @@ public class RNPagamento {
         if (g.getValor() == 0.0) {
             throw new RegraException("Valor inválido.");
         }
-        
+
         if (g.getId() == null) {
             throw new RegraException("ID inválida.");
         }
-        
-        if(g.getPedido().getId() == null){
+
+        if (g.getPedido().getId() == null) {
             throw new RegraException("Pedido inválido.");
         }
     }
 
     /**
      * Verifica se uma nova descrição já existe no BD
+     *
      * @param g Objeto com os dados
      * @throws RegraException
      */
@@ -89,11 +91,7 @@ public class RNPagamento {
             if (x != null) {
                 throw new RegraException("Pagamento já efetuado.");
             }
-            
-            if(x == x){
-                throw new RegraException("Pedido duplicado.");
-            }
-            
+
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
