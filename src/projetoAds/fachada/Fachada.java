@@ -196,17 +196,20 @@ public class Fachada {
      *########################################################################*/
     
     public void incluir(Pedido pedido) throws RegraException {
-        rnPedido.incluir(pedido); // falta implementar
+        rnPedido.validar(pedido);
+        rnPedido.incluir(pedido);
     }
     
     public void excluir(Pedido pedido) throws RegraException {
-        rnPedido.excluir(pedido); // falta implementar
+        rnPedido.validar(pedido);
+        rnPedido.excluir(pedido);
     }
     public void alterar(Pedido pedido) throws RegraException {
-        rnPedido.alterar(pedido); // falta implementar
+        rnPedido.validar(pedido);
+        rnPedido.alterar(pedido);
     }
     public Pedido pesquisar(Integer id) throws RegraException {
-        return null; // falta implementar
+        return null; //falta implementar
     }
     public ArrayList<Pedido> listarPedido() throws RegraException {
         return rnPedido.listar(); // falta implementar
@@ -215,22 +218,6 @@ public class Fachada {
     /*#########################################################################
      * Venda
      *########################################################################*/
-    public void incluir(Venda venda) throws RegraException {
-        rnVenda.incluir(venda); // falta implementar
-    }
-    
-    public void excluir(Venda venda) throws RegraException {
-        rnVenda.excluir(venda); // falta implementar
-    }
-    public void alterar(Venda venda) throws RegraException {
-        rnVenda.alterar(venda); // falta implementar
-    }
-    public Venda pesquisarVenda(Integer id) throws RegraException {
-        return null; // falta implementar
-    }
-    public ArrayList<Venda> listarVenda() throws RegraException {
-        return rnVenda.listar(); // falta implementar
-    }
     
     /*#########################################################################
      * Fabricante

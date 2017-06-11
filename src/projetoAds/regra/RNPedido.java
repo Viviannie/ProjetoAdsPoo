@@ -62,18 +62,27 @@ public class RNPedido {
      * @throws RegraException
      */
     public void validar(Pedido pedido) throws RegraException {
-
-        if ((pedido.getId() == null) | (pedido.getId() == 0)){
-             throw new RegraException("ID inválido.");
-        }
         
-        if ((pedido.getData() == null) | (pedido.getData().trim().equals(""))){
-             throw new RegraException("Data inválida.");
+        try{
+            Pedido ped = dao.pesquisar(pedido.getId());
+            if (ped != null) {
+                throw new RegraException("Pedido existente.");
+            }else{
+                if ((ped == null) | (pedido.getId() == 0)){
+                    throw new RegraException("ID inválido.");
+                }
+        
+                if ((ped.getData() == null) | (ped.getData().trim().equals(""))){
+                    throw new RegraException("Data inválida.");
+                }
+            }
+        }catch(ConexaoException | DAOException e) {
+            throw new RegraException(e.getMessage());
         }
     }
 
     /**
-     * Verifica se um ID passado é válido e existe no BD
+     * Verifica se um ID passado existe no BD
      *
      * @param id Para validação
      * @throws RegraException Caso o ID não seja localizado
@@ -84,9 +93,20 @@ public class RNPedido {
             throw new RegraException("ID inválido!");
         }
         try {
-            Pedido x = dao.pesquisar(id);
-            if (x == null) {
+            Pedido ped = dao.pesquisar(id);
+            if (ped == null) {
                 throw new RegraException("ID informado não existe.");
+            }
+        } catch (ConexaoException | DAOException e) {
+            throw new RegraException(e.getMessage());
+        }
+    }
+        public void verificaDuplicidade(Pedido pedido) throws RegraException {
+
+        try {
+            Pedido ped = dao.pesquisar(pedido.getId());
+            if (ped != null) {
+                throw new RegraException("Pedido já existe.");
             }
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
