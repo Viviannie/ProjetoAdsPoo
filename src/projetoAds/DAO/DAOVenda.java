@@ -1,7 +1,6 @@
 package projetoAds.DAO;
 
 import java.util.ArrayList;
-import projetoAds.classesBasicas.Pedido;
 import projetoAds.classesBasicas.Venda;
 import projetoAds.excecao.ConexaoException;
 import projetoAds.excecao.DAOException;
