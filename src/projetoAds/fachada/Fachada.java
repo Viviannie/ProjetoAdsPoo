@@ -209,10 +209,11 @@ public class Fachada {
         rnPedido.alterar(pedido);
     }
     public Pedido pesquisar(Integer id) throws RegraException {
-        return null; //falta implementar
+        rnPedido.validaId(id);
+        return rnPedido.pesquisar(id);
     }
     public ArrayList<Pedido> listarPedido() throws RegraException {
-        return rnPedido.listar(); // falta implementar
+        return rnPedido.listar();
     }
     
     /*#########################################################################
