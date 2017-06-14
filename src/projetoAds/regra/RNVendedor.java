@@ -76,6 +76,7 @@ public class RNVendedor {
      * @throws RegraException Caso o ID não seja localizado
      */
     public void validaId(Integer id) throws RegraException {
+        
         if (id == null) {
             throw new RegraException("ID inválido!");
         }

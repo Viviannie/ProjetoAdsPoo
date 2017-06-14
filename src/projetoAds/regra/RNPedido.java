@@ -9,10 +9,10 @@ import projetoAds.excecao.DAOException;
 import projetoAds.excecao.RegraException;
 
 /**
-  * @author Grupo Programação Orientada a Objetos
-  */
+ * @author Grupo Programação Orientada a Objetos
+ */
 public class RNPedido {
-    
+
     private final DAOPedido dao = new DAOPedidoImpl();
 
     public void incluir(Pedido pedido) throws RegraException {
@@ -62,21 +62,21 @@ public class RNPedido {
      * @throws RegraException
      */
     public void validar(Pedido pedido) throws RegraException {
-        
-        try{
+
+        try {
             Pedido ped = dao.pesquisar(pedido.getId());
             if (ped != null) {
                 throw new RegraException("Pedido existente.");
-            }else{
-                if ((ped == null) | (pedido.getId() == 0)){
+            } else {
+                if ((ped == null) | (pedido.getId() == 0)) {
                     throw new RegraException("ID inválido.");
                 }
-        
-                if ((ped.getData() == null) | (ped.getData().trim().equals(""))){
+
+                if ((ped.getData() == null) | (ped.getData().trim().equals(""))) {
                     throw new RegraException("Data inválida.");
                 }
             }
-        }catch(ConexaoException | DAOException e) {
+        } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
@@ -89,7 +89,7 @@ public class RNPedido {
      */
     public void validaId(Integer id) throws RegraException {
 
-        if ((id == null) | (id == 0)){
+        if ((id == null) | (id == 0)) {
             throw new RegraException("ID inválido!");
         }
         try {
@@ -101,7 +101,14 @@ public class RNPedido {
             throw new RegraException(e.getMessage());
         }
     }
-        public void verificaDuplicidade(Pedido pedido) throws RegraException {
+
+    /**
+     * Verifica se uma nova pedido já existe no BD
+     *
+     * @param pedido Objeto com os dados
+     * @throws RegraException
+     */
+    public void verificaDuplicidade(Pedido pedido) throws RegraException {
 
         try {
             Pedido ped = dao.pesquisar(pedido.getId());
