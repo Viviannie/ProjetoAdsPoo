@@ -220,6 +220,26 @@ public class Fachada {
      * Venda
      *########################################################################*/
     
+    public void incluirVenda(Venda venda) throws RegraException {
+        rnVenda.incluir(venda);
+    }
+    
+    public void excluirVenda(Venda venda) throws RegraException {
+        rnVenda.excluir(venda);
+    }
+    
+    public void alterarVenda(Venda venda) throws RegraException {
+        rnVenda.alterar(venda);
+    }
+    
+    public Venda pesquisarVenda(Integer id) throws RegraException {
+        return rnVenda.pesquisar(id);
+    }
+    
+    public ArrayList<Venda> listarVenda() throws RegraException {
+        return rnVenda.listar();
+    }
+    
     /*#########################################################################
      * Fabricante
      *########################################################################*/
