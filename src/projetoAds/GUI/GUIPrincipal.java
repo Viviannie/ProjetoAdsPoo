@@ -7,7 +7,7 @@ package projetoAds.GUI;
 
 /**
  *
- * @author Annie
+ * @author Grupo Programação Orientada a Objetos
  */
 public class GUIPrincipal extends javax.swing.JFrame {
 
@@ -125,8 +125,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(2047483647, 2047483647));
-        setPreferredSize(new java.awt.Dimension(667, 209));
 
         jTabbedPane5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTabbedPane5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -165,7 +163,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnPesquisarCli.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPesquisarCli.setText("Pesquisar");
         btnPesquisarCli.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnPesquisarCli.setMaximumSize(new java.awt.Dimension(63, 23));
 
         lblNomeCli.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNomeCli.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -986,9 +983,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(btnAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnIncluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnFabricanteProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)

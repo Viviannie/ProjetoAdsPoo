@@ -25,12 +25,6 @@
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
       <Color id="Cursor Padr&#xe3;o"/>
     </Property>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[2047483647, 2047483647]"/>
-    </Property>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[667, 209]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -246,9 +240,6 @@
                         <BevelBorder/>
                       </Border>
                     </Property>
-                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[63, 23]"/>
-                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNomeCli">
@@ -407,9 +398,6 @@
                     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[43, 23]"/>
                     </Property>
-                    <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[43, 23]"/>
                     </Property>
@@ -430,9 +418,6 @@
                     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[43, 23]"/>
                     </Property>
-                    <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[43, 23]"/>
                     </Property>
@@ -450,9 +435,6 @@
                     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[43, 23]"/>
                     </Property>
-                    <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnPesquisarFab">
@@ -466,9 +448,6 @@
                     </Property>
                     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[63, 23]"/>
-                    </Property>
-                    <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[63, 23]"/>
@@ -1635,9 +1614,9 @@
                                       <Component id="btnPesquisarProduto" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnIncluirProduto" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="btnExcluirProduto" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="btnExcluirProduto" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">

@@ -6,7 +6,7 @@ import projetoAds.excecao.ConexaoException;
 
 /**
  *
- * @author Annie
+ * @author Grupo Programação Orientada a Objetos
  */
 public class ProjetoPoo {
     
