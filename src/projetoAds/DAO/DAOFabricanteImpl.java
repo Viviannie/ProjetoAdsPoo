@@ -15,7 +15,7 @@ import projetoAds.excecao.DAOException;
 
 /**
  *
- * @author Matheus
+ * @author Grupo Programação Orientada a Objetos
  */
 public class DAOFabricanteImpl implements DAOFabricante {
     private ConexaoBD con;
