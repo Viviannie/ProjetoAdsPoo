@@ -3,6 +3,7 @@ package projetoAds.GUI;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import projetoAds.classesBasicas.FormaPag;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.classesBasicas.Vendedor;
 import projetoAds.excecao.RegraException;
@@ -70,7 +71,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtIdPag = new javax.swing.JTextField();
         txtValorPag = new javax.swing.JTextField();
         txtPedidoId = new javax.swing.JTextField();
-        FormaPag = new javax.swing.JComboBox<>();
+        JComboFormaPag = new javax.swing.JComboBox<>();
         Vendedor = new javax.swing.JPanel();
         lblNomeVendedor = new javax.swing.JLabel();
         lblIdVendedor = new javax.swing.JLabel();
@@ -481,7 +482,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        FormaPag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 - Dinheiro", "2 - Cartão" }));
+        JComboFormaPag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 - Dinheiro", "2 - Cartão" }));
 
         javax.swing.GroupLayout PagamentoLayout = new javax.swing.GroupLayout(Pagamento);
         Pagamento.setLayout(PagamentoLayout);
@@ -508,7 +509,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                     .addGroup(PagamentoLayout.createSequentialGroup()
                         .addComponent(lblFormaPagId)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(FormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JComboFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29)
                 .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAlterarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -548,7 +549,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblFormaPagId)
-                            .addComponent(FormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(JComboFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -1250,15 +1251,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Pagamento g = new Pagamento();
         g.setValor(Double.parseDouble(txtValorPag.getText()));
         g.setPedido(g.getPedido());
-        g.setFormaPag(g.getFormaPag());
+        g.setFormaPag((FormaPag) JComboFormaPag.getSelectedItem());
         Fachada f = Fachada.getInstancia();
 
         try {
             f.alterarPagamento(g);
             JOptionPane.showMessageDialog(this, "Pagamento alterado com sucesso!");
             txtValorPag.setText(null);
-            txtPedidoId.setText(null);
-            txtFormaPagId.setText(null);
+            txtPedidoId.setText(null);            
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -1625,8 +1625,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane Cadastro;
     private javax.swing.JPanel Cliente;
     private javax.swing.JPanel Fabricante;
-    private javax.swing.JComboBox<String> FormaPag;
     private javax.swing.JPanel FormaPagamento;
+    private javax.swing.JComboBox<String> JComboFormaPag;
     private javax.swing.JPanel Pagamento;
     private javax.swing.JPanel Pedido;
     private javax.swing.JPanel Produto;

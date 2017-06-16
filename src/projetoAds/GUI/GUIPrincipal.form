@@ -596,7 +596,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblFormaPagId" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="FormaPag" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="JComboFormaPag" min="-2" pref="80" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -648,7 +648,7 @@
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblFormaPagId" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="FormaPag" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="JComboFormaPag" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -805,7 +805,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPedidoIdActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="FormaPag">
+                <Component class="javax.swing.JComboBox" name="JComboFormaPag">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
