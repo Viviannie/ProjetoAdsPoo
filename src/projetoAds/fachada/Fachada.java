@@ -94,6 +94,7 @@ public class Fachada {
     
     public void salvarPagamento(Pagamento g) throws RegraException { //por que teve que colocar a exceção?
         rnPagamento.validar(g);
+        rnPagamento.validaId(g.getId());
         rnPagamento.incluir(g);
     }
 

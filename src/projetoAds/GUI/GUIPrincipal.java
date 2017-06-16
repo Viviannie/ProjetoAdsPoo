@@ -1,18 +1,10 @@
 package projetoAds.GUI;
 
-import static java.lang.Double.parseDouble;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.classesBasicas.Vendedor;
-import projetoAds.conexao.Conectar;
-import projetoAds.conexao.ConexaoBD;
-import projetoAds.excecao.ConexaoException;
 import projetoAds.excecao.RegraException;
 import projetoAds.fachada.Fachada;
 
@@ -128,16 +120,16 @@ public class GUIPrincipal extends javax.swing.JFrame {
         lblIdProduto = new javax.swing.JLabel();
         lblEstMinProduto = new javax.swing.JLabel();
         lblEstAtualProduto = new javax.swing.JLabel();
+        lblFabricanteCnpj = new javax.swing.JLabel();
         btnAlterarProduto = new javax.swing.JButton();
         btnExcluirProduto = new javax.swing.JButton();
         btnIncluirProduto = new javax.swing.JButton();
         btnPesquisarProduto = new javax.swing.JButton();
-        txtIdProduto = new javax.swing.JTextField();
         txtDescProduto = new javax.swing.JTextField();
+        txtIdProduto = new javax.swing.JTextField();
         txtEstMinProduto = new javax.swing.JTextField();
         txtEstAtualProduto = new javax.swing.JTextField();
-        lblEstAtualProduto1 = new javax.swing.JLabel();
-        txtEstAtualProduto1 = new javax.swing.JTextField();
+        txtFabricanteCnpj = new javax.swing.JTextField();
 
         jLabel21.setText("jLabel21");
 
@@ -214,6 +206,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtNomeCli.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtNomeCliFocusGained(evt);
+            }
+        });
+        txtNomeCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeCliActionPerformed(evt);
             }
         });
 
@@ -320,10 +317,25 @@ public class GUIPrincipal extends javax.swing.JFrame {
         lblRazaoFab.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtCnpjFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCnpjFab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCnpjFabActionPerformed(evt);
+            }
+        });
 
         txtNomeFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNomeFab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeFabActionPerformed(evt);
+            }
+        });
 
         txtRazaoFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtRazaoFab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRazaoFabActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout FabricanteLayout = new javax.swing.GroupLayout(Fabricante);
         Fabricante.setLayout(FabricanteLayout);
@@ -437,11 +449,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 txtIdPagFocusGained(evt);
             }
         });
+        txtIdPag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdPagActionPerformed(evt);
+            }
+        });
 
         txtValorPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtValorPag.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtValorPagFocusGained(evt);
+            }
+        });
+        txtValorPag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorPagActionPerformed(evt);
             }
         });
 
@@ -451,11 +473,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 txtFormaPagIdFocusGained(evt);
             }
         });
+        txtFormaPagId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFormaPagIdActionPerformed(evt);
+            }
+        });
 
         txtPedidoId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtPedidoId.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPedidoIdFocusGained(evt);
+            }
+        });
+        txtPedidoId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPedidoIdActionPerformed(evt);
             }
         });
 
@@ -526,7 +558,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Cadastro.addTab("Pagamento", Pagamento);
+        Cadastro.addTab("Pagamento", null, Pagamento, "");
 
         lblNomeVendedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNomeVendedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -579,8 +611,18 @@ public class GUIPrincipal extends javax.swing.JFrame {
         });
 
         txtIdVendedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtIdVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdVendedorActionPerformed(evt);
+            }
+        });
 
         txtNomeVendedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNomeVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeVendedorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout VendedorLayout = new javax.swing.GroupLayout(Vendedor);
         Vendedor.setLayout(VendedorLayout);
@@ -666,11 +708,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 txtDescFormaPagFocusGained(evt);
             }
         });
+        txtDescFormaPag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDescFormaPagActionPerformed(evt);
+            }
+        });
 
         txtIdFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtIdFormaPag.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtIdFormaPagFocusGained(evt);
+            }
+        });
+        txtIdFormaPag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdFormaPagActionPerformed(evt);
             }
         });
 
@@ -766,14 +818,39 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnPesquisarPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         txtIdPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtIdPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdPedidoActionPerformed(evt);
+            }
+        });
 
         txtNomePedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNomePedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomePedidoActionPerformed(evt);
+            }
+        });
 
         txtDataPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDataPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataPedidoActionPerformed(evt);
+            }
+        });
 
         txtVendedorId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtVendedorId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVendedorIdActionPerformed(evt);
+            }
+        });
 
         txtClienteId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtClienteId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClienteIdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PedidoLayout = new javax.swing.GroupLayout(Pedido);
         Pedido.setLayout(PedidoLayout);
@@ -893,12 +970,32 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnPesquisarVenda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         txtPrecoVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPrecoVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecoVendaActionPerformed(evt);
+            }
+        });
 
         txtQtdVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtQtdVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQtdVendaActionPerformed(evt);
+            }
+        });
 
         txtProdutoId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtProdutoId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProdutoIdActionPerformed(evt);
+            }
+        });
 
         txtPedidoId2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPedidoId2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPedidoId2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout VendaLayout = new javax.swing.GroupLayout(Venda);
         Venda.setLayout(VendaLayout);
@@ -987,6 +1084,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         lblEstAtualProduto.setText("ESTOQUE ATUAL");
         lblEstAtualProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        lblFabricanteCnpj.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblFabricanteCnpj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFabricanteCnpj.setText("FABRICANTE");
+        lblFabricanteCnpj.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         btnAlterarProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAlterarProduto.setText("Alterar");
         btnAlterarProduto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -1013,8 +1115,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnPesquisarProduto.setText("Pesquisar");
         btnPesquisarProduto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        txtIdProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
         txtDescProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDescProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1022,16 +1122,33 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
+        txtIdProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtIdProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdProdutoActionPerformed(evt);
+            }
+        });
+
         txtEstMinProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtEstMinProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEstMinProdutoActionPerformed(evt);
+            }
+        });
 
         txtEstAtualProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtEstAtualProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEstAtualProdutoActionPerformed(evt);
+            }
+        });
 
-        lblEstAtualProduto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblEstAtualProduto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEstAtualProduto1.setText("ESTOQUE ATUAL");
-        lblEstAtualProduto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        txtEstAtualProduto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtFabricanteCnpj.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtFabricanteCnpj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFabricanteCnpjActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ProdutoLayout = new javax.swing.GroupLayout(Produto);
         Produto.setLayout(ProdutoLayout);
@@ -1060,9 +1177,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtEstAtualProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ProdutoLayout.createSequentialGroup()
-                                .addComponent(lblEstAtualProduto1)
+                                .addComponent(lblFabricanteCnpj)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtEstAtualProduto1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtFabricanteCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1096,8 +1213,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(txtEstAtualProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEstAtualProduto1)
-                            .addComponent(txtEstAtualProduto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblFabricanteCnpj)
+                            .addComponent(txtFabricanteCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(ProdutoLayout.createSequentialGroup()
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1171,15 +1288,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarProdutoActionPerformed
 
     private void txtCpfCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfCliActionPerformed
-        // TODO add your handling code here:
+        if (this.txtCpfCli.getText().equals("")) {
+            txtCpfCli.grabFocus();
+        }
     }//GEN-LAST:event_txtCpfCliActionPerformed
 
     private void txtDescProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescProdutoActionPerformed
-        // TODO add your handling code here:
+        if (this.txtDescProduto.getText().equals("")) {
+            txtDescProduto.grabFocus();
+        }
     }//GEN-LAST:event_txtDescProdutoActionPerformed
 
     private void txtNomeCliFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeCliFocusGained
-
+        if (this.txtNomeCli.getText().equals("")) {
+            txtNomeCli.grabFocus();
+        }
     }//GEN-LAST:event_txtNomeCliFocusGained
 
     private void txtIdFormaPagFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdFormaPagFocusGained
@@ -1271,6 +1394,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnIncluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPagActionPerformed
         Pagamento g = new Pagamento();
         g.setValor(Double.parseDouble(txtValorPag.getText()));
+        g.setId(Integer.parseInt(txtIdPag.getText()));
+        g.setFormaPag(Integer.parseInt(txt));
+
         Fachada f = Fachada.getInstancia();
         try {
             f.salvarPagamento(g);
@@ -1288,6 +1414,152 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void txtPedidoIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPedidoIdFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPedidoIdFocusGained
+
+    private void txtNomeCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCliActionPerformed
+        if (this.txtNomeCli.getText().equals("")) {
+            txtNomeCli.grabFocus();
+        }
+    }//GEN-LAST:event_txtNomeCliActionPerformed
+
+    private void txtNomeFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeFabActionPerformed
+        if (this.txtNomeFab.getText().equals("")) {
+            txtNomeFab.grabFocus();
+        }
+    }//GEN-LAST:event_txtNomeFabActionPerformed
+
+    private void txtCnpjFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCnpjFabActionPerformed
+        if (this.txtCnpjFab.getText().equals("")) {
+            txtCnpjFab.grabFocus();
+        }
+    }//GEN-LAST:event_txtCnpjFabActionPerformed
+
+    private void txtRazaoFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRazaoFabActionPerformed
+        if (this.txtRazaoFab.getText().equals("")) {
+            txtRazaoFab.grabFocus();
+        }
+    }//GEN-LAST:event_txtRazaoFabActionPerformed
+
+    private void txtValorPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorPagActionPerformed
+        if (this.txtValorPag.getText().equals("")) {
+            txtValorPag.grabFocus();
+        }
+    }//GEN-LAST:event_txtValorPagActionPerformed
+
+    private void txtIdPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdPagActionPerformed
+        if (this.txtIdPag.getText().equals("")) {
+            txtIdPag.grabFocus();
+        }
+    }//GEN-LAST:event_txtIdPagActionPerformed
+
+    private void txtFormaPagIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFormaPagIdActionPerformed
+        if (this.txtFormaPagId.getText().equals("")) {
+            txtFormaPagId.grabFocus();
+        }
+    }//GEN-LAST:event_txtFormaPagIdActionPerformed
+
+    private void txtPedidoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPedidoIdActionPerformed
+        if (this.txtPedidoId.getText().equals("")) {
+            txtPedidoId.grabFocus();
+        }
+    }//GEN-LAST:event_txtPedidoIdActionPerformed
+
+    private void txtNomeVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeVendedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeVendedorActionPerformed
+
+    private void txtIdVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdVendedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdVendedorActionPerformed
+
+    private void txtIdFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdFormaPagActionPerformed
+        if (this.txtIdFormaPag.getText().equals("")) {
+            txtIdFormaPag.grabFocus();
+        }
+    }//GEN-LAST:event_txtIdFormaPagActionPerformed
+
+    private void txtDescFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescFormaPagActionPerformed
+        if (this.txtDescFormaPag.getText().equals("")) {
+            txtDescFormaPag.grabFocus();
+        }
+    }//GEN-LAST:event_txtDescFormaPagActionPerformed
+
+    private void txtNomePedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomePedidoActionPerformed
+        if (this.txtNomePedido.getText().equals("")) {
+            txtNomePedido.grabFocus();
+        }
+    }//GEN-LAST:event_txtNomePedidoActionPerformed
+
+    private void txtIdPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdPedidoActionPerformed
+        if (this.txtIdPedido.getText().equals("")) {
+            txtIdPedido.grabFocus();
+        }
+    }//GEN-LAST:event_txtIdPedidoActionPerformed
+
+    private void txtDataPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataPedidoActionPerformed
+        if (this.txtDataPedido.getText().equals("")) {
+            txtDataPedido.grabFocus();
+        }
+    }//GEN-LAST:event_txtDataPedidoActionPerformed
+
+    private void txtVendedorIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVendedorIdActionPerformed
+        if (this.txtVendedorId.getText().equals("")) {
+            txtVendedorId.grabFocus();
+        }
+    }//GEN-LAST:event_txtVendedorIdActionPerformed
+
+    private void txtClienteIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteIdActionPerformed
+        if (this.txtClienteId.getText().equals("")) {
+            txtClienteId.grabFocus();
+        }
+    }//GEN-LAST:event_txtClienteIdActionPerformed
+
+    private void txtPrecoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoVendaActionPerformed
+        if (this.txtPrecoVenda.getText().equals("")) {
+            txtPrecoVenda.grabFocus();
+        }
+    }//GEN-LAST:event_txtPrecoVendaActionPerformed
+
+    private void txtQtdVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtdVendaActionPerformed
+        if (this.txtQtdVenda.getText().equals("")) {
+            txtQtdVenda.grabFocus();
+        }
+    }//GEN-LAST:event_txtQtdVendaActionPerformed
+
+    private void txtProdutoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoIdActionPerformed
+        if (this.txtProdutoId.getText().equals("")) {
+            txtProdutoId.grabFocus();
+        }
+    }//GEN-LAST:event_txtProdutoIdActionPerformed
+
+    private void txtPedidoId2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPedidoId2ActionPerformed
+        if (this.txtPedidoId2.getText().equals("")) {
+            txtPedidoId2.grabFocus();
+        }
+    }//GEN-LAST:event_txtPedidoId2ActionPerformed
+
+    private void txtIdProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProdutoActionPerformed
+        if (this.txtIdProduto.getText().equals("")) {
+            txtIdProduto.grabFocus();
+        }
+    }//GEN-LAST:event_txtIdProdutoActionPerformed
+
+    private void txtEstMinProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstMinProdutoActionPerformed
+        if (this.txtEstMinProduto.getText().equals("")) {
+            txtEstMinProduto.grabFocus();
+        }
+    }//GEN-LAST:event_txtEstMinProdutoActionPerformed
+
+    private void txtEstAtualProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstAtualProdutoActionPerformed
+        if (this.txtEstAtualProduto.getText().equals("")) {
+            txtEstAtualProduto.grabFocus();
+        }
+    }//GEN-LAST:event_txtEstAtualProdutoActionPerformed
+
+    private void txtFabricanteCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFabricanteCnpjActionPerformed
+        if (this.txtFabricanteCnpj.getText().equals("")) {
+            txtFabricanteCnpj.grabFocus();
+        }
+    }//GEN-LAST:event_txtFabricanteCnpjActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1404,8 +1676,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblDescFormaPag;
     private javax.swing.JLabel lblDescProduto;
     private javax.swing.JLabel lblEstAtualProduto;
-    private javax.swing.JLabel lblEstAtualProduto1;
     private javax.swing.JLabel lblEstMinProduto;
+    private javax.swing.JLabel lblFabricanteCnpj;
     private javax.swing.JLabel lblFormaPagId;
     private javax.swing.JLabel lblIdFormaPag;
     private javax.swing.JLabel lblIdPag;
@@ -1431,8 +1703,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtDescFormaPag;
     private javax.swing.JTextField txtDescProduto;
     private javax.swing.JTextField txtEstAtualProduto;
-    private javax.swing.JTextField txtEstAtualProduto1;
     private javax.swing.JTextField txtEstMinProduto;
+    private javax.swing.JTextField txtFabricanteCnpj;
     private javax.swing.JTextField txtFormaPagId;
     private javax.swing.JTextField txtIdFormaPag;
     private javax.swing.JTextField txtIdPag;
