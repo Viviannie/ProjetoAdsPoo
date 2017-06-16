@@ -1,18 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projetoAds.GUI;
 
-import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import projetoAds.classesBasicas.Vendedor;
 import projetoAds.conexao.Conectar;
 import projetoAds.conexao.ConexaoBD;
 import projetoAds.excecao.ConexaoException;
+import projetoAds.excecao.RegraException;
+import projetoAds.fachada.Fachada;
 
 /**
  *
@@ -166,14 +166,29 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirCli.setMaximumSize(new java.awt.Dimension(43, 23));
         btnExcluirCli.setMinimumSize(new java.awt.Dimension(43, 23));
         btnExcluirCli.setPreferredSize(new java.awt.Dimension(43, 23));
+        btnExcluirCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirCliActionPerformed(evt);
+            }
+        });
 
         btnIncluirCli.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnIncluirCli.setText("Incluir");
         btnIncluirCli.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnIncluirCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncluirCliActionPerformed(evt);
+            }
+        });
 
         btnPesquisarCli.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPesquisarCli.setText("Pesquisar");
         btnPesquisarCli.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPesquisarCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarCliActionPerformed(evt);
+            }
+        });
 
         lblNomeCli.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNomeCli.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -498,16 +513,31 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirVendedor.setText("Excluir");
         btnExcluirVendedor.setActionCommand("");
         btnExcluirVendedor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnExcluirVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirVendedorActionPerformed(evt);
+            }
+        });
 
         btnIncluirVendedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnIncluirVendedor.setText("Incluir");
         btnIncluirVendedor.setActionCommand("");
         btnIncluirVendedor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnIncluirVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncluirVendedorActionPerformed(evt);
+            }
+        });
 
         btnPesquisarVendedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPesquisarVendedor.setText("Pesquisar");
         btnPesquisarVendedor.setActionCommand("");
         btnPesquisarVendedor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPesquisarVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarVendedorActionPerformed(evt);
+            }
+        });
 
         txtIdVendedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -1048,7 +1078,18 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarPagActionPerformed
 
     private void btnAlterarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendedorActionPerformed
-        // TODO add your handling code here:
+        Vendedor v = new Vendedor();
+        v.setNome(txtNomeVendedor.getText());
+        v.setId(Integer.parseInt(txtIdVendedor.getText()));
+        Fachada f = Fachada.getInstancia();
+        try {
+            f.alterarVendedor(v);
+            JOptionPane.showMessageDialog(this, "Registro alterado com sucesso");
+            txtNomeVendedor.setText(null);
+            txtIdVendedor.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_btnAlterarVendedorActionPerformed
 
     private void btnAlterarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarPedidoActionPerformed
@@ -1111,6 +1152,64 @@ public class GUIPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVendedorActionPerformed
 
+    private void btnIncluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIncluirCliActionPerformed
+
+    private void btnIncluirVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirVendedorActionPerformed
+        Vendedor v = new Vendedor();
+        v.setNome(txtNomeVendedor.getText());
+        Fachada f = Fachada.getInstancia();
+        try {
+            f.salvarVendedor(v);
+            JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
+            txtNomeVendedor.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnIncluirVendedorActionPerformed
+
+    private void btnExcluirVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirVendedorActionPerformed
+        Vendedor v = new Vendedor();
+        try {
+        v.setId(Integer.parseInt(txtIdVendedor.getText()));
+        } catch (NumberFormatException e) {
+            
+            JOptionPane.showMessageDialog(this, "ID inválido");
+        }
+        Fachada f = Fachada.getInstancia();
+        try {
+            f.excluirVendedor(v);
+            JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
+            txtIdVendedor.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnExcluirVendedorActionPerformed
+
+    private void btnPesquisarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarVendedorActionPerformed
+        Vendedor v = new Vendedor();
+        v.setId(Integer.parseInt(txtIdVendedor.getText()));
+        Fachada f = Fachada.getInstancia();
+        try {
+            v = f.pesquisarVendedorId(v);
+            JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
+            JOptionPane.showMessageDialog(this, "nome: " + v.getNome() + "\n" + "Id: " + v.getId());
+            txtNomeVendedor.setText(null);
+            txtIdVendedor.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnPesquisarVendedorActionPerformed
+
+    private void btnPesquisarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisarCliActionPerformed
+
+    private void btnExcluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirCliActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1138,7 +1237,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+        /*
         ConexaoBD c;
         c = Conectar.getInstancia();
 
@@ -1148,7 +1247,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (ConexaoException e) {
             System.out.println("Não foi dessa vez!");
         }
-
+        */
         try {
             // Set System L&F
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
