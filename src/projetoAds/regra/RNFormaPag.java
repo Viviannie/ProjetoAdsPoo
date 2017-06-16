@@ -78,7 +78,14 @@ public class RNFormaPag {
 
         if ((f.getDesc() == null) || (f.getDesc().trim().equals(" "))) {
             throw new RegraException("Descrição inválida.");
+        }        
+        
+        if (f.getId() == 1){
+            f.setDesc("Cartão");
+        } else if(f.getId() == 2) {
+            f.setDesc("Dinheiro");
         }
+
     }
 
     public void verificaDuplicidade(FormaPag f) throws RegraException {
@@ -106,7 +113,7 @@ public class RNFormaPag {
         if (id == null) {
             throw new RegraException("ID inválida.");
         }
-
+        
         try {
             FormaPag x = dao.pesquisar(id);
             if (x == null) {

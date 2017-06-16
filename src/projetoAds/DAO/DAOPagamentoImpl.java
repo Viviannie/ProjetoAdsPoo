@@ -60,7 +60,7 @@ public class DAOPagamentoImpl implements DAOPagamento {
     @Override
     public void alterar(Pagamento pagamento) throws ConexaoException, DAOException {        
         Connection c = con.conectar();
-        String sql = "UPDATE pagamento SET pag_valor=?, ped_id, frm_id=? WHERE pag_id=?)";
+        String sql = "UPDATE pagamento SET pag_valor=?, ped_id=?, frm_id=? WHERE pag_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setDouble(1, pagamento.getValor());

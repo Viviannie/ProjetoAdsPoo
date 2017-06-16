@@ -78,7 +78,7 @@ public class RNPagamento {
 
         if (g.getPedido().getId() == null) {
             throw new RegraException("Pedido inválido.");
-        }
+        }                           
     }
 
     /**
