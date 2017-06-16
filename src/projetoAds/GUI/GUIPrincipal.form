@@ -151,12 +151,14 @@
                                       <Component id="btnPesquisarCli" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnIncluirCli" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="btnExcluirCli" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                           <Component id="lblCpfCli" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtCpfCli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="btnIncluirCli" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="btnExcluirCli" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -449,12 +451,6 @@
                         <BevelBorder/>
                       </Border>
                     </Property>
-                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[43, 23]"/>
-                    </Property>
-                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[43, 23]"/>
-                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnPesquisarFab">
@@ -467,15 +463,6 @@
                       <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                         <BevelBorder/>
                       </Border>
-                    </Property>
-                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[63, 23]"/>
-                    </Property>
-                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[63, 23]"/>
-                    </Property>
-                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[63, 23]"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -1130,8 +1117,8 @@
                                   <Component id="txtDataPedido" min="-2" pref="70" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="lblNomePedido" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1142,12 +1129,9 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="txtIdPedido" pref="83" max="32767" attributes="0"/>
                                       </Group>
+                                      <Component id="btnVendedor" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="btnVendedor" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
