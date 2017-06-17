@@ -3,6 +3,7 @@ package projetoAds.GUI;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import projetoAds.classesBasicas.Cliente;
 import projetoAds.classesBasicas.FormaPag;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.classesBasicas.Pedido;
@@ -818,6 +819,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnIncluirPedido.setText("Incluir");
         btnIncluirPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnIncluirPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncluirPedidoActionPerformed(evt);
+            }
+        });
 
         btnPesquisarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPesquisarPedido.setText("Pesquisar");
@@ -1646,6 +1652,16 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }*/
     }//GEN-LAST:event_btnExcluirPagActionPerformed
 
+    private void btnIncluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPedidoActionPerformed
+        Cliente cliente = new Cliente();
+        cliente.setNome(txtNomePedido.getText());
+        Vendedor vendedor = new Vendedor();
+        vendedor.setId(Integer.parseInt(txtVendedorId.getText()));
+
+        Fachada fachada = Fachada.getInstancia();
+        //Falta implementar
+    }//GEN-LAST:event_btnIncluirPedidoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1687,15 +1703,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
         try {
             // Set System L&F
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-        } catch (UnsupportedLookAndFeelException e) {
-            // handle exception
-        } catch (ClassNotFoundException e) {
-            // handle exception
-        } catch (InstantiationException e) {
-            // handle exception
-        } catch (IllegalAccessException e) {
+        } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             // handle exception
         }
+        // handle exception
+        // handle exception
+        // handle exception
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

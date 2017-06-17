@@ -57,31 +57,31 @@ public class Fachada {
      * CLIENTE
      *########################################################################*/
     
-    public void salvarCliente(Cliente c) throws RegraException {
-        rnCliente.validar(c);
-        rnCliente.verificaDuplicidade(c);
-        rnCliente.incluir(c);
+    public void salvarCliente(Cliente cliente) throws RegraException {
+        rnCliente.validar(cliente);
+        rnCliente.verificaDuplicidade(cliente);
+        rnCliente.incluir(cliente);
     }
 
-    public void excluirCliente(Cliente c) throws RegraException {
-        rnCliente.validaCpf(c.getCpf());
-        rnCliente.excluir(c);
+    public void excluirCliente(Cliente cliente) throws RegraException {
+        rnCliente.validaCpf(cliente.getCpf());
+        rnCliente.excluir(cliente);
     }
 
-    public void alterarCliente(Cliente c) throws RegraException {
-        rnCliente.validar(c);
-        rnCliente.validaCpf(c.getCpf());
-        rnCliente.alterar(c);
+    public void alterarCliente(Cliente cliente) throws RegraException {
+        rnCliente.validar(cliente);
+        rnCliente.validaCpf(cliente.getCpf());
+        rnCliente.alterar(cliente);
     }
 
-    public Cliente pesquisarClienteNome(Cliente c) throws RegraException {
-        rnCliente.validar(c);
-        return rnCliente.pesquisar(c.getNome());
+    public Cliente pesquisarClienteNome(Cliente cliente) throws RegraException {
+        rnCliente.validar(cliente);
+        return rnCliente.pesquisar(cliente.getNome());
     }
 
-    public Cliente pesquisarClienteCpf(Cliente c) throws RegraException {
-        rnCliente.validaCpf(c.getCpf());
-        return rnCliente.pesquisar(c.getCpf());
+    public Cliente pesquisarClienteCpf(Cliente cliente) throws RegraException {
+        rnCliente.validaCpf(cliente.getCpf());
+        return rnCliente.pesquisar(cliente.getCpf());
     }
 
     public ArrayList<Cliente> listarCliente() throws RegraException {
@@ -92,25 +92,25 @@ public class Fachada {
      * PAGAMENTO
      *########################################################################*/
     
-    public void salvarPagamento(Pagamento g) throws RegraException { //por que teve que colocar a exceção?
-        rnPagamento.validar(g);
-        rnPagamento.incluir(g);
+    public void salvarPagamento(Pagamento pagamento) throws RegraException { //por que teve que colocar a exceção?
+        rnPagamento.validar(pagamento);
+        rnPagamento.incluir(pagamento);
     }
 
-    public void excluirPagamento(Pagamento g) throws RegraException {
-        rnPagamento.validaId(g.getId());
-        rnPagamento.excluir(g);
+    public void excluirPagamento(Pagamento pagamento) throws RegraException {
+        rnPagamento.validaId(pagamento.getId());
+        rnPagamento.excluir(pagamento);
     }
 
-    public void alterarPagamento(Pagamento g) throws RegraException {
-        rnPagamento.validar(g);
-        rnPagamento.validaId(g.getId());
-        rnPagamento.alterar(g);
+    public void alterarPagamento(Pagamento pagamento) throws RegraException {
+        rnPagamento.validar(pagamento);
+        rnPagamento.validaId(pagamento.getId());
+        rnPagamento.alterar(pagamento);
     }
 
-    public Pagamento pesquisarPagamentoPorId(Pagamento g) throws RegraException {
-        rnPagamento.validaId(g.getId());
-        return rnPagamento.pesquisar(g.getId());
+    public Pagamento pesquisarPagamentoPorId(Pagamento pagamento) throws RegraException {
+        rnPagamento.validaId(pagamento.getId());
+        return rnPagamento.pesquisar(pagamento.getId());
     }
 
     /**
@@ -126,31 +126,31 @@ public class Fachada {
      * FORMAPAG
      *########################################################################*/
     
-    public void salvarFormaPag(FormaPag f) throws RegraException{
-        rnFormaPag.validar(f);
-        rnFormaPag.verificaDuplicidade(f);
-        rnFormaPag.incluir(f);
+    public void salvarFormaPag(FormaPag formaPag) throws RegraException{
+        rnFormaPag.validar(formaPag);
+        rnFormaPag.verificaDuplicidade(formaPag);
+        rnFormaPag.incluir(formaPag);
     }
     
-    public void excluirFormaPag(FormaPag f) throws RegraException{
-        rnFormaPag.validaId(f.getId());
-        rnFormaPag.excluir(f);
+    public void excluirFormaPag(FormaPag formaPag) throws RegraException{
+        rnFormaPag.validaId(formaPag.getId());
+        rnFormaPag.excluir(formaPag);
     }
     
-    public void alterarFormaPag(FormaPag f) throws RegraException{
-        rnFormaPag.validar(f);
-        rnFormaPag.validaId(f.getId());
-        rnFormaPag.alterar(f);
+    public void alterarFormaPag(FormaPag formaPag) throws RegraException{
+        rnFormaPag.validar(formaPag);
+        rnFormaPag.validaId(formaPag.getId());
+        rnFormaPag.alterar(formaPag);
     }
     
-    public FormaPag pesquisarFormaPagPorId(FormaPag f) throws RegraException {
-        rnFormaPag.validaId(f.getId());
-        return rnFormaPag.pesquisar(f.getId());
+    public FormaPag pesquisarFormaPagPorId(FormaPag formaPag) throws RegraException {
+        rnFormaPag.validaId(formaPag.getId());
+        return rnFormaPag.pesquisar(formaPag.getId());
     }
     
-    public FormaPag pesquisarFormaPagPorDesc(FormaPag f) throws RegraException{
-        rnFormaPag.validaDesc(f.getDesc());
-        return rnFormaPag.pesquisar(f.getDesc());
+    public FormaPag pesquisarFormaPagPorDesc(FormaPag formaPag) throws RegraException{
+        rnFormaPag.validaDesc(formaPag.getDesc());
+        return rnFormaPag.pesquisar(formaPag.getDesc());
     }
     
     public ArrayList<FormaPag> listarFormaPag() throws RegraException {
@@ -161,30 +161,30 @@ public class Fachada {
      * VENDEDOR
      *########################################################################*/
     
-    public void salvarVendedor(Vendedor v) throws RegraException {
-        rnVendedor.validar(v);
-        rnVendedor.incluir(v);
+    public void salvarVendedor(Vendedor vendedor) throws RegraException {
+        rnVendedor.validar(vendedor);
+        rnVendedor.incluir(vendedor);
     }
 
-    public void excluirVendedor(Vendedor v) throws RegraException {
-        rnVendedor.validaId(v.getId());
-        rnVendedor.excluir(v);
+    public void excluirVendedor(Vendedor vendedor) throws RegraException {
+        rnVendedor.validaId(vendedor.getId());
+        rnVendedor.excluir(vendedor);
     }
 
-    public void alterarVendedor(Vendedor v) throws RegraException {
-        rnVendedor.validar(v);
-        rnVendedor.validaId(v.getId());
-        rnVendedor.alterar(v);
+    public void alterarVendedor(Vendedor vendedor) throws RegraException {
+        rnVendedor.validar(vendedor);
+        rnVendedor.validaId(vendedor.getId());
+        rnVendedor.alterar(vendedor);
     }
 
-    public Vendedor pesquisarVendedorNome(Vendedor v) throws RegraException {
-        rnVendedor.validar(v);
-        return rnVendedor.pesquisar(v.getNome());
+    public Vendedor pesquisarVendedorNome(Vendedor vendedor) throws RegraException {
+        rnVendedor.validar(vendedor);
+        return rnVendedor.pesquisar(vendedor.getNome());
     }
 
-    public Vendedor pesquisarVendedorId(Vendedor c) throws RegraException {
-        rnVendedor.validaId(c.getId());
-        return rnVendedor.pesquisar(c.getId());
+    public Vendedor pesquisarVendedorId(Vendedor vendedor) throws RegraException {
+        rnVendedor.validaId(vendedor.getId());
+        return rnVendedor.pesquisar(vendedor.getId());
     }
 
     public ArrayList<Vendedor> listarVendedor() throws RegraException {
@@ -194,21 +194,26 @@ public class Fachada {
     /*#########################################################################
      * Pedido
      *########################################################################*/
-    
-    public void incluir(Pedido pedido) throws RegraException {
+
+    /**
+     *
+     * @param pedido
+     * @throws RegraException
+     */
+    public void incluirPedido(Pedido pedido) throws RegraException {
         rnPedido.validar(pedido);
         rnPedido.incluir(pedido);
     }
     
-    public void excluir(Pedido pedido) throws RegraException {
+    public void excluirPedido(Pedido pedido) throws RegraException {
         rnPedido.validar(pedido);
         rnPedido.excluir(pedido);
     }
-    public void alterar(Pedido pedido) throws RegraException {
+    public void alterarPedido(Pedido pedido) throws RegraException {
         rnPedido.validar(pedido);
         rnPedido.alterar(pedido);
     }
-    public Pedido pesquisar(Integer id) throws RegraException {
+    public Pedido pesquisarPedido(Integer id) throws RegraException {
         rnPedido.validaId(id);
         return rnPedido.pesquisar(id);
     }
@@ -244,31 +249,31 @@ public class Fachada {
      * Fabricante
      *########################################################################*/
     
-    public void salvarFabricante(Fabricante f) throws RegraException {
-        rnFabricante.validar(f);
-        rnFabricante.verificaDuplicidade(f);
-        rnFabricante.incluir(f);
+    public void salvarFabricante(Fabricante fabricante) throws RegraException {
+        rnFabricante.validar(fabricante);
+        rnFabricante.verificaDuplicidade(fabricante);
+        rnFabricante.incluir(fabricante);
     }
 
-    public void excluirFabricante(Fabricante f) throws RegraException {
-        rnFabricante.validaCnpj(f.getCnpj());
-        rnFabricante.excluir(f);
+    public void excluirFabricante(Fabricante fabricante) throws RegraException {
+        rnFabricante.validaCnpj(fabricante.getCnpj());
+        rnFabricante.excluir(fabricante);
     }
 
-    public void alterarFabricante(Fabricante f) throws RegraException {
-        rnFabricante.validar(f);
-        rnFabricante.validaCnpj(f.getCnpj());
-        rnFabricante.alterar(f);
+    public void alterarFabricante(Fabricante fabricante) throws RegraException {
+        rnFabricante.validar(fabricante);
+        rnFabricante.validaCnpj(fabricante.getCnpj());
+        rnFabricante.alterar(fabricante);
     }
 
-    public Fabricante pesquisarFabricanteRazao(Fabricante f) throws RegraException {
-        rnFabricante.validar(f);
-        return rnFabricante.pesquisar(f.getRazao());
+    public Fabricante pesquisarFabricanteRazao(Fabricante fabricante) throws RegraException {
+        rnFabricante.validar(fabricante);
+        return rnFabricante.pesquisar(fabricante.getRazao());
     }
 
-    public Fabricante pesquisarFabricanteCnpj(Fabricante f) throws RegraException {
-        rnFabricante.validaCnpj(f.getCnpj());
-        return rnFabricante.pesquisar(f.getCnpj());
+    public Fabricante pesquisarFabricanteCnpj(Fabricante fabricante) throws RegraException {
+        rnFabricante.validaCnpj(fabricante.getCnpj());
+        return rnFabricante.pesquisar(fabricante.getCnpj());
     }
 
     public ArrayList<Fabricante> listarFabricante() throws RegraException {
@@ -279,33 +284,33 @@ public class Fachada {
      * PRODUTO
      *########################################################################*/
     
-    public void salvarProduto(Produto p) throws RegraException {
-        rnProduto.validar(p);
-        rnFabricante.validaCnpj(p.getFabricante().getCnpj());
-        rnProduto.verificaDuplicidade(p);
-        rnProduto.incluir(p);
+    public void salvarProduto(Produto produto) throws RegraException {
+        rnProduto.validar(produto);
+        rnFabricante.validaCnpj(produto.getFabricante().getCnpj());
+        rnProduto.verificaDuplicidade(produto);
+        rnProduto.incluir(produto);
     }
 
-    public void excluirProduto(Produto p) throws RegraException {
-        rnProduto.validaId(p.getId());
-        rnProduto.excluir(p);
+    public void excluirProduto(Produto produto) throws RegraException {
+        rnProduto.validaId(produto.getId());
+        rnProduto.excluir(produto);
     }
 
-    public void alterarProduto(Produto p) throws RegraException {
-        rnProduto.validar(p);
-        rnFabricante.validaCnpj(p.getFabricante().getCnpj());
-        rnProduto.validaId(p.getId());
-        rnProduto.alterar(p);
+    public void alterarProduto(Produto produto) throws RegraException {
+        rnProduto.validar(produto);
+        rnFabricante.validaCnpj(produto.getFabricante().getCnpj());
+        rnProduto.validaId(produto.getId());
+        rnProduto.alterar(produto);
     }
 
-    public Produto pesquisarProdutoDesc(Produto p) throws RegraException {
-        rnProduto.validaDesc(p.getDesc());
-        return rnProduto.pesquisar(p.getDesc());
+    public Produto pesquisarProdutoDesc(Produto produto) throws RegraException {
+        rnProduto.validaDesc(produto.getDesc());
+        return rnProduto.pesquisar(produto.getDesc());
     }
 
-    public Produto pesquisarProdutoId(Produto p) throws RegraException {
-        rnProduto.validaId(p.getId());
-        return rnProduto.pesquisar(p.getId());
+    public Produto pesquisarProdutoId(Produto produto) throws RegraException {
+        rnProduto.validaId(produto.getId());
+        return rnProduto.pesquisar(produto.getId());
     }
 
     public ArrayList<Produto> listarProduto() throws RegraException {
