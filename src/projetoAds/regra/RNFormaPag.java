@@ -78,14 +78,7 @@ public class RNFormaPag {
 
         if ((f.getDesc() == null) || (f.getDesc().trim().equals(" "))) {
             throw new RegraException("Descrição inválida.");
-        }        
-        
-        if (f.getId() == 1){
-            f.setDesc("Cartão");
-        } else if(f.getId() == 2) {
-            f.setDesc("Dinheiro");
         }
-
     }
 
     public void verificaDuplicidade(FormaPag f) throws RegraException {
@@ -101,7 +94,7 @@ public class RNFormaPag {
             throw new RegraException(e.getMessage());
         }
     }
-    
+
     /**
      * Verifica se um ID passado é válido e existe no BD
      *
@@ -113,7 +106,7 @@ public class RNFormaPag {
         if (id == null) {
             throw new RegraException("ID inválida.");
         }
-        
+
         try {
             FormaPag x = dao.pesquisar(id);
             if (x == null) {
@@ -124,7 +117,7 @@ public class RNFormaPag {
             throw new RegraException(e.getMessage());
         }
     }
-    
+
     public void validaDesc(String desc) throws RegraException {
 
         if (desc == null) {

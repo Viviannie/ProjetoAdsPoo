@@ -5,6 +5,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import projetoAds.classesBasicas.FormaPag;
 import projetoAds.classesBasicas.Pagamento;
+import projetoAds.classesBasicas.Pedido;
 import projetoAds.classesBasicas.Vendedor;
 import projetoAds.excecao.RegraException;
 import projetoAds.fachada.Fachada;
@@ -85,11 +86,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         lblIdFormaPag = new javax.swing.JLabel();
         lblDescFormaPag = new javax.swing.JLabel();
         btnAlterarFormaPag = new javax.swing.JButton();
-        btnExcluirFormaPa = new javax.swing.JButton();
-        btnIncluirFormaPa = new javax.swing.JButton();
-        btnPesquisarFormaPa = new javax.swing.JButton();
-        txtDescFormaPag = new javax.swing.JTextField();
+        btnExcluirFormaPag = new javax.swing.JButton();
+        btnIncluirFormaPag = new javax.swing.JButton();
+        btnPesquisarFormaPag = new javax.swing.JButton();
         txtIdFormaPag = new javax.swing.JTextField();
+        FormaPag = new javax.swing.JComboBox<>();
         Pedido = new javax.swing.JPanel();
         lblNomePedido = new javax.swing.JLabel();
         lblIdPedido = new javax.swing.JLabel();
@@ -432,6 +433,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnExcluirPag.setText("Excluir");
         btnExcluirPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnExcluirPag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirPagActionPerformed(evt);
+            }
+        });
 
         btnIncluirPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnIncluirPag.setText("Incluir");
@@ -685,27 +691,30 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnExcluirFormaPa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnExcluirFormaPa.setText("Excluir");
-        btnExcluirFormaPa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        btnIncluirFormaPa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnIncluirFormaPa.setText("Incluir");
-        btnIncluirFormaPa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        btnPesquisarFormaPa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnPesquisarFormaPa.setText("Pesquisar");
-        btnPesquisarFormaPa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        txtDescFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtDescFormaPag.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtDescFormaPagFocusGained(evt);
+        btnExcluirFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnExcluirFormaPag.setText("Excluir");
+        btnExcluirFormaPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnExcluirFormaPag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirFormaPagActionPerformed(evt);
             }
         });
-        txtDescFormaPag.addActionListener(new java.awt.event.ActionListener() {
+
+        btnIncluirFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnIncluirFormaPag.setText("Incluir");
+        btnIncluirFormaPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnIncluirFormaPag.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescFormaPagActionPerformed(evt);
+                btnIncluirFormaPagActionPerformed(evt);
+            }
+        });
+
+        btnPesquisarFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnPesquisarFormaPag.setText("Pesquisar");
+        btnPesquisarFormaPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPesquisarFormaPag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarFormaPagActionPerformed(evt);
             }
         });
 
@@ -721,6 +730,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
+        FormaPag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 - Dinheiro", "2 - Cartão" }));
+
         javax.swing.GroupLayout FormaPagamentoLayout = new javax.swing.GroupLayout(FormaPagamento);
         FormaPagamento.setLayout(FormaPagamentoLayout);
         FormaPagamentoLayout.setHorizontalGroup(
@@ -734,16 +745,16 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addComponent(txtIdFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(FormaPagamentoLayout.createSequentialGroup()
                         .addComponent(lblDescFormaPag)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDescFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addGap(18, 18, 18)
+                        .addComponent(FormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(100, 100, 100)
                 .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnIncluirFormaPa, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIncluirFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAlterarFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPesquisarFormaPa, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExcluirFormaPa, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPesquisarFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExcluirFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(139, 139, 139))
         );
         FormaPagamentoLayout.setVerticalGroup(
@@ -753,14 +764,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAlterarFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisarFormaPa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisarFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIdFormaPag))
                 .addGap(18, 18, 18)
                 .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIncluirFormaPa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExcluirFormaPa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIncluirFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExcluirFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDescFormaPag)
-                    .addComponent(txtDescFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -1253,12 +1264,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
         g.setPedido(g.getPedido());
         g.setFormaPag((FormaPag) JComboFormaPag.getSelectedItem());
         Fachada f = Fachada.getInstancia();
-
         try {
             f.alterarPagamento(g);
             JOptionPane.showMessageDialog(this, "Pagamento alterado com sucesso!");
             txtValorPag.setText(null);
-            txtPedidoId.setText(null);            
+            txtPedidoId.setText(null);
+            JComboFormaPag.setSelectedItem(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -1284,7 +1295,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarPedidoActionPerformed
 
     private void btnAlterarFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarFormaPagActionPerformed
-        // TODO add your handling code here:
+        FormaPag f = new FormaPag();
+
+        f.setId(Integer.parseInt(txtIdFormaPag.getText()));
+        f.setDesc((String) JComboFormaPag.getSelectedItem());
+
+        Fachada c = Fachada.getInstancia();
+        try {
+            c.salvarFormaPag(f);
+            JOptionPane.showMessageDialog(this, "Forma de Pagamento alterada com sucesso!");
+            txtValorPag.setText(null);
+            txtIdPag.setText(null);
+            JComboFormaPag.setSelectedItem(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_btnAlterarFormaPagActionPerformed
 
     private void btnAlterarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendaActionPerformed
@@ -1318,12 +1343,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
             txtIdFormaPag.grabFocus();
         }
     }//GEN-LAST:event_txtIdFormaPagFocusGained
-
-    private void txtDescFormaPagFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDescFormaPagFocusGained
-        if (this.txtDescFormaPag.getText().equals("")) {
-            txtDescFormaPag.grabFocus();
-        }
-    }//GEN-LAST:event_txtDescFormaPagFocusGained
 
     private void txtValorPagFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorPagFocusGained
         if (this.txtValorPag.getText().equals("")) {
@@ -1400,17 +1419,22 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirCliActionPerformed
 
     private void btnIncluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPagActionPerformed
+
         Pagamento g = new Pagamento();
+        Pedido pedido = new Pedido();
+
         g.setValor(Double.parseDouble(txtValorPag.getText()));
         g.setId(Integer.parseInt(txtIdPag.getText()));
-        g.setFormaPag(g.getFormaPag()); //ta errado
-        g.setPedido(g.getPedido());
+        g.setFormaPag((FormaPag) JComboFormaPag.getSelectedItem());
+        //   g.setPedido(pedido.getId());
 
         Fachada f = Fachada.getInstancia();
         try {
             f.salvarPagamento(g);
-            JOptionPane.showMessageDialog(this, "Pagamento salvo com sucesso!");
+            JOptionPane.showMessageDialog(this, "Pagamento incluido com sucesso!");
             txtValorPag.setText(null);
+            txtIdPag.setText(null);
+            JComboFormaPag.setSelectedItem(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -1475,12 +1499,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
             txtIdFormaPag.grabFocus();
         }
     }//GEN-LAST:event_txtIdFormaPagActionPerformed
-
-    private void txtDescFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescFormaPagActionPerformed
-        if (this.txtDescFormaPag.getText().equals("")) {
-            txtDescFormaPag.grabFocus();
-        }
-    }//GEN-LAST:event_txtDescFormaPagActionPerformed
 
     private void txtNomePedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomePedidoActionPerformed
         if (this.txtNomePedido.getText().equals("")) {
@@ -1560,6 +1578,74 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtFabricanteCnpjActionPerformed
 
+    private void btnIncluirFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirFormaPagActionPerformed
+
+        FormaPag f = new FormaPag();
+
+        f.setId(Integer.parseInt(txtIdFormaPag.getText()));
+        f.setDesc((String) JComboFormaPag.getSelectedItem());
+
+        Fachada c = Fachada.getInstancia();
+        try {
+            c.salvarFormaPag(f);
+            JOptionPane.showMessageDialog(this, "Forma de Pagamento incluída com sucesso!");
+            txtValorPag.setText(null);
+            txtIdPag.setText(null);
+            JComboFormaPag.setSelectedItem(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnIncluirFormaPagActionPerformed
+
+    private void btnPesquisarFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFormaPagActionPerformed
+        FormaPag f = new FormaPag();
+
+        f.setId(Integer.parseInt(txtIdFormaPag.getText()));
+        f.setDesc((String) JComboFormaPag.getSelectedItem());
+
+        Fachada c = Fachada.getInstancia();
+        try {
+            c.salvarFormaPag(f);
+            JOptionPane.showMessageDialog(this, "Pesquisa realizada com sucesso!");
+            txtIdFormaPag.setText(null);
+            JComboFormaPag.setSelectedItem(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnPesquisarFormaPagActionPerformed
+
+    private void btnExcluirFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirFormaPagActionPerformed
+        FormaPag f = new FormaPag();
+
+        f.setId(Integer.parseInt(txtIdFormaPag.getText()));
+
+        Fachada c = Fachada.getInstancia();
+        try {
+            c.excluirFormaPag(f);
+            JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
+            txtIdFormaPag.setText(null);
+            JComboFormaPag.setSelectedItem(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnExcluirFormaPagActionPerformed
+
+    private void btnExcluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPagActionPerformed
+       /* Pagamento g = new Pagamento();
+
+        g.setId(txtIdPag);
+
+        Fachada f = Fachada.getInstancia();
+        try {
+            g.
+            JOptionPane.showMessageDialog(this, "Pesquisa realizada com sucesso!");
+            txtIdFormaPag.setText(null);
+            JComboFormaPag.setSelectedItem(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage()); 
+        }*/
+    }//GEN-LAST:event_btnExcluirPagActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1625,8 +1711,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane Cadastro;
     private javax.swing.JPanel Cliente;
     private javax.swing.JPanel Fabricante;
+    private javax.swing.JComboBox<String> FormaPag;
     private javax.swing.JPanel FormaPagamento;
-    private javax.swing.JComboBox<String> JComboFormaPag;
+    private javax.swing.JComboBox<Object> JComboFormaPag;
     private javax.swing.JPanel Pagamento;
     private javax.swing.JPanel Pedido;
     private javax.swing.JPanel Produto;
@@ -1642,7 +1729,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAlterarVendedor;
     private javax.swing.JButton btnExcluirCli;
     private javax.swing.JButton btnExcluirFab;
-    private javax.swing.JButton btnExcluirFormaPa;
+    private javax.swing.JButton btnExcluirFormaPag;
     private javax.swing.JButton btnExcluirPag;
     private javax.swing.JButton btnExcluirPedido;
     private javax.swing.JButton btnExcluirProduto;
@@ -1650,7 +1737,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluirVendedor;
     private javax.swing.JButton btnIncluirCli;
     private javax.swing.JButton btnIncluirFab;
-    private javax.swing.JButton btnIncluirFormaPa;
+    private javax.swing.JButton btnIncluirFormaPag;
     private javax.swing.JButton btnIncluirPag;
     private javax.swing.JButton btnIncluirPedido;
     private javax.swing.JButton btnIncluirProduto;
@@ -1658,7 +1745,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnIncluirVendedor;
     private javax.swing.JButton btnPesquisarCli;
     private javax.swing.JButton btnPesquisarFab;
-    private javax.swing.JButton btnPesquisarFormaPa;
+    private javax.swing.JButton btnPesquisarFormaPag;
     private javax.swing.JButton btnPesquisarPag;
     private javax.swing.JButton btnPesquisarPedido;
     private javax.swing.JButton btnPesquisarProduto;
@@ -1702,7 +1789,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtCnpjFab;
     private javax.swing.JTextField txtCpfCli;
     private javax.swing.JTextField txtDataPedido;
-    private javax.swing.JTextField txtDescFormaPag;
     private javax.swing.JTextField txtDescProduto;
     private javax.swing.JTextField txtEstAtualProduto;
     private javax.swing.JTextField txtEstMinProduto;
