@@ -569,7 +569,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         lblIdVendedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblIdVendedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIdVendedor.setText("IDENTIFICAÇÃO");
+        lblIdVendedor.setText("NÚMERO DO VENDEDOR");
         lblIdVendedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnAlterarVendedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1093,7 +1093,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         lblIdProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblIdProduto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIdProduto.setText("IDENTIFICAÇÃO");
+        lblIdProduto.setText("NÚMERO DO PEDIDO");
         lblIdProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblEstMinProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
