@@ -785,7 +785,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         lblIdPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblIdPedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIdPedido.setText("IDENTIFICAÇÃO");
+        lblIdPedido.setText("NÚMERO DO PEDIDO");
         lblIdPedido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblDataPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -815,6 +815,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnExcluirPedido.setText("Excluir");
         btnExcluirPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnExcluirPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirPedidoActionPerformed(evt);
+            }
+        });
 
         btnIncluirPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnIncluirPedido.setText("Incluir");
@@ -1297,7 +1302,19 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarVendedorActionPerformed
 
     private void btnAlterarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarPedidoActionPerformed
-        // TODO add your handling code here:
+        Pedido pedido = new Pedido();
+        pedido.setId(Integer.parseInt(txtIdPedido.getText()));
+        pedido.setId((Integer) JComboFormaPag.getSelectedItem());
+
+        Fachada fachada = Fachada.getInstancia();
+        try {
+            fachada.alterarPedido(pedido);
+            JOptionPane.showMessageDialog(this, "Pedido alterado com sucesso!");
+            JComboFormaPag.setSelectedItem(null);
+            //Falta implementar
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_btnAlterarPedidoActionPerformed
 
     private void btnAlterarFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarFormaPagActionPerformed
@@ -1653,14 +1670,47 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirPagActionPerformed
 
     private void btnIncluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPedidoActionPerformed
+        Pedido pedido = new Pedido();
+        pedido.setId(Integer.parseInt(txtIdPedido.getText()));
+        pedido.setData(txtDataPedido.getText());
+        
         Cliente cliente = new Cliente();
         cliente.setNome(txtNomePedido.getText());
         Vendedor vendedor = new Vendedor();
         vendedor.setId(Integer.parseInt(txtVendedorId.getText()));
 
         Fachada fachada = Fachada.getInstancia();
-        //Falta implementar
+
+        try {
+            fachada.incluirPedido(pedido);
+            JOptionPane.showMessageDialog(this, "Pedido incluído com sucesso!");
+            txtValorPag.setText(null);
+            txtIdPag.setText(null);
+            JComboFormaPag.setSelectedItem(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
     }//GEN-LAST:event_btnIncluirPedidoActionPerformed
+
+    private void btnExcluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPedidoActionPerformed
+        Cliente cliente = new Cliente();
+        cliente.setNome(txtNomePedido.getText());
+        Vendedor vendedor = new Vendedor();
+        vendedor.setId(Integer.parseInt(txtVendedorId.getText()));
+        
+        Pedido pedido = new Pedido();
+        
+        Fachada fachada = Fachada.getInstancia();
+        try {
+            fachada.excluirPedido(pedido);
+            JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
+            txtIdPedido.setText(null);
+            JComboFormaPag.setSelectedItem(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnExcluirPedidoActionPerformed
 
     /**
      * @param args the command line arguments
