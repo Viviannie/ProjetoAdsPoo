@@ -833,6 +833,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnPesquisarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPesquisarPedido.setText("Pesquisar");
         btnPesquisarPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPesquisarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarPedidoActionPerformed(evt);
+            }
+        });
 
         txtIdPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtIdPedido.addActionListener(new java.awt.event.ActionListener() {
@@ -1304,7 +1309,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnAlterarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarPedidoActionPerformed
         Pedido pedido = new Pedido();
         pedido.setId(Integer.parseInt(txtIdPedido.getText()));
-        pedido.setId((Integer) JComboFormaPag.getSelectedItem());
 
         Fachada fachada = Fachada.getInstancia();
         try {
@@ -1711,6 +1715,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_btnExcluirPedidoActionPerformed
+
+    private void btnPesquisarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisarPedidoActionPerformed
 
     /**
      * @param args the command line arguments
