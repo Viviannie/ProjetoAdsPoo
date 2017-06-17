@@ -462,7 +462,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnPesquisarPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPesquisarPag.setText("Pesquisar");
         btnPesquisarPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnPesquisarPag.setEnabled(false);
+        btnPesquisarPag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarPagActionPerformed(evt);
+            }
+        });
 
         txtIdPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtIdPag.setEnabled(false);
@@ -1471,17 +1475,18 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Pagamento g = new Pagamento();
 
         try {
-            g.setValor(Double.parseDouble(String.valueOf(g.getValor())));
+            g.setValor(Double.parseDouble(txtValorPag.getText()));
+            //g.setPedido(Pedido.toString(txtPedidoId.getText()));
             g.setFormaPag((FormaPag) JComboFormaPag.getSelectedItem());
             f.salvarPagamento(g);
             JOptionPane.showMessageDialog(this, "Pagamento incluido com sucesso!");
             txtValorPag.setText(null);
-            txtIdPag.setText(null);
+            txtPedidoId.setText(null);
             JComboFormaPag.setSelectedItem(null);
         } catch (RegraException | DAOException | ConexaoException | NumberFormatException | ClassCastException | NullPointerException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-        
+
         txtValorPag.setText("");
         txtPedidoId.setText("");
         btnIncluirPag.setEnabled(false);
@@ -1742,6 +1747,25 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtPedidoId.setEnabled(true);
         JComboFormaPag.setEnabled(true);
     }//GEN-LAST:event_btnNovoPagActionPerformed
+
+    private void btnPesquisarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPagActionPerformed
+
+        Pagamento g = new Pagamento();
+
+        try {
+            g.setId(Integer.parseInt(txtIdPag.getText()));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "ID inválido");
+        }
+
+        try {
+            f.pesquisarPagamento(g);
+            JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
+            txtIdVendedor.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnPesquisarPagActionPerformed
 
     /**
      * @param args the command line arguments

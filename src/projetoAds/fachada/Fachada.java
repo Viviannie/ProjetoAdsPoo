@@ -111,7 +111,7 @@ public class Fachada {
         rnPagamento.alterar(pagamento);
     }
 
-    public Pagamento pesquisarPagamentoPorId(Pagamento pagamento) throws RegraException {
+    public Pagamento pesquisarPagamento(Pagamento pagamento) throws RegraException {
         rnPagamento.validaId(pagamento.getId());
         return rnPagamento.pesquisar(pagamento.getId());
     }
