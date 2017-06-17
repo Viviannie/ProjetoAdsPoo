@@ -9,6 +9,8 @@ import projetoAds.classesBasicas.Pedido;
 import projetoAds.classesBasicas.Produto;
 import projetoAds.classesBasicas.Venda;
 import projetoAds.classesBasicas.Vendedor;
+import projetoAds.excecao.ConexaoException;
+import projetoAds.excecao.DAOException;
 import projetoAds.excecao.RegraException;
 import projetoAds.regra.RNCliente;
 import projetoAds.regra.RNFabricante;
@@ -92,9 +94,10 @@ public class Fachada {
      * PAGAMENTO
      *########################################################################*/
     
-    public void salvarPagamento(Pagamento pagamento) throws RegraException { //por que teve que colocar a exceção?
+    public void salvarPagamento(Pagamento pagamento) throws RegraException, DAOException, ConexaoException {
         rnPagamento.validar(pagamento);
         rnPagamento.incluir(pagamento);
+       // rnPagamento.incluirDouble(pagamento);
     }
 
     public void excluirPagamento(Pagamento pagamento) throws RegraException {

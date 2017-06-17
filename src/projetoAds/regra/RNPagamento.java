@@ -79,7 +79,21 @@ public class RNPagamento {
         if (g.getPedido().getId() == null) {
             throw new RegraException("Pedido inválido.");
         }                           
+    
     }
+    
+    /*public void incluirDouble(Pagamento pagamento) throws RegraException, DAOException, ConexaoException {
+        
+        try {
+            Pagamento g = new Pagamento();
+            dao.incluir(g);
+            g.setValor(Double.parseDouble(String.valueOf(g.getValor())));
+            g.setPedido((String.valueOf(g.getPedido())));
+        } catch (NumberFormatException e) {
+            throw new RegraException("ID inválido");
+        }
+        
+    }*/
 
     /**
      * Verifica se um ID passado é válido e existe no BD
