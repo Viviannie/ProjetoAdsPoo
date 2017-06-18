@@ -47,7 +47,7 @@ public class RNFabricante {
     }
     public Fabricante pesquisarRazao (String razao) throws RegraException {
         try {
-            return dao.pesquisar(razao);
+            return dao.pesquisarRazao(razao);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
@@ -79,7 +79,7 @@ public class RNFabricante {
         if ((f.getRazao() == null) || (f.getRazao().trim().equals(""))) {
             throw new RegraException("Razao inválido");
         }
-        if ((f.getCnpj() == null) || (f.getCnpj().trim().equals("")) || (f.getCnpj().trim().length() != 11)) {
+        if ((f.getCnpj() == null) || (f.getCnpj().trim().equals("")) || (f.getCnpj().trim().length() != 14)) {
             throw new RegraException("CPF inválido");
         }
     }

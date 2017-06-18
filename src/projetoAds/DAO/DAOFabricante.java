@@ -42,6 +42,15 @@ public interface DAOFabricante {
     public Fabricante pesquisar(String cnpj) throws ConexaoException,DAOException;
 
     /**
+      * Busca um registro no BD com o Codigo do fornecedor informado
+      * @param razao Parametro da busca
+      * @return Objeto encontrado ou null
+      * @throws ConexaoException
+      * @throws DAOException 
+      */
+    public Fabricante pesquisarRazao(String razao) throws ConexaoException,DAOException;
+
+    /**
       * Retorna uma lista com todos os registros dos fornecedores
       * @return Objeto contendo todos os registros encontrados
       * @throws ConexaoException
