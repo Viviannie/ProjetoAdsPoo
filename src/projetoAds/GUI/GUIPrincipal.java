@@ -1894,7 +1894,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
             cliente.setNome(txtNomePedido.getText());
             vendedor.setId(Integer.parseInt(txtVendedorId.getText()));
 
-            fachada.incluirPedido(pedido);
+            fachada.salvarPedido(pedido);
             JOptionPane.showMessageDialog(this, "Pedido incluído com sucesso!");
             txtValorPag.setText(null);
             txtIdPag.setText(null);
@@ -1968,6 +1968,20 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarCliActionPerformed
 
     private void btnIncluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirCliActionPerformed
+        Cliente cliente = new Cliente();
+        
+        cliente.setNome(txtNomeCli.getText());
+        cliente.setCpf(txtCpfCli.getText());
+        
+        try {
+            fachada.salvarCliente(cliente);
+            JOptionPane.showMessageDialog(this, "Cliente incluído com sucesso");
+            txtNomeCli.setText(null);
+            txtCpfCli.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
         btnIncluirCli.setEnabled(false);
         btnCancelarCli.setEnabled(false);
         txtNomeCli.setEnabled(false);

@@ -159,7 +159,7 @@ public class Fachada {
      * @param pedido
      * @throws RegraException
      */
-    public void incluirPedido(Pedido pedido) throws RegraException {
+    public void salvarPedido(Pedido pedido) throws RegraException {
         rnPedido.validar(pedido);
         rnPedido.incluir(pedido);
     }
@@ -186,7 +186,7 @@ public class Fachada {
     /*#########################################################################
      * Venda
      *########################################################################*/
-    public void incluirVenda(Venda venda) throws RegraException {
+    public void salvarVenda(Venda venda) throws RegraException {
         rnVenda.incluir(venda);
     }
 

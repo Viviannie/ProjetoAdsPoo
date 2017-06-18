@@ -28,7 +28,7 @@ public class DAOClienteImpl implements DAOCliente {
     public void incluir(Cliente cliente) throws ConexaoException, DAOException {
 
         Connection c = con.conectar();
-        String sql = "INSERT INTO cliente (nome, cpf) VALUES (?,?)";
+        String sql = "INSERT INTO cliente (cli_nome, cli_cpf) VALUES (?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, cliente.getNome());   //Referente ao indice da interrogação
