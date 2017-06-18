@@ -24,7 +24,7 @@ import projetoAds.fachada.Fachada;
  */
 public class GUIPrincipal extends javax.swing.JFrame {
 
-    Fachada f = Fachada.getInstancia();
+    Fachada fachada = Fachada.getInstancia();
 
     /**
      * Creates new form Teste
@@ -1345,13 +1345,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarFabActionPerformed
 
     private void btnAlterarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarPagActionPerformed
-        Pagamento g = new Pagamento();
+        Pagamento pagamento = new Pagamento();
 
         try {
-            g.setValor(Double.parseDouble(txtValorPag.getText()));
+            pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
             //g.setPedido(g.getPedido());
-            g.setFormaPag((FormaPag) JComboFormaPag.getSelectedItem());
-            f.alterarPagamento(g);
+            pagamento.setFormaPag((FormaPag) JComboFormaPag.getSelectedItem());
+            fachada.alterarPagamento(pagamento);
             txtValorPag.setText(null);
             txtPedidoId.setText(null);
             JComboFormaPag.setSelectedItem(null);
@@ -1372,12 +1372,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarPagActionPerformed
 
     private void btnAlterarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendedorActionPerformed
-        Vendedor v = new Vendedor();
-        v.setNome(txtNomeVendedor.getText());
-        v.setId(Integer.parseInt(txtIdVendedor.getText()));
+        Vendedor vendedor = new Vendedor();
+        vendedor.setNome(txtNomeVendedor.getText());
+        vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
 
         try {
-            f.alterarVendedor(v);
+            fachada.alterarVendedor(vendedor);
             JOptionPane.showMessageDialog(this, "Registro alterado com sucesso");
             txtNomeVendedor.setText(null);
             txtIdVendedor.setText(null);
@@ -1398,7 +1398,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         pedido.setId(Integer.parseInt(txtIdPedido.getText()));
 
         try {
-            f.alterarPedido(pedido);
+            fachada.alterarPedido(pedido);
             JOptionPane.showMessageDialog(this, "Pedido alterado com sucesso!");
             JComboFormaPag.setSelectedItem(null);
             //Falta implementar
@@ -1408,13 +1408,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarPedidoActionPerformed
 
     private void btnAlterarFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarFormaPagActionPerformed
-        FormaPag c = new FormaPag();
+        FormaPag formaPag = new FormaPag();
 
-        c.setId(Integer.parseInt(txtIdFormaPag.getText()));
-        c.setDesc((String) JComboFormaPag.getSelectedItem());
+        formaPag.setId(Integer.parseInt(txtIdFormaPag.getText()));
+        formaPag.setDesc((String) JComboFormaPag.getSelectedItem());
 
         try {
-            f.salvarFormaPag(c);
+            fachada.salvarFormaPag(formaPag);
             JOptionPane.showMessageDialog(this, "Forma de Pagamento alterada com sucesso!");
             txtValorPag.setText(null);
             txtIdPag.setText(null);
@@ -1477,11 +1477,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIncluirCliActionPerformed
 
     private void btnIncluirVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirVendedorActionPerformed
-        Vendedor v = new Vendedor();
-        v.setNome(txtNomeVendedor.getText());
+        Vendedor vendedor = new Vendedor();
+        vendedor.setNome(txtNomeVendedor.getText());
 
         try {
-            f.salvarVendedor(v);
+            fachada.salvarVendedor(vendedor);
             JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
             txtNomeVendedor.setText(null);
         } catch (RegraException e) {
@@ -1490,16 +1490,16 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIncluirVendedorActionPerformed
 
     private void btnExcluirVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirVendedorActionPerformed
-        Vendedor v = new Vendedor();
+        Vendedor vendedor = new Vendedor();
         try {
-            v.setId(Integer.parseInt(txtIdVendedor.getText()));
+            vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
         } catch (NumberFormatException e) {
 
             JOptionPane.showMessageDialog(this, "ID inválido");
         }
 
         try {
-            f.excluirVendedor(v);
+            fachada.excluirVendedor(vendedor);
             JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
             txtIdVendedor.setText(null);
         } catch (RegraException e) {
@@ -1508,13 +1508,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirVendedorActionPerformed
 
     private void btnPesquisarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarVendedorActionPerformed
-        Vendedor v = new Vendedor();
-        v.setId(Integer.parseInt(txtIdVendedor.getText()));
+        Vendedor vendedor = new Vendedor();
+        vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
 
         try {
-            v = f.pesquisarVendedorId(v);
+            vendedor = fachada.pesquisarVendedorId(vendedor);
             JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
-            JOptionPane.showMessageDialog(this, "nome: " + v.getNome() + "\n" + "Id: " + v.getId());
+            JOptionPane.showMessageDialog(this, "nome: " + vendedor.getNome() + "\n" + "Id: " + vendedor.getId());
             txtNomeVendedor.setText(null);
             txtIdVendedor.setText(null);
         } catch (RegraException e) {
@@ -1532,14 +1532,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void btnIncluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPagActionPerformed
 
-        Pagamento g = new Pagamento();
-        JComboBox<FormaPag> j = new JComboBox<>();
+        Pagamento pagamento = new Pagamento();
+        JComboBox<FormaPag> boxFormaPag = new JComboBox<>();
 
         try {
-            g.setValor(Double.parseDouble(txtValorPag.getText()));
-            f.listarPedido();
-            j.addItem(g.getFormaPag());
-            f.salvarPagamento(g);
+            pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
+            fachada.listarPedido();
+            boxFormaPag.addItem(pagamento.getFormaPag());
+            fachada.salvarPagamento(pagamento);
             JOptionPane.showMessageDialog(this, "Pagamento incluido com sucesso!");
             txtValorPag.setText(null);
             JComboFormaPag.setSelectedItem(null);
@@ -1693,12 +1693,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void btnIncluirFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirFormaPagActionPerformed
 
-        FormaPag c = new FormaPag();
+        FormaPag formaPag = new FormaPag();
 
         try {
-            c.setId(Integer.parseInt(txtIdFormaPag.getText()));
-            c.setDesc((String) JComboFormaPag.getSelectedItem());
-            f.salvarFormaPag(c);
+            formaPag.setId(Integer.parseInt(txtIdFormaPag.getText()));
+            formaPag.setDesc((String) JComboFormaPag.getSelectedItem());
+            fachada.salvarFormaPag(formaPag);
             JOptionPane.showMessageDialog(this, "Forma de Pagamento incluída com sucesso!");
             txtIdFormaPag.setText(null);
             JComboFormaPag.setSelectedItem(null);
@@ -1710,13 +1710,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIncluirFormaPagActionPerformed
 
     private void btnPesquisarFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFormaPagActionPerformed
-        FormaPag c = new FormaPag();
+        FormaPag formaPag = new FormaPag();
 
-        c.setId(Integer.parseInt(txtIdFormaPag.getText()));
-        c.setDesc((String) JComboFormaPag.getSelectedItem());
+        formaPag.setId(Integer.parseInt(txtIdFormaPag.getText()));
+        formaPag.setDesc((String) JComboFormaPag.getSelectedItem());
 
         try {
-            f.salvarFormaPag(c);
+            fachada.salvarFormaPag(formaPag);
             JOptionPane.showMessageDialog(this, "Pesquisa realizada com sucesso!");
             txtIdFormaPag.setText(null);
             JComboFormaPag.setSelectedItem(null);
@@ -1726,12 +1726,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarFormaPagActionPerformed
 
     private void btnExcluirFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirFormaPagActionPerformed
-        FormaPag c = new FormaPag();
+        FormaPag formaPag = new FormaPag();
 
-        c.setId(Integer.parseInt(txtIdFormaPag.getText()));
+        formaPag.setId(Integer.parseInt(txtIdFormaPag.getText()));
 
         try {
-            f.excluirFormaPag(c);
+            fachada.excluirFormaPag(formaPag);
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
             txtIdFormaPag.setText(null);
             JComboFormaPag.setSelectedItem(null);
@@ -1741,12 +1741,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirFormaPagActionPerformed
 
     private void btnExcluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPagActionPerformed
-        /* Pagamento g = new Pagamento();
+        /* Pagamento pagamento = new Pagamento();
 
-        g.setId(txtIdPag);
+        pagamento.setId(txtIdPag);
         
         try {
-            g.
+            pagamento.
             JOptionPane.showMessageDialog(this, "Pesquisa realizada com sucesso!");
             txtIdFormaPag.setText(null);
             JComboFormaPag.setSelectedItem(null);
@@ -1766,7 +1766,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         vendedor.setId(Integer.parseInt(txtVendedorId.getText()));
 
         try {
-            f.incluirPedido(pedido);
+            fachada.incluirPedido(pedido);
             JOptionPane.showMessageDialog(this, "Pedido incluído com sucesso!");
             txtValorPag.setText(null);
             txtIdPag.setText(null);
@@ -1786,7 +1786,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Pedido pedido = new Pedido();
 
         try {
-            f.excluirPedido(pedido);
+            fachada.excluirPedido(pedido);
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
             txtIdPedido.setText(null);
             JComboFormaPag.setSelectedItem(null);
@@ -1809,11 +1809,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void btnPesquisarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPagActionPerformed
 
-        Pagamento g = new Pagamento();
+        Pagamento pagamento = new Pagamento();
 
         try {
-            g.setId(Integer.parseInt(txtPesquisarPag.getText()));
-            f.pesquisarPagamento(g);
+            pagamento.setId(Integer.parseInt(txtPesquisarPag.getText()));
+            fachada.pesquisarPagamento(pagamento);
             JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
             txtPesquisarPag.setText(null);
             txtIdVendedor.setText(null);
@@ -1854,22 +1854,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUIPrincipal.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIPrincipal.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIPrincipal.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIPrincipal.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        
         //</editor-fold>
         //</editor-fold>
 
