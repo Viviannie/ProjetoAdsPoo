@@ -39,16 +39,16 @@ public class RNCliente {
             throw new RegraException(e.getMessage());
         }
     }
-    public Cliente pesquisarNome (String nome) throws RegraException {
+    public Cliente pesquisarNome(String nome) throws RegraException {
         try {
-            return dao.pesquisar(nome);
+            return dao.pesquisarNome(nome);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
-    public Cliente pesquisar(String cpf) throws RegraException {
+    public Cliente pesquisarCpf(String cpf) throws RegraException {
         try {
-            return dao.pesquisar(cpf);
+            return dao.pesquisarCpf(cpf);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
@@ -68,11 +68,15 @@ public class RNCliente {
      * @param c Objeto com os dados
      * @throws RegraException
      */
-    public void validar(Cliente c) throws RegraException {
+    public void validarNome(Cliente c) throws RegraException {
 
         if ((c.getNome() == null) || (c.getNome().trim().equals(""))) {
             throw new RegraException("Nome inválido");
         }
+    }
+    
+    public void validarCpf(Cliente c) throws RegraException {
+        
         if ((c.getCpf() == null) || (c.getCpf().trim().equals("")) || (c.getCpf().trim().length() != 11)) {
             throw new RegraException("CPF inválido");
         }
@@ -88,7 +92,7 @@ public class RNCliente {
 
         try {
 
-            Cliente x = dao.pesquisar(c.getCpf());
+            Cliente x = dao.pesquisarCpf(c.getCpf());
             if (x != null) {
                 throw new RegraException("Cliente existente.");
             }
@@ -109,7 +113,7 @@ public class RNCliente {
             throw new RegraException("CPF inválido!");
         }
         try {
-            Cliente x = dao.pesquisar(cpf);
+            Cliente x = dao.pesquisarCpf(cpf);
             if (x == null) {
                 throw new RegraException("CPF informado não existe.");
             }

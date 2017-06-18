@@ -56,7 +56,7 @@ public interface DAOCliente {
      * @throws ConexaoException
      * @throws DAOException
      */
-    public Cliente pesquisar(String cpf) throws ConexaoException, DAOException;
+    public Cliente pesquisarCpf(String cpf) throws ConexaoException, DAOException;
 
     /**
      * Retorna uma lista com todos os registros de Clientes

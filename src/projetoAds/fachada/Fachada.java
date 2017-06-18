@@ -55,7 +55,8 @@ public class Fachada {
      * CLIENTE
      *########################################################################*/
     public void salvarCliente(Cliente cliente) throws RegraException {
-        rnCliente.validar(cliente);
+        rnCliente.validarNome(cliente);
+        rnCliente.validarCpf(cliente);
         rnCliente.verificaDuplicidade(cliente);
         rnCliente.incluir(cliente);
     }
@@ -66,19 +67,20 @@ public class Fachada {
     }
 
     public void alterarCliente(Cliente cliente) throws RegraException {
-        rnCliente.validar(cliente);
+        rnCliente.validarNome(cliente);
+        rnCliente.validarCpf(cliente);
         rnCliente.validaCpf(cliente.getCpf());
         rnCliente.alterar(cliente);
     }
 
     public Cliente pesquisarClienteNome(Cliente cliente) throws RegraException {
-        rnCliente.validar(cliente);
-        return rnCliente.pesquisar(cliente.getNome());
+        rnCliente.validarNome(cliente);
+        return rnCliente.pesquisarNome(cliente.getNome());
     }
 
     public Cliente pesquisarClienteCpf(Cliente cliente) throws RegraException {
         rnCliente.validaCpf(cliente.getCpf());
-        return rnCliente.pesquisar(cliente.getCpf());
+        return rnCliente.pesquisarCpf(cliente.getCpf());
     }
 
     public ArrayList<Cliente> listarCliente() throws RegraException {

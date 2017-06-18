@@ -1970,7 +1970,26 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeCliFocusGained
 
     private void btnPesquisarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarCliActionPerformed
+        Cliente cliente = new Cliente();
 
+        cliente.setNome(txtPesquisarCli.getText());
+        cliente.setCpf(txtPesquisarCli.getText());
+
+        try {
+            fachada.pesquisarClienteNome(cliente);
+            fachada.pesquisarClienteCpf(cliente);
+            txtNomeCli.setText(cliente.getNome());
+            txtCpfCli.setText(cliente.getCpf());
+            txtNomeCli.setText(null);
+            txtCpfCli.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
+        btnIncluirCli.setEnabled(false);
+        btnCancelarCli.setEnabled(false);
+        txtNomeCli.setEnabled(false);
+        txtCpfCli.setEnabled(false);
         btnAlterarCli.setEnabled(true);
         btnExcluirCli.setEnabled(true);
         btnIncluirCli.setEnabled(false);
@@ -1981,13 +2000,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void btnIncluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirCliActionPerformed
         Cliente cliente = new Cliente();
-        
+
         cliente.setNome(txtNomeCli.getText());
         cliente.setCpf(txtCpfCli.getText());
-        
+
         try {
             fachada.salvarCliente(cliente);
-            JOptionPane.showMessageDialog(this, "Cliente incluído com sucesso");
+            JOptionPane.showMessageDialog(this, "Cliente incluído com sucesso!");
             txtNomeCli.setText(null);
             txtCpfCli.setText(null);
         } catch (RegraException e) {
@@ -2001,11 +2020,45 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIncluirCliActionPerformed
 
     private void btnExcluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliActionPerformed
-        // TODO add your handling code here:
+        Cliente cliente = new Cliente();
+
+        cliente.setCpf(txtCpfCli.getText());
+
+        try {
+            fachada.excluirCliente(cliente);
+            JOptionPane.showMessageDialog(this, "Cliente excluído com sucesso!");
+            txtCpfCli.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
+        btnIncluirCli.setEnabled(false);
+        btnCancelarCli.setEnabled(false);
+        btnAlterarCli.setEnabled(false);
+        btnExcluirCli.setEnabled(false);
+        txtNomeCli.setEnabled(false);
+        txtCpfCli.setEnabled(false);
     }//GEN-LAST:event_btnExcluirCliActionPerformed
 
     private void btnAlterarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarCliActionPerformed
-        // TODO add your handling code here:
+        Cliente cliente = new Cliente();
+
+        cliente.setNome(txtNomeCli.getText());
+        cliente.setCpf(txtCpfCli.getText());
+
+        try {
+            fachada.alterarCliente(cliente);
+            JOptionPane.showMessageDialog(this, "Cliente alterado com sucesso!");
+            txtNomeCli.setText(null);
+            txtCpfCli.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
+        btnIncluirCli.setEnabled(false);
+        btnCancelarCli.setEnabled(false);
+        txtNomeCli.setEnabled(false);
+        txtCpfCli.setEnabled(false);
     }//GEN-LAST:event_btnAlterarCliActionPerformed
 
     private void btnNovoCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoCliActionPerformed
@@ -2101,6 +2154,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirCli.setEnabled(false);
         btnAlterarCli.setEnabled(false);
         btnIncluirCli.setEnabled(false);
+        txtNomeCli.setEnabled(false);
+        txtCpfCli.setEnabled(false);
     }//GEN-LAST:event_btnCancelarCliActionPerformed
 
     private void btnCancelarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarPedidoActionPerformed
