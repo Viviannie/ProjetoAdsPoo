@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.conexao.Conectar;
 import projetoAds.conexao.ConexaoBD;
@@ -90,7 +91,7 @@ public class DAOPagamentoImpl implements DAOPagamento {
             }
             return pagamento;
         } catch (SQLException e) {
-            throw new DAOException(e);
+            throw new DAOException("Erro ao buscar Pagamento!");
         } finally {
             con.desconectar(c);
         }
