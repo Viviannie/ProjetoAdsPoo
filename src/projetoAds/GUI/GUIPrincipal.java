@@ -1857,7 +1857,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirCli.setEnabled(true);
         btnPesquisarCli.setEnabled(true);
         txtPesquisarCli.setEnabled(true);
-        txtPesquisarCli.setEnabled(true);
         txtNomeCli.setEnabled(true);
         txtCpfCli.setEnabled(true);
     }//GEN-LAST:event_btnNovoCliActionPerformed
