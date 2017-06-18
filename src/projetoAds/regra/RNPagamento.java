@@ -72,7 +72,7 @@ public class RNPagamento {
             throw new RegraException("ID inválida.");
         }
 
-        if (g.getFormaPag().getId() == null) {
+        if (g.getFormaPag() == null) {
             throw new RegraException("Forma de pagamento inválida.");
         }
 

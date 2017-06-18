@@ -1,15 +1,10 @@
 package projetoAds.GUI;
 
-import java.awt.event.ActionEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import projetoAds.classesBasicas.Cliente;
-import projetoAds.classesBasicas.FormaPag;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.classesBasicas.Pedido;
 import projetoAds.classesBasicas.Vendedor;
@@ -98,16 +93,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtPedidoId = new javax.swing.JTextField();
         txtPesquisarPag = new javax.swing.JTextField();
         JComboFormaPag = new javax.swing.JComboBox<>();
-        FormaPagamento = new javax.swing.JPanel();
-        lblIdFormaPag = new javax.swing.JLabel();
-        lblDescFormaPag = new javax.swing.JLabel();
-        btnAlterarFormaPag = new javax.swing.JButton();
-        btnExcluirFormaPag = new javax.swing.JButton();
-        btnIncluirFormaPag = new javax.swing.JButton();
-        btnPesquisarFormaPag = new javax.swing.JButton();
-        btnNovoFormaPag = new javax.swing.JButton();
-        txtIdFormaPag = new javax.swing.JTextField();
-        JComboFrmPag = new javax.swing.JComboBox<>();
         Venda = new javax.swing.JPanel();
         lblPrecoVenda = new javax.swing.JLabel();
         lblQtdVenda = new javax.swing.JLabel();
@@ -251,7 +236,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNomeCli, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCpfCli, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAlterarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnIncluirCli, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -411,7 +396,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addComponent(lblClienteId)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtClienteId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnIncluirPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAlterarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -547,7 +532,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 .addGroup(VendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPesquisarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExcluirVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         VendedorLayout.setVerticalGroup(
             VendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -716,7 +701,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                                 .addComponent(lblIdPag)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtIdPag, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                         .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnPesquisarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnIncluirPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -762,137 +747,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         );
 
         Cadastro.addTab("Pagamento", null, Pagamento, "");
-
-        lblIdFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblIdFormaPag.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIdFormaPag.setText("IDENTIFICAÇÃO");
-        lblIdFormaPag.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lblDescFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblDescFormaPag.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDescFormaPag.setText("DESCRIÇÃO");
-        lblDescFormaPag.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnAlterarFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnAlterarFormaPag.setText("Alterar");
-        btnAlterarFormaPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAlterarFormaPag.setEnabled(false);
-        btnAlterarFormaPag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarFormaPagActionPerformed(evt);
-            }
-        });
-
-        btnExcluirFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnExcluirFormaPag.setText("Excluir");
-        btnExcluirFormaPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnExcluirFormaPag.setEnabled(false);
-        btnExcluirFormaPag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirFormaPagActionPerformed(evt);
-            }
-        });
-
-        btnIncluirFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnIncluirFormaPag.setText("Incluir");
-        btnIncluirFormaPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnIncluirFormaPag.setEnabled(false);
-        btnIncluirFormaPag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIncluirFormaPagActionPerformed(evt);
-            }
-        });
-
-        btnPesquisarFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnPesquisarFormaPag.setText("Pesquisar");
-        btnPesquisarFormaPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnPesquisarFormaPag.setEnabled(false);
-        btnPesquisarFormaPag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarFormaPagActionPerformed(evt);
-            }
-        });
-
-        btnNovoFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnNovoFormaPag.setText("Novo");
-        btnNovoFormaPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnNovoFormaPag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovoFormaPagActionPerformed(evt);
-            }
-        });
-
-        txtIdFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtIdFormaPag.setEnabled(false);
-        txtIdFormaPag.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtIdFormaPagFocusGained(evt);
-            }
-        });
-        txtIdFormaPag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdFormaPagActionPerformed(evt);
-            }
-        });
-
-        JComboFrmPag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dinheiro", "Cartão" }));
-        JComboFrmPag.setEnabled(false);
-
-        javax.swing.GroupLayout FormaPagamentoLayout = new javax.swing.GroupLayout(FormaPagamento);
-        FormaPagamento.setLayout(FormaPagamentoLayout);
-        FormaPagamentoLayout.setHorizontalGroup(
-            FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FormaPagamentoLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FormaPagamentoLayout.createSequentialGroup()
-                        .addComponent(lblIdFormaPag)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIdFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(FormaPagamentoLayout.createSequentialGroup()
-                        .addComponent(lblDescFormaPag)
-                        .addGap(18, 18, 18)
-                        .addComponent(JComboFrmPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(84, 84, 84)
-                .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(FormaPagamentoLayout.createSequentialGroup()
-                        .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnIncluirFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAlterarFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPesquisarFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnExcluirFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnNovoFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(144, 144, 144))
-        );
-        FormaPagamentoLayout.setVerticalGroup(
-            FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FormaPagamentoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIdFormaPag))
-                .addGap(18, 18, 18)
-                .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDescFormaPag)
-                    .addComponent(JComboFrmPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64))
-            .addGroup(FormaPagamentoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnNovoFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPesquisarFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnIncluirFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExcluirFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAlterarFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-
-        Cadastro.addTab("Forma de Pagamento", FormaPagamento);
 
         lblPrecoVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblPrecoVenda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -986,7 +840,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addComponent(lblPedidoId2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtPedidoId2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                 .addGroup(VendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAlterarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnIncluirVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1127,7 +981,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addComponent(lblDescProduto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtDescProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(238, Short.MAX_VALUE))
+                        .addContainerGap(300, Short.MAX_VALUE))
                     .addGroup(ProdutoLayout.createSequentialGroup()
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ProdutoLayout.createSequentialGroup()
@@ -1279,7 +1133,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addComponent(lblRazaoFab)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtRazaoFab)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAlterarFab, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnIncluirFab, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1326,7 +1180,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 650, Short.MAX_VALUE)
+            .addComponent(jTabbedPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1336,21 +1190,210 @@ public class GUIPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAlterarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarCliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlterarCliActionPerformed
+    private void txtRazaoFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRazaoFabActionPerformed
+        if (this.txtRazaoFab.getText().equals("")) {
+            txtRazaoFab.grabFocus();
+        }
+    }//GEN-LAST:event_txtRazaoFabActionPerformed
+
+    private void txtNomeFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeFabActionPerformed
+        if (this.txtNomeFab.getText().equals("")) {
+            txtNomeFab.grabFocus();
+        }
+    }//GEN-LAST:event_txtNomeFabActionPerformed
+
+    private void txtCnpjFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCnpjFabActionPerformed
+        if (this.txtCnpjFab.getText().equals("")) {
+            txtCnpjFab.grabFocus();
+        }
+    }//GEN-LAST:event_txtCnpjFabActionPerformed
 
     private void btnAlterarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarFabActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAlterarFabActionPerformed
+
+    private void txtFabricanteCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFabricanteCnpjActionPerformed
+        if (this.txtFabricanteCnpj.getText().equals("")) {
+            txtFabricanteCnpj.grabFocus();
+        }
+    }//GEN-LAST:event_txtFabricanteCnpjActionPerformed
+
+    private void txtEstAtualProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstAtualProdutoActionPerformed
+        if (this.txtEstAtualProduto.getText().equals("")) {
+            txtEstAtualProduto.grabFocus();
+        }
+    }//GEN-LAST:event_txtEstAtualProdutoActionPerformed
+
+    private void txtEstMinProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstMinProdutoActionPerformed
+        if (this.txtEstMinProduto.getText().equals("")) {
+            txtEstMinProduto.grabFocus();
+        }
+    }//GEN-LAST:event_txtEstMinProdutoActionPerformed
+
+    private void txtIdProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProdutoActionPerformed
+        if (this.txtIdProduto.getText().equals("")) {
+            txtIdProduto.grabFocus();
+        }
+    }//GEN-LAST:event_txtIdProdutoActionPerformed
+
+    private void txtDescProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescProdutoActionPerformed
+        if (this.txtDescProduto.getText().equals("")) {
+            txtDescProduto.grabFocus();
+        }
+    }//GEN-LAST:event_txtDescProdutoActionPerformed
+
+    private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirProdutoActionPerformed
+
+    private void btnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlterarProdutoActionPerformed
+
+    private void txtPedidoId2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPedidoId2ActionPerformed
+        if (this.txtPedidoId2.getText().equals("")) {
+            txtPedidoId2.grabFocus();
+        }
+    }//GEN-LAST:event_txtPedidoId2ActionPerformed
+
+    private void txtProdutoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoIdActionPerformed
+        if (this.txtProdutoId.getText().equals("")) {
+            txtProdutoId.grabFocus();
+        }
+    }//GEN-LAST:event_txtProdutoIdActionPerformed
+
+    private void txtQtdVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtdVendaActionPerformed
+        if (this.txtQtdVenda.getText().equals("")) {
+            txtQtdVenda.grabFocus();
+        }
+    }//GEN-LAST:event_txtQtdVendaActionPerformed
+
+    private void txtPrecoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoVendaActionPerformed
+        if (this.txtPrecoVenda.getText().equals("")) {
+            txtPrecoVenda.grabFocus();
+        }
+    }//GEN-LAST:event_txtPrecoVendaActionPerformed
+
+    private void btnAlterarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlterarVendaActionPerformed
+
+    private void txtPesquisarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarPagActionPerformed
+        if (this.txtPesquisarPag.getText().equals("")) {
+            txtPesquisarPag.grabFocus();
+        }
+    }//GEN-LAST:event_txtPesquisarPagActionPerformed
+
+    private void txtPedidoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPedidoIdActionPerformed
+        if (this.txtPedidoId.getText().equals("")) {
+            txtPedidoId.grabFocus();
+        }
+    }//GEN-LAST:event_txtPedidoIdActionPerformed
+
+    private void txtPedidoIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPedidoIdFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPedidoIdFocusGained
+
+    private void txtValorPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorPagActionPerformed
+        if (this.txtValorPag.getText().equals("")) {
+            txtValorPag.grabFocus();
+        }
+    }//GEN-LAST:event_txtValorPagActionPerformed
+
+    private void txtValorPagFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorPagFocusGained
+        if (this.txtValorPag.getText().equals("")) {
+            txtValorPag.grabFocus();
+        }
+    }//GEN-LAST:event_txtValorPagFocusGained
+
+    private void txtIdPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdPagActionPerformed
+        if (this.txtIdPag.getText().equals("")) {
+            txtIdPag.grabFocus();
+        }
+    }//GEN-LAST:event_txtIdPagActionPerformed
+
+    private void txtIdPagFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdPagFocusGained
+        if (this.txtIdPag.getText().equals("")) {
+            txtIdPag.grabFocus();
+        }
+    }//GEN-LAST:event_txtIdPagFocusGained
+
+    private void btnNovoPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoPagActionPerformed
+        btnPesquisarPag.setEnabled(true);
+        txtPesquisarPag.setEnabled(true);
+        txtPedidoId.setEnabled(true);
+    }//GEN-LAST:event_btnNovoPagActionPerformed
+
+    private void btnPesquisarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPagActionPerformed
+
+        Pagamento pagamento = new Pagamento();
+        Pedido p = new Pedido();
+
+        try {
+            p.setId(Integer.parseInt(txtPedidoId.getText()));
+            fachada.pesquisarPagamento(pagamento);
+            JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
+            txtPesquisarPag.setText(null);
+            txtIdVendedor.setText(null);
+            btnAlterarPag.setText(null);
+            btnAlterarPag.setEnabled(true);
+            txtPesquisarPag.setEnabled(true);
+            txtIdPag.setEnabled(true);
+            txtPedidoId.setEnabled(true);
+
+        } catch (RegraException | NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            btnAlterarPag.setEnabled(false);
+        }
+
+        btnPesquisarPag.setEnabled(true);
+    }//GEN-LAST:event_btnPesquisarPagActionPerformed
+
+    private void btnIncluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPagActionPerformed
+
+        Pagamento pagamento = new Pagamento();
+        Pedido p = new Pedido();
+
+        try {
+            p.setId(Integer.parseInt(txtPedidoId.getText()));
+            pagamento.setValor(Double.parseDouble(txtValorPag.getText()));       
+            pagamento.setFormaPag((String) JComboFormaPag.getSelectedItem());
+            //c.addItem(JComboFormaPag.getSelectedItem());
+            fachada.salvarPagamento(pagamento);
+            JOptionPane.showMessageDialog(this, "Pagamento incluido com sucesso!");
+            txtValorPag.setText(null);
+            JComboFormaPag.setSelectedItem(null);
+        } catch (RegraException | DAOException | ConexaoException | NumberFormatException | ClassCastException | NullPointerException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
+        btnAlterarPag.setEnabled(false);
+        txtPedidoId.setEnabled(true);
+        txtIdPag.setEnabled(true);
+        txtValorPag.setEnabled(true);
+    }//GEN-LAST:event_btnIncluirPagActionPerformed
+
+    private void btnExcluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPagActionPerformed
+        /* Pagamento pagamento = new Pagamento();
+
+        pagamento.setId(txtIdPag);
+
+        try {
+            pagamento.
+            JOptionPane.showMessageDialog(this, "Pesquisa realizada com sucesso!");
+            txtIdFormaPag.setText(null);
+            JComboFormaPag.setSelectedItem(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }*/
+    }//GEN-LAST:event_btnExcluirPagActionPerformed
 
     private void btnAlterarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarPagActionPerformed
         Pagamento pagamento = new Pagamento();
 
         try {
             pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
-            //g.setPedido(g.getPedido());
-            pagamento.setFormaPag((FormaPag) JComboFormaPag.getSelectedItem());
+            
             fachada.alterarPagamento(pagamento);
             txtValorPag.setText(null);
             txtPedidoId.setText(null);
@@ -1365,116 +1408,37 @@ public class GUIPrincipal extends javax.swing.JFrame {
         JComboFormaPag.setEnabled(true);
         btnNovoPag.setEnabled(false);
         btnPesquisarPag.setEnabled(true);
-        btnIncluirPag.setEnabled(true);     
+        btnIncluirPag.setEnabled(true);
         txtIdPag.setEnabled(true);
         JComboFormaPag.setEnabled(true);
-
     }//GEN-LAST:event_btnAlterarPagActionPerformed
 
-    private void btnAlterarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendedorActionPerformed
+    private void txtNomeVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeVendedorActionPerformed
+        if (this.txtNomeVendedor.getText().equals("")) {
+            txtNomeVendedor.grabFocus();
+        }
+    }//GEN-LAST:event_txtNomeVendedorActionPerformed
+
+    private void txtIdVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdVendedorActionPerformed
+        if (this.txtIdVendedor.getText().equals("")) {
+            txtIdVendedor.grabFocus();
+        }
+    }//GEN-LAST:event_txtIdVendedorActionPerformed
+
+    private void btnPesquisarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarVendedorActionPerformed
         Vendedor vendedor = new Vendedor();
-        vendedor.setNome(txtNomeVendedor.getText());
         vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
 
         try {
-            fachada.alterarVendedor(vendedor);
-            JOptionPane.showMessageDialog(this, "Registro alterado com sucesso");
+            vendedor = fachada.pesquisarVendedorId(vendedor);
+            JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
+            JOptionPane.showMessageDialog(this, "nome: " + vendedor.getNome() + "\n" + "Id: " + vendedor.getId());
             txtNomeVendedor.setText(null);
             txtIdVendedor.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-        
-        btnIncluirPag.setEnabled(true);
-        btnPesquisarPag.setEnabled(true);
-        btnExcluirPag.setEnabled(true);
-        txtIdPag.setEnabled(true);
-        txtValorPag.setEnabled(true);
-        JComboFormaPag.setEnabled(true);
-    }//GEN-LAST:event_btnAlterarVendedorActionPerformed
-
-    private void btnAlterarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarPedidoActionPerformed
-        Pedido pedido = new Pedido();
-        pedido.setId(Integer.parseInt(txtIdPedido.getText()));
-
-        try {
-            fachada.alterarPedido(pedido);
-            JOptionPane.showMessageDialog(this, "Pedido alterado com sucesso!");
-            JComboFormaPag.setSelectedItem(null);
-            //Falta implementar
-        } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }//GEN-LAST:event_btnAlterarPedidoActionPerformed
-
-    private void btnAlterarFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarFormaPagActionPerformed
-        FormaPag formaPag = new FormaPag();
-
-        formaPag.setId(Integer.parseInt(txtIdFormaPag.getText()));
-        formaPag.setDesc((String) JComboFormaPag.getSelectedItem());
-
-        try {
-            fachada.salvarFormaPag(formaPag);
-            JOptionPane.showMessageDialog(this, "Forma de Pagamento alterada com sucesso!");
-            txtValorPag.setText(null);
-            txtIdPag.setText(null);
-            JComboFormaPag.setSelectedItem(null);
-        } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }//GEN-LAST:event_btnAlterarFormaPagActionPerformed
-
-    private void btnAlterarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlterarVendaActionPerformed
-
-    private void btnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarProdutoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlterarProdutoActionPerformed
-
-    private void txtCpfCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfCliActionPerformed
-        if (this.txtCpfCli.getText().equals("")) {
-            txtCpfCli.grabFocus();
-        }
-    }//GEN-LAST:event_txtCpfCliActionPerformed
-
-    private void txtDescProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescProdutoActionPerformed
-        if (this.txtDescProduto.getText().equals("")) {
-            txtDescProduto.grabFocus();
-        }
-    }//GEN-LAST:event_txtDescProdutoActionPerformed
-
-    private void txtNomeCliFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeCliFocusGained
-        if (this.txtNomeCli.getText().equals("")) {
-            txtNomeCli.grabFocus();
-        }
-    }//GEN-LAST:event_txtNomeCliFocusGained
-
-    private void txtIdFormaPagFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdFormaPagFocusGained
-        if (this.txtIdFormaPag.getText().equals("")) {
-            txtIdFormaPag.grabFocus();
-        }
-    }//GEN-LAST:event_txtIdFormaPagFocusGained
-
-    private void txtValorPagFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorPagFocusGained
-        if (this.txtValorPag.getText().equals("")) {
-            txtValorPag.grabFocus();
-        }
-    }//GEN-LAST:event_txtValorPagFocusGained
-
-    private void txtIdPagFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdPagFocusGained
-        if (this.txtIdPag.getText().equals("")) {
-            txtIdPag.grabFocus();
-        }
-    }//GEN-LAST:event_txtIdPagFocusGained
-
-    private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirProdutoActionPerformed
-
-    private void btnIncluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirCliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnIncluirCliActionPerformed
+    }//GEN-LAST:event_btnPesquisarVendedorActionPerformed
 
     private void btnIncluirVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirVendedorActionPerformed
         Vendedor vendedor = new Vendedor();
@@ -1507,115 +1471,45 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExcluirVendedorActionPerformed
 
-    private void btnPesquisarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarVendedorActionPerformed
+    private void btnAlterarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendedorActionPerformed
         Vendedor vendedor = new Vendedor();
+        vendedor.setNome(txtNomeVendedor.getText());
         vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
 
         try {
-            vendedor = fachada.pesquisarVendedorId(vendedor);
-            JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
-            JOptionPane.showMessageDialog(this, "nome: " + vendedor.getNome() + "\n" + "Id: " + vendedor.getId());
+            fachada.alterarVendedor(vendedor);
+            JOptionPane.showMessageDialog(this, "Registro alterado com sucesso");
             txtNomeVendedor.setText(null);
             txtIdVendedor.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-    }//GEN-LAST:event_btnPesquisarVendedorActionPerformed
 
-    private void btnPesquisarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarCliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPesquisarCliActionPerformed
-
-    private void btnExcluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirCliActionPerformed
-
-    private void btnIncluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPagActionPerformed
-
-        Pagamento pagamento = new Pagamento();
-        JComboBox<FormaPag> boxFormaPag = new JComboBox<>();
-
-        try {
-            pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
-            fachada.listarPedido();
-            boxFormaPag.addItem(pagamento.getFormaPag());
-            fachada.salvarPagamento(pagamento);
-            JOptionPane.showMessageDialog(this, "Pagamento incluido com sucesso!");
-            txtValorPag.setText(null);
-            JComboFormaPag.setSelectedItem(null);
-        } catch (RegraException | DAOException | ConexaoException | NumberFormatException | ClassCastException | NullPointerException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-
-        btnIncluirPag.setEnabled(false);
-        txtPedidoId.setEnabled(true);
+        btnIncluirPag.setEnabled(true);
+        btnPesquisarPag.setEnabled(true);
+        btnExcluirPag.setEnabled(true);
         txtIdPag.setEnabled(true);
         txtValorPag.setEnabled(true);
-    }//GEN-LAST:event_btnIncluirPagActionPerformed
+        JComboFormaPag.setEnabled(true);
+    }//GEN-LAST:event_btnAlterarVendedorActionPerformed
 
-    private void txtPedidoIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPedidoIdFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPedidoIdFocusGained
-
-    private void txtNomeCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCliActionPerformed
-        if (this.txtNomeCli.getText().equals("")) {
-            txtNomeCli.grabFocus();
+    private void txtClienteIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteIdActionPerformed
+        if (this.txtClienteId.getText().equals("")) {
+            txtClienteId.grabFocus();
         }
-    }//GEN-LAST:event_txtNomeCliActionPerformed
+    }//GEN-LAST:event_txtClienteIdActionPerformed
 
-    private void txtNomeFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeFabActionPerformed
-        if (this.txtNomeFab.getText().equals("")) {
-            txtNomeFab.grabFocus();
+    private void txtVendedorIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVendedorIdActionPerformed
+        if (this.txtVendedorId.getText().equals("")) {
+            txtVendedorId.grabFocus();
         }
-    }//GEN-LAST:event_txtNomeFabActionPerformed
+    }//GEN-LAST:event_txtVendedorIdActionPerformed
 
-    private void txtCnpjFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCnpjFabActionPerformed
-        if (this.txtCnpjFab.getText().equals("")) {
-            txtCnpjFab.grabFocus();
+    private void txtDataPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataPedidoActionPerformed
+        if (this.txtDataPedido.getText().equals("")) {
+            txtDataPedido.grabFocus();
         }
-    }//GEN-LAST:event_txtCnpjFabActionPerformed
-
-    private void txtRazaoFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRazaoFabActionPerformed
-        if (this.txtRazaoFab.getText().equals("")) {
-            txtRazaoFab.grabFocus();
-        }
-    }//GEN-LAST:event_txtRazaoFabActionPerformed
-
-    private void txtValorPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorPagActionPerformed
-        if (this.txtValorPag.getText().equals("")) {
-            txtValorPag.grabFocus();
-        }
-    }//GEN-LAST:event_txtValorPagActionPerformed
-
-    private void txtIdPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdPagActionPerformed
-        if (this.txtIdPag.getText().equals("")) {
-            txtIdPag.grabFocus();
-        }
-    }//GEN-LAST:event_txtIdPagActionPerformed
-
-    private void txtPedidoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPedidoIdActionPerformed
-        if (this.txtPedidoId.getText().equals("")) {
-            txtPedidoId.grabFocus();
-        }
-    }//GEN-LAST:event_txtPedidoIdActionPerformed
-
-    private void txtNomeVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeVendedorActionPerformed
-        if (this.txtNomeVendedor.getText().equals("")) {
-            txtNomeVendedor.grabFocus();
-        }
-    }//GEN-LAST:event_txtNomeVendedorActionPerformed
-
-    private void txtIdVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdVendedorActionPerformed
-        if (this.txtIdVendedor.getText().equals("")) {
-            txtIdVendedor.grabFocus();
-        }
-    }//GEN-LAST:event_txtIdVendedorActionPerformed
-
-    private void txtIdFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdFormaPagActionPerformed
-        if (this.txtIdFormaPag.getText().equals("")) {
-            txtIdFormaPag.grabFocus();
-        }
-    }//GEN-LAST:event_txtIdFormaPagActionPerformed
+    }//GEN-LAST:event_txtDataPedidoActionPerformed
 
     private void txtNomePedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomePedidoActionPerformed
         if (this.txtNomePedido.getText().equals("")) {
@@ -1629,135 +1523,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtIdPedidoActionPerformed
 
-    private void txtDataPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataPedidoActionPerformed
-        if (this.txtDataPedido.getText().equals("")) {
-            txtDataPedido.grabFocus();
-        }
-    }//GEN-LAST:event_txtDataPedidoActionPerformed
-
-    private void txtVendedorIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVendedorIdActionPerformed
-        if (this.txtVendedorId.getText().equals("")) {
-            txtVendedorId.grabFocus();
-        }
-    }//GEN-LAST:event_txtVendedorIdActionPerformed
-
-    private void txtClienteIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteIdActionPerformed
-        if (this.txtClienteId.getText().equals("")) {
-            txtClienteId.grabFocus();
-        }
-    }//GEN-LAST:event_txtClienteIdActionPerformed
-
-    private void txtPrecoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoVendaActionPerformed
-        if (this.txtPrecoVenda.getText().equals("")) {
-            txtPrecoVenda.grabFocus();
-        }
-    }//GEN-LAST:event_txtPrecoVendaActionPerformed
-
-    private void txtQtdVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtdVendaActionPerformed
-        if (this.txtQtdVenda.getText().equals("")) {
-            txtQtdVenda.grabFocus();
-        }
-    }//GEN-LAST:event_txtQtdVendaActionPerformed
-
-    private void txtProdutoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoIdActionPerformed
-        if (this.txtProdutoId.getText().equals("")) {
-            txtProdutoId.grabFocus();
-        }
-    }//GEN-LAST:event_txtProdutoIdActionPerformed
-
-    private void txtPedidoId2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPedidoId2ActionPerformed
-        if (this.txtPedidoId2.getText().equals("")) {
-            txtPedidoId2.grabFocus();
-        }
-    }//GEN-LAST:event_txtPedidoId2ActionPerformed
-
-    private void txtIdProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProdutoActionPerformed
-        if (this.txtIdProduto.getText().equals("")) {
-            txtIdProduto.grabFocus();
-        }
-    }//GEN-LAST:event_txtIdProdutoActionPerformed
-
-    private void txtEstMinProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstMinProdutoActionPerformed
-        if (this.txtEstMinProduto.getText().equals("")) {
-            txtEstMinProduto.grabFocus();
-        }
-    }//GEN-LAST:event_txtEstMinProdutoActionPerformed
-
-    private void txtEstAtualProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstAtualProdutoActionPerformed
-        if (this.txtEstAtualProduto.getText().equals("")) {
-            txtEstAtualProduto.grabFocus();
-        }
-    }//GEN-LAST:event_txtEstAtualProdutoActionPerformed
-
-    private void txtFabricanteCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFabricanteCnpjActionPerformed
-        if (this.txtFabricanteCnpj.getText().equals("")) {
-            txtFabricanteCnpj.grabFocus();
-        }
-    }//GEN-LAST:event_txtFabricanteCnpjActionPerformed
-
-    private void btnIncluirFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirFormaPagActionPerformed
-
-        FormaPag formaPag = new FormaPag();
-
-        try {
-            formaPag.setId(Integer.parseInt(txtIdFormaPag.getText()));
-            formaPag.setDesc((String) JComboFormaPag.getSelectedItem());
-            fachada.salvarFormaPag(formaPag);
-            JOptionPane.showMessageDialog(this, "Forma de Pagamento incluída com sucesso!");
-            txtIdFormaPag.setText(null);
-            JComboFormaPag.setSelectedItem(null);
-        } catch (RegraException | NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-
-
-    }//GEN-LAST:event_btnIncluirFormaPagActionPerformed
-
-    private void btnPesquisarFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFormaPagActionPerformed
-        FormaPag formaPag = new FormaPag();
-
-        formaPag.setId(Integer.parseInt(txtIdFormaPag.getText()));
-        formaPag.setDesc((String) JComboFormaPag.getSelectedItem());
-
-        try {
-            fachada.salvarFormaPag(formaPag);
-            JOptionPane.showMessageDialog(this, "Pesquisa realizada com sucesso!");
-            txtIdFormaPag.setText(null);
-            JComboFormaPag.setSelectedItem(null);
-        } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }//GEN-LAST:event_btnPesquisarFormaPagActionPerformed
-
-    private void btnExcluirFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirFormaPagActionPerformed
-        FormaPag formaPag = new FormaPag();
-
-        formaPag.setId(Integer.parseInt(txtIdFormaPag.getText()));
-
-        try {
-            fachada.excluirFormaPag(formaPag);
-            JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
-            txtIdFormaPag.setText(null);
-            JComboFormaPag.setSelectedItem(null);
-        } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }//GEN-LAST:event_btnExcluirFormaPagActionPerformed
-
-    private void btnExcluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPagActionPerformed
-        /* Pagamento pagamento = new Pagamento();
-
-        pagamento.setId(txtIdPag);
-        
-        try {
-            pagamento.
-            JOptionPane.showMessageDialog(this, "Pesquisa realizada com sucesso!");
-            txtIdFormaPag.setText(null);
-            JComboFormaPag.setSelectedItem(null);
-        } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage()); 
-        }*/
-    }//GEN-LAST:event_btnExcluirPagActionPerformed
+    private void btnPesquisarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisarPedidoActionPerformed
 
     private void btnIncluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPedidoActionPerformed
         Pedido pedido = new Pedido();
@@ -1778,7 +1546,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-
     }//GEN-LAST:event_btnIncluirPedidoActionPerformed
 
     private void btnExcluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPedidoActionPerformed
@@ -1799,53 +1566,53 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExcluirPedidoActionPerformed
 
-    private void btnPesquisarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPedidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPesquisarPedidoActionPerformed
-
-    private void btnNovoPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoPagActionPerformed
-        btnIncluirPag.setEnabled(true);
-        btnPesquisarPag.setEnabled(true);
-        txtIdPag.setEnabled(true);
-        txtValorPag.setEnabled(true);
-        JComboFormaPag.setEnabled(true);
-    }//GEN-LAST:event_btnNovoPagActionPerformed
-
-    private void btnPesquisarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPagActionPerformed
-
-        Pagamento pagamento = new Pagamento();
+    private void btnAlterarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarPedidoActionPerformed
+        Pedido pedido = new Pedido();
+        pedido.setId(Integer.parseInt(txtIdPedido.getText()));
 
         try {
-            pagamento.setId(Integer.parseInt(txtPesquisarPag.getText()));
-            fachada.pesquisarPagamento(pagamento);
-            JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
-            txtPesquisarPag.setText(null);
-            txtIdVendedor.setText(null);
-            btnAlterarPag.setText(null);
-            btnAlterarPag.setEnabled(true);
-            txtPesquisarPag.setEnabled(true);
-            txtIdPag.setEnabled(true);
-            txtPedidoId.setEnabled(true);
-            
-        } catch (RegraException | NumberFormatException e) {
+            fachada.alterarPedido(pedido);
+            JOptionPane.showMessageDialog(this, "Pedido alterado com sucesso!");
+            JComboFormaPag.setSelectedItem(null);
+            //Falta implementar
+        } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
-            btnAlterarPag.setEnabled(false);
         }
+    }//GEN-LAST:event_btnAlterarPedidoActionPerformed
 
-        btnPesquisarPag.setEnabled(true);
-    }//GEN-LAST:event_btnPesquisarPagActionPerformed
-
-    private void btnNovoFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoFormaPagActionPerformed
-        btnIncluirFormaPag.setEnabled(true);
-        btnPesquisarFormaPag.setEnabled(true);
-        JComboFrmPag.setEnabled(true);
-    }//GEN-LAST:event_btnNovoFormaPagActionPerformed
-
-    private void txtPesquisarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarPagActionPerformed
-        if (this.txtPesquisarPag.getText().equals("")) {
-            txtPesquisarPag.grabFocus();
+    private void txtCpfCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfCliActionPerformed
+        if (this.txtCpfCli.getText().equals("")) {
+            txtCpfCli.grabFocus();
         }
-    }//GEN-LAST:event_txtPesquisarPagActionPerformed
+    }//GEN-LAST:event_txtCpfCliActionPerformed
+
+    private void txtNomeCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCliActionPerformed
+        if (this.txtNomeCli.getText().equals("")) {
+            txtNomeCli.grabFocus();
+        }
+    }//GEN-LAST:event_txtNomeCliActionPerformed
+
+    private void txtNomeCliFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeCliFocusGained
+        if (this.txtNomeCli.getText().equals("")) {
+            txtNomeCli.grabFocus();
+        }
+    }//GEN-LAST:event_txtNomeCliFocusGained
+
+    private void btnPesquisarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisarCliActionPerformed
+
+    private void btnIncluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIncluirCliActionPerformed
+
+    private void btnExcluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirCliActionPerformed
+
+    private void btnAlterarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlterarCliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1871,10 +1638,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
-        //</editor-fold>
-        //</editor-fold>
 
+        //</editor-fold>
+        //</editor-fold>
         try {
             // Set System L&F
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
@@ -1899,9 +1665,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane Cadastro;
     private javax.swing.JPanel Cliente;
     private javax.swing.JPanel Fabricante;
-    private javax.swing.JPanel FormaPagamento;
     private javax.swing.JComboBox<Object> JComboFormaPag;
-    private javax.swing.JComboBox<String> JComboFrmPag;
     private javax.swing.JPanel Pagamento;
     private javax.swing.JPanel Pedido;
     private javax.swing.JPanel Produto;
@@ -1909,7 +1673,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel Vendedor;
     private javax.swing.JButton btnAlterarCli;
     private javax.swing.JButton btnAlterarFab;
-    private javax.swing.JButton btnAlterarFormaPag;
     private javax.swing.JButton btnAlterarPag;
     private javax.swing.JButton btnAlterarPedido;
     private javax.swing.JButton btnAlterarProduto;
@@ -1917,7 +1680,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAlterarVendedor;
     private javax.swing.JButton btnExcluirCli;
     private javax.swing.JButton btnExcluirFab;
-    private javax.swing.JButton btnExcluirFormaPag;
     private javax.swing.JButton btnExcluirPag;
     private javax.swing.JButton btnExcluirPedido;
     private javax.swing.JButton btnExcluirProduto;
@@ -1925,17 +1687,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluirVendedor;
     private javax.swing.JButton btnIncluirCli;
     private javax.swing.JButton btnIncluirFab;
-    private javax.swing.JButton btnIncluirFormaPag;
     private javax.swing.JButton btnIncluirPag;
     private javax.swing.JButton btnIncluirPedido;
     private javax.swing.JButton btnIncluirProduto;
     private javax.swing.JButton btnIncluirVenda;
     private javax.swing.JButton btnIncluirVendedor;
-    private javax.swing.JButton btnNovoFormaPag;
     private javax.swing.JToggleButton btnNovoPag;
     private javax.swing.JButton btnPesquisarCli;
     private javax.swing.JButton btnPesquisarFab;
-    private javax.swing.JButton btnPesquisarFormaPag;
     private javax.swing.JButton btnPesquisarPag;
     private javax.swing.JButton btnPesquisarPedido;
     private javax.swing.JButton btnPesquisarProduto;
@@ -1952,13 +1711,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblCnpjFab;
     private javax.swing.JLabel lblCpfCli;
     private javax.swing.JLabel lblDataPedido;
-    private javax.swing.JLabel lblDescFormaPag;
     private javax.swing.JLabel lblDescProduto;
     private javax.swing.JLabel lblEstAtualProduto;
     private javax.swing.JLabel lblEstMinProduto;
     private javax.swing.JLabel lblFabricanteCnpj;
     private javax.swing.JLabel lblFormaPagId;
-    private javax.swing.JLabel lblIdFormaPag;
     private javax.swing.JLabel lblIdPag;
     private javax.swing.JLabel lblIdPedido;
     private javax.swing.JLabel lblIdProduto;
@@ -1983,7 +1740,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtEstAtualProduto;
     private javax.swing.JTextField txtEstMinProduto;
     private javax.swing.JTextField txtFabricanteCnpj;
-    private javax.swing.JTextField txtIdFormaPag;
     private javax.swing.JTextField txtIdPag;
     private javax.swing.JTextField txtIdPedido;
     private javax.swing.JTextField txtIdProduto;

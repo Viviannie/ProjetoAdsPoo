@@ -3,7 +3,6 @@ package projetoAds.fachada;
 import java.util.ArrayList;
 import projetoAds.classesBasicas.Cliente;
 import projetoAds.classesBasicas.Fabricante;
-import projetoAds.classesBasicas.FormaPag;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.classesBasicas.Pedido;
 import projetoAds.classesBasicas.Produto;
@@ -14,7 +13,6 @@ import projetoAds.excecao.DAOException;
 import projetoAds.excecao.RegraException;
 import projetoAds.regra.RNCliente;
 import projetoAds.regra.RNFabricante;
-import projetoAds.regra.RNFormaPag;
 import projetoAds.regra.RNPagamento;
 import projetoAds.regra.RNPedido;
 import projetoAds.regra.RNProduto;
@@ -30,7 +28,6 @@ public class Fachada {
     private static Fachada instancia;
     private static RNCliente rnCliente;
     private static RNPagamento rnPagamento;
-    private static RNFormaPag rnFormaPag;
     private static RNVendedor rnVendedor;
     private static RNVenda rnVenda;
     private static RNPedido rnPedido;
@@ -40,7 +37,6 @@ public class Fachada {
     private Fachada() {
         rnCliente = new RNCliente();
         rnPagamento = new RNPagamento();
-        rnFormaPag = new RNFormaPag();
         rnVendedor = new RNVendedor();
         rnVenda = new RNVenda();
         rnPedido = new RNPedido();
@@ -58,7 +54,6 @@ public class Fachada {
     /*#########################################################################
      * CLIENTE
      *########################################################################*/
-    
     public void salvarCliente(Cliente cliente) throws RegraException {
         rnCliente.validar(cliente);
         rnCliente.verificaDuplicidade(cliente);
@@ -93,11 +88,10 @@ public class Fachada {
     /*#########################################################################
      * PAGAMENTO
      *########################################################################*/
-    
     public void salvarPagamento(Pagamento pagamento) throws RegraException, DAOException, ConexaoException {
         rnPagamento.validar(pagamento);
         rnPagamento.incluir(pagamento);
-       // rnPagamento.incluirDouble(pagamento);
+        // rnPagamento.incluirDouble(pagamento);
     }
 
     public void excluirPagamento(Pagamento pagamento) throws RegraException {
@@ -118,46 +112,15 @@ public class Fachada {
 
     /**
      *
-     * @return
-     * @throws RegraException
+     * @return @throws RegraException
      */
     public ArrayList<Pagamento> listarPagamentos() throws RegraException {
         return rnPagamento.listar();
     }
 
     /*#########################################################################
-     * FORMAPAG
-     *########################################################################*/
-    
-    public void salvarFormaPag(FormaPag formaPag) throws RegraException{
-        rnFormaPag.validar(formaPag);
-        rnFormaPag.incluir(formaPag);
-    }
-    
-    public void excluirFormaPag(FormaPag formaPag) throws RegraException{
-        rnFormaPag.validaId(formaPag.getId());
-        rnFormaPag.excluir(formaPag);
-    }
-    
-    public void alterarFormaPag(FormaPag formaPag) throws RegraException{
-        rnFormaPag.validar(formaPag);
-        rnFormaPag.validaId(formaPag.getId());
-        rnFormaPag.alterar(formaPag);
-    }
-    
-    public FormaPag pesquisarFormaPag(FormaPag formaPag) throws RegraException {
-        rnFormaPag.validaId(formaPag.getId());
-        return rnFormaPag.pesquisar(formaPag.getId());
-    }
-        
-    public ArrayList<FormaPag> listarFormaPag() throws RegraException {
-        return rnFormaPag.listar();
-    }
-    
-    /*#########################################################################
      * VENDEDOR
      *########################################################################*/
-    
     public void salvarVendedor(Vendedor vendedor) throws RegraException {
         rnVendedor.validar(vendedor);
         rnVendedor.incluir(vendedor);
@@ -187,11 +150,10 @@ public class Fachada {
     public ArrayList<Vendedor> listarVendedor() throws RegraException {
         return rnVendedor.listar();
     }
-    
+
     /*#########################################################################
      * Pedido
      *########################################################################*/
-
     /**
      *
      * @param pedido
@@ -201,51 +163,52 @@ public class Fachada {
         rnPedido.validar(pedido);
         rnPedido.incluir(pedido);
     }
-    
+
     public void excluirPedido(Pedido pedido) throws RegraException {
         rnPedido.validar(pedido);
         rnPedido.excluir(pedido);
     }
+
     public void alterarPedido(Pedido pedido) throws RegraException {
         rnPedido.validar(pedido);
         rnPedido.alterar(pedido);
     }
+
     public Pedido pesquisarPedido(Integer id) throws RegraException {
         rnPedido.validaId(id);
         return rnPedido.pesquisar(id);
     }
+
     public ArrayList<Pedido> listarPedido() throws RegraException {
         return rnPedido.listar();
     }
-    
+
     /*#########################################################################
      * Venda
      *########################################################################*/
-    
     public void incluirVenda(Venda venda) throws RegraException {
         rnVenda.incluir(venda);
     }
-    
+
     public void excluirVenda(Venda venda) throws RegraException {
         rnVenda.excluir(venda);
     }
-    
+
     public void alterarVenda(Venda venda) throws RegraException {
         rnVenda.alterar(venda);
     }
-    
+
     public Venda pesquisarVenda(Integer id) throws RegraException {
         return rnVenda.pesquisar(id);
     }
-    
+
     public ArrayList<Venda> listarVenda() throws RegraException {
         return rnVenda.listar();
     }
-    
+
     /*#########################################################################
      * Fabricante
      *########################################################################*/
-    
     public void salvarFabricante(Fabricante fabricante) throws RegraException {
         rnFabricante.validar(fabricante);
         rnFabricante.verificaDuplicidade(fabricante);
@@ -276,11 +239,10 @@ public class Fachada {
     public ArrayList<Fabricante> listarFabricante() throws RegraException {
         return rnFabricante.listar();
     }
-    
+
     /*#########################################################################
      * PRODUTO
      *########################################################################*/
-    
     public void salvarProduto(Produto produto) throws RegraException {
         rnProduto.validar(produto);
         rnFabricante.validaCnpj(produto.getFabricante().getCnpj());
@@ -313,5 +275,5 @@ public class Fachada {
     public ArrayList<Produto> listarProduto() throws RegraException {
         return rnProduto.listar();
     }
-    
-}    
+
+}

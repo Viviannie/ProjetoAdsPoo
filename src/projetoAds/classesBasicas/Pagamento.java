@@ -9,10 +9,9 @@ public class Pagamento {
     private Double valor;
     private Integer id;
     private Pedido pedido;
-    private FormaPag formaPag;
+    private String formaPag;
 
     public Pagamento() {
-        formaPag = new FormaPag();
         pedido = new Pedido();
     }
     
@@ -31,19 +30,19 @@ public class Pagamento {
     }
 
     /**
-     * @return the FormaPag
+     * @return the formaPag
      */
-    public FormaPag getFormaPag() {
+    public String getFormaPag() {
         return formaPag;
     }
 
     /**
      * @param formaPag the valor to set
      */
-    public void setFormaPag(FormaPag formaPag) {
+    public void setFormaPag(String formaPag) {
         this.formaPag = formaPag;
     }
-
+    
     /**
      * @return the valor
      */
