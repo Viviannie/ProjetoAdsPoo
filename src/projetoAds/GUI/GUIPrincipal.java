@@ -204,7 +204,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnPesquisarCli.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPesquisarCli.setText("Pesquisar");
         btnPesquisarCli.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnPesquisarCli.setEnabled(false);
         btnPesquisarCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarCliActionPerformed(evt);
@@ -253,7 +252,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         });
 
         txtPesquisarCli.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtPesquisarCli.setEnabled(false);
         txtPesquisarCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPesquisarCliActionPerformed(evt);
@@ -1856,7 +1854,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnNovoCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoCliActionPerformed
         btnIncluirCli.setEnabled(true);
         btnPesquisarCli.setEnabled(true);
-        txtPesquisarCli.setEnabled(true);
         txtNomeCli.setEnabled(true);
         txtCpfCli.setEnabled(true);
     }//GEN-LAST:event_btnNovoCliActionPerformed
