@@ -1,5 +1,7 @@
 package projetoAds.GUI;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -8,6 +10,7 @@ import projetoAds.classesBasicas.Cliente;
 import projetoAds.classesBasicas.Fabricante;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.classesBasicas.Pedido;
+import projetoAds.classesBasicas.Produto;
 import projetoAds.classesBasicas.Vendedor;
 import projetoAds.excecao.ConexaoException;
 import projetoAds.excecao.DAOException;
@@ -1120,7 +1123,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         lblIdProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblIdProduto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIdProduto.setText("NÚMERO DO PEDIDO");
+        lblIdProduto.setText("NÚMERO DO PRODUTO");
         lblIdProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblEstMinProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1571,11 +1574,38 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDescProdutoActionPerformed
 
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
-        // TODO add your handling code here:
+        Produto produto = new Produto();
+        produto.setId(Integer.parseInt(txtIdProduto.getText()));
+        
+        try {
+            fachada.excluirProduto(produto);
+            JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
+            txtIdProduto.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_btnExcluirProdutoActionPerformed
 
     private void btnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarProdutoActionPerformed
-        // TODO add your handling code here:
+        Produto produto = new Produto();
+        produto.setDesc(txtDescProduto.getText());
+        produto.getFabricante().setCnpj(txtFabricanteCnpj.getText());
+        produto.setId(Integer.parseInt(txtIdProduto.getText()));
+        produto.setEstoqueMinimo(Integer.parseInt(txtEstMinProduto.getText()));
+        produto.setEstoqueAtual(Integer.parseInt(txtEstAtualProduto.getText()));
+        
+        try {
+            fachada.salvarProduto(produto);
+            JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
+            txtDescProduto.setText(null);
+            txtFabricanteCnpj.setText(null);
+            txtIdProduto.setText(null);
+            txtEstMinProduto.setText(null);
+            txtEstAtualProduto.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
     }//GEN-LAST:event_btnAlterarProdutoActionPerformed
 
     private void txtPedidoId2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPedidoId2ActionPerformed
@@ -1764,9 +1794,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void btnPesquisarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarVendedorActionPerformed
         Vendedor vendedor = new Vendedor();
-
+        vendedor.setId(Integer.parseInt(txtPesquisarVendedor.getText()));
+        
         try {
-            vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
             vendedor = fachada.pesquisarVendedorId(vendedor);
             JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
             JOptionPane.showMessageDialog(this, "nome: " + vendedor.getNome() + "\n" + "Id: " + vendedor.getId());
@@ -1802,12 +1832,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void btnExcluirVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirVendedorActionPerformed
         Vendedor vendedor = new Vendedor();
-        try {
-            vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
-        } catch (NumberFormatException e) {
-
-            JOptionPane.showMessageDialog(this, "ID inválido");
-        }
+        vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
 
         try {
             fachada.excluirVendedor(vendedor);
@@ -1960,16 +1985,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnPesquisarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarCliActionPerformed
         Cliente cliente = new Cliente();
 
-        cliente.setNome(txtPesquisarCli.getText());
         cliente.setCpf(txtPesquisarCli.getText());
 
         try {
-            fachada.pesquisarClienteNome(cliente);
-            fachada.pesquisarClienteCpf(cliente);
+            cliente = fachada.pesquisarClienteCpf(cliente);
             txtNomeCli.setText(cliente.getNome());
             txtCpfCli.setText(cliente.getCpf());
-            txtNomeCli.setText(null);
-            txtCpfCli.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -2224,6 +2245,23 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarProdutoActionPerformed
 
     private void btnIncluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirProdutoActionPerformed
+        Produto produto = new Produto();
+        produto.setDesc(txtDescProduto.getText());
+        produto.getFabricante().setCnpj(txtFabricanteCnpj.getText());
+        produto.setEstoqueMinimo(Integer.parseInt(txtEstMinProduto.getText()));
+        produto.setEstoqueAtual(Integer.parseInt(txtEstAtualProduto.getText()));
+        
+        try {
+            fachada.salvarProduto(produto);
+            JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
+            txtDescProduto.setText(null);
+            txtFabricanteCnpj.setText(null);
+            txtEstMinProduto.setText(null);
+            txtEstAtualProduto.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
         btnIncluirProduto.setEnabled(false);
         btnCancelarProduto.setEnabled(false);
         btnAlterarProduto.setEnabled(false);
@@ -2237,6 +2275,26 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIncluirProdutoActionPerformed
 
     private void btnPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarProdutoActionPerformed
+        Produto produto = new Produto();
+        produto.setId(Integer.parseInt(txtPesquisarProduto.getText()));
+        
+        try {
+            produto = fachada.pesquisarProdutoId(produto);
+            JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
+            JOptionPane.showMessageDialog(this, "Descrição: " + produto.getDesc() + "\n" +
+                    "Id: " + produto.getId() + "\n" +
+                    "CNPJ fabricante: " + produto.getFabricante().getCnpj() + "\n" +
+                    "Estoque mínimo: " + produto.getEstoqueMinimo() + "\n" +
+                    "Estoque atual: " + produto.getEstoqueAtual());
+            txtDescProduto.setText(null);
+            txtFabricanteCnpj.setText(null);
+            txtIdProduto.setText(null);
+            txtEstMinProduto.setText(null);
+            txtEstAtualProduto.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+               
         btnAlterarProduto.setEnabled(true);
         btnExcluirProduto.setEnabled(true);
         btnIncluirProduto.setEnabled(false);
@@ -2250,8 +2308,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void btnPesquisarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFabActionPerformed
         Fabricante fabricante = new Fabricante();
+        fabricante.setCnpj(txtPesquisarFab.getText());
+        
         try {
-            fabricante.setCnpj(txtPesquisarFab.getText());
             fabricante = fachada.pesquisarFabricanteCnpj(fabricante);
             JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
             JOptionPane.showMessageDialog(this, "nome: " + fabricante.getRazao() + "\n" + "Id: " + fabricante.getCnpj());
@@ -2272,6 +2331,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Fabricante fabricante = new Fabricante();
         fabricante.setRazao(txtRazaoFab.getText());
         fabricante.setCnpj(txtCnpjFab.getText());
+        
         try {
             fachada.salvarFabricante(fabricante);
             JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
@@ -2290,6 +2350,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnExcluirFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirFabActionPerformed
         Fabricante fabricante = new Fabricante();
         fabricante.setCnpj(txtCnpjFab.getText());
+        
         try {
             fachada.excluirFabricante(fabricante);
             JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
