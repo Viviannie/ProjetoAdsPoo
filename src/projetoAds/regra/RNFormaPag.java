@@ -48,14 +48,6 @@ public class RNFormaPag {
         }
     }
 
-    public FormaPag pesquisar(String desc) throws RegraException {
-        try {
-            return dao.pesquisar(desc);
-        } catch (ConexaoException | DAOException e) {
-            throw new RegraException(e.getMessage());
-        }
-    }
-
     public ArrayList<FormaPag> listar() throws RegraException {
         try {
             return dao.listar();
@@ -81,20 +73,6 @@ public class RNFormaPag {
         }
     }
 
-    public void verificaDuplicidade(FormaPag f) throws RegraException {
-
-        try {
-
-            FormaPag x = dao.pesquisar(f.getDesc());
-            if (x != null) {
-                throw new RegraException("Forma de pagamento já escolhida.");
-            }
-
-        } catch (ConexaoException | DAOException e) {
-            throw new RegraException(e.getMessage());
-        }
-    }
-
     /**
      * Verifica se um ID passado é válido e existe no BD
      *
@@ -111,23 +89,6 @@ public class RNFormaPag {
             FormaPag x = dao.pesquisar(id);
             if (x == null) {
                 throw new RegraException("ID informado não existe.");
-            }
-
-        } catch (ConexaoException | DAOException e) {
-            throw new RegraException(e.getMessage());
-        }
-    }
-
-    public void validaDesc(String desc) throws RegraException {
-
-        if (desc == null) {
-            throw new RegraException("Descrição inválida.");
-        }
-
-        try {
-            FormaPag x = dao.pesquisar(desc);
-            if (x == null) {
-                throw new RegraException("Descrição informada não existe.");
             }
 
         } catch (ConexaoException | DAOException e) {

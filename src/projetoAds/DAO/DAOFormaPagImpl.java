@@ -93,29 +93,7 @@ public class DAOFormaPagImpl implements DAOFormaPag {
             con.desconectar(c);
         }
     }
-
-    @Override
-    public FormaPag pesquisar(String desc) throws ConexaoException,DAOException {
-        Connection c = con.conectar();
-        String sql = "SELECT frm_id, frm_desc FROM Forma_Pag WHERE (frm_desc=?)";
-        FormaPag formaPag = null;
-        try {
-            PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setString(1, desc);
-            ResultSet rs = pstm.executeQuery();
-            if (rs.next()) {
-                formaPag = new FormaPag();
-                formaPag.setId(rs.getInt("frm_id"));
-                formaPag.setDesc(rs.getString("frm_desc"));
-            }
-            return formaPag;
-        } catch (SQLException e) {
-            throw new DAOException(e);
-        } finally {
-            con.desconectar(c);
-        }
-    }
-    
+        
     @Override
     public ArrayList<FormaPag> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();

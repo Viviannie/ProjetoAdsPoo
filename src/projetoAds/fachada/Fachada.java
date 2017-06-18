@@ -131,7 +131,6 @@ public class Fachada {
     
     public void salvarFormaPag(FormaPag formaPag) throws RegraException{
         rnFormaPag.validar(formaPag);
-        rnFormaPag.verificaDuplicidade(formaPag);
         rnFormaPag.incluir(formaPag);
     }
     
@@ -146,16 +145,11 @@ public class Fachada {
         rnFormaPag.alterar(formaPag);
     }
     
-    public FormaPag pesquisarFormaPagPorId(FormaPag formaPag) throws RegraException {
+    public FormaPag pesquisarFormaPag(FormaPag formaPag) throws RegraException {
         rnFormaPag.validaId(formaPag.getId());
         return rnFormaPag.pesquisar(formaPag.getId());
     }
-    
-    public FormaPag pesquisarFormaPagPorDesc(FormaPag formaPag) throws RegraException{
-        rnFormaPag.validaDesc(formaPag.getDesc());
-        return rnFormaPag.pesquisar(formaPag.getDesc());
-    }
-    
+        
     public ArrayList<FormaPag> listarFormaPag() throws RegraException {
         return rnFormaPag.listar();
     }

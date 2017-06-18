@@ -27,7 +27,7 @@ public class DAOPagamentoImpl implements DAOPagamento {
     @Override
     public void incluir(Pagamento pagamento) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "INSERT INTO pagamento (pag_id, pag_valor, ped_id, frm_id) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO pagamento (pag_id, pag_valor, frm_id) VALUES (?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, pagamento.getId());
