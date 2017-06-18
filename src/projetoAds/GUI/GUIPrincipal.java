@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import projetoAds.classesBasicas.Cliente;
+import projetoAds.classesBasicas.Fabricante;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.classesBasicas.Pedido;
 import projetoAds.classesBasicas.Vendedor;
@@ -144,11 +145,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnPesquisarFab = new javax.swing.JButton();
         btnNovoFab = new javax.swing.JButton();
         btnCancelarFab = new javax.swing.JButton();
-        lblNomeFab = new javax.swing.JLabel();
         lblCnpjFab = new javax.swing.JLabel();
         lblRazaoFab = new javax.swing.JLabel();
         txtCnpjFab = new javax.swing.JTextField();
-        txtNomeFab = new javax.swing.JTextField();
         txtRazaoFab = new javax.swing.JTextField();
         txtPesquisarFab = new javax.swing.JTextField();
 
@@ -1355,6 +1354,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirFab.setMaximumSize(new java.awt.Dimension(43, 23));
         btnExcluirFab.setMinimumSize(new java.awt.Dimension(43, 23));
         btnExcluirFab.setPreferredSize(new java.awt.Dimension(43, 23));
+        btnExcluirFab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirFabActionPerformed(evt);
+            }
+        });
 
         btnIncluirFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnIncluirFab.setText("Incluir");
@@ -1394,11 +1398,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        lblNomeFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblNomeFab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNomeFab.setText("NOME");
-        lblNomeFab.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         lblCnpjFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCnpjFab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCnpjFab.setText("CNPJ");
@@ -1415,14 +1414,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtCnpjFab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCnpjFabActionPerformed(evt);
-            }
-        });
-
-        txtNomeFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNomeFab.setEnabled(false);
-        txtNomeFab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeFabActionPerformed(evt);
             }
         });
 
@@ -1447,15 +1438,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
             FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FabricanteLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FabricanteLayout.createSequentialGroup()
-                        .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblNomeFab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCnpjFab, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblCnpjFab, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNomeFab, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCnpjFab, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCnpjFab, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FabricanteLayout.createSequentialGroup()
                         .addComponent(lblRazaoFab)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1481,11 +1468,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         FabricanteLayout.setVerticalGroup(
             FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FabricanteLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNomeFab)
-                    .addComponent(txtNomeFab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(73, 73, 73)
                 .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCnpjFab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCnpjFab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1536,12 +1519,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtRazaoFabActionPerformed
 
-    private void txtNomeFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeFabActionPerformed
-        if (this.txtNomeFab.getText().equals("")) {
-            txtNomeFab.grabFocus();
-        }
-    }//GEN-LAST:event_txtNomeFabActionPerformed
-
     private void txtCnpjFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCnpjFabActionPerformed
         if (this.txtCnpjFab.getText().equals("")) {
             txtCnpjFab.grabFocus();
@@ -1549,7 +1526,18 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCnpjFabActionPerformed
 
     private void btnAlterarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarFabActionPerformed
-        // TODO add your handling code here:
+        Fabricante fabricante = new Fabricante();
+        fabricante.setRazao(txtRazaoFab.getText());
+        fabricante.setCnpj(txtCnpjFab.getText());
+
+        try {
+            fachada.alterarFabricante(fabricante);
+            JOptionPane.showMessageDialog(this, "Registro alterado com sucesso");
+            txtRazaoFab.setText(null);
+            txtCnpjFab.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_btnAlterarFabActionPerformed
 
     private void txtFabricanteCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFabricanteCnpjActionPerformed
@@ -2053,7 +2041,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnNovoFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoFabActionPerformed
         btnCancelarFab.setEnabled(true);
         btnIncluirFab.setEnabled(true);
-        txtNomeFab.setEnabled(true);
         txtCnpjFab.setEnabled(true);
         txtRazaoFab.setEnabled(true);
     }//GEN-LAST:event_btnNovoFabActionPerformed
@@ -2108,7 +2095,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirFab.setEnabled(false);
         btnAlterarFab.setEnabled(false);
         btnIncluirFab.setEnabled(false);
-        txtNomeFab.setEnabled(false);
         txtCnpjFab.setEnabled(false);
         txtRazaoFab.setEnabled(false);
     }//GEN-LAST:event_btnCancelarFabActionPerformed
@@ -2194,22 +2180,55 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarProdutoActionPerformed
 
     private void btnPesquisarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFabActionPerformed
+        Fabricante fabricante = new Fabricante();
+        try {
+            fabricante.setCnpj(txtPesquisarFab.getText());
+            fabricante = fachada.pesquisarFabricanteCnpj(fabricante);
+            JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
+            JOptionPane.showMessageDialog(this, "nome: " + fabricante.getRazao() + "\n" + "Id: " + fabricante.getCnpj());
+            txtPesquisarFab.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
         btnAlterarFab.setEnabled(true);
         btnExcluirFab.setEnabled(true);
         btnIncluirFab.setEnabled(false);
         btnCancelarFab.setEnabled(true);
-        txtNomeFab.setEnabled(true);
         txtCnpjFab.setEnabled(true);
         txtRazaoFab.setEnabled(true);
     }//GEN-LAST:event_btnPesquisarFabActionPerformed
 
     private void btnIncluirFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirFabActionPerformed
+        Fabricante fabricante = new Fabricante();
+        fabricante.setRazao(txtRazaoFab.getText());
+        fabricante.setCnpj(txtCnpjFab.getText());
+        try {
+            fachada.salvarFabricante(fabricante);
+            JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
+            txtRazaoFab.setText(null);
+            txtCnpjFab.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
         btnIncluirFab.setEnabled(false);
         btnCancelarFab.setEnabled(false);
-        txtNomeFab.setEnabled(false);
         txtCnpjFab.setEnabled(false);
         txtRazaoFab.setEnabled(false);
     }//GEN-LAST:event_btnIncluirFabActionPerformed
+
+    private void btnExcluirFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirFabActionPerformed
+        Fabricante fabricante = new Fabricante();
+        fabricante.setCnpj(txtCnpjFab.getText());
+        try {
+            fachada.excluirFabricante(fabricante);
+            JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
+            txtCnpjFab.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnExcluirFabActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2331,7 +2350,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdProduto;
     private javax.swing.JLabel lblIdVendedor;
     private javax.swing.JLabel lblNomeCli;
-    private javax.swing.JLabel lblNomeFab;
     private javax.swing.JLabel lblNomePedido;
     private javax.swing.JLabel lblNomeVendedor;
     private javax.swing.JLabel lblPedidoId;
@@ -2355,7 +2373,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdProduto;
     private javax.swing.JTextField txtIdVendedor;
     private javax.swing.JTextField txtNomeCli;
-    private javax.swing.JTextField txtNomeFab;
     private javax.swing.JTextField txtNomePedido;
     private javax.swing.JTextField txtNomeVendedor;
     private javax.swing.JTextField txtPedidoId;
