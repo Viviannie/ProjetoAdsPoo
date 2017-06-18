@@ -1600,11 +1600,15 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPedidoIdActionPerformed
 
     private void txtNomeVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeVendedorActionPerformed
-        // TODO add your handling code here:
+        if (this.txtNomeVendedor.getText().equals("")) {
+            txtNomeVendedor.grabFocus();
+        }
     }//GEN-LAST:event_txtNomeVendedorActionPerformed
 
     private void txtIdVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdVendedorActionPerformed
-        // TODO add your handling code here:
+        if (this.txtIdVendedor.getText().equals("")) {
+            txtIdVendedor.grabFocus();
+        }
     }//GEN-LAST:event_txtIdVendedorActionPerformed
 
     private void txtIdFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdFormaPagActionPerformed
