@@ -92,11 +92,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirPag = new javax.swing.JButton();
         btnIncluirPag = new javax.swing.JButton();
         btnPesquisarPag = new javax.swing.JButton();
+        btnNovoPag = new javax.swing.JToggleButton();
         txtIdPag = new javax.swing.JTextField();
         txtValorPag = new javax.swing.JTextField();
         txtPedidoId = new javax.swing.JTextField();
+        txtPesquisarPag = new javax.swing.JTextField();
         JComboFormaPag = new javax.swing.JComboBox<>();
-        btnNovoPag = new javax.swing.JToggleButton();
         FormaPagamento = new javax.swing.JPanel();
         lblIdFormaPag = new javax.swing.JLabel();
         lblDescFormaPag = new javax.swing.JLabel();
@@ -104,9 +105,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirFormaPag = new javax.swing.JButton();
         btnIncluirFormaPag = new javax.swing.JButton();
         btnPesquisarFormaPag = new javax.swing.JButton();
+        btnNovoFormaPag = new javax.swing.JButton();
         txtIdFormaPag = new javax.swing.JTextField();
         JComboFrmPag = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
         Venda = new javax.swing.JPanel();
         lblPrecoVenda = new javax.swing.JLabel();
         lblQtdVenda = new javax.swing.JLabel();
@@ -623,10 +624,18 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnPesquisarPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPesquisarPag.setText("Pesquisar");
         btnPesquisarPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnPesquisarPag.setEnabled(false);
         btnPesquisarPag.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarPagActionPerformed(evt);
+            }
+        });
+
+        btnNovoPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNovoPag.setText("Novo");
+        btnNovoPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNovoPag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoPagActionPerformed(evt);
             }
         });
 
@@ -669,85 +678,87 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        JComboFormaPag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dinheiro", "Cartão" }));
-        JComboFormaPag.setEnabled(false);
-
-        btnNovoPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnNovoPag.setText("Novo");
-        btnNovoPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnNovoPag.addActionListener(new java.awt.event.ActionListener() {
+        txtPesquisarPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPesquisarPag.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovoPagActionPerformed(evt);
+                txtPesquisarPagActionPerformed(evt);
             }
         });
+
+        JComboFormaPag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dinheiro", "Cartão" }));
+        JComboFormaPag.setEnabled(false);
 
         javax.swing.GroupLayout PagamentoLayout = new javax.swing.GroupLayout(Pagamento);
         Pagamento.setLayout(PagamentoLayout);
         PagamentoLayout.setHorizontalGroup(
             PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PagamentoLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagamentoLayout.createSequentialGroup()
+                .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PagamentoLayout.createSequentialGroup()
-                        .addComponent(lblValorPag, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtValorPag, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnNovoPag, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PagamentoLayout.createSequentialGroup()
-                        .addComponent(lblPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PagamentoLayout.createSequentialGroup()
-                        .addComponent(lblFormaPagId)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JComboFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PagamentoLayout.createSequentialGroup()
-                        .addComponent(lblIdPag)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIdPag, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagamentoLayout.createSequentialGroup()
-                        .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnIncluirPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAlterarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
+                        .addGap(21, 21, 21)
                         .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnExcluirPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPesquisarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnNovoPag, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31))
+                            .addGroup(PagamentoLayout.createSequentialGroup()
+                                .addComponent(lblFormaPagId)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JComboFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PagamentoLayout.createSequentialGroup()
+                                .addComponent(lblPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PagamentoLayout.createSequentialGroup()
+                                .addComponent(lblValorPag, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtValorPag, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PagamentoLayout.createSequentialGroup()
+                                .addComponent(lblIdPag)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtIdPag, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnPesquisarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnIncluirPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnExcluirPag, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                            .addComponent(btnAlterarPag, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                            .addComponent(txtPesquisarPag))))
+                .addGap(25, 25, 25))
         );
         PagamentoLayout.setVerticalGroup(
             PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PagamentoLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtIdPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIdPag)
-                    .addComponent(btnNovoPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNovoPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPedidoId)
+                    .addComponent(txtPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(PagamentoLayout.createSequentialGroup()
                         .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblValorPag)
                             .addComponent(txtValorPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPedidoId)
-                            .addComponent(txtPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFormaPagId)
-                            .addComponent(JComboFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblIdPag)
+                            .addComponent(txtIdPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PagamentoLayout.createSequentialGroup()
-                        .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnPesquisarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnIncluirPag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAlterarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnExcluirPag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAlterarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnExcluirPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnIncluirPag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblFormaPagId)
+                        .addComponent(JComboFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnPesquisarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPesquisarPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         Cadastro.addTab("Pagamento", null, Pagamento, "");
@@ -802,6 +813,15 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnNovoFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNovoFormaPag.setText("Novo");
+        btnNovoFormaPag.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNovoFormaPag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoFormaPagActionPerformed(evt);
+            }
+        });
+
         txtIdFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtIdFormaPag.setEnabled(false);
         txtIdFormaPag.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -817,15 +837,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         JComboFrmPag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dinheiro", "Cartão" }));
         JComboFrmPag.setEnabled(false);
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Novo");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout FormaPagamentoLayout = new javax.swing.GroupLayout(FormaPagamento);
         FormaPagamento.setLayout(FormaPagamentoLayout);
@@ -852,7 +863,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnPesquisarFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnExcluirFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnNovoFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(144, 144, 144))
         );
         FormaPagamentoLayout.setVerticalGroup(
@@ -869,7 +880,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 .addGap(64, 64, 64))
             .addGroup(FormaPagamentoLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNovoFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(FormaPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPesquisarFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1354,6 +1365,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
         JComboFormaPag.setEnabled(true);
         btnNovoPag.setEnabled(false);
         btnPesquisarPag.setEnabled(true);
+        btnIncluirPag.setEnabled(true);     
+        txtIdPag.setEnabled(true);
+        JComboFormaPag.setEnabled(true);
 
     }//GEN-LAST:event_btnAlterarPagActionPerformed
 
@@ -1370,6 +1384,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
+        
+        btnIncluirPag.setEnabled(true);
+        btnPesquisarPag.setEnabled(true);
+        btnExcluirPag.setEnabled(true);
+        txtIdPag.setEnabled(true);
+        txtValorPag.setEnabled(true);
+        JComboFormaPag.setEnabled(true);
     }//GEN-LAST:event_btnAlterarVendedorActionPerformed
 
     private void btnAlterarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarPedidoActionPerformed
@@ -1515,7 +1536,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         JComboBox<FormaPag> j = new JComboBox<>();
 
         try {
-            g.setValor(Double.parseDouble(txtValorPag.getText()));            
+            g.setValor(Double.parseDouble(txtValorPag.getText()));
             f.listarPedido();
             j.addItem(g.getFormaPag());
             f.salvarPagamento(g);
@@ -1527,9 +1548,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
 
         btnIncluirPag.setEnabled(false);
-        txtValorPag.setEnabled(false);
-        txtPedidoId.setEnabled(false);
-        JComboFormaPag.setEnabled(false);
+        txtPedidoId.setEnabled(true);
+        txtIdPag.setEnabled(true);
+        txtValorPag.setEnabled(true);
     }//GEN-LAST:event_btnIncluirPagActionPerformed
 
     private void txtPedidoIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPedidoIdFocusGained
@@ -1781,8 +1802,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnNovoPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoPagActionPerformed
         btnIncluirPag.setEnabled(true);
         btnPesquisarPag.setEnabled(true);
+        txtIdPag.setEnabled(true);
         txtValorPag.setEnabled(true);
-        txtPedidoId.setEnabled(true);
         JComboFormaPag.setEnabled(true);
     }//GEN-LAST:event_btnNovoPagActionPerformed
 
@@ -1791,23 +1812,30 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Pagamento g = new Pagamento();
 
         try {
-            g.setId(Integer.parseInt(txtIdPag.getText()));
+            g.setId(Integer.parseInt(txtPesquisarPag.getText()));
             f.pesquisarPagamento(g);
             JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
+            txtPesquisarPag.setText(null);
             txtIdVendedor.setText(null);
+            btnAlterarPag.setEnabled(true);
         } catch (RegraException | NumberFormatException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
+            btnAlterarPag.setEnabled(false);
         }
 
+        btnPesquisarPag.setEnabled(true);
         txtIdPag.setEnabled(true);
-        btnAlterarPag.setEnabled(true);
     }//GEN-LAST:event_btnPesquisarPagActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnNovoFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoFormaPagActionPerformed
         btnIncluirFormaPag.setEnabled(true);
         btnPesquisarFormaPag.setEnabled(true);
         JComboFrmPag.setEnabled(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnNovoFormaPagActionPerformed
+
+    private void txtPesquisarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarPagActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesquisarPagActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1901,6 +1929,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnIncluirProduto;
     private javax.swing.JButton btnIncluirVenda;
     private javax.swing.JButton btnIncluirVendedor;
+    private javax.swing.JButton btnNovoFormaPag;
     private javax.swing.JToggleButton btnNovoPag;
     private javax.swing.JButton btnPesquisarCli;
     private javax.swing.JButton btnPesquisarFab;
@@ -1912,7 +1941,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPesquisarVendedor;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
@@ -1964,6 +1992,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeVendedor;
     private javax.swing.JTextField txtPedidoId;
     private javax.swing.JTextField txtPedidoId2;
+    private javax.swing.JTextField txtPesquisarPag;
     private javax.swing.JTextField txtPrecoVenda;
     private javax.swing.JTextField txtProdutoId;
     private javax.swing.JTextField txtQtdVenda;
