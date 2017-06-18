@@ -113,12 +113,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirVenda = new javax.swing.JButton();
         btnPesquisarVenda = new javax.swing.JButton();
         btnNovoVenda = new javax.swing.JButton();
+        btnCancelarVenda = new javax.swing.JButton();
         txtPrecoVenda = new javax.swing.JTextField();
         txtQtdVenda = new javax.swing.JTextField();
         txtProdutoId = new javax.swing.JTextField();
         txtPedidoId2 = new javax.swing.JTextField();
         txtPesquisarVenda = new javax.swing.JTextField();
-        btnCancelarFab1 = new javax.swing.JButton();
         Produto = new javax.swing.JPanel();
         lblDescProduto = new javax.swing.JLabel();
         lblIdProduto = new javax.swing.JLabel();
@@ -130,13 +130,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirProduto = new javax.swing.JButton();
         btnPesquisarProduto = new javax.swing.JButton();
         btnNovoProduto = new javax.swing.JButton();
+        btnCancelarProduto = new javax.swing.JButton();
         txtDescProduto = new javax.swing.JTextField();
         txtIdProduto = new javax.swing.JTextField();
         txtEstMinProduto = new javax.swing.JTextField();
         txtEstAtualProduto = new javax.swing.JTextField();
         txtFabricanteCnpj = new javax.swing.JTextField();
         txtPesquisarProduto = new javax.swing.JTextField();
-        btnCancelarFab2 = new javax.swing.JButton();
         Fabricante = new javax.swing.JPanel();
         btnAlterarFab = new javax.swing.JButton();
         btnExcluirFab = new javax.swing.JButton();
@@ -961,10 +961,20 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirVenda.setText("Incluir");
         btnIncluirVenda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnIncluirVenda.setEnabled(false);
+        btnIncluirVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncluirVendaActionPerformed(evt);
+            }
+        });
 
         btnPesquisarVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPesquisarVenda.setText("Pesquisar");
         btnPesquisarVenda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPesquisarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarVendaActionPerformed(evt);
+            }
+        });
 
         btnNovoVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnNovoVenda.setText("Novo");
@@ -972,6 +982,16 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnNovoVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoVendaActionPerformed(evt);
+            }
+        });
+
+        btnCancelarVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnCancelarVenda.setText("Cancelar");
+        btnCancelarVenda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCancelarVenda.setEnabled(false);
+        btnCancelarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarVendaActionPerformed(evt);
             }
         });
 
@@ -1014,11 +1034,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnCancelarFab1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCancelarFab1.setText("Cancelar");
-        btnCancelarFab1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCancelarFab1.setEnabled(false);
-
         javax.swing.GroupLayout VendaLayout = new javax.swing.GroupLayout(Venda);
         Venda.setLayout(VendaLayout);
         VendaLayout.setHorizontalGroup(
@@ -1051,7 +1066,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                     .addGroup(VendaLayout.createSequentialGroup()
                         .addGroup(VendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnIncluirVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelarFab1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCancelarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(VendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnExcluirVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1073,7 +1088,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(VendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnExcluirVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelarFab1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCancelarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(VendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPesquisarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1148,10 +1163,20 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirProduto.setText("Incluir");
         btnIncluirProduto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnIncluirProduto.setEnabled(false);
+        btnIncluirProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncluirProdutoActionPerformed(evt);
+            }
+        });
 
         btnPesquisarProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPesquisarProduto.setText("Pesquisar");
         btnPesquisarProduto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPesquisarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarProdutoActionPerformed(evt);
+            }
+        });
 
         btnNovoProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnNovoProduto.setText("Novo");
@@ -1159,6 +1184,16 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnNovoProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoProdutoActionPerformed(evt);
+            }
+        });
+
+        btnCancelarProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnCancelarProduto.setText("Cancelar");
+        btnCancelarProduto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCancelarProduto.setEnabled(false);
+        btnCancelarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarProdutoActionPerformed(evt);
             }
         });
 
@@ -1209,11 +1244,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnCancelarFab2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCancelarFab2.setText("Cancelar");
-        btnCancelarFab2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCancelarFab2.setEnabled(false);
-
         javax.swing.GroupLayout ProdutoLayout = new javax.swing.GroupLayout(Produto);
         Produto.setLayout(ProdutoLayout);
         ProdutoLayout.setHorizontalGroup(
@@ -1248,7 +1278,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnPesquisarProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnIncluirProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnCancelarFab2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCancelarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnExcluirProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1292,7 +1322,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnCancelarFab2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnCancelarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(btnIncluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1330,10 +1360,20 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirFab.setText("Incluir");
         btnIncluirFab.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnIncluirFab.setEnabled(false);
+        btnIncluirFab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncluirFabActionPerformed(evt);
+            }
+        });
 
         btnPesquisarFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPesquisarFab.setText("Pesquisar");
         btnPesquisarFab.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPesquisarFab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarFabActionPerformed(evt);
+            }
+        });
 
         btnNovoFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnNovoFab.setText("Novo");
@@ -1652,7 +1692,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnCancelarPag.setEnabled(true);
         txtPedidoId.setEnabled(true);
         txtValorPag.setEnabled(true);
-        txtPedidoId.setEnabled(true);
+        txtIdPag.setEnabled(true);
+        JComboFormaPag.setEnabled(true);
     }//GEN-LAST:event_btnPesquisarPagActionPerformed
 
     private void btnIncluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPagActionPerformed
@@ -1738,7 +1779,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         try {
             vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
-            vendedor = fachada.pesquisarVendedorId(vendedor);
+            fachada.pesquisarVendedorId(vendedor);
             JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
             JOptionPane.showMessageDialog(this, "nome: " + vendedor.getNome() + "\n" + "Id: " + vendedor.getId());
             txtNomeVendedor.setText(null);
@@ -1940,6 +1981,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void btnIncluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirCliActionPerformed
         btnIncluirCli.setEnabled(false);
+        btnCancelarCli.setEnabled(false);
         txtNomeCli.setEnabled(false);
         txtCpfCli.setEnabled(false);
     }//GEN-LAST:event_btnIncluirCliActionPerformed
@@ -1990,12 +2032,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoVendedorActionPerformed
 
     private void btnNovoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoVendaActionPerformed
-        btnPesquisarVenda.setEnabled(true);
         btnIncluirVenda.setEnabled(true);
-        btnExcluirVenda.setEnabled(true);
-        btnAlterarVenda.setEnabled(true);
-        btnPesquisarVenda.setEnabled(true);
-        txtPesquisarVenda.setEnabled(true);
+        btnCancelarVenda.setEnabled(true);
         txtPrecoVenda.setEnabled(true);
         txtQtdVenda.setEnabled(true);
         txtProdutoId.setEnabled(true);
@@ -2003,12 +2041,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoVendaActionPerformed
 
     private void btnNovoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProdutoActionPerformed
-        btnPesquisarProduto.setEnabled(true);
         btnIncluirProduto.setEnabled(true);
-        btnExcluirProduto.setEnabled(true);
-        btnAlterarProduto.setEnabled(true);
-        btnPesquisarProduto.setEnabled(true);
-        txtPesquisarProduto.setEnabled(true);
+        btnCancelarProduto.setEnabled(true);
         txtDescProduto.setEnabled(true);
         txtIdProduto.setEnabled(true);
         txtEstMinProduto.setEnabled(true);
@@ -2017,12 +2051,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoProdutoActionPerformed
 
     private void btnNovoFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoFabActionPerformed
-        btnPesquisarFab.setEnabled(true);
+        btnCancelarFab.setEnabled(true);
         btnIncluirFab.setEnabled(true);
-        btnExcluirFab.setEnabled(true);
-        btnAlterarFab.setEnabled(true);
-        btnPesquisarFab.setEnabled(true);
-        txtPesquisarFab.setEnabled(true);
         txtNomeFab.setEnabled(true);
         txtCnpjFab.setEnabled(true);
         txtRazaoFab.setEnabled(true);
@@ -2074,7 +2104,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarVendedorActionPerformed
 
     private void btnCancelarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarFabActionPerformed
-        // TODO add your handling code here:
+        btnCancelarFab.setEnabled(false);
+        btnExcluirFab.setEnabled(false);
+        btnAlterarFab.setEnabled(false);
+        btnIncluirFab.setEnabled(false);
+        txtNomeFab.setEnabled(false);
+        txtCnpjFab.setEnabled(false);
+        txtRazaoFab.setEnabled(false);
     }//GEN-LAST:event_btnCancelarFabActionPerformed
 
     private void btnCancelarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarPagActionPerformed
@@ -2087,6 +2123,93 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtIdPag.setEnabled(false);
         JComboFormaPag.setEnabled(false);
     }//GEN-LAST:event_btnCancelarPagActionPerformed
+
+    private void btnIncluirVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirVendaActionPerformed
+
+        btnIncluirVenda.setEnabled(false);
+        btnCancelarVenda.setEnabled(false);
+        txtPrecoVenda.setEnabled(false);
+        txtQtdVenda.setEnabled(false);
+        txtProdutoId.setEnabled(false);
+        txtPedidoId2.setEnabled(false);
+    }//GEN-LAST:event_btnIncluirVendaActionPerformed
+
+    private void btnCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVendaActionPerformed
+        btnCancelarVenda.setEnabled(false);
+        btnExcluirVenda.setEnabled(false);
+        btnAlterarVenda.setEnabled(false);
+        btnIncluirVenda.setEnabled(false);
+        txtPrecoVenda.setEnabled(false);
+        txtQtdVenda.setEnabled(false);
+        txtProdutoId.setEnabled(false);
+        txtPedidoId2.setEnabled(false);
+    }//GEN-LAST:event_btnCancelarVendaActionPerformed
+
+    private void btnPesquisarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarVendaActionPerformed
+        btnAlterarVenda.setEnabled(true);
+        btnExcluirVenda.setEnabled(true);
+        btnIncluirVenda.setEnabled(false);
+        btnCancelarVenda.setEnabled(true);
+        txtQtdVenda.setEnabled(true);
+        txtPrecoVenda.setEnabled(true);
+        txtProdutoId.setEnabled(true);
+        txtPedidoId2.setEnabled(true);
+    }//GEN-LAST:event_btnPesquisarVendaActionPerformed
+
+    private void btnCancelarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProdutoActionPerformed
+        btnCancelarProduto.setEnabled(false);
+        btnExcluirProduto.setEnabled(false);
+        btnAlterarProduto.setEnabled(false);
+        btnIncluirProduto.setEnabled(false);
+        txtDescProduto.setEnabled(false);
+        txtEstMinProduto.setEnabled(false);
+        txtIdProduto.setEnabled(false);
+        txtEstAtualProduto.setEnabled(false);
+        txtFabricanteCnpj.setEnabled(false);
+    }//GEN-LAST:event_btnCancelarProdutoActionPerformed
+
+    private void btnIncluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirProdutoActionPerformed
+        btnIncluirProduto.setEnabled(false);
+        btnCancelarProduto.setEnabled(false);
+        btnAlterarProduto.setEnabled(false);
+        btnExcluirProduto.setEnabled(false);
+        txtDescProduto.setEnabled(false);
+        txtPedidoId.setEnabled(false);
+        txtEstMinProduto.setEnabled(false);
+        txtEstAtualProduto.setEnabled(false);
+        txtIdProduto.setEnabled(false);
+        txtFabricanteCnpj.setEnabled(false);
+    }//GEN-LAST:event_btnIncluirProdutoActionPerformed
+
+    private void btnPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarProdutoActionPerformed
+        btnAlterarProduto.setEnabled(true);
+        btnExcluirProduto.setEnabled(true);
+        btnIncluirProduto.setEnabled(false);
+        btnCancelarProduto.setEnabled(true);
+        txtDescProduto.setEnabled(true);
+        txtEstMinProduto.setEnabled(true);
+        txtEstAtualProduto.setEnabled(true);
+        txtIdProduto.setEnabled(true);
+        txtFabricanteCnpj.setEnabled(true);
+    }//GEN-LAST:event_btnPesquisarProdutoActionPerformed
+
+    private void btnPesquisarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFabActionPerformed
+        btnAlterarFab.setEnabled(true);
+        btnExcluirFab.setEnabled(true);
+        btnIncluirFab.setEnabled(false);
+        btnCancelarFab.setEnabled(true);
+        txtNomeFab.setEnabled(true);
+        txtCnpjFab.setEnabled(true);
+        txtRazaoFab.setEnabled(true);
+    }//GEN-LAST:event_btnPesquisarFabActionPerformed
+
+    private void btnIncluirFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirFabActionPerformed
+        btnIncluirFab.setEnabled(false);
+        btnCancelarFab.setEnabled(false);
+        txtNomeFab.setEnabled(false);
+        txtCnpjFab.setEnabled(false);
+        txtRazaoFab.setEnabled(false);
+    }//GEN-LAST:event_btnIncluirFabActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2154,10 +2277,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAlterarVendedor;
     private javax.swing.JButton btnCancelarCli;
     private javax.swing.JButton btnCancelarFab;
-    private javax.swing.JButton btnCancelarFab1;
-    private javax.swing.JButton btnCancelarFab2;
     private javax.swing.JButton btnCancelarPag;
     private javax.swing.JButton btnCancelarPedido;
+    private javax.swing.JButton btnCancelarProduto;
+    private javax.swing.JButton btnCancelarVenda;
     private javax.swing.JButton btnCancelarVendedor;
     private javax.swing.JButton btnExcluirCli;
     private javax.swing.JButton btnExcluirFab;
