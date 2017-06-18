@@ -1854,8 +1854,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarCliActionPerformed
 
     private void btnNovoCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoCliActionPerformed
-        btnAlterarCli.setEnabled(false);
-        btnExcluirCli.setEnabled(false);
         btnIncluirCli.setEnabled(true);
         btnPesquisarCli.setEnabled(true);
         txtPesquisarCli.setEnabled(true);
