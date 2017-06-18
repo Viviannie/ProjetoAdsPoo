@@ -1817,14 +1817,18 @@ public class GUIPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
             txtPesquisarPag.setText(null);
             txtIdVendedor.setText(null);
+            btnAlterarPag.setText(null);
             btnAlterarPag.setEnabled(true);
+            txtPesquisarPag.setEnabled(true);
+            txtIdPag.setEnabled(true);
+            txtPedidoId.setEnabled(true);
+            
         } catch (RegraException | NumberFormatException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
             btnAlterarPag.setEnabled(false);
         }
 
         btnPesquisarPag.setEnabled(true);
-        txtIdPag.setEnabled(true);
     }//GEN-LAST:event_btnPesquisarPagActionPerformed
 
     private void btnNovoFormaPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoFormaPagActionPerformed
@@ -1834,7 +1838,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoFormaPagActionPerformed
 
     private void txtPesquisarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarPagActionPerformed
-        // TODO add your handling code here:
+        if (this.txtPesquisarPag.getText().equals("")) {
+            txtPesquisarPag.grabFocus();
+        }
     }//GEN-LAST:event_txtPesquisarPagActionPerformed
 
     /**
