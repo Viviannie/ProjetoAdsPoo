@@ -104,7 +104,7 @@ public class DAOProdutoImpl implements DAOProduto {
     @Override
     public Produto pesquisar(String desc) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual, fbr_cnpj FROM produto WHERE (prd_id=?)";
+        String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual, fbr_cnpj FROM produto WHERE (prd_desc=?)";
         Produto produto = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
