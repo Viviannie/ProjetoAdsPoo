@@ -61,7 +61,7 @@ public class DAOClienteImpl implements DAOCliente {
         Connection c = con.conectar();
         String sql = "UPDATE Cliente SET Cpf=?, Nome=? WHERE (cpf=?)";
         try {
-            PreparedStatement pstm = c.prepareStatement(sql);   //Traduz a linguagem para SQL
+            PreparedStatement pstm = c.prepareStatement(sql);//Traduz a linguagem para SQL
             pstm.setString(1, cliente.getCpf());
             pstm.setString(2, cliente.getNome());
             pstm.setString(3, cliente.getCpf());
@@ -77,17 +77,17 @@ public class DAOClienteImpl implements DAOCliente {
     public Cliente pesquisar(String cpf) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT cpf, nome FROM cliente WHERE (cpf=?)";
-        Cliente cli = null;
+        Cliente cliente = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, cpf);
             ResultSet rs = pstm.executeQuery(); //variável que recebe resultado do select
             if (rs.next()) {
-                cli = new Cliente();
-                cli.setCpf(rs.getString("cpf"));
-                cli.setNome(rs.getString("nome"));
+                cliente = new Cliente();
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setNome(rs.getString("nome"));
             }
-            return cli;
+            return cliente;
         } catch (SQLException e) {
             throw new DAOException(e);
         } finally {
@@ -99,17 +99,17 @@ public class DAOClienteImpl implements DAOCliente {
     public Cliente pesquisarNome(String nome) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT cpf, nome FROM cliente WHERE (nome like ?)";
-        Cliente cli = null;
+        Cliente cliente = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, nome);
             ResultSet rs = pstm.executeQuery(); //variável que recebe resultado do select
             if (rs.next()) {
-                cli = new Cliente();
-                cli.setCpf(rs.getString("cpf"));
-                cli.setNome(rs.getString("nome"));
+                cliente = new Cliente();
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setNome(rs.getString("nome"));
             }
-            return cli;
+            return cliente;
         } catch (SQLException e) {
             throw new DAOException(e);
         } finally {
@@ -122,15 +122,15 @@ public class DAOClienteImpl implements DAOCliente {
         Connection c = con.conectar();
         String sql = "SELECT cpf, nome FROM cliente";
         ArrayList<Cliente> lista = new ArrayList();
-        Cliente cli;
+        Cliente cliente;
         try {
             Statement stm = c.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
-                cli = new Cliente();
-                cli.setCpf(rs.getString("cpf"));
-                cli.setNome(rs.getString("nome"));
-                lista.add(cli);
+                cliente = new Cliente();
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setNome(rs.getString("nome"));
+                lista.add(cliente);
             }
             return lista;
         } catch (SQLException e) {
