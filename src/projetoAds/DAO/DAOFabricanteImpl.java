@@ -59,7 +59,7 @@ public class DAOFabricanteImpl implements DAOFabricante {
     @Override
     public void alterar(Fabricante fabricante) throws ConexaoException, DAOException {
     Connection c = con.conectar();
-        String sql = "UPDATE abricante SET fbr_cnpj=?, fbr_razao=? WHERE (fbr_cnpj=?)";
+        String sql = "UPDATE fabricante SET fbr_cnpj=?, fbr_razao=? WHERE (fbr_cnpj=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, fabricante.getCnpj());
