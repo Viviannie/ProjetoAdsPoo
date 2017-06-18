@@ -27,13 +27,11 @@ public class DAOPagamentoImpl implements DAOPagamento {
     @Override
     public void incluir(Pagamento pagamento) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "INSERT INTO pagamento (pag_id, pag_valor, frm_id) VALUES (?,?,?)";
+        String sql = "INSERT INTO pagamento (pag_valor, frm_id) VALUES (?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pagamento.getId());
-            pstm.setDouble(2, pagamento.getValor());
-            pstm.setInt(3, pagamento.getPedido().getId());
-            pstm.setInt(4, pagamento.getFormaPag().getId());
+            pstm.setDouble(1, pagamento.getValor());
+            pstm.setInt(2, pagamento.getFormaPag().getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
