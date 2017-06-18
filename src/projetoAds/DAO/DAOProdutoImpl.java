@@ -80,20 +80,20 @@ public class DAOProdutoImpl implements DAOProduto {
     public Produto pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual, fbr_cnpj FROM produto WHERE (prd_id=?)";
-        Produto prd = null;
+        Produto produto = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
-                prd = new Produto();
-                prd.setId(rs.getInt("prd_id"));
-                prd.setDesc(rs.getString("prd_desc"));
-                prd.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
-                prd.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
-                prd.getFabricante().setCnpj(rs.getString("fbr_cnpj"));
+                produto = new Produto();
+                produto.setId(rs.getInt("prd_id"));
+                produto.setDesc(rs.getString("prd_desc"));
+                produto.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
+                produto.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
+                produto.getFabricante().setCnpj(rs.getString("fbr_cnpj"));
             }
-            return prd;
+            return produto;
         } catch (SQLException e) {
             throw new DAOException(e);
         } finally {
@@ -105,20 +105,20 @@ public class DAOProdutoImpl implements DAOProduto {
     public Produto pesquisar(String desc) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual, fbr_cnpj FROM produto WHERE (prd_id=?)";
-        Produto prd = null;
+        Produto produto = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, desc);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
-                prd = new Produto();
-                prd.setId(rs.getInt("prd_id"));
-                prd.setDesc(rs.getString("prd_desc"));
-                prd.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
-                prd.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
-                prd.getFabricante().setCnpj(rs.getString("fbr_cnpj"));
+                produto = new Produto();
+                produto.setId(rs.getInt("prd_id"));
+                produto.setDesc(rs.getString("prd_desc"));
+                produto.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
+                produto.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
+                produto.getFabricante().setCnpj(rs.getString("fbr_cnpj"));
             }
-            return prd;
+            return produto;
         } catch (SQLException e) {
             throw new DAOException(e);
         } finally {
@@ -131,18 +131,18 @@ public class DAOProdutoImpl implements DAOProduto {
         Connection c = con.conectar();
         String sql = "SELECT prd_id, prd_desc, prd_estoqueminimo, prd_estoqueatual, fbr_cnpj FROM produto";
         ArrayList<Produto> lista = new ArrayList();
-        Produto prd;
+        Produto produto;
         try {
             Statement stm = c.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
-                prd = new Produto();
-                prd.setId(rs.getInt("prd_id"));
-                prd.setDesc(rs.getString("prd_desc"));
-                prd.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
-                prd.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
-                prd.getFabricante().setCnpj(rs.getString("fbr_cnpj"));
-                lista.add(prd);
+                produto = new Produto();
+                produto.setId(rs.getInt("prd_id"));
+                produto.setDesc(rs.getString("prd_desc"));
+                produto.setEstoqueMinimo(rs.getInt("prd_estoqueminimo"));
+                produto.setEstoqueAtual(rs.getInt("prd_estoqueatual"));
+                produto.getFabricante().setCnpj(rs.getString("fbr_cnpj"));
+                lista.add(produto);
             }
             return lista;
         } catch (SQLException e) {

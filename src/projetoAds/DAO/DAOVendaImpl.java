@@ -80,19 +80,19 @@ public class DAOVendaImpl implements DAOVenda {
         Connection c = con.conectar();
         String sql;
         sql = "SELECT venda.* FROM venda JOIN pedido ON venda.ped_id = pedido.id WHERE (pedido.ped_id=?)";
-        Venda vend = null;
+        Venda venda = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
-                vend = new Venda();
-                vend.getPedido().setId(rs.getInt("ped_id"));
-                vend.getProduto().setId(rs.getInt("prd_id"));
-                vend.setPrecoUnitario(rs.getDouble("prc_unitario"));
-                vend.setQuantidadeProduto(rs.getInt("qtd_produtos"));
+                venda = new Venda();
+                venda.getPedido().setId(rs.getInt("ped_id"));
+                venda.getProduto().setId(rs.getInt("prd_id"));
+                venda.setPrecoUnitario(rs.getDouble("prc_unitario"));
+                venda.setQuantidadeProduto(rs.getInt("qtd_produtos"));
             }
-            return vend;
+            return venda;
         } catch (SQLException e) {
             throw new DAOException(e);
         } finally {
@@ -105,17 +105,17 @@ public class DAOVendaImpl implements DAOVenda {
         Connection c = con.conectar();
         String sql = "SELECT * FROM venda";
         ArrayList<Venda> lista = new ArrayList();
-        Venda vend;
+        Venda venda;
         try {
             Statement stm = c.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
-                vend = new Venda();
-                vend.getPedido().setId(rs.getInt("ped_id"));
-                vend.getProduto().setId(rs.getInt("prd_id"));
-                vend.setPrecoUnitario(rs.getDouble("prc_unitario"));
-                vend.setQuantidadeProduto(rs.getInt("qtd_produtos"));
-                lista.add(vend);
+                venda = new Venda();
+                venda.getPedido().setId(rs.getInt("ped_id"));
+                venda.getProduto().setId(rs.getInt("prd_id"));
+                venda.setPrecoUnitario(rs.getDouble("prc_unitario"));
+                venda.setQuantidadeProduto(rs.getInt("qtd_produtos"));
+                lista.add(venda );
             }
             return lista;
         } catch (SQLException e) {
