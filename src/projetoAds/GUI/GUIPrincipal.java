@@ -1767,7 +1767,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         try {
             vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
-            fachada.pesquisarVendedorId(vendedor);
+            vendedor = fachada.pesquisarVendedorId(vendedor);
             JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
             JOptionPane.showMessageDialog(this, "nome: " + vendedor.getNome() + "\n" + "Id: " + vendedor.getId());
             txtNomeVendedor.setText(null);
