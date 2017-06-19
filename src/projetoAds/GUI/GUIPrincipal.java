@@ -1693,6 +1693,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Pedido pedido = new Pedido();
 
         try {
+            //pagamento.getPedido().setId(Integer.parseInt(txtPedidoId.getText()));
             pedido.setId(Integer.parseInt(txtPedidoId.getText()));
             pagamento.setFormaPag((String) JComboFormaPag.getSelectedItem());
             //c.addItem(JComboFormaPag.getSelectedItem());
