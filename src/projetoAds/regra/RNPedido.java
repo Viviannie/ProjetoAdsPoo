@@ -39,9 +39,17 @@ public class RNPedido {
         }
     }
 
-    public Pedido pesquisar(Integer id) throws RegraException {
+    public Pedido pesquisarId(Integer id) throws RegraException {
         try {
             return dao.pesquisar(id);
+        } catch (ConexaoException | DAOException e) {
+            throw new RegraException(e.getMessage());
+        }
+    }
+    
+        public Pedido pesquisarData(String data) throws RegraException {
+        try {
+            return dao.pesquisar(data);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
@@ -93,8 +101,8 @@ public class RNPedido {
             throw new RegraException("ID inválido!");
         }
         try {
-            Pedido ped = dao.pesquisar(id);
-            if (ped == null) {
+            Pedido pedido = dao.pesquisar(id);
+            if (pedido == null) {
                 throw new RegraException("ID informado não existe.");
             }
         } catch (ConexaoException | DAOException e) {
@@ -108,6 +116,28 @@ public class RNPedido {
      * @param pedido Objeto com os dados
      * @throws RegraException
      */
+    
+    /**
+     * Verifica se um ID passado existe no BD
+     *
+     * @param data Para validação
+     * @throws RegraException Caso o ID não seja localizado
+     */
+    public void validaData(String data) throws RegraException {
+
+        if ((data == null) | (data.trim().equals(""))) {
+            throw new RegraException("Data inválida!");
+        }
+        try {
+            Pedido pedido = dao.pesquisar(data);
+            if (pedido == null) {
+                throw new RegraException("Data informada não existe.");
+            }
+        } catch (ConexaoException | DAOException e) {
+            throw new RegraException(e.getMessage());
+        }
+    }
+    
     public void verificaDuplicidade(Pedido pedido) throws RegraException {
 
         try {

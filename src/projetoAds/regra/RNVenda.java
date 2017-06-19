@@ -53,5 +53,4 @@ public class RNVenda {
             throw new RegraException(e.getMessage());
         }
     }
-
 }

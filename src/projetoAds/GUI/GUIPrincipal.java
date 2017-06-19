@@ -61,24 +61,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtNomeCli = new javax.swing.JTextField();
         txtCpfCli = new javax.swing.JTextField();
         txtPesquisarCli = new javax.swing.JTextField();
-        Pedido = new javax.swing.JPanel();
-        lblNomePedido = new javax.swing.JLabel();
-        lblIdPedido = new javax.swing.JLabel();
-        lblDataPedido = new javax.swing.JLabel();
-        lblVendedorID = new javax.swing.JLabel();
-        lblClienteId = new javax.swing.JLabel();
-        btnAlterarPedido = new javax.swing.JButton();
-        btnExcluirPedido = new javax.swing.JButton();
-        btnIncluirPedido = new javax.swing.JButton();
-        btnPesquisarPedido = new javax.swing.JButton();
-        btnNovoPedido = new javax.swing.JButton();
-        btnCancelarPedido = new javax.swing.JButton();
-        txtIdPedido = new javax.swing.JTextField();
-        txtNomePedido = new javax.swing.JTextField();
-        txtDataPedido = new javax.swing.JTextField();
-        txtVendedorId = new javax.swing.JTextField();
-        txtClienteId = new javax.swing.JTextField();
-        txtPesquisarPedido = new javax.swing.JTextField();
         Vendedor = new javax.swing.JPanel();
         lblNomeVendedor = new javax.swing.JLabel();
         lblIdVendedor = new javax.swing.JLabel();
@@ -153,6 +135,24 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtCnpjFab = new javax.swing.JTextField();
         txtRazaoFab = new javax.swing.JTextField();
         txtPesquisarFab = new javax.swing.JTextField();
+        Pedido = new javax.swing.JPanel();
+        lblNomePedido = new javax.swing.JLabel();
+        lblIdPedido = new javax.swing.JLabel();
+        lblDataPedido = new javax.swing.JLabel();
+        lblVendedorID = new javax.swing.JLabel();
+        lblClienteId = new javax.swing.JLabel();
+        btnAlterarPedido = new javax.swing.JButton();
+        btnExcluirPedido = new javax.swing.JButton();
+        btnIncluirPedido = new javax.swing.JButton();
+        btnPesquisarPedido = new javax.swing.JButton();
+        btnNovoPedido = new javax.swing.JButton();
+        btnCancelarPedido = new javax.swing.JButton();
+        txtIdPedido = new javax.swing.JTextField();
+        txtNomePedido = new javax.swing.JTextField();
+        txtDataPedido = new javax.swing.JTextField();
+        txtVendedorId = new javax.swing.JTextField();
+        txtClienteId = new javax.swing.JTextField();
+        txtPesquisarPedido = new javax.swing.JTextField();
 
         jLabel21.setText("jLabel21");
 
@@ -343,224 +343,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         );
 
         Cadastro.addTab("Cliente", Cliente);
-
-        lblNomePedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblNomePedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNomePedido.setText("NOME");
-        lblNomePedido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lblIdPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblIdPedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIdPedido.setText("NÚMERO DO PEDIDO");
-        lblIdPedido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lblDataPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblDataPedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDataPedido.setText("DATA");
-        lblDataPedido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lblVendedorID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblVendedorID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblVendedorID.setText("VENDEDOR");
-        lblVendedorID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lblClienteId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblClienteId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblClienteId.setText("CLIENTE");
-        lblClienteId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnAlterarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnAlterarPedido.setText("Alterar");
-        btnAlterarPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAlterarPedido.setEnabled(false);
-        btnAlterarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarPedidoActionPerformed(evt);
-            }
-        });
-
-        btnExcluirPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnExcluirPedido.setText("Excluir");
-        btnExcluirPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnExcluirPedido.setEnabled(false);
-        btnExcluirPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirPedidoActionPerformed(evt);
-            }
-        });
-
-        btnIncluirPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnIncluirPedido.setText("Incluir");
-        btnIncluirPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnIncluirPedido.setEnabled(false);
-        btnIncluirPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIncluirPedidoActionPerformed(evt);
-            }
-        });
-
-        btnPesquisarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnPesquisarPedido.setText("Pesquisar");
-        btnPesquisarPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnPesquisarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarPedidoActionPerformed(evt);
-            }
-        });
-
-        btnNovoPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnNovoPedido.setText("Novo");
-        btnNovoPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnNovoPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovoPedidoActionPerformed(evt);
-            }
-        });
-
-        btnCancelarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCancelarPedido.setText("Cancelar");
-        btnCancelarPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCancelarPedido.setEnabled(false);
-        btnCancelarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarPedidoActionPerformed(evt);
-            }
-        });
-
-        txtIdPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtIdPedido.setEnabled(false);
-        txtIdPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdPedidoActionPerformed(evt);
-            }
-        });
-
-        txtNomePedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNomePedido.setEnabled(false);
-        txtNomePedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomePedidoActionPerformed(evt);
-            }
-        });
-
-        txtDataPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtDataPedido.setEnabled(false);
-        txtDataPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDataPedidoActionPerformed(evt);
-            }
-        });
-
-        txtVendedorId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtVendedorId.setEnabled(false);
-        txtVendedorId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVendedorIdActionPerformed(evt);
-            }
-        });
-
-        txtClienteId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtClienteId.setEnabled(false);
-        txtClienteId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtClienteIdActionPerformed(evt);
-            }
-        });
-
-        txtPesquisarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtPesquisarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPesquisarPedidoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PedidoLayout = new javax.swing.GroupLayout(Pedido);
-        Pedido.setLayout(PedidoLayout);
-        PedidoLayout.setHorizontalGroup(
-            PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PedidoLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addComponent(lblNomePedido)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNomePedido, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addComponent(lblIdPedido)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addComponent(lblDataPedido)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addComponent(lblVendedorID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtVendedorId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addComponent(lblClienteId)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtClienteId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PedidoLayout.createSequentialGroup()
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnIncluirPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPesquisarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnAlterarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnExcluirPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnNovoPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32))
-        );
-        PedidoLayout.setVerticalGroup(
-            PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PedidoLayout.createSequentialGroup()
-                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNomePedido)
-                            .addComponent(txtNomePedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIdPedido)
-                            .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDataPedido)
-                            .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblVendedorID)
-                            .addComponent(txtVendedorId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblClienteId)
-                            .addComponent(txtClienteId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnNovoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PedidoLayout.createSequentialGroup()
-                                .addComponent(btnAlterarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnExcluirPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnCancelarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnIncluirPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
-
-        Cadastro.addTab("Pedido", Pedido);
 
         lblNomeVendedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNomeVendedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1500,6 +1282,224 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         Cadastro.addTab("Fabricante", Fabricante);
 
+        lblNomePedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNomePedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNomePedido.setText("NOME");
+        lblNomePedido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblIdPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblIdPedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIdPedido.setText("NÚMERO DO PEDIDO");
+        lblIdPedido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblDataPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDataPedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDataPedido.setText("DATA");
+        lblDataPedido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblVendedorID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblVendedorID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblVendedorID.setText("VENDEDOR");
+        lblVendedorID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblClienteId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblClienteId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblClienteId.setText("CLIENTE");
+        lblClienteId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnAlterarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAlterarPedido.setText("Alterar");
+        btnAlterarPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAlterarPedido.setEnabled(false);
+        btnAlterarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarPedidoActionPerformed(evt);
+            }
+        });
+
+        btnExcluirPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnExcluirPedido.setText("Excluir");
+        btnExcluirPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnExcluirPedido.setEnabled(false);
+        btnExcluirPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirPedidoActionPerformed(evt);
+            }
+        });
+
+        btnIncluirPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnIncluirPedido.setText("Incluir");
+        btnIncluirPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnIncluirPedido.setEnabled(false);
+        btnIncluirPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncluirPedidoActionPerformed(evt);
+            }
+        });
+
+        btnPesquisarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnPesquisarPedido.setText("Pesquisar");
+        btnPesquisarPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPesquisarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarPedidoActionPerformed(evt);
+            }
+        });
+
+        btnNovoPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNovoPedido.setText("Novo");
+        btnNovoPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNovoPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoPedidoActionPerformed(evt);
+            }
+        });
+
+        btnCancelarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnCancelarPedido.setText("Cancelar");
+        btnCancelarPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCancelarPedido.setEnabled(false);
+        btnCancelarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarPedidoActionPerformed(evt);
+            }
+        });
+
+        txtIdPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtIdPedido.setEnabled(false);
+        txtIdPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdPedidoActionPerformed(evt);
+            }
+        });
+
+        txtNomePedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNomePedido.setEnabled(false);
+        txtNomePedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomePedidoActionPerformed(evt);
+            }
+        });
+
+        txtDataPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDataPedido.setEnabled(false);
+        txtDataPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataPedidoActionPerformed(evt);
+            }
+        });
+
+        txtVendedorId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtVendedorId.setEnabled(false);
+        txtVendedorId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVendedorIdActionPerformed(evt);
+            }
+        });
+
+        txtClienteId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtClienteId.setEnabled(false);
+        txtClienteId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClienteIdActionPerformed(evt);
+            }
+        });
+
+        txtPesquisarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPesquisarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisarPedidoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PedidoLayout = new javax.swing.GroupLayout(Pedido);
+        Pedido.setLayout(PedidoLayout);
+        PedidoLayout.setHorizontalGroup(
+            PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PedidoLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addComponent(lblNomePedido)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNomePedido, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addComponent(lblIdPedido)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addComponent(lblDataPedido)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addComponent(lblVendedorID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtVendedorId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addComponent(lblClienteId)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtClienteId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PedidoLayout.createSequentialGroup()
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnIncluirPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPesquisarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancelarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAlterarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnExcluirPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnNovoPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32))
+        );
+        PedidoLayout.setVerticalGroup(
+            PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PedidoLayout.createSequentialGroup()
+                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNomePedido)
+                            .addComponent(txtNomePedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIdPedido)
+                            .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDataPedido)
+                            .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblVendedorID)
+                            .addComponent(txtVendedorId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblClienteId)
+                            .addComponent(txtClienteId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnNovoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PedidoLayout.createSequentialGroup()
+                                .addComponent(btnAlterarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnExcluirPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCancelarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnIncluirPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        Cadastro.addTab("Pedido", Pedido);
+
         jTabbedPane5.addTab("Cadastro", Cadastro);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1986,7 +1986,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Cliente cliente = new Cliente();
 
         cliente.setCpf(txtPesquisarCli.getText());
-
+//
         try {
             cliente = fachada.pesquisarClienteCpf(cliente);
             txtNomeCli.setText(cliente.getNome());
