@@ -1683,6 +1683,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnCancelarPag.setEnabled(true);
         txtPedidoId.setEnabled(true);
         txtValorPag.setEnabled(true);
+        txtPesquisarPag.setEnabled(true);
         txtIdPag.setEnabled(true);
         JComboFormaPag.setEnabled(true);
     }//GEN-LAST:event_btnPesquisarPagActionPerformed
@@ -1959,6 +1960,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
             cliente = fachada.pesquisarClienteCpf(cliente);
             txtNomeCli.setText(cliente.getNome());
             txtCpfCli.setText(cliente.getCpf());
+            txtPesquisarCli.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -1997,6 +1999,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIncluirCliActionPerformed
 
     private void btnExcluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliActionPerformed
+
         Cliente cliente = new Cliente();
 
         cliente.setCpf(txtCpfCli.getText());
@@ -2008,7 +2011,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
             txtNomeCli.setText(null);
             txtPesquisarCli.setText(null);
         } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
+            JOptionPane.showMessageDialog(this, "Cliente não pode ser excluído.");
         }
 
         btnIncluirCli.setEnabled(false);
