@@ -1664,6 +1664,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnPesquisarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPagActionPerformed
 
         Pagamento pagamento = new Pagamento();
+        
         pagamento.setId(Integer.parseInt(txtPesquisarPag.getText()));
 
         try {
@@ -1690,6 +1691,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnIncluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPagActionPerformed
 
         Pagamento pagamento = new Pagamento();
+        
         pagamento.getPedido().setId(Integer.parseInt(txtPedidoId.getText()));
         pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
         pagamento.setFormaPag(JComboFormaPag.getSelectedItem().toString());
