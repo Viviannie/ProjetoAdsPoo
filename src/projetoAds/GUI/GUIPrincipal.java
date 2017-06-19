@@ -1687,10 +1687,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnPesquisarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPagActionPerformed
 
         Pagamento pagamento = new Pagamento();
-        Pedido p = new Pedido();
+        pagamento.setId(Integer.parseInt(txtPesquisarPag.getText()));
 
         try {
-            p.setId(Integer.parseInt(txtPedidoId.getText()));
             fachada.pesquisarPagamento(pagamento);
             txtPesquisarPag.setText(null);
             txtIdVendedor.setText(null);
@@ -1713,17 +1712,17 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnIncluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPagActionPerformed
 
         Pagamento pagamento = new Pagamento();
-        Pedido p = new Pedido();
-
+        pagamento.getPedido().setId(Integer.parseInt(txtPedidoId.getText()));
+        pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
+        pagamento.setFormaPag(JComboFormaPag.getSelectedItem().toString());
+        //c.addItem(JComboFormaPag.getSelectedItem());
+        
         try {
-            p.setId(Integer.parseInt(txtPedidoId.getText()));
-            pagamento.setFormaPag((String) JComboFormaPag.getSelectedItem());
-            //c.addItem(JComboFormaPag.getSelectedItem());
             fachada.salvarPagamento(pagamento);
             JOptionPane.showMessageDialog(this, "Pagamento incluido com sucesso!");
             txtValorPag.setText(null);
             JComboFormaPag.setSelectedItem(null);
-        } catch (RegraException | DAOException | ConexaoException | NumberFormatException | ClassCastException | NullPointerException e) {
+        } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
 
