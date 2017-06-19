@@ -1553,7 +1553,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
         Produto produto = new Produto();
         produto.setId(Integer.parseInt(txtIdProduto.getText()));
-        
+
         try {
             fachada.excluirProduto(produto);
             JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
@@ -1570,7 +1570,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         produto.setId(Integer.parseInt(txtIdProduto.getText()));
         produto.setEstoqueMinimo(Integer.parseInt(txtEstMinProduto.getText()));
         produto.setEstoqueAtual(Integer.parseInt(txtEstAtualProduto.getText()));
-        
+
         try {
             fachada.salvarProduto(produto);
             JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
@@ -1664,18 +1664,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnPesquisarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPagActionPerformed
 
         Pagamento pagamento = new Pagamento();
-        
+
         pagamento.setId(Integer.parseInt(txtPesquisarPag.getText()));
 
         try {
-            fachada.pesquisarPagamento(pagamento);
+            pagamento = fachada.pesquisarPagamento(pagamento);            
+            txtPedidoId.setText(pagamento.getPedido().getId().toString());
+            //txtValorPag.setText(Double.parseDouble(pagamento.getValor()));
+            pagamento.setFormaPag(JComboFormaPag.getSelectedItem().toString());
             txtPesquisarPag.setText(null);
             txtIdVendedor.setText(null);
             btnAlterarPag.setText(null);
         } catch (RegraException | NumberFormatException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
             btnAlterarPag.setEnabled(false);
-        }
+        }     
 
         btnAlterarPag.setEnabled(true);
         btnExcluirPag.setEnabled(true);
@@ -1691,12 +1694,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnIncluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPagActionPerformed
 
         Pagamento pagamento = new Pagamento();
-        
+
         pagamento.getPedido().setId(Integer.parseInt(txtPedidoId.getText()));
         pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
         pagamento.setFormaPag(JComboFormaPag.getSelectedItem().toString());
         //c.addItem(JComboFormaPag.getSelectedItem());
-        
+
         try {
             fachada.salvarPagamento(pagamento);
             JOptionPane.showMessageDialog(this, "Pagamento incluido com sucesso!");
@@ -1715,21 +1718,30 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIncluirPagActionPerformed
 
     private void btnExcluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPagActionPerformed
-        /* Pagamento pagamento = new Pagamento();
 
-        pagamento.setId(txtIdPag);
-
+        Pagamento pagamento = new Pagamento();
+        
+        pagamento.setId(Integer.parseInt(txtIdPag.getText()));
+        pagamento.getPedido().setId(Integer.parseInt(txtPedidoId.getText()));
+           
         try {
-            pagamento.
-            JOptionPane.showMessageDialog(this, "Pesquisa realizada com sucesso!");
-            txtIdFormaPag.setText(null);
+            fachada.excluirPagamento(pagamento);
+            JOptionPane.showMessageDialog(this, "Pagamento excluído com sucesso!");            
             JComboFormaPag.setSelectedItem(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
-        }*/
+        }
+
+        btnIncluirPag.setEnabled(false);
+        btnCancelarPag.setEnabled(false);
+        txtPedidoId.setEnabled(false);
+        txtIdPag.setEnabled(false);
+        txtValorPag.setEnabled(false);
+        JComboFormaPag.setEnabled(false);
     }//GEN-LAST:event_btnExcluirPagActionPerformed
 
     private void btnAlterarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarPagActionPerformed
+        
         Pagamento pagamento = new Pagamento();
 
         try {
@@ -1767,11 +1779,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdVendedorActionPerformed
 
     private void btnPesquisarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarVendedorActionPerformed
-        
+
         Vendedor vendedor = new Vendedor();
-        
+
         vendedor.setId(Integer.parseInt(txtPesquisarVendedor.getText()));
-        
+
         try {
             vendedor = fachada.pesquisarVendedorId(vendedor);
             txtNomeVendedor.setText(vendedor.getNome());
@@ -1780,7 +1792,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-        
+
         btnAlterarVendedor.setEnabled(true);
         btnExcluirVendedor.setEnabled(true);
         btnIncluirVendedor.setEnabled(false);
@@ -1818,9 +1830,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirVendedorActionPerformed
 
     private void btnAlterarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendedorActionPerformed
-        
+
         Vendedor vendedor = new Vendedor();
-        
+
         vendedor.setNome(txtNomeVendedor.getText());
         vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
 
@@ -1832,7 +1844,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-        
+
         btnIncluirPag.setEnabled(true);
         btnPesquisarPag.setEnabled(true);
         btnExcluirPag.setEnabled(true);
@@ -1883,9 +1895,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Pedido pedido = new Pedido();
         Cliente cliente = new Cliente();
         Vendedor vendedor = new Vendedor();
-                        
-        try {       
-            pedido.setData(txtDataPedido.getText());   
+
+        try {
+            pedido.setData(txtDataPedido.getText());
             pedido.getCliente().setCpf(txtNomeCli.getText());
             pedido.getVendedor().setNome(txtNomeVendedor.getText());
             fachada.salvarPedido(pedido);
@@ -1895,7 +1907,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
             txtClienteId.setText(null);
         } catch (RegraException | NullPointerException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
-        }                
+        }
 
         btnCancelarPedido.setEnabled(false);
         btnIncluirPedido.setEnabled(false);
@@ -2023,7 +2035,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirCliActionPerformed
 
     private void btnAlterarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarCliActionPerformed
-        
+
         Cliente cliente = new Cliente();
 
         cliente.setNome(txtNomeCli.getText());
@@ -2219,12 +2231,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnIncluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirProdutoActionPerformed
 
         Produto produto = new Produto();
-      
+
         produto.setDesc(txtDescProduto.getText());
         produto.getFabricante().setCnpj(txtFabricanteCnpj.getText());
         produto.setEstoqueMinimo(Integer.parseInt(txtEstMinProduto.getText()));
         produto.setEstoqueAtual(Integer.parseInt(txtEstAtualProduto.getText()));
-        
+
         try {
             fachada.salvarProduto(produto);
             JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
@@ -2235,7 +2247,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-        
+
         btnIncluirProduto.setEnabled(false);
         btnCancelarProduto.setEnabled(false);
         btnAlterarProduto.setEnabled(false);
@@ -2251,15 +2263,15 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarProdutoActionPerformed
         Produto produto = new Produto();
         produto.setId(Integer.parseInt(txtPesquisarProduto.getText()));
-        
+
         try {
             produto = fachada.pesquisarProdutoId(produto);
             JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
-            JOptionPane.showMessageDialog(this, "Descrição: " + produto.getDesc() + "\n" +
-                    "Id: " + produto.getId() + "\n" +
-                    "CNPJ fabricante: " + produto.getFabricante().getCnpj() + "\n" +
-                    "Estoque mínimo: " + produto.getEstoqueMinimo() + "\n" +
-                    "Estoque atual: " + produto.getEstoqueAtual());
+            JOptionPane.showMessageDialog(this, "Descrição: " + produto.getDesc() + "\n"
+                    + "Id: " + produto.getId() + "\n"
+                    + "CNPJ fabricante: " + produto.getFabricante().getCnpj() + "\n"
+                    + "Estoque mínimo: " + produto.getEstoqueMinimo() + "\n"
+                    + "Estoque atual: " + produto.getEstoqueAtual());
             txtDescProduto.setText(null);
             txtFabricanteCnpj.setText(null);
             txtIdProduto.setText(null);
@@ -2268,7 +2280,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-               
+
         btnAlterarProduto.setEnabled(true);
         btnExcluirProduto.setEnabled(true);
         btnIncluirProduto.setEnabled(false);
@@ -2283,7 +2295,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnPesquisarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFabActionPerformed
         Fabricante fabricante = new Fabricante();
         fabricante.setCnpj(txtPesquisarFab.getText());
-        
+
         try {
             fabricante = fachada.pesquisarFabricanteCnpj(fabricante);
             JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
@@ -2292,7 +2304,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-        
+
         btnAlterarFab.setEnabled(true);
         btnExcluirFab.setEnabled(true);
         btnIncluirFab.setEnabled(false);
@@ -2305,7 +2317,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Fabricante fabricante = new Fabricante();
         fabricante.setRazao(txtRazaoFab.getText());
         fabricante.setCnpj(txtCnpjFab.getText());
-        
+
         try {
             fachada.salvarFabricante(fabricante);
             JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
@@ -2324,7 +2336,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnExcluirFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirFabActionPerformed
         Fabricante fabricante = new Fabricante();
         fabricante.setCnpj(txtCnpjFab.getText());
-        
+
         try {
             fachada.excluirFabricante(fabricante);
             JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
