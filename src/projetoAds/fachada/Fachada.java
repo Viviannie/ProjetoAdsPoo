@@ -90,7 +90,7 @@ public class Fachada {
     /*#########################################################################
      * PAGAMENTO
      *########################################################################*/
-    public void salvarPagamento(Pagamento pagamento) throws RegraException, DAOException, ConexaoException {
+    public void salvarPagamento(Pagamento pagamento) throws RegraException {
         rnPagamento.validar(pagamento);
         rnPagamento.incluir(pagamento);
         // rnPagamento.incluirDouble(pagamento);

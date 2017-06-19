@@ -86,7 +86,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtRazaoFab = new javax.swing.JTextField();
         txtPesquisarFab = new javax.swing.JTextField();
         Pedido = new javax.swing.JPanel();
-        lblNomePedido = new javax.swing.JLabel();
         lblIdPedido = new javax.swing.JLabel();
         lblDataPedido = new javax.swing.JLabel();
         lblVendedorID = new javax.swing.JLabel();
@@ -98,7 +97,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnNovoPedido = new javax.swing.JButton();
         btnCancelarPedido = new javax.swing.JButton();
         txtIdPedido = new javax.swing.JTextField();
-        txtNomePedido = new javax.swing.JTextField();
         txtDataPedido = new javax.swing.JTextField();
         txtVendedorId = new javax.swing.JTextField();
         txtClienteId = new javax.swing.JTextField();
@@ -666,11 +664,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         Cadastro.addTab("Fabricante", Fabricante);
 
-        lblNomePedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblNomePedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNomePedido.setText("NOME");
-        lblNomePedido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         lblIdPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblIdPedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblIdPedido.setText("NÚMERO DO PEDIDO");
@@ -757,14 +750,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        txtNomePedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNomePedido.setEnabled(false);
-        txtNomePedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomePedidoActionPerformed(evt);
-            }
-        });
-
         txtDataPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDataPedido.setEnabled(false);
         txtDataPedido.addActionListener(new java.awt.event.ActionListener() {
@@ -801,29 +786,26 @@ public class GUIPrincipal extends javax.swing.JFrame {
         PedidoLayout.setHorizontalGroup(
             PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PedidoLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addComponent(lblNomePedido)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNomePedido, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addComponent(lblIdPedido)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addComponent(lblDataPedido)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addComponent(lblVendedorID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtVendedorId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(PedidoLayout.createSequentialGroup()
                         .addComponent(lblClienteId)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtClienteId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                        .addComponent(txtClienteId))
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PedidoLayout.createSequentialGroup()
+                                .addComponent(lblVendedorID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtVendedorId))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PedidoLayout.createSequentialGroup()
+                                .addComponent(lblDataPedido)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtDataPedido))
+                            .addComponent(lblIdPedido))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PedidoLayout.createSequentialGroup()
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -841,13 +823,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
         PedidoLayout.setVerticalGroup(
             PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PedidoLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PedidoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNomePedido)
-                            .addComponent(txtNomePedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblIdPedido)
                             .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -864,7 +842,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(lblClienteId)
                             .addComponent(txtClienteId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PedidoLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
                         .addComponent(btnNovoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -879,7 +856,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         Cadastro.addTab("Pedido", Pedido);
@@ -1705,6 +1682,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnCancelarPag.setEnabled(true);
         txtPedidoId.setEnabled(true);
         txtValorPag.setEnabled(true);
+        txtPesquisarPag.setEnabled(true);
         txtIdPag.setEnabled(true);
         JComboFormaPag.setEnabled(true);
     }//GEN-LAST:event_btnPesquisarPagActionPerformed
@@ -1787,25 +1765,25 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdVendedorActionPerformed
 
     private void btnPesquisarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarVendedorActionPerformed
+        
         Vendedor vendedor = new Vendedor();
+        
         vendedor.setId(Integer.parseInt(txtPesquisarVendedor.getText()));
         
         try {
             vendedor = fachada.pesquisarVendedorId(vendedor);
-            JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
-            JOptionPane.showMessageDialog(this, "nome: " + vendedor.getNome() + "\n" + "Id: " + vendedor.getId());
-            txtNomeVendedor.setText(null);
+            txtNomeVendedor.setText(vendedor.getNome());
             txtIdVendedor.setText(null);
+            txtPesquisarVendedor.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-
+        
         btnAlterarVendedor.setEnabled(true);
         btnExcluirVendedor.setEnabled(true);
         btnIncluirVendedor.setEnabled(false);
         btnCancelarVendedor.setEnabled(true);
         txtNomeVendedor.setEnabled(true);
-        txtIdVendedor.setEnabled(true);
     }//GEN-LAST:event_btnPesquisarVendedorActionPerformed
 
     private void btnIncluirVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirVendedorActionPerformed
@@ -1814,7 +1792,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         try {
             fachada.salvarVendedor(vendedor);
-            JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
+            JOptionPane.showMessageDialog(this, "Vendedor incluído com sucesso");
             txtNomeVendedor.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -1838,7 +1816,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirVendedorActionPerformed
 
     private void btnAlterarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendedorActionPerformed
+        
         Vendedor vendedor = new Vendedor();
+        
         vendedor.setNome(txtNomeVendedor.getText());
         vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
 
@@ -1850,7 +1830,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-
+        
         btnIncluirPag.setEnabled(true);
         btnPesquisarPag.setEnabled(true);
         btnExcluirPag.setEnabled(true);
@@ -1877,12 +1857,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtDataPedidoActionPerformed
 
-    private void txtNomePedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomePedidoActionPerformed
-        if (this.txtNomePedido.getText().equals("")) {
-            txtNomePedido.grabFocus();
-        }
-    }//GEN-LAST:event_txtNomePedidoActionPerformed
-
     private void txtIdPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdPedidoActionPerformed
         if (this.txtIdPedido.getText().equals("")) {
             txtIdPedido.grabFocus();
@@ -1895,7 +1869,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirPedido.setEnabled(true);
         btnIncluirPedido.setEnabled(false);
         btnCancelarPedido.setEnabled(true);
-        txtNomePedido.setEnabled(true);
+        txtNomeCli.setEnabled(true);
         txtIdPedido.setEnabled(true);
         txtDataPedido.setEnabled(true);
         txtVendedorId.setEnabled(true);
@@ -1903,24 +1877,23 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarPedidoActionPerformed
 
     private void btnIncluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPedidoActionPerformed
+
         Pedido pedido = new Pedido();
         Cliente cliente = new Cliente();
         Vendedor vendedor = new Vendedor();
-
-        try {
-            pedido.setId(Integer.parseInt(txtIdPedido.getText()));
-            pedido.setData(txtDataPedido.getText());
-            cliente.setNome(txtNomePedido.getText());
-            vendedor.setId(Integer.parseInt(txtVendedorId.getText()));
-
+                        
+        try {       
+            pedido.setData(txtDataPedido.getText());   
+            pedido.getCliente().setCpf(txtNomeCli.getText());
+            pedido.getVendedor().setNome(txtNomeVendedor.getText());
             fachada.salvarPedido(pedido);
             JOptionPane.showMessageDialog(this, "Pedido incluído com sucesso!");
-            txtValorPag.setText(null);
-            txtIdPag.setText(null);
-            JComboFormaPag.setSelectedItem(null);
-        } catch (RegraException e) {
+            txtDataPedido.setText(null);
+            txtVendedorId.setText(null);
+            txtClienteId.setText(null);
+        } catch (RegraException | NullPointerException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
-        }
+        }                
 
         btnCancelarPedido.setEnabled(false);
         btnIncluirPedido.setEnabled(false);
@@ -1928,7 +1901,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void btnExcluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPedidoActionPerformed
         Cliente cliente = new Cliente();
-        cliente.setNome(txtNomePedido.getText());
+        cliente.setNome(txtNomeCli.getText());
         Vendedor vendedor = new Vendedor();
         vendedor.setId(Integer.parseInt(txtVendedorId.getText()));
 
@@ -1980,11 +1953,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Cliente cliente = new Cliente();
 
         cliente.setCpf(txtPesquisarCli.getText());
-//
+
         try {
             cliente = fachada.pesquisarClienteCpf(cliente);
             txtNomeCli.setText(cliente.getNome());
             txtCpfCli.setText(cliente.getCpf());
+            txtPesquisarCli.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -2023,6 +1997,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIncluirCliActionPerformed
 
     private void btnExcluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliActionPerformed
+
         Cliente cliente = new Cliente();
 
         cliente.setCpf(txtCpfCli.getText());
@@ -2034,7 +2009,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
             txtNomeCli.setText(null);
             txtPesquisarCli.setText(null);
         } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
+            JOptionPane.showMessageDialog(this, "Cliente não pode ser excluído.");
         }
 
         btnIncluirCli.setEnabled(false);
@@ -2046,6 +2021,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirCliActionPerformed
 
     private void btnAlterarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarCliActionPerformed
+        
         Cliente cliente = new Cliente();
 
         cliente.setNome(txtNomeCli.getText());
@@ -2089,8 +2065,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnNovoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoPedidoActionPerformed
         btnIncluirPedido.setEnabled(true);
         btnCancelarPedido.setEnabled(true);
-        txtNomePedido.setEnabled(true);
-        txtIdPedido.setEnabled(true);
+        txtNomeCli.setEnabled(true);
         txtDataPedido.setEnabled(true);
         txtVendedorId.setEnabled(true);
         txtClienteId.setEnabled(true);
@@ -2100,7 +2075,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirVendedor.setEnabled(true);
         btnCancelarVendedor.setEnabled(true);
         txtNomeVendedor.setEnabled(true);
-        txtIdVendedor.setEnabled(true);
     }//GEN-LAST:event_btnNovoVendedorActionPerformed
 
     private void btnNovoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoVendaActionPerformed
@@ -2241,7 +2215,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarProdutoActionPerformed
 
     private void btnIncluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirProdutoActionPerformed
+
         Produto produto = new Produto();
+      
         produto.setDesc(txtDescProduto.getText());
         produto.getFabricante().setCnpj(txtFabricanteCnpj.getText());
         produto.setEstoqueMinimo(Integer.parseInt(txtEstMinProduto.getText()));
@@ -2476,7 +2452,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdProduto;
     private javax.swing.JLabel lblIdVendedor;
     private javax.swing.JLabel lblNomeCli;
-    private javax.swing.JLabel lblNomePedido;
     private javax.swing.JLabel lblNomeVendedor;
     private javax.swing.JLabel lblPedidoId;
     private javax.swing.JLabel lblPedidoId2;
@@ -2499,7 +2474,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdProduto;
     private javax.swing.JTextField txtIdVendedor;
     private javax.swing.JTextField txtNomeCli;
-    private javax.swing.JTextField txtNomePedido;
     private javax.swing.JTextField txtNomeVendedor;
     private javax.swing.JTextField txtPedidoId;
     private javax.swing.JTextField txtPedidoId2;
