@@ -1904,6 +1904,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirVendedor.setEnabled(false);
         btnCancelarVendedor.setEnabled(true);
         txtNomeVendedor.setEnabled(true);
+        txtNomeVendedor.setText(null);
     }//GEN-LAST:event_btnPesquisarVendedorActionPerformed
 
     private void btnIncluirVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirVendedorActionPerformed
@@ -1941,7 +1942,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Vendedor vendedor = new Vendedor();
 
         vendedor.setNome(txtNomeVendedor.getText());
-        vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
 
         try {
             fachada.alterarVendedor(vendedor);
