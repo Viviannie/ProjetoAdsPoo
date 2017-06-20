@@ -39,23 +39,22 @@ public interface DAOVendedor {
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public Vendedor pesquisar(Integer id) throws ConexaoException,DAOException;
-
+    public Vendedor pesquisarId(Integer id) throws ConexaoException,DAOException;
+    
     /**
-      * Busca um registro no BD com o Nome informado
+      * Busca um registro no BD com o ID informado
       * @param nome Parametro da busca
       * @return Objeto encontrado ou null
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public Vendedor pesquisar(String nome) throws ConexaoException,DAOException;
+    public Vendedor pesquisarNome(String nome) throws ConexaoException,DAOException;
 
     /**
       * Retorna uma lista com todos os registros do vendedor
       * @return Objeto contendo todos os registros encontrados
       * @throws ConexaoException
       * @throws DAOException 
-      */
-    
+      */    
     public ArrayList<Vendedor> listar() throws ConexaoException,DAOException;
 }

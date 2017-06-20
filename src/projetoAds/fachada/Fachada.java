@@ -134,18 +134,17 @@ public class Fachada {
 
     public void alterarVendedor(Vendedor vendedor) throws RegraException {
         rnVendedor.validar(vendedor);
-        rnVendedor.validaId(vendedor.getId());
         rnVendedor.alterar(vendedor);
     }
 
     public Vendedor pesquisarVendedorNome(Vendedor vendedor) throws RegraException {
         rnVendedor.validar(vendedor);
-        return rnVendedor.pesquisar(vendedor.getNome());
+        return rnVendedor.pesquisarNome(vendedor.getNome());
     }
 
     public Vendedor pesquisarVendedorId(Vendedor vendedor) throws RegraException {
         rnVendedor.validaId(vendedor.getId());
-        return rnVendedor.pesquisar(vendedor.getId());
+        return rnVendedor.pesquisarId(vendedor.getId());
     }
 
     public ArrayList<Vendedor> listarVendedor() throws RegraException {

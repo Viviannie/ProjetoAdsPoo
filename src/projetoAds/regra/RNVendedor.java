@@ -45,17 +45,17 @@ public class RNVendedor {
         }
     }
 
-    public Vendedor pesquisar(Integer id) throws RegraException {
+    public Vendedor pesquisarId(Integer id) throws RegraException {
         try {
-            return dao.pesquisar(id);
+            return dao.pesquisarId(id);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
     }
 
-    public Vendedor pesquisar(String nome) throws RegraException {
+    public Vendedor pesquisarNome(String nome) throws RegraException {
         try {
-            return dao.pesquisar(nome);
+            return dao.pesquisarNome(nome);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
@@ -81,7 +81,7 @@ public class RNVendedor {
             throw new RegraException("ID inválido!");
         }
         try {
-            Vendedor x = dao.pesquisar(id);
+            Vendedor x = dao.pesquisarId(id);
             if (x == null) {
                 throw new RegraException("ID informado não existe.");
             }
