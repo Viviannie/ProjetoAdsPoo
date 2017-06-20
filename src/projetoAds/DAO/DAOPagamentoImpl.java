@@ -18,10 +18,10 @@ import projetoAds.excecao.DAOException;
  * @author Grupo Programação Orientada a Objetos
  */
 public class DAOPagamentoImpl implements DAOPagamento {
-    
+
     private ConexaoBD con;
-    
-    public DAOPagamentoImpl(){
+
+    public DAOPagamentoImpl() {
         con = Conectar.getInstancia();
     }
 
@@ -58,14 +58,15 @@ public class DAOPagamentoImpl implements DAOPagamento {
     }
 
     @Override
-    public void alterar(Pagamento pagamento) throws ConexaoException, DAOException {        
+    public void alterar(Pagamento pagamento) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE pagamento SET pag_valor=?, ped_id=?, pag_formaPag=? WHERE pag_id=?)";
+        String sql = "UPDATE pagamento SET pag_valor=?, pag_formaPag=?, ped_id=? WHERE (pag_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setDouble(1, pagamento.getValor());
-            pstm.setInt(2, pagamento.getPedido().getId());
-            pstm.setString(3, pagamento.getFormaPag());
+            pstm.setString(2, pagamento.getFormaPag());
+            pstm.setInt(3, pagamento.getPedido().getId());
+            pstm.setInt(4, pagamento.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -77,7 +78,7 @@ public class DAOPagamentoImpl implements DAOPagamento {
     @Override
     public Pagamento pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT pag_id, pag_valor, ped_id, pag_formaPag FROM pagamento WHERE pag_id=?)";
+        String sql = "SELECT pag_id, pag_valor, ped_id, pag_formaPag FROM pagamento WHERE (pag_id=?)";
         Pagamento pagamento = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
@@ -120,5 +121,5 @@ public class DAOPagamentoImpl implements DAOPagamento {
             throw new DAOException(e);
         }
     }
-    
+
 }

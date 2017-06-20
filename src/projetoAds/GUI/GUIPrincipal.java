@@ -101,7 +101,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtPedidoId = new javax.swing.JTextField();
         txtPesquisarPag = new javax.swing.JTextField();
         JComboFormaPag = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        txtFormaPag = new javax.swing.JTextField();
         Produto = new javax.swing.JPanel();
         lblDescProduto = new javax.swing.JLabel();
         lblIdProduto = new javax.swing.JLabel();
@@ -776,33 +776,39 @@ public class GUIPrincipal extends javax.swing.JFrame {
         JComboFormaPag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dinheiro", "Cartão" }));
         JComboFormaPag.setEnabled(false);
 
-        jTextField1.setText("jTextField1");
+        txtFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtFormaPag.setEnabled(false);
 
         javax.swing.GroupLayout PagamentoLayout = new javax.swing.GroupLayout(Pagamento);
         Pagamento.setLayout(PagamentoLayout);
         PagamentoLayout.setHorizontalGroup(
             PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagamentoLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PagamentoLayout.createSequentialGroup()
-                        .addComponent(lblFormaPagId)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JComboFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PagamentoLayout.createSequentialGroup()
-                        .addComponent(lblPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PagamentoLayout.createSequentialGroup()
-                        .addComponent(lblValorPag, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtValorPag, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PagamentoLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PagamentoLayout.createSequentialGroup()
+                                .addComponent(lblFormaPagId)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JComboFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(PagamentoLayout.createSequentialGroup()
+                                    .addComponent(lblPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(PagamentoLayout.createSequentialGroup()
+                                    .addComponent(lblValorPag, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtValorPag, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagamentoLayout.createSequentialGroup()
+                        .addContainerGap(21, Short.MAX_VALUE)
                         .addComponent(lblIdPag)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdPag, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addComponent(txtIdPag, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(136, 136, 136)))
                 .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagamentoLayout.createSequentialGroup()
                         .addComponent(btnPesquisarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -824,8 +830,15 @@ public class GUIPrincipal extends javax.swing.JFrame {
             .addGroup(PagamentoLayout.createSequentialGroup()
                 .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PagamentoLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnNovoPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PagamentoLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(btnNovoPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PagamentoLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblIdPag)
+                                    .addComponent(txtIdPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnIncluirPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -840,25 +853,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(btnPesquisarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPesquisarPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PagamentoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPedidoId)
-                            .addComponent(txtPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(40, 40, 40)
                         .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblValorPag)
                             .addComponent(txtValorPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIdPag)
-                            .addComponent(txtIdPag, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblPedidoId)
+                            .addComponent(txtPedidoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
                         .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblFormaPagId)
                             .addComponent(JComboFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addComponent(txtFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         Cadastro.addTab("Pagamento", null, Pagamento, "");
@@ -1368,10 +1377,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
             produto = fachada.pesquisarProdutoId(produto);
             JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
             JOptionPane.showMessageDialog(this, "Descrição: " + produto.getDesc() + "\n"
-                + "Id: " + produto.getId() + "\n"
-                + "CNPJ fabricante: " + produto.getFabricante().getCnpj() + "\n"
-                + "Estoque mínimo: " + produto.getEstoqueMinimo() + "\n"
-                + "Estoque atual: " + produto.getEstoqueAtual());
+                    + "Id: " + produto.getId() + "\n"
+                    + "CNPJ fabricante: " + produto.getFabricante().getCnpj() + "\n"
+                    + "Estoque mínimo: " + produto.getEstoqueMinimo() + "\n"
+                    + "Estoque atual: " + produto.getEstoqueAtual());
             txtDescProduto.setText(null);
             txtFabricanteCnpj.setText(null);
             txtIdProduto.setText(null);
@@ -1521,30 +1530,33 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         Pagamento pagamento = new Pagamento();
 
-        pagamento.setId(Integer.parseInt(txtPesquisarPag.getText()));
-
         try {
+            pagamento.setId(Integer.parseInt(txtPesquisarPag.getText()));
             pagamento = fachada.pesquisarPagamento(pagamento);
             txtPedidoId.setText(pagamento.getPedido().getId().toString());
-            //txtValorPag.setText(Double.parseDouble(pagamento.getValor()));
             pagamento.setFormaPag(JComboFormaPag.getSelectedItem().toString());
+            txtFormaPag.setText(pagamento.getFormaPag());
+            Double valor = pagamento.getValor();
+            String valor2 = String.valueOf(valor);
+            txtValorPag.setText(valor2);
+            Integer id = pagamento.getId();
+            String id2 = String.valueOf(id);
+            txtIdPag.setText(id2);
+            txtPedidoId.setText(pagamento.getPedido().getId().toString());
             txtPesquisarPag.setText(null);
             txtIdVendedor.setText(null);
-            btnAlterarPag.setText(null);
-        } catch (RegraException | NumberFormatException e) {
+        } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
-            btnAlterarPag.setEnabled(false);
         }
 
         btnAlterarPag.setEnabled(true);
         btnExcluirPag.setEnabled(true);
-        btnIncluirPag.setEnabled(false);
         btnCancelarPag.setEnabled(true);
         txtPedidoId.setEnabled(true);
         txtValorPag.setEnabled(true);
         txtPesquisarPag.setEnabled(true);
-        txtIdPag.setEnabled(true);
-        JComboFormaPag.setEnabled(true);
+        txtFormaPag.setEnabled(true);
+        JComboFormaPag.setEnabled(false);
     }//GEN-LAST:event_btnPesquisarPagActionPerformed
 
     private void btnIncluirPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPagActionPerformed
@@ -1554,7 +1566,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         pagamento.getPedido().setId(Integer.parseInt(txtPedidoId.getText()));
         pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
         pagamento.setFormaPag(JComboFormaPag.getSelectedItem().toString());
-        //c.addItem(JComboFormaPag.getSelectedItem());
 
         try {
             fachada.salvarPagamento(pagamento);
@@ -1600,26 +1611,32 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         Pagamento pagamento = new Pagamento();
 
-        try {
-            pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
+        pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
 
+        try {
+            pagamento.getPedido().setId(Integer.parseInt(txtPedidoId.getText()));
+            pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
+            pagamento.setId(Integer.parseInt(txtIdPag.getText()));
+            pagamento.setFormaPag(txtFormaPag.getText());
             fachada.alterarPagamento(pagamento);
             txtValorPag.setText(null);
             txtPedidoId.setText(null);
+            txtIdPag.setText(null);
+            txtFormaPag.setText(null);
             JComboFormaPag.setSelectedItem(null);
             JOptionPane.showMessageDialog(this, "Pagamento alterado com sucesso!");
-        } catch (RegraException | NumberFormatException e) {
+        } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
 
-        txtValorPag.setEnabled(true);
-        txtPedidoId.setEnabled(true);
+        txtValorPag.setEnabled(false);
+        txtPedidoId.setEnabled(false);
         JComboFormaPag.setEnabled(true);
         btnNovoPag.setEnabled(false);
         btnPesquisarPag.setEnabled(true);
-        btnIncluirPag.setEnabled(true);
-        txtIdPag.setEnabled(true);
-        JComboFormaPag.setEnabled(true);
+        txtIdPag.setEnabled(false);
+        txtFormaPag.setEnabled(false);
+        JComboFormaPag.setEnabled(false);
     }//GEN-LAST:event_btnAlterarPagActionPerformed
 
     private void txtPesquisarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarPedidoActionPerformed
@@ -2178,7 +2195,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblClienteId;
     private javax.swing.JLabel lblCnpjFab;
     private javax.swing.JLabel lblCpfCli;
@@ -2206,6 +2222,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtEstAtualProduto;
     private javax.swing.JTextField txtEstMinProduto;
     private javax.swing.JTextField txtFabricanteCnpj;
+    private javax.swing.JTextField txtFormaPag;
     private javax.swing.JTextField txtIdPag;
     private javax.swing.JTextField txtIdPedido;
     private javax.swing.JTextField txtIdProduto;
