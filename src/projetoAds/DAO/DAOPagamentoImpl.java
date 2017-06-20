@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.conexao.Conectar;
 import projetoAds.conexao.ConexaoBD;
@@ -59,13 +60,12 @@ public class DAOPagamentoImpl implements DAOPagamento {
     @Override
     public void alterar(Pagamento pagamento) throws ConexaoException, DAOException {        
         Connection c = con.conectar();
-        String sql = "UPDATE pagamento SET pag_id=?, pag_valor=?, ped_id=?, pag_formaPag=? WHERE (pag_id=?)";
+        String sql = "UPDATE pagamento SET pag_valor=?, ped_id=?, pag_formaPag=? WHERE pag_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pagamento.getId());
-            pstm.setDouble(2, pagamento.getValor());
-            pstm.setInt(3, pagamento.getPedido().getId());
-            pstm.setString(4, pagamento.getFormaPag());
+            pstm.setDouble(1, pagamento.getValor());
+            pstm.setInt(2, pagamento.getPedido().getId());
+            pstm.setString(3, pagamento.getFormaPag());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -77,7 +77,7 @@ public class DAOPagamentoImpl implements DAOPagamento {
     @Override
     public Pagamento pesquisar(Integer id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT pag_id, pag_valor, ped_id, pag_formaPag FROM pagamento WHERE (pag_id=?)";
+        String sql = "SELECT pag_id, pag_valor, ped_id, pag_formaPag FROM pagamento WHERE pag_id=?)";
         Pagamento pagamento = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
