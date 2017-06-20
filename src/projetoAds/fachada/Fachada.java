@@ -69,7 +69,6 @@ public class Fachada {
     public void alterarCliente(Cliente cliente) throws RegraException {
         rnCliente.validarNome(cliente);
         rnCliente.validarCpf(cliente);
-        rnCliente.validaCpf(cliente.getCpf());
         rnCliente.alterar(cliente);
     }
 
