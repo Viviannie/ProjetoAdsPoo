@@ -76,13 +76,13 @@ public class DAOPagamentoImpl implements DAOPagamento {
     }
 
     @Override
-    public Pagamento pesquisar(Integer id) throws ConexaoException, DAOException {
+    public Pagamento pesquisar(Integer pag_id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT pag_id, pag_valor, ped_id, pag_formaPag FROM pagamento WHERE (pag_id=?)";
         Pagamento pagamento = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, id);
+            pstm.setInt(1, pag_id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 pagamento = new Pagamento();

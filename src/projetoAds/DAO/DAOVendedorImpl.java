@@ -71,13 +71,13 @@ public class DAOVendedorImpl implements DAOVendedor {
     }
 
     @Override
-    public Vendedor pesquisar(Integer id) throws ConexaoException, DAOException {
+    public Vendedor pesquisar(Integer vend_id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
         String sql = "SELECT vend_id, vend_nome FROM vendedor WHERE (vend_id=?)";
         Vendedor vend = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, id);
+            pstm.setInt(1, vend_id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 vend = new Vendedor();

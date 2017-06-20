@@ -1537,6 +1537,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
             txtPedidoId.setText(pagamento.getPedido().getId().toString());
             txtPesquisarPag.setText(null);
             txtIdVendedor.setText(null);
+            JComboFormaPag.setSelectedItem(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -1608,7 +1609,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         pagamento.setValor(Double.parseDouble(txtValorPag.getText()));
 
         try {
-            pagamento.getPedido().setId(Integer.parseInt(txtPedidoId.getText()));           
+            pagamento.getPedido().setId(Integer.parseInt(txtPedidoId.getText()));
             pagamento.setId(Integer.parseInt(txtIdPag.getText()));
             pagamento.setFormaPag(txtFormaPag.getText());
             fachada.alterarPagamento(pagamento);
@@ -1893,7 +1894,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
         try {
             vendedor = fachada.pesquisarVendedorId(vendedor);
             txtNomeVendedor.setText(vendedor.getNome());
-            txtIdVendedor.setText(null);
+            Integer id = vendedor.getId();
+            String id2 = String.valueOf(id);
+            txtIdVendedor.setText(id2);
             txtPesquisarVendedor.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -1908,7 +1911,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarVendedorActionPerformed
 
     private void btnIncluirVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirVendedorActionPerformed
+
         Vendedor vendedor = new Vendedor();
+
         vendedor.setNome(txtNomeVendedor.getText());
 
         try {
@@ -2002,6 +2007,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoCliActionPerformed
 
     private void btnPesquisarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarCliActionPerformed
+
         Cliente cliente = new Cliente();
 
         cliente.setCpf(txtPesquisarCli.getText());
@@ -2078,7 +2084,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         cliente.setNome(txtNomeCli.getText());
         cliente.setCpf(txtCpfCli.getText());
-        
+
         try {
             fachada.alterarCliente(cliente);
             JOptionPane.showMessageDialog(this, "Cliente alterado com sucesso!");
@@ -2088,7 +2094,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-        
 
         btnIncluirCli.setEnabled(false);
         txtNomeCli.setEnabled(false);
