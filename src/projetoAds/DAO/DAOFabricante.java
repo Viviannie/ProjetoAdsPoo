@@ -39,7 +39,7 @@ public interface DAOFabricante {
       * @throws ConexaoException
       * @throws DAOException 
       */
-    public Fabricante pesquisar(String cnpj) throws ConexaoException,DAOException;
+    public Fabricante pesquisarCnpj(String cnpj) throws ConexaoException,DAOException;
 
     /**
       * Busca um registro no BD com o Codigo do fornecedor informado

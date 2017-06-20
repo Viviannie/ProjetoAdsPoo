@@ -1775,6 +1775,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirFab.setEnabled(false);
         txtCnpjFab.setEnabled(false);
         txtRazaoFab.setEnabled(false);
+        txtRazaoFab.setText(null);
+        txtCnpjFab.setText(null);
     }//GEN-LAST:event_btnCancelarFabActionPerformed
 
     private void btnNovoFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoFabActionPerformed
@@ -1785,13 +1787,15 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoFabActionPerformed
 
     private void btnPesquisarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFabActionPerformed
+
         Fabricante fabricante = new Fabricante();
+       
         fabricante.setCnpj(txtPesquisarFab.getText());
 
         try {
             fabricante = fachada.pesquisarFabricanteCnpj(fabricante);
-            JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
-            JOptionPane.showMessageDialog(this, "nome: " + fabricante.getRazao() + "\n" + "Id: " + fabricante.getCnpj());
+            txtCnpjFab.setText(fabricante.getCnpj());
+            txtRazaoFab.setText(fabricante.getRazao());
             txtPesquisarFab.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -1801,20 +1805,22 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirFab.setEnabled(true);
         btnIncluirFab.setEnabled(false);
         btnCancelarFab.setEnabled(true);
-        txtCnpjFab.setEnabled(true);
         txtRazaoFab.setEnabled(true);
     }//GEN-LAST:event_btnPesquisarFabActionPerformed
 
     private void btnIncluirFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirFabActionPerformed
+
         Fabricante fabricante = new Fabricante();
+        
         fabricante.setRazao(txtRazaoFab.getText());
         fabricante.setCnpj(txtCnpjFab.getText());
 
         try {
             fachada.salvarFabricante(fabricante);
-            JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
+            JOptionPane.showMessageDialog(this, "Fabricante incluído com sucesso!");
             txtRazaoFab.setText(null);
             txtCnpjFab.setText(null);
+            txtPesquisarFab.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -1831,26 +1837,41 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         try {
             fachada.excluirFabricante(fabricante);
-            JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
+            JOptionPane.showMessageDialog(this, "Fabricante excluído com sucesso!");
             txtCnpjFab.setText(null);
+            txtRazaoFab.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
+        
+        txtRazaoFab.setEnabled(false);
+        btnAlterarFab.setEnabled(false);
+        btnCancelarFab.setEnabled(false);
+        btnExcluirFab.setEnabled(false);
+        btnIncluirFab.setEnabled(false);
     }//GEN-LAST:event_btnExcluirFabActionPerformed
 
     private void btnAlterarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarFabActionPerformed
+
         Fabricante fabricante = new Fabricante();
+       
         fabricante.setRazao(txtRazaoFab.getText());
         fabricante.setCnpj(txtCnpjFab.getText());
 
         try {
             fachada.alterarFabricante(fabricante);
-            JOptionPane.showMessageDialog(this, "Registro alterado com sucesso");
+            JOptionPane.showMessageDialog(this, "Fabricante alterado com sucesso!");
             txtRazaoFab.setText(null);
             txtCnpjFab.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
+        
+        txtCnpjFab.setEnabled(false);
+        txtRazaoFab.setEnabled(false);
+        btnAlterarFab.setEnabled(false);
+        btnCancelarFab.setEnabled(false);
+        btnExcluirFab.setEnabled(false);
     }//GEN-LAST:event_btnAlterarFabActionPerformed
 
     private void txtPesquisarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarVendedorActionPerformed
@@ -1917,7 +1938,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         try {
             fachada.salvarVendedor(vendedor);
-            JOptionPane.showMessageDialog(this, "Vendedor incluído com sucesso");
+            JOptionPane.showMessageDialog(this, "Vendedor incluído com sucesso!");
             txtNomeVendedor.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -1929,12 +1950,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIncluirVendedorActionPerformed
 
     private void btnExcluirVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirVendedorActionPerformed
+
         Vendedor vendedor = new Vendedor();
+        
         vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
 
         try {
             fachada.excluirVendedor(vendedor);
-            JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
+            JOptionPane.showMessageDialog(this, "Vendedor excluído com sucesso!");
             txtIdVendedor.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());

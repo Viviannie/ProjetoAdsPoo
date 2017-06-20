@@ -54,7 +54,7 @@ public class RNFabricante {
     }
     public Fabricante pesquisar(String cnpj) throws RegraException {
         try {
-            return dao.pesquisar(cnpj);
+            return dao.pesquisarCnpj(cnpj);
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
@@ -77,10 +77,10 @@ public class RNFabricante {
     public void validar(Fabricante f) throws RegraException {
 
         if ((f.getRazao() == null) || (f.getRazao().trim().equals(""))) {
-            throw new RegraException("Razao inválido");
+            throw new RegraException("Razão Social inválida!");
         }
         if ((f.getCnpj() == null) || (f.getCnpj().trim().equals("")) || (f.getCnpj().trim().length() != 14)) {
-            throw new RegraException("CPF inválido");
+            throw new RegraException("CNPJ inválido!");
         }
     }
 
@@ -94,7 +94,7 @@ public class RNFabricante {
 
         try {
 
-            Fabricante x = dao.pesquisar(f.getCnpj());
+            Fabricante x = dao.pesquisarCnpj(f.getCnpj());
             if (x != null) {
                 throw new RegraException("Fabricante existente.");
             }
@@ -115,7 +115,7 @@ public class RNFabricante {
             throw new RegraException("CNPJ inválido!");
         }
         try {
-            Fabricante x = dao.pesquisar(cnpj);
+            Fabricante x = dao.pesquisarCnpj(cnpj);
             if (x == null) {
                 throw new RegraException("CNPJ informado não existe.");
             }

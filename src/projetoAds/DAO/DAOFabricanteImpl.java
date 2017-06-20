@@ -74,7 +74,7 @@ public class DAOFabricanteImpl implements DAOFabricante {
     }
 
     @Override
-    public Fabricante pesquisar(String cnpj) throws ConexaoException, DAOException {
+    public Fabricante pesquisarCnpj(String cnpj) throws ConexaoException, DAOException {
     Connection c = con.conectar();
         String sql = "SELECT fbr_cnpj, fbr_razao FROM fabricante WHERE (fbr_cnpj=?)";
         Fabricante fbr = null;

@@ -228,7 +228,6 @@ public class Fachada {
 
     public void alterarFabricante(Fabricante fabricante) throws RegraException {
         rnFabricante.validar(fabricante);
-        rnFabricante.validaCnpj(fabricante.getCnpj());
         rnFabricante.alterar(fabricante);
     }
 
