@@ -60,7 +60,7 @@ public class DAOProdutoImpl implements DAOProduto {
     @Override
     public void alterar(Produto produto) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE produto SET prd_desc=?, prd_estoqueminimo=?, prd_estoqueatual=? fbr_cnpj=? WHERE (prd_id=?)";
+        String sql = "UPDATE produto SET prd_desc=?, prd_estoqueminimo=?, prd_estoqueatual=?, fbr_cnpj=? WHERE (prd_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, produto.getDesc());
