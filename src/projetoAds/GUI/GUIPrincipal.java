@@ -2404,7 +2404,20 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarCliActionPerformed
 
     private void btnListarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarVendedorActionPerformed
-        // TODO add your handling code here:
+        ArrayList<Vendedor> lista = new ArrayList();
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("NOME");
+        try {
+            lista = fachada.listarVendedor();
+            for (Vendedor v : lista) {
+                modelo.addRow(new Object[]{v.getId(), v.getNome()});
+            }
+            tabelaVendedor.setModel(modelo);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
     }//GEN-LAST:event_btnListarVendedorActionPerformed
 
     private void btnListarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarPedidoActionPerformed
