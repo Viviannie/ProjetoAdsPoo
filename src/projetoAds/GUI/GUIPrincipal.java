@@ -61,6 +61,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtNomeCli = new javax.swing.JTextField();
         txtCpfCli = new javax.swing.JTextField();
         txtPesquisarCli = new javax.swing.JTextField();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
         Vendedor = new javax.swing.JPanel();
         lblNomeVendedor = new javax.swing.JLabel();
         lblIdVendedor = new javax.swing.JLabel();
@@ -73,6 +75,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtIdVendedor = new javax.swing.JTextField();
         txtNomeVendedor = new javax.swing.JTextField();
         txtPesquisarVendedor = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         Fabricante = new javax.swing.JPanel();
         btnAlterarFab = new javax.swing.JButton();
         btnExcluirFab = new javax.swing.JButton();
@@ -85,6 +89,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtCnpjFab = new javax.swing.JTextField();
         txtRazaoFab = new javax.swing.JTextField();
         txtPesquisarFab = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
         Pedido = new javax.swing.JPanel();
         lblIdPedido = new javax.swing.JLabel();
         lblDataPedido = new javax.swing.JLabel();
@@ -101,6 +107,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtVendedorNome = new javax.swing.JTextField();
         txtClienteNome = new javax.swing.JTextField();
         txtPesquisarPedido = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
         Pagamento = new javax.swing.JPanel();
         lblValorPag = new javax.swing.JLabel();
         lblIdPag = new javax.swing.JLabel();
@@ -118,6 +126,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtPesquisarPag = new javax.swing.JTextField();
         JComboFormaPag = new javax.swing.JComboBox<>();
         txtFormaPag = new javax.swing.JTextField();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
         Produto = new javax.swing.JPanel();
         lblDescProduto = new javax.swing.JLabel();
         lblIdProduto = new javax.swing.JLabel();
@@ -136,6 +146,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtEstAtualProduto = new javax.swing.JTextField();
         txtFabricanteCnpj = new javax.swing.JTextField();
         txtPesquisarProduto = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         jLabel21.setText("jLabel21");
 
@@ -152,7 +164,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Cadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Cadastro.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         Cadastro.setFocusable(false);
-        Cadastro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Cadastro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Cadastro.setPreferredSize(new java.awt.Dimension(867, 309));
 
         Cliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -260,12 +272,42 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "CPF", "NOME"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(jTable6);
+        jTable6.getAccessibleContext().setAccessibleName("Cliente");
+
         javax.swing.GroupLayout ClienteLayout = new javax.swing.GroupLayout(Cliente);
         Cliente.setLayout(ClienteLayout);
         ClienteLayout.setHorizontalGroup(
             ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ClienteLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(28, 28, 28)
                 .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblNomeCli, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCpfCli, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -273,7 +315,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtNomeCli, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                     .addComponent(txtCpfCli))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ClienteLayout.createSequentialGroup()
                         .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -290,6 +332,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addComponent(btnNovoCli, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)))
                 .addGap(32, 32, 32))
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         ClienteLayout.setVerticalGroup(
             ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,7 +365,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPesquisarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPesquisarCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         Cadastro.addTab("Cliente", Cliente);
@@ -422,6 +466,35 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "ID", "NOME"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout VendedorLayout = new javax.swing.GroupLayout(Vendedor);
         Vendedor.setLayout(VendedorLayout);
         VendedorLayout.setHorizontalGroup(
@@ -451,6 +524,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(btnAlterarVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtPesquisarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(32, 32, 32))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         VendedorLayout.setVerticalGroup(
             VendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -482,7 +556,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 .addGroup(VendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPesquisarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPesquisarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         Cadastro.addTab("Vendedor", Vendedor);
@@ -587,20 +662,49 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "CNPJ", "RAZÃO SOCIAL"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(jTable3);
+
         javax.swing.GroupLayout FabricanteLayout = new javax.swing.GroupLayout(Fabricante);
         Fabricante.setLayout(FabricanteLayout);
         FabricanteLayout.setHorizontalGroup(
             FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
             .addGroup(FabricanteLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(28, 28, 28)
                 .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblRazaoFab)
                     .addComponent(lblCnpjFab, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtCnpjFab, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                    .addComponent(txtRazaoFab))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                    .addComponent(txtCnpjFab)
+                    .addComponent(txtRazaoFab, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(FabricanteLayout.createSequentialGroup()
@@ -620,11 +724,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         );
         FabricanteLayout.setVerticalGroup(
             FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FabricanteLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+            .addGroup(FabricanteLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(btnNovoFab, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(FabricanteLayout.createSequentialGroup()
                         .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAlterarFab, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -645,7 +749,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPesquisarFab, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPesquisarFab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Cadastro.addTab("Fabricante", Fabricante);
@@ -767,6 +873,34 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "DATA", "CPF DO CLIENTE", "VENDEDOR"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(jTable4);
+
         javax.swing.GroupLayout PedidoLayout = new javax.swing.GroupLayout(Pedido);
         Pedido.setLayout(PedidoLayout);
         PedidoLayout.setHorizontalGroup(
@@ -806,6 +940,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(txtPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnNovoPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
+            .addComponent(jScrollPane4)
         );
         PedidoLayout.setVerticalGroup(
             PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -843,7 +978,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         Cadastro.addTab("Pedido", Pedido);
@@ -978,12 +1114,40 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtFormaPag.setEnabled(false);
 
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "VALOR", "FORMA DE PAGAMENTO", "PEDIDO"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Double.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(jTable5);
+
         javax.swing.GroupLayout PagamentoLayout = new javax.swing.GroupLayout(Pagamento);
         Pagamento.setLayout(PagamentoLayout);
         PagamentoLayout.setHorizontalGroup(
             PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagamentoLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(28, 28, 28)
                 .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblFormaPagId)
                     .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1002,7 +1166,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                     .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtFormaPag)
                         .addComponent(JComboFormaPag, 0, 70, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagamentoLayout.createSequentialGroup()
                         .addComponent(btnPesquisarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1018,6 +1182,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(btnAlterarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnNovoPag, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
         );
         PagamentoLayout.setVerticalGroup(
             PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1058,7 +1223,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(JComboFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFormaPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Cadastro.addTab("Pagamento", null, Pagamento, "");
@@ -1193,12 +1360,40 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "DESCRIÇÃO", "ESTOQUE MÍNIMO", "ESTOQUE ATUAL", "FABRICANTE"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
         javax.swing.GroupLayout ProdutoLayout = new javax.swing.GroupLayout(Produto);
         Produto.setLayout(ProdutoLayout);
         ProdutoLayout.setHorizontalGroup(
             ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ProdutoLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(28, 28, 28)
                 .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ProdutoLayout.createSequentialGroup()
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1219,7 +1414,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(lblEstAtualProduto)
                             .addGap(18, 18, 18)
                             .addComponent(txtEstAtualProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ProdutoLayout.createSequentialGroup()
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1234,6 +1429,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(txtPesquisarProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnNovoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
+            .addComponent(jScrollPane2)
         );
         ProdutoLayout.setVerticalGroup(
             ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1276,7 +1472,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(16, 16, 16))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Cadastro.addTab("Produto", Produto);
@@ -1287,11 +1485,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
+            .addComponent(jTabbedPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 210, Short.MAX_VALUE)
+            .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -2230,10 +2428,22 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
     private javax.swing.JLabel lblClienteId;
     private javax.swing.JLabel lblCnpjFab;
     private javax.swing.JLabel lblCpfCli;
