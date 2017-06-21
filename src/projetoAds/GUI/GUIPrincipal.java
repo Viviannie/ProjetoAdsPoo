@@ -1618,9 +1618,24 @@ public class GUIPrincipal extends javax.swing.JFrame {
             fachada.excluirProduto(produto);
             JOptionPane.showMessageDialog(this, "Registro excluido com sucesso");
             txtIdProduto.setText(null);
+            txtPesquisarProduto.setText(null);
+            txtDescProduto.setText(null);
+            txtEstMinProduto.setText(null);
+            txtEstAtualProduto.setText(null);
+            txtFabricanteCnpj.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
+        
+        txtIdProduto.setEnabled(false);
+        txtDescProduto.setEnabled(false);
+        txtFabricanteCnpj.setEnabled(false);
+        txtEstAtualProduto.setEnabled(false);
+        txtEstMinProduto.setEnabled(false);
+        btnCancelarProduto.setEnabled(false);
+        btnExcluirProduto.setEnabled(false);
+        btnAlterarProduto.setEnabled(false);
+        btnIncluirProduto.setEnabled(false);
     }//GEN-LAST:event_btnExcluirProdutoActionPerformed
 
     private void btnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarProdutoActionPerformed
