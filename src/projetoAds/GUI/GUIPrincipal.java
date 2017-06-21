@@ -1927,8 +1927,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         Pedido pedido = new Pedido();
 
-        pedido.getCliente().setNome(txtClienteCpf.getText());
-        pedido.getVendedor().setNome(txtVendedorId.getText());
+        pedido.getCliente().setCpf(txtClienteCpf.getText());
+        pedido.getVendedor().setId(Integer.parseInt(txtVendedorId.getText()));
         pedido.setData(txtDataPedido.getText());
 
         try {
