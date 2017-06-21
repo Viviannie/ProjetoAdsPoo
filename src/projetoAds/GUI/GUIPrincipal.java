@@ -98,8 +98,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnCancelarPedido = new javax.swing.JButton();
         txtIdPedido = new javax.swing.JTextField();
         txtDataPedido = new javax.swing.JTextField();
-        txtVendedorId = new javax.swing.JTextField();
-        txtClienteId = new javax.swing.JTextField();
+        txtVendedorNome = new javax.swing.JTextField();
+        txtClienteNome = new javax.swing.JTextField();
         txtPesquisarPedido = new javax.swing.JTextField();
         Pagamento = new javax.swing.JPanel();
         lblValorPag = new javax.swing.JLabel();
@@ -744,19 +744,19 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        txtVendedorId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtVendedorId.setEnabled(false);
-        txtVendedorId.addActionListener(new java.awt.event.ActionListener() {
+        txtVendedorNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtVendedorNome.setEnabled(false);
+        txtVendedorNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVendedorIdActionPerformed(evt);
+                txtVendedorNomeActionPerformed(evt);
             }
         });
 
-        txtClienteId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtClienteId.setEnabled(false);
-        txtClienteId.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtClienteNome.setEnabled(false);
+        txtClienteNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtClienteIdActionPerformed(evt);
+                txtClienteNomeActionPerformed(evt);
             }
         });
 
@@ -780,8 +780,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(lblDataPedido))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtVendedorId)
-                            .addComponent(txtClienteId)
+                            .addComponent(txtVendedorNome)
+                            .addComponent(txtClienteNome)
                             .addGroup(PedidoLayout.createSequentialGroup()
                                 .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -819,11 +819,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblVendedorID)
-                            .addComponent(txtVendedorId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtVendedorNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblClienteId)
-                            .addComponent(txtClienteId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtClienteNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDataPedido)
@@ -1642,17 +1642,17 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPesquisarPedidoActionPerformed
 
-    private void txtClienteIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteIdActionPerformed
-        if (this.txtClienteId.getText().equals("")) {
-            txtClienteId.grabFocus();
+    private void txtClienteNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteNomeActionPerformed
+        if (this.txtClienteNome.getText().equals("")) {
+            txtClienteNome.grabFocus();
         }
-    }//GEN-LAST:event_txtClienteIdActionPerformed
+    }//GEN-LAST:event_txtClienteNomeActionPerformed
 
-    private void txtVendedorIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVendedorIdActionPerformed
-        if (this.txtVendedorId.getText().equals("")) {
-            txtVendedorId.grabFocus();
+    private void txtVendedorNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVendedorNomeActionPerformed
+        if (this.txtVendedorNome.getText().equals("")) {
+            txtVendedorNome.grabFocus();
         }
-    }//GEN-LAST:event_txtVendedorIdActionPerformed
+    }//GEN-LAST:event_txtVendedorNomeActionPerformed
 
     private void txtDataPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataPedidoActionPerformed
         if (this.txtDataPedido.getText().equals("")) {
@@ -1678,8 +1678,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnCancelarPedido.setEnabled(true);
         txtNomeCli.setEnabled(true);
         txtDataPedido.setEnabled(true);
-        txtVendedorId.setEnabled(true);
-        txtClienteId.setEnabled(true);
+        txtVendedorNome.setEnabled(true);
+        txtClienteNome.setEnabled(true);
     }//GEN-LAST:event_btnNovoPedidoActionPerformed
 
     private void btnPesquisarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPedidoActionPerformed
@@ -1691,38 +1691,42 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtNomeCli.setEnabled(true);
         txtIdPedido.setEnabled(true);
         txtDataPedido.setEnabled(true);
-        txtVendedorId.setEnabled(true);
-        txtClienteId.setEnabled(true);
+        txtVendedorNome.setEnabled(true);
+        txtClienteNome.setEnabled(true);
     }//GEN-LAST:event_btnPesquisarPedidoActionPerformed
 
     private void btnIncluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPedidoActionPerformed
 
         Pedido pedido = new Pedido();
-        Cliente cliente = new Cliente();
-        Vendedor vendedor = new Vendedor();
 
-        try {
-            pedido.setData(txtDataPedido.getText());
-            pedido.getCliente().setCpf(txtNomeCli.getText());
-            pedido.getVendedor().setNome(txtNomeVendedor.getText());
+        pedido.getCliente().setNome(txtClienteNome.getText());
+        pedido.getVendedor().setNome(txtVendedorNome.getText());
+        pedido.setData(txtDataPedido.getText());
+
+        try {            
             fachada.salvarPedido(pedido);
             JOptionPane.showMessageDialog(this, "Pedido incluído com sucesso!");
             txtDataPedido.setText(null);
-            txtVendedorId.setText(null);
-            txtClienteId.setText(null);
-        } catch (RegraException | NullPointerException e) {
+            txtVendedorNome.setText(null);
+            txtClienteNome.setText(null);
+            txtPesquisarCli.setText(null);
+        } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
 
         btnCancelarPedido.setEnabled(false);
         btnIncluirPedido.setEnabled(false);
+        txtClienteNome.setEnabled(false);
+        txtVendedorNome.setEnabled(false);
+        txtDataPedido.setEnabled(false);
+
     }//GEN-LAST:event_btnIncluirPedidoActionPerformed
 
     private void btnExcluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPedidoActionPerformed
         Cliente cliente = new Cliente();
         cliente.setNome(txtNomeCli.getText());
         Vendedor vendedor = new Vendedor();
-        vendedor.setId(Integer.parseInt(txtVendedorId.getText()));
+        vendedor.setId(Integer.parseInt(txtVendedorNome.getText()));
 
         Pedido pedido = new Pedido();
 
@@ -1789,7 +1793,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnPesquisarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFabActionPerformed
 
         Fabricante fabricante = new Fabricante();
-       
+
         fabricante.setCnpj(txtPesquisarFab.getText());
 
         try {
@@ -1811,7 +1815,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnIncluirFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirFabActionPerformed
 
         Fabricante fabricante = new Fabricante();
-        
+
         fabricante.setRazao(txtRazaoFab.getText());
         fabricante.setCnpj(txtCnpjFab.getText());
 
@@ -1843,7 +1847,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-        
+
         txtRazaoFab.setEnabled(false);
         btnAlterarFab.setEnabled(false);
         btnCancelarFab.setEnabled(false);
@@ -1854,7 +1858,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnAlterarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarFabActionPerformed
 
         Fabricante fabricante = new Fabricante();
-       
+
         fabricante.setRazao(txtRazaoFab.getText());
         fabricante.setCnpj(txtCnpjFab.getText());
 
@@ -1866,7 +1870,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-        
+
         txtCnpjFab.setEnabled(false);
         txtRazaoFab.setEnabled(false);
         btnAlterarFab.setEnabled(false);
@@ -1952,7 +1956,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnExcluirVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirVendedorActionPerformed
 
         Vendedor vendedor = new Vendedor();
-        
+
         vendedor.setId(Integer.parseInt(txtIdVendedor.getText()));
 
         try {
@@ -2240,7 +2244,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblRazaoFab;
     private javax.swing.JLabel lblValorPag;
     private javax.swing.JLabel lblVendedorID;
-    private javax.swing.JTextField txtClienteId;
+    private javax.swing.JTextField txtClienteNome;
     private javax.swing.JTextField txtCnpjFab;
     private javax.swing.JTextField txtCpfCli;
     private javax.swing.JTextField txtDataPedido;
@@ -2264,6 +2268,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtPesquisarVendedor;
     private javax.swing.JTextField txtRazaoFab;
     private javax.swing.JTextField txtValorPag;
-    private javax.swing.JTextField txtVendedorId;
+    private javax.swing.JTextField txtVendedorNome;
     // End of variables declaration//GEN-END:variables
 }

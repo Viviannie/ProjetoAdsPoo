@@ -42,16 +42,7 @@ public interface DAOPedido {
       * @throws DAOException 
       */
     public Pedido pesquisar(Integer id) throws ConexaoException, DAOException;
-    
-    /**
-      * Busca um registro no BD com o data do Pedido informado
-      * @param data Parametro da busca
-      * @return Objeto encontrado ou null
-      * @throws ConexaoException
-      * @throws DAOException 
-      */
-    public Pedido pesquisar(String data) throws ConexaoException, DAOException;
-    
+        
     /**
       * Retorna uma lista com todos os registros dos Pedidos
       * @return Objeto contendo todos os registros encontrados

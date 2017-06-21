@@ -178,12 +178,6 @@ public class Fachada {
         rnPedido.validaId(id);
         return rnPedido.pesquisarId(id);
     }
-
-    public Pedido pesquisarPedidoData(String data) throws RegraException {
-        rnPedido.validaData(data);
-        return rnPedido.pesquisarData(data);
-    }
-
     
     public ArrayList<Pedido> listarPedido() throws RegraException {
         return rnPedido.listar();
