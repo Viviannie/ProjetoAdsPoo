@@ -1,20 +1,14 @@
 package projetoAds.GUI;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.table.DefaultTableModel;
 import projetoAds.classesBasicas.Cliente;
 import projetoAds.classesBasicas.Fabricante;
 import projetoAds.classesBasicas.Pagamento;
 import projetoAds.classesBasicas.Pedido;
 import projetoAds.classesBasicas.Produto;
 import projetoAds.classesBasicas.Vendedor;
-import projetoAds.excecao.ConexaoException;
-import projetoAds.excecao.DAOException;
 import projetoAds.excecao.RegraException;
 import projetoAds.fachada.Fachada;
 
@@ -31,7 +25,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
      */
     public GUIPrincipal() {
         initComponents();
-        DefaultTableModel modelo = (DefaultTableModel) TabelaCliente.getModel();
     }
 
     /**
