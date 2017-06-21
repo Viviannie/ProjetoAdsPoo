@@ -2343,8 +2343,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         modelo.addColumn("RAZÃO SOCIAL");
         try {
             lista = fachada.listarFabricante();
-            for (Fabricante f : lista) {// aki ele percorre minha list
-                modelo.addRow(new Object[]{f.getCnpj(), f.getRazao()});// adiciona na jtbale
+            for (Fabricante f : lista) {
+                modelo.addRow(new Object[]{f.getCnpj(), f.getRazao()});
             }
             TabelaFabricante.setModel(modelo);
         } catch (RegraException e) {
