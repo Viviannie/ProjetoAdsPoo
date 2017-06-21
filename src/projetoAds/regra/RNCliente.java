@@ -120,12 +120,5 @@ public class RNCliente {
         } catch (ConexaoException | DAOException e) {
             throw new RegraException(e.getMessage());
         }
-    }
-    
-    public void validaExclusao(Cliente c) throws RegraException{
-        
-         if ((c.getCpf() == null) || (c.getCpf().trim().equals("")) || (c.getCpf().trim().length() != 11)) {
-            throw new RegraException("CPF inválido");
-        }
-    }
+    }    
 }

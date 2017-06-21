@@ -43,8 +43,7 @@ public class DAOPedidoImpl implements DAOPedido {
     @Override
     public void excluir(Pedido pedido) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "ALTER TABLE pedido ADD CONSTRAINT `tab_audiencia_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `escala`.`usuarios`(`id`) ON DELETE CASCADE ON UPDATE CASCADE";
-               // "DELETE FROM pedido WHERE (prd_id=?)";
+        String sql = "DELETE FROM pedido WHERE (prd_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, pedido.getId());

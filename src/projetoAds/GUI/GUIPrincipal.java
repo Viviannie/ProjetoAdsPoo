@@ -113,7 +113,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtPesquisarPedido = new javax.swing.JTextField();
         btnListarPedido = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
-        tabelaFabricante1 = new javax.swing.JTable();
+        tabelaPedido = new javax.swing.JTable();
         Pagamento = new javax.swing.JPanel();
         lblValorPag = new javax.swing.JLabel();
         lblIdPag = new javax.swing.JLabel();
@@ -888,8 +888,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        tabelaFabricante1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        tabelaFabricante1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaPedido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tabelaPedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -900,7 +900,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane7.setViewportView(tabelaFabricante1);
+        jScrollPane7.setViewportView(tabelaPedido);
 
         javax.swing.GroupLayout PedidoLayout = new javax.swing.GroupLayout(Pedido);
         Pedido.setLayout(PedidoLayout);
@@ -1729,7 +1729,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
             txtIdPag.setText(id2);
             txtPedidoId.setText(pagamento.getPedido().getId().toString());
             txtPesquisarPag.setText(null);
-            jFormattedTextField1.setText(null);
             JComboFormaPag.setSelectedItem(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -2182,7 +2181,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
             txtNomeCli.setText(null);
             txtPesquisarCli.setText(null);
         } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, "Cliente não pode ser excluído.");
+            JOptionPane.showMessageDialog(this, "Cliente não pode ser excluído, pois possui pedidos em aberto.");
         }
 
         btnIncluirCli.setEnabled(false);
@@ -2251,7 +2250,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
             vendedor = fachada.pesquisarVendedorId(vendedor);
             Integer id = vendedor.getId();
             String id2 = String.valueOf(id);
-            jFormattedTextField1.setText(id2);
+           // jFormattedTextField1.setText(id2);
             txtNomeVendedor.setText(vendedor.getNome());
             txtPesquisarVendedor.setText(null);
         } catch (RegraException e) {
@@ -2288,14 +2287,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         Vendedor vendedor = new Vendedor();
 
-        vendedor.setId(Integer.parseInt(jFormattedTextField1.getText()));
+      //  vendedor.setId(Integer.parseInt(jFormattedTextField1.getText()));
 
         try {
             fachada.excluirVendedor(vendedor);
             JOptionPane.showMessageDialog(this, "Vendedor excluído com sucesso!");
-            jFormattedTextField1.setText(null);
+        //    jFormattedTextField1.setText(null);
         } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
+            JOptionPane.showMessageDialog(this, "Vendedor não pode ser excluído, pois possui pedidos em aberto.");
         }
     }//GEN-LAST:event_btnExcluirVendedorActionPerformed
 
@@ -2304,13 +2303,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Vendedor vendedor = new Vendedor();
 
         vendedor.setNome(txtNomeVendedor.getText());
-        vendedor.setId(Integer.parseInt(jFormattedTextField1.getText()));
+      //  vendedor.setId(Integer.parseInt(jFormattedTextField1.getText()));
 
         try {
             fachada.alterarVendedor(vendedor);
             JOptionPane.showMessageDialog(this, "Registro alterado com sucesso");
             txtNomeVendedor.setText(null);
-            jFormattedTextField1.setText(null);
+      //      jFormattedTextField1.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -2574,8 +2573,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblVendedorID;
     private javax.swing.JTable tabelaCliente;
     private javax.swing.JTable tabelaFabricante;
-    private javax.swing.JTable tabelaFabricante1;
     private javax.swing.JTable tabelaPagamento;
+    private javax.swing.JTable tabelaPedido;
     private javax.swing.JTable tabelaProduto;
     private javax.swing.JTable tabelaVendedor;
     private javax.swing.JTextField txtClienteNome;
