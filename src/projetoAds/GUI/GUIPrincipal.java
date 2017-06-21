@@ -27,7 +27,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     public GUIPrincipal() {
         initComponents();
         
-        DefaultTableModel cliente = (DefaultTableModel) TabelaCliente.getModel();
+        DefaultTableModel cliente = (DefaultTableModel) tabelaCliente.getModel();
         
         
     }
@@ -62,7 +62,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtCpfCli = new javax.swing.JTextField();
         txtPesquisarCli = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
-        TabelaCliente = new javax.swing.JTable();
+        tabelaCliente = new javax.swing.JTable();
         Vendedor = new javax.swing.JPanel();
         lblNomeVendedor = new javax.swing.JLabel();
         lblIdVendedor = new javax.swing.JLabel();
@@ -76,7 +76,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtNomeVendedor = new javax.swing.JTextField();
         txtPesquisarVendedor = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TabelaVendedor = new javax.swing.JTable();
+        tabelaVendedor = new javax.swing.JTable();
         Fabricante = new javax.swing.JPanel();
         btnAlterarFab = new javax.swing.JButton();
         btnExcluirFab = new javax.swing.JButton();
@@ -109,7 +109,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtClienteNome = new javax.swing.JTextField();
         txtPesquisarPedido = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        TabelaPedido = new javax.swing.JTable();
+        tabelaPedido = new javax.swing.JTable();
         Pagamento = new javax.swing.JPanel();
         lblValorPag = new javax.swing.JLabel();
         lblIdPag = new javax.swing.JLabel();
@@ -128,7 +128,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         JComboFormaPag = new javax.swing.JComboBox<>();
         txtFormaPag = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
-        TabelaPagamento = new javax.swing.JTable();
+        tabelaPagamento = new javax.swing.JTable();
         Produto = new javax.swing.JPanel();
         lblDescProduto = new javax.swing.JLabel();
         lblIdProduto = new javax.swing.JLabel();
@@ -148,7 +148,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtFabricanteCnpj = new javax.swing.JTextField();
         txtPesquisarProduto = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        TabelaProduto = new javax.swing.JTable();
+        tabelaProduto = new javax.swing.JTable();
 
         jLabel21.setText("jLabel21");
 
@@ -273,8 +273,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        TabelaCliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        TabelaCliente.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaCliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tabelaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -301,8 +301,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane6.setViewportView(TabelaCliente);
-        TabelaCliente.getAccessibleContext().setAccessibleName("Cliente");
+        jScrollPane6.setViewportView(tabelaCliente);
+        tabelaCliente.getAccessibleContext().setAccessibleName("Cliente");
 
         javax.swing.GroupLayout ClienteLayout = new javax.swing.GroupLayout(Cliente);
         Cliente.setLayout(ClienteLayout);
@@ -468,8 +468,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        TabelaVendedor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        TabelaVendedor.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaVendedor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tabelaVendedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -495,7 +495,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(TabelaVendedor);
+        jScrollPane1.setViewportView(tabelaVendedor);
 
         javax.swing.GroupLayout VendedorLayout = new javax.swing.GroupLayout(Vendedor);
         Vendedor.setLayout(VendedorLayout);
@@ -888,8 +888,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        TabelaPedido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        TabelaPedido.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaPedido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tabelaPedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -915,7 +915,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(TabelaPedido);
+        jScrollPane4.setViewportView(tabelaPedido);
 
         javax.swing.GroupLayout PedidoLayout = new javax.swing.GroupLayout(Pedido);
         Pedido.setLayout(PedidoLayout);
@@ -1130,8 +1130,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtFormaPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtFormaPag.setEnabled(false);
 
-        TabelaPagamento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        TabelaPagamento.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaPagamento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tabelaPagamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1157,7 +1157,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(TabelaPagamento);
+        jScrollPane5.setViewportView(tabelaPagamento);
 
         javax.swing.GroupLayout PagamentoLayout = new javax.swing.GroupLayout(Pagamento);
         Pagamento.setLayout(PagamentoLayout);
@@ -1377,8 +1377,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        TabelaProduto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        TabelaProduto.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaProduto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tabelaProduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -1404,7 +1404,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(TabelaProduto);
+        jScrollPane2.setViewportView(tabelaProduto);
 
         javax.swing.GroupLayout ProdutoLayout = new javax.swing.GroupLayout(Produto);
         Produto.setLayout(ProdutoLayout);
@@ -2406,12 +2406,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel Pagamento;
     private javax.swing.JPanel Pedido;
     private javax.swing.JPanel Produto;
-    private javax.swing.JTable TabelaCliente;
     private javax.swing.JTable TabelaFabricante;
-    private javax.swing.JTable TabelaPagamento;
-    private javax.swing.JTable TabelaPedido;
-    private javax.swing.JTable TabelaProduto;
-    private javax.swing.JTable TabelaVendedor;
     private javax.swing.JPanel Vendedor;
     private javax.swing.JButton btnAlterarCli;
     private javax.swing.JButton btnAlterarFab;
@@ -2482,6 +2477,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblRazaoFab;
     private javax.swing.JLabel lblValorPag;
     private javax.swing.JLabel lblVendedorID;
+    private javax.swing.JTable tabelaCliente;
+    private javax.swing.JTable tabelaPagamento;
+    private javax.swing.JTable tabelaPedido;
+    private javax.swing.JTable tabelaProduto;
+    private javax.swing.JTable tabelaVendedor;
     private javax.swing.JTextField txtClienteNome;
     private javax.swing.JTextField txtCnpjFab;
     private javax.swing.JTextField txtCpfCli;
