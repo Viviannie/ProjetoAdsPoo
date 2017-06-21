@@ -1348,7 +1348,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirProduto.setEnabled(true);
         btnCancelarProduto.setEnabled(true);
         txtDescProduto.setEnabled(true);
-        txtIdProduto.setEnabled(true);
         txtEstMinProduto.setEnabled(true);
         txtEstAtualProduto.setEnabled(true);
         txtFabricanteCnpj.setEnabled(true);
