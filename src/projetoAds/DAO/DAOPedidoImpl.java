@@ -26,12 +26,12 @@ public class DAOPedidoImpl implements DAOPedido {
     @Override
     public void incluir(Pedido pedido) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "INSERT INTO pedido (ped_data, cli_nome, vend_nome) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO pedido (ped_data, cli_cpf, vend_id) VALUES (?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setString(1, pedido.getData());     //Referente ao indice da interogação
-            pstm.setString(2, pedido.getCliente().getNome());
-            pstm.setString(3, pedido.getVendedor().getNome());
+            pstm.setString(2, pedido.getCliente().getCpf());
+            pstm.setInt(3, pedido.getVendedor().getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
