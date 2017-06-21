@@ -1405,16 +1405,15 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(txtIdProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEstMinProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDescProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ProdutoLayout.createSequentialGroup()
-                            .addComponent(lblFabricanteCnpj)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtFabricanteCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ProdutoLayout.createSequentialGroup()
+                    .addGroup(ProdutoLayout.createSequentialGroup()
+                        .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEstAtualProduto)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtEstAtualProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                            .addComponent(lblFabricanteCnpj))
+                        .addGap(18, 18, 18)
+                        .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEstAtualProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFabricanteCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ProdutoLayout.createSequentialGroup()
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1547,7 +1546,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirProduto.setEnabled(true);
         btnCancelarProduto.setEnabled(true);
         txtDescProduto.setEnabled(true);
-        txtIdProduto.setEnabled(true);
         txtEstMinProduto.setEnabled(true);
         txtEstAtualProduto.setEnabled(true);
         txtFabricanteCnpj.setEnabled(true);
