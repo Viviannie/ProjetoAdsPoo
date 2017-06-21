@@ -1950,13 +1950,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIncluirPedidoActionPerformed
 
     private void btnExcluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPedidoActionPerformed
-        Cliente cliente = new Cliente();
-        cliente.setNome(txtNomeCli.getText());
-        Vendedor vendedor = new Vendedor();
-        vendedor.setId(Integer.parseInt(txtVendedorId.getText()));
-
         Pedido pedido = new Pedido();
-
+        pedido.setId(Integer.parseInt(txtIdPedido.getText()));
+        
         try {
             fachada.excluirPedido(pedido);
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
