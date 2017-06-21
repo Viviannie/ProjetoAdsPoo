@@ -1,5 +1,8 @@
 package projetoAds.GUI;
 
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -2348,7 +2351,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarCliActionPerformed
 
     private void btnListarFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarFabActionPerformed
-        // TODO add your handling code here:
+        ArrayList<Fabricante> lista = new ArrayList();
+        try {
+            lista = fachada.listarFabricante();
+        } catch (RegraException ex) {
+            Logger.getLogger(GUIPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnListarFabActionPerformed
 
     /**
