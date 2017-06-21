@@ -3,6 +3,7 @@ package projetoAds.GUI;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.DefaultTableModel;
 import projetoAds.classesBasicas.Cliente;
 import projetoAds.classesBasicas.Fabricante;
 import projetoAds.classesBasicas.Pagamento;
@@ -25,6 +26,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
      */
     public GUIPrincipal() {
         initComponents();
+        
+        DefaultTableModel cliente = (DefaultTableModel) TabelaCliente.getModel();
+        
+        
     }
 
     /**
