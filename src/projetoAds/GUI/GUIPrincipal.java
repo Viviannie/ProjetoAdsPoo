@@ -1685,7 +1685,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnNovoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoPedidoActionPerformed
         btnIncluirPedido.setEnabled(true);
         btnCancelarPedido.setEnabled(true);
-        txtNomeCli.setEnabled(true);
         txtDataPedido.setEnabled(true);
         txtVendedorNome.setEnabled(true);
         txtClienteNome.setEnabled(true);

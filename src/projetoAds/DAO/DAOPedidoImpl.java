@@ -99,7 +99,7 @@ public class DAOPedidoImpl implements DAOPedido {
     @Override
     public ArrayList<Pedido> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT ped_id, ped_data FROM pedido";
+        String sql = "SELECT ped_id, ped_data, cli_nome, vend_nome FROM pedido";
         ArrayList<Pedido> lista = new ArrayList();
         Pedido ped;
         try {
@@ -109,6 +109,8 @@ public class DAOPedidoImpl implements DAOPedido {
                 ped = new Pedido();
                 ped.setId(rs.getInt("ped_id"));
                 ped.setData(rs.getString("ped_data"));
+                ped.getCliente().setNome("cli_nome");
+                ped.getVendedor().setNome("vend_nome");
                 lista.add(ped);
             }
             return lista;
