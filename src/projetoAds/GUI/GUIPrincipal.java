@@ -1671,6 +1671,15 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirPedido.setEnabled(false);
         btnAlterarPedido.setEnabled(false);
         btnIncluirPedido.setEnabled(false);
+        txtDataPedido.setEnabled(false);
+        txtVendedorNome.setEnabled(false);
+        txtClienteNome.setEnabled(false);
+        txtIdPedido.setEnabled(false);
+        txtIdPedido.setText(null);
+        txtDataPedido.setText(null);
+        txtVendedorNome.setText(null);
+        txtClienteNome.setText(null);
+        txtPesquisarPedido.setText(null);
     }//GEN-LAST:event_btnCancelarPedidoActionPerformed
 
     private void btnNovoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoPedidoActionPerformed

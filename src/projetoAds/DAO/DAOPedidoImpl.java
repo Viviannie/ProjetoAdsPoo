@@ -13,26 +13,25 @@ import projetoAds.excecao.ConexaoException;
 import projetoAds.excecao.DAOException;
 
 /**
-  * @author Grupo Programação Orientada a Objetos
-  */
+ * @author Grupo Programação Orientada a Objetos
+ */
+public class DAOPedidoImpl implements DAOPedido {
 
-public class DAOPedidoImpl implements DAOPedido{
-      private final ConexaoBD con; //why final?
-    
-    public DAOPedidoImpl(){
+    private final ConexaoBD con; //why final?
+
+    public DAOPedidoImpl() {
         con = Conectar.getInstancia();
     }
 
     @Override
     public void incluir(Pedido pedido) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "INSERT INTO pedido (ped_id, ped_data, cli_nome, vend_nome) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO pedido (ped_data, cli_nome, vend_nome) VALUES (?,?,?,?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pedido.getId());   //Referente ao indice da interogação
-            pstm.setString(2, pedido.getData());
-            pstm.setString(3, pedido.getCliente().getNome());
-            pstm.setString(4, pedido.getVendedor().getNome());
+            pstm.setString(1, pedido.getData());     //Referente ao indice da interogação
+            pstm.setString(2, pedido.getCliente().getNome());
+            pstm.setString(3, pedido.getVendedor().getNome());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -53,7 +52,7 @@ public class DAOPedidoImpl implements DAOPedido{
             throw new DAOException(e);
         } finally {
             con.desconectar(c);
-        } 
+        }
     }
 
     @Override
@@ -96,7 +95,7 @@ public class DAOPedidoImpl implements DAOPedido{
             con.desconectar(c);
         }
     }
-       
+
     @Override
     public ArrayList<Pedido> listar() throws ConexaoException, DAOException {
         Connection c = con.conectar();
@@ -118,7 +117,7 @@ public class DAOPedidoImpl implements DAOPedido{
         } finally {
             con.desconectar(c);
         }
-    
+
     }
 
 }
