@@ -31,7 +31,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     public GUIPrincipal() {
         initComponents();
         
-        DefaultTableModel cliente = (DefaultTableModel) TabelaCliente.getModel();
+        DefaultTableModel cliente = (DefaultTableModel) tabelaCliente.getModel();
         
         
     }
@@ -66,7 +66,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtCpfCli = new javax.swing.JTextField();
         txtPesquisarCli = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
-        TabelaCliente = new javax.swing.JTable();
+        tabelaCliente = new javax.swing.JTable();
+        btnListarCli = new javax.swing.JButton();
         Vendedor = new javax.swing.JPanel();
         lblNomeVendedor = new javax.swing.JLabel();
         lblIdVendedor = new javax.swing.JLabel();
@@ -277,8 +278,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        TabelaCliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        TabelaCliente.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaCliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tabelaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -305,8 +306,17 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane6.setViewportView(TabelaCliente);
-        TabelaCliente.getAccessibleContext().setAccessibleName("Cliente");
+        jScrollPane6.setViewportView(tabelaCliente);
+        tabelaCliente.getAccessibleContext().setAccessibleName("Cliente");
+
+        btnListarCli.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnListarCli.setText("Listar");
+        btnListarCli.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnListarCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarCliActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ClienteLayout = new javax.swing.GroupLayout(Cliente);
         Cliente.setLayout(ClienteLayout);
@@ -327,7 +337,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnPesquisarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnIncluirCli, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCancelarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnListarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPesquisarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -371,7 +382,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPesquisarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPesquisarCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnListarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -2352,6 +2365,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnListarFabActionPerformed
 
+    private void btnListarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnListarCliActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2407,7 +2424,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel Pagamento;
     private javax.swing.JPanel Pedido;
     private javax.swing.JPanel Produto;
-    private javax.swing.JTable TabelaCliente;
     private javax.swing.JTable TabelaFabricante;
     private javax.swing.JTable TabelaPagamento;
     private javax.swing.JTable TabelaPedido;
@@ -2438,6 +2454,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnIncluirPedido;
     private javax.swing.JButton btnIncluirProduto;
     private javax.swing.JButton btnIncluirVendedor;
+    private javax.swing.JButton btnListarCli;
     private javax.swing.JButton btnListarFab;
     private javax.swing.JButton btnNovoCli;
     private javax.swing.JButton btnNovoFab;
@@ -2483,6 +2500,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblRazaoFab;
     private javax.swing.JLabel lblValorPag;
     private javax.swing.JLabel lblVendedorID;
+    private javax.swing.JTable tabelaCliente;
     private javax.swing.JTextField txtClienteNome;
     private javax.swing.JTextField txtCnpjFab;
     private javax.swing.JTextField txtCpfCli;
