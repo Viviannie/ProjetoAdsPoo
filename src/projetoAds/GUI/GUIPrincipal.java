@@ -111,9 +111,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtVendedorNome = new javax.swing.JTextField();
         txtClienteNome = new javax.swing.JTextField();
         txtPesquisarPedido = new javax.swing.JTextField();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tabelaPedido = new javax.swing.JTable();
         btnListarPedido = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tabelaFabricante1 = new javax.swing.JTable();
         Pagamento = new javax.swing.JPanel();
         lblValorPag = new javax.swing.JLabel();
         lblIdPag = new javax.swing.JLabel();
@@ -879,35 +879,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
-        tabelaPedido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        tabelaPedido.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "DATA", "CPF DO CLIENTE", "VENDEDOR"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane4.setViewportView(tabelaPedido);
-
         btnListarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnListarPedido.setText("Listar");
         btnListarPedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -916,6 +887,20 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 btnListarPedidoActionPerformed(evt);
             }
         });
+
+        tabelaFabricante1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tabelaFabricante1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane7.setViewportView(tabelaFabricante1);
 
         javax.swing.GroupLayout PedidoLayout = new javax.swing.GroupLayout(Pedido);
         Pedido.setLayout(PedidoLayout);
@@ -957,7 +942,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(txtPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnNovoPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
-            .addComponent(jScrollPane4)
+            .addComponent(jScrollPane7)
         );
         PedidoLayout.setVerticalGroup(
             PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -998,7 +983,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnListarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         Cadastro.addTab("Pedido", Pedido);
@@ -2561,9 +2546,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
@@ -2589,8 +2574,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblVendedorID;
     private javax.swing.JTable tabelaCliente;
     private javax.swing.JTable tabelaFabricante;
+    private javax.swing.JTable tabelaFabricante1;
     private javax.swing.JTable tabelaPagamento;
-    private javax.swing.JTable tabelaPedido;
     private javax.swing.JTable tabelaProduto;
     private javax.swing.JTable tabelaVendedor;
     private javax.swing.JTextField txtClienteNome;
