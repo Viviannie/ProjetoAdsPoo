@@ -1362,16 +1362,18 @@ public class GUIPrincipal extends javax.swing.JFrame {
         try {
             produto = fachada.pesquisarProdutoId(produto);
             JOptionPane.showMessageDialog(this, "Registro encontrado com sucesso");
+            /*
             JOptionPane.showMessageDialog(this, "Descrição: " + produto.getDesc() + "\n"
                     + "Id: " + produto.getId() + "\n"
                     + "CNPJ fabricante: " + produto.getFabricante().getCnpj() + "\n"
                     + "Estoque mínimo: " + produto.getEstoqueMinimo() + "\n"
                     + "Estoque atual: " + produto.getEstoqueAtual());
-            txtDescProduto.setText(null);
-            txtFabricanteCnpj.setText(null);
-            txtIdProduto.setText(null);
-            txtEstMinProduto.setText(null);
-            txtEstAtualProduto.setText(null);
+            */
+            txtDescProduto.setText(produto.getDesc());
+            txtFabricanteCnpj.setText(produto.getFabricante().getCnpj());
+            txtIdProduto.setText(Integer.toString(produto.getId()));
+            txtEstMinProduto.setText(Integer.toString(produto.getEstoqueMinimo()));
+            txtEstAtualProduto.setText(Integer.toString(produto.getEstoqueAtual()));
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -1441,7 +1443,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         produto.setEstoqueAtual(Integer.parseInt(txtEstAtualProduto.getText()));
 
         try {
-            fachada.salvarProduto(produto);
+            fachada.alterarProduto(produto);
             JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
             txtDescProduto.setText(null);
             txtFabricanteCnpj.setText(null);
