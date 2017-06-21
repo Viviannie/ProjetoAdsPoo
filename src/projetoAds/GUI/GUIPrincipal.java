@@ -1441,7 +1441,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         produto.setEstoqueAtual(Integer.parseInt(txtEstAtualProduto.getText()));
 
         try {
-            fachada.salvarProduto(produto);
+            fachada.alterarProduto(produto);
             JOptionPane.showMessageDialog(this, "Registro salvo com sucesso");
             txtDescProduto.setText(null);
             txtFabricanteCnpj.setText(null);
