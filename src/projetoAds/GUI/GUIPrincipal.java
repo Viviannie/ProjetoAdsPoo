@@ -910,21 +910,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(PedidoLayout.createSequentialGroup()
+                        .addComponent(lblIdPedido)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addComponent(lblVendedorID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtVendedorId, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PedidoLayout.createSequentialGroup()
                         .addComponent(lblClienteId)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtClienteCpf))
                     .addGroup(PedidoLayout.createSequentialGroup()
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblIdPedido)
-                            .addComponent(lblDataPedido))
+                        .addComponent(lblDataPedido)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addComponent(lblVendedorID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVendedorId, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PedidoLayout.createSequentialGroup()
@@ -1889,6 +1889,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         try {
             pedido = fachada.pesquisarPedido(pedido);
             txtVendedorId.setText(pedido.getVendedor().getId().toString());
+            txtIdPedido.setText(pedido.getId().toString());
             txtClienteCpf.setText(pedido.getCliente().getCpf());
             txtDataPedido.setText(pedido.getData());
             txtPesquisarPedido.setText(null);
@@ -1959,9 +1960,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         try {
             fachada.alterarPedido(pedido);
+            pedido.getVendedor().setId(Integer.parseInt(txtVendedorId.getText()));
+            pedido.setId(Integer.parseInt(txtIdPedido.getText()));
+            pedido.setData(txtDataPedido.getText());
+            pedido.getCliente().setCpf(txtClienteCpf.getText());
             JOptionPane.showMessageDialog(this, "Pedido alterado com sucesso!");
-            JComboFormaPag.setSelectedItem(null);
-            //Falta implementar
+            txtRazaoFab.setEnabled(false);
+            txtDataPedido.setText(null);
+            txtClienteCpf.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }

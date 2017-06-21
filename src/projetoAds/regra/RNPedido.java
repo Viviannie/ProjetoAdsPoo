@@ -65,13 +65,10 @@ public class RNPedido {
 
         try {
             Pedido ped = dao.pesquisar(pedido.getId());
-            if (ped != null) {
-                throw new RegraException("Pedido existente.");
-            } else {
-                if ((ped == null) | (pedido.getId() == 0)) {
-                    throw new RegraException("ID inválido.");
-                }
-
+            
+            if ((ped == null) | (pedido.getId() == 0)) {
+                throw new RegraException("ID inválido.");
+            } else {                
                 if ((ped.getData() == null) | (ped.getData().trim().equals(""))) {
                     throw new RegraException("Data inválida.");
                 }

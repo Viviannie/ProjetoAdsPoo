@@ -58,12 +58,13 @@ public class DAOPedidoImpl implements DAOPedido {
     @Override
     public void alterar(Pedido pedido) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "UPDATE pedido SET ped_id=?, ped_data=? WHERE (ped_id=?)";
+        String sql = "UPDATE pedido SET ped_data=?, cli_cpf=?, vend_id=? WHERE (ped_id=?)";
         try {
-            PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, pedido.getId());
-            pstm.setString(2, pedido.getData());
-            pstm.setInt(3, pedido.getId());
+            PreparedStatement pstm = c.prepareStatement(sql);          
+            pstm.setString(1, pedido.getData());
+            pstm.setString(2, pedido.getCliente().getCpf());
+            pstm.setInt(3, pedido.getVendedor().getId());
+            pstm.setInt(4, pedido.getId());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new DAOException(e);
