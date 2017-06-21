@@ -161,6 +161,8 @@ public class Fachada {
      */
     public void salvarPedido(Pedido pedido) throws RegraException {
         rnPedido.validar(pedido);
+        rnCliente.validaCpf(pedido.getCliente().getCpf());
+        rnVendedor.validaId(pedido.getVendedor().getId());
         rnPedido.incluir(pedido);
     }
 
