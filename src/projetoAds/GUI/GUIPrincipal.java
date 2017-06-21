@@ -1971,14 +1971,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         Pedido pedido = new Pedido();
 
-        pedido.setId(Integer.parseInt(txtIdPedido.getText()));
-
         try {
-            fachada.alterarPedido(pedido);
             pedido.getVendedor().setId(Integer.parseInt(txtVendedorId.getText()));
             pedido.setId(Integer.parseInt(txtIdPedido.getText()));
             pedido.setData(txtDataPedido.getText());
             pedido.getCliente().setCpf(txtClienteCpf.getText());
+            fachada.alterarPedido(pedido);
             JOptionPane.showMessageDialog(this, "Pedido alterado com sucesso!");
             txtRazaoFab.setEnabled(false);
             txtDataPedido.setText(null);
