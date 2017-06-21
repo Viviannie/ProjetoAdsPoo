@@ -107,9 +107,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnNovoPedido = new javax.swing.JButton();
         btnCancelarPedido = new javax.swing.JButton();
         txtIdPedido = new javax.swing.JTextField();
+        txtVendedorId = new javax.swing.JTextField();
+        txtClienteCpf = new javax.swing.JTextField();
         txtDataPedido = new javax.swing.JTextField();
-        txtVendedorNome = new javax.swing.JTextField();
-        txtClienteNome = new javax.swing.JTextField();
         txtPesquisarPedido = new javax.swing.JTextField();
         btnListarPedido = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -340,7 +340,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addComponent(btnNovoCli, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)))
                 .addGap(32, 32, 32))
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
         );
         ClienteLayout.setVerticalGroup(
             ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -530,7 +530,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                             .addComponent(btnAlterarVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtPesquisarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(32, 32, 32))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
         );
         VendedorLayout.setVerticalGroup(
             VendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -697,7 +697,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Fabricante.setLayout(FabricanteLayout);
         FabricanteLayout.setHorizontalGroup(
             FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FabricanteLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(FabricanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -774,12 +774,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         lblVendedorID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblVendedorID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblVendedorID.setText("VENDEDOR");
+        lblVendedorID.setText("Nº DO VENDEDOR");
         lblVendedorID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblClienteId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblClienteId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblClienteId.setText("CLIENTE");
+        lblClienteId.setText("CLIENTE CPF");
         lblClienteId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnAlterarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -848,27 +848,27 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
 
+        txtVendedorId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtVendedorId.setEnabled(false);
+        txtVendedorId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVendedorIdActionPerformed(evt);
+            }
+        });
+
+        txtClienteCpf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtClienteCpf.setEnabled(false);
+        txtClienteCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClienteCpfActionPerformed(evt);
+            }
+        });
+
         txtDataPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDataPedido.setEnabled(false);
         txtDataPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDataPedidoActionPerformed(evt);
-            }
-        });
-
-        txtVendedorNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtVendedorNome.setEnabled(false);
-        txtVendedorNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVendedorNomeActionPerformed(evt);
-            }
-        });
-
-        txtClienteNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtClienteNome.setEnabled(false);
-        txtClienteNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtClienteNomeActionPerformed(evt);
             }
         });
 
@@ -907,27 +907,25 @@ public class GUIPrincipal extends javax.swing.JFrame {
         PedidoLayout.setHorizontalGroup(
             PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PedidoLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(32, 32, 32)
+                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addComponent(lblClienteId)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtClienteCpf))
                     .addGroup(PedidoLayout.createSequentialGroup()
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblIdPedido)
                             .addComponent(lblDataPedido))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtVendedorNome)
-                            .addComponent(txtClienteNome)
-                            .addGroup(PedidoLayout.createSequentialGroup()
-                                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PedidoLayout.createSequentialGroup()
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblVendedorID, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblClienteId, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(170, 170, 170)))
-                .addGap(47, 47, 47)
+                            .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addComponent(lblVendedorID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtVendedorId, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PedidoLayout.createSequentialGroup()
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -948,23 +946,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
             PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PedidoLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PedidoLayout.createSequentialGroup()
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIdPedido)
-                            .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblVendedorID)
-                            .addComponent(txtVendedorNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblClienteId)
-                            .addComponent(txtClienteNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
-                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDataPedido)
-                            .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PedidoLayout.createSequentialGroup()
                         .addComponent(btnNovoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -979,7 +961,23 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtPesquisarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PedidoLayout.createSequentialGroup()
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIdPedido)
+                            .addComponent(txtIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblVendedorID)
+                            .addComponent(txtVendedorId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblClienteId)
+                            .addComponent(txtClienteCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addGroup(PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDataPedido)
+                            .addComponent(txtDataPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnListarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
@@ -1165,7 +1163,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                     .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtFormaPag)
                         .addComponent(JComboFormaPag, 0, 70, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagamentoLayout.createSequentialGroup()
                         .addGroup(PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1183,7 +1181,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPesquisarPag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, 32))
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
         );
         PagamentoLayout.setVerticalGroup(
             PagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1410,7 +1408,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEstAtualProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtFabricanteCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ProdutoLayout.createSequentialGroup()
                         .addGroup(ProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1483,7 +1481,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
+            .addComponent(jTabbedPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1834,17 +1832,17 @@ public class GUIPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPesquisarPedidoActionPerformed
 
-    private void txtClienteNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteNomeActionPerformed
-        if (this.txtClienteNome.getText().equals("")) {
-            txtClienteNome.grabFocus();
+    private void txtClienteCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteCpfActionPerformed
+        if (this.txtClienteCpf.getText().equals("")) {
+            txtClienteCpf.grabFocus();
         }
-    }//GEN-LAST:event_txtClienteNomeActionPerformed
+    }//GEN-LAST:event_txtClienteCpfActionPerformed
 
-    private void txtVendedorNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVendedorNomeActionPerformed
-        if (this.txtVendedorNome.getText().equals("")) {
-            txtVendedorNome.grabFocus();
+    private void txtVendedorIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVendedorIdActionPerformed
+        if (this.txtVendedorId.getText().equals("")) {
+            txtVendedorId.grabFocus();
         }
-    }//GEN-LAST:event_txtVendedorNomeActionPerformed
+    }//GEN-LAST:event_txtVendedorIdActionPerformed
 
     private void txtDataPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataPedidoActionPerformed
         if (this.txtDataPedido.getText().equals("")) {
@@ -1864,13 +1862,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnAlterarPedido.setEnabled(false);
         btnIncluirPedido.setEnabled(false);
         txtDataPedido.setEnabled(false);
-        txtVendedorNome.setEnabled(false);
-        txtClienteNome.setEnabled(false);
+        txtVendedorId.setEnabled(false);
+        txtClienteCpf.setEnabled(false);
         txtIdPedido.setEnabled(false);
         txtIdPedido.setText(null);
         txtDataPedido.setText(null);
-        txtVendedorNome.setText(null);
-        txtClienteNome.setText(null);
+        txtVendedorId.setText(null);
+        txtClienteCpf.setText(null);
         txtPesquisarPedido.setText(null);
     }//GEN-LAST:event_btnCancelarPedidoActionPerformed
 
@@ -1878,37 +1876,51 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnIncluirPedido.setEnabled(true);
         btnCancelarPedido.setEnabled(true);
         txtDataPedido.setEnabled(true);
-        txtVendedorNome.setEnabled(true);
-        txtClienteNome.setEnabled(true);
+        txtVendedorId.setEnabled(true);
+        txtClienteCpf.setEnabled(true);
     }//GEN-LAST:event_btnNovoPedidoActionPerformed
 
     private void btnPesquisarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPedidoActionPerformed
 
+        Pedido pedido = new Pedido();
+
+        pedido.setId(Integer.parseInt(txtPesquisarPedido.getText()));
+
+        try {
+            pedido = fachada.pesquisarPedido(pedido);
+            txtVendedorId.setText(pedido.getVendedor().getId().toString());
+            txtClienteCpf.setText(pedido.getCliente().getCpf());
+            txtDataPedido.setText(pedido.getData());
+            txtPesquisarPedido.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
         btnAlterarPedido.setEnabled(true);
         btnExcluirPedido.setEnabled(true);
         btnIncluirPedido.setEnabled(false);
         btnCancelarPedido.setEnabled(true);
         txtNomeCli.setEnabled(true);
-        txtIdPedido.setEnabled(true);
+        txtIdPedido.setEnabled(false);
         txtDataPedido.setEnabled(true);
-        txtVendedorNome.setEnabled(true);
-        txtClienteNome.setEnabled(true);
+        txtVendedorId.setEnabled(true);
+        txtClienteCpf.setEnabled(true);
     }//GEN-LAST:event_btnPesquisarPedidoActionPerformed
 
     private void btnIncluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPedidoActionPerformed
 
         Pedido pedido = new Pedido();
 
-        pedido.getCliente().setNome(txtClienteNome.getText());
-        pedido.getVendedor().setNome(txtVendedorNome.getText());
+        pedido.getCliente().setNome(txtClienteCpf.getText());
+        pedido.getVendedor().setNome(txtVendedorId.getText());
         pedido.setData(txtDataPedido.getText());
 
         try {
             fachada.salvarPedido(pedido);
             JOptionPane.showMessageDialog(this, "Pedido incluído com sucesso!");
             txtDataPedido.setText(null);
-            txtVendedorNome.setText(null);
-            txtClienteNome.setText(null);
+            txtVendedorId.setText(null);
+            txtClienteCpf.setText(null);
             txtPesquisarCli.setText(null);
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -1916,8 +1928,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         btnCancelarPedido.setEnabled(false);
         btnIncluirPedido.setEnabled(false);
-        txtClienteNome.setEnabled(false);
-        txtVendedorNome.setEnabled(false);
+        txtClienteCpf.setEnabled(false);
+        txtVendedorId.setEnabled(false);
         txtDataPedido.setEnabled(false);
     }//GEN-LAST:event_btnIncluirPedidoActionPerformed
 
@@ -1925,7 +1937,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         Cliente cliente = new Cliente();
         cliente.setNome(txtNomeCli.getText());
         Vendedor vendedor = new Vendedor();
-        vendedor.setId(Integer.parseInt(txtVendedorNome.getText()));
+        vendedor.setId(Integer.parseInt(txtVendedorId.getText()));
 
         Pedido pedido = new Pedido();
 
@@ -2577,7 +2589,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable tabelaPedido;
     private javax.swing.JTable tabelaProduto;
     private javax.swing.JTable tabelaVendedor;
-    private javax.swing.JTextField txtClienteNome;
+    private javax.swing.JTextField txtClienteCpf;
     private javax.swing.JTextField txtCnpjFab;
     private javax.swing.JTextField txtCpfCli;
     private javax.swing.JTextField txtDataPedido;
@@ -2601,6 +2613,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtPesquisarVendedor;
     private javax.swing.JTextField txtRazaoFab;
     private javax.swing.JTextField txtValorPag;
-    private javax.swing.JTextField txtVendedorNome;
+    private javax.swing.JTextField txtVendedorId;
     // End of variables declaration//GEN-END:variables
 }

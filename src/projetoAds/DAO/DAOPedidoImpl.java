@@ -73,20 +73,20 @@ public class DAOPedidoImpl implements DAOPedido {
     }
 
     @Override
-    public Pedido pesquisar(Integer id) throws ConexaoException, DAOException {
+    public Pedido pesquisar(Integer ped_id) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "SELECT ped_id, ped_data, vend_nome, cli_nome FROM pedido WHERE (ped_id=?)";
+        String sql = "SELECT ped_id, ped_data, cli_cpf, vend_id FROM pedido WHERE (ped_id=?)";
         Pedido pedido = null;
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
-            pstm.setInt(1, id);
+            pstm.setInt(1, ped_id);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 pedido = new Pedido();
                 pedido.setId(rs.getInt("ped_id"));
-                pedido.setData(rs.getString("prd_data"));
-                pedido.getVendedor().setNome(rs.getString("vend_nome"));
-                pedido.getCliente().setNome(rs.getString("cli_nome"));
+                pedido.setData(rs.getString("ped_data"));                
+                pedido.getCliente().setCpf(rs.getString("cli_cpf"));
+                pedido.getVendedor().setId(rs.getInt("vend_id"));
             }
             return pedido;
         } catch (SQLException e) {

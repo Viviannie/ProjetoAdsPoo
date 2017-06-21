@@ -174,9 +174,9 @@ public class Fachada {
         rnPedido.alterar(pedido);
     }
 
-    public Pedido pesquisarPedidoId(Integer id) throws RegraException {
-        rnPedido.validaId(id);
-        return rnPedido.pesquisarId(id);
+    public Pedido pesquisarPedido(Pedido pedido) throws RegraException {
+        rnPedido.validaId(pedido.getId());
+        return rnPedido.pesquisarId(pedido.getId());
     }
     
     public ArrayList<Pedido> listarPedido() throws RegraException {

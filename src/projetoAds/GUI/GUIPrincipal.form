@@ -49,7 +49,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane5" pref="617" max="32767" attributes="0"/>
+          <Component id="jTabbedPane5" pref="661" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -163,7 +163,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane6" alignment="1" pref="497" max="32767" attributes="0"/>
+                      <Component id="jScrollPane6" alignment="1" pref="541" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -494,7 +494,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane1" alignment="1" pref="497" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="1" pref="541" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -770,7 +770,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane3" alignment="1" pref="497" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" alignment="1" pref="541" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1091,8 +1091,13 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblClienteId" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="txtClienteCpf" max="32767" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblIdPedido" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1100,26 +1105,17 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtVendedorNome" max="32767" attributes="0"/>
-                                      <Component id="txtClienteNome" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtDataPedido" min="-2" pref="89" max="-2" attributes="0"/>
-                                              <Component id="txtIdPedido" min="-2" pref="59" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="txtDataPedido" min="-2" pref="89" max="-2" attributes="0"/>
+                                      <Component id="txtIdPedido" min="-2" pref="59" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="lblVendedorID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblClienteId" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblVendedorID" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtVendedorId" min="-2" pref="147" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace pref="62" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1146,28 +1142,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblIdPedido" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtIdPedido" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblVendedorID" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtVendedorNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblClienteId" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtClienteNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblDataPedido" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtDataPedido" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="btnNovoPedido" min="-2" pref="25" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -1186,6 +1161,27 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnPesquisarPedido" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                       <Component id="txtPesquisarPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblIdPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtIdPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblVendedorID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtVendedorId" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblClienteId" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtClienteCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblDataPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtDataPedido" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1232,7 +1228,7 @@
                       <Font name="Tahoma" size="14" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="VENDEDOR"/>
+                    <Property name="text" type="java.lang.String" value="N&#xba; DO VENDEDOR"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                         <LineBorder/>
@@ -1246,7 +1242,7 @@
                       <Font name="Tahoma" size="14" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="CLIENTE"/>
+                    <Property name="text" type="java.lang.String" value="CLIENTE CPF"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                         <LineBorder/>
@@ -1365,6 +1361,28 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdPedidoActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JTextField" name="txtVendedorId">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVendedorIdActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtClienteCpf">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtClienteCpfActionPerformed"/>
+                  </Events>
+                </Component>
                 <Component class="javax.swing.JTextField" name="txtDataPedido">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1374,28 +1392,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDataPedidoActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtVendedorNome">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="14" style="0"/>
-                    </Property>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVendedorNomeActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtClienteNome">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="14" style="0"/>
-                    </Property>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtClienteNomeActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtPesquisarPedido">
@@ -1490,7 +1486,7 @@
                                   <Component id="JComboFormaPag" pref="70" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="61" max="32767" attributes="0"/>
+                          <EmptySpace pref="105" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -1515,7 +1511,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane5" alignment="0" pref="497" max="32767" attributes="0"/>
+                      <Component id="jScrollPane5" alignment="0" pref="541" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1884,7 +1880,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="31" max="32767" attributes="0"/>
+                          <EmptySpace pref="75" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
