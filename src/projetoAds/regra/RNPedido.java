@@ -62,19 +62,8 @@ public class RNPedido {
      * @throws RegraException
      */
     public void validar(Pedido pedido) throws RegraException {
-
-        try {
-            Pedido ped = dao.pesquisar(pedido.getId());
-            
-            if ((ped == null) | (pedido.getId() == 0)) {
-                throw new RegraException("ID inválido.");
-            } else {                
-                if ((ped.getData() == null) | (ped.getData().trim().equals(""))) {
-                    throw new RegraException("Data inválida.");
-                }
-            }
-        } catch (ConexaoException | DAOException e) {
-            throw new RegraException(e.getMessage());
+        if ((pedido.getData() == null) | (pedido.getData().trim().equals(""))) {
+            throw new RegraException("Data inválida.");
         }
     }
 
