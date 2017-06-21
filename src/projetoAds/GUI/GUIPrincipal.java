@@ -1134,30 +1134,15 @@ public class GUIPrincipal extends javax.swing.JFrame {
         tabelaPagamento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tabelaPagamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "ID", "VALOR", "FORMA DE PAGAMENTO", "PEDIDO"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Double.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane5.setViewportView(tabelaPagamento);
 
         btnListarPag.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2417,7 +2402,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         } catch (RegraException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-
     }//GEN-LAST:event_btnListarVendedorActionPerformed
 
     private void btnListarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarPedidoActionPerformed
@@ -2425,7 +2409,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarPedidoActionPerformed
 
     private void btnListarPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarPagActionPerformed
-        // TODO add your handling code here:
+        ArrayList<Pagamento> lista = new ArrayList();
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("VALOR");
+        modelo.addColumn("FORMA DE PAGAMENTO");
+        modelo.addColumn("PEDIDO");
+        try {
+            lista = fachada.listarPagamentos();
+            for (Pagamento p : lista) {
+                modelo.addRow(new Object[]{p.getId(), p.getValor(), p.getFormaPag(), p.getPedido().getId()});
+            }
+            tabelaPagamento.setModel(modelo);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_btnListarPagActionPerformed
 
     private void btnListarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarProdutoActionPerformed
