@@ -167,12 +167,14 @@ public class Fachada {
     }
 
     public void excluirPedido(Pedido pedido) throws RegraException {
-        rnPedido.validar(pedido);
+        rnPedido.validaId(pedido.getId());
         rnPedido.excluir(pedido);
     }
 
     public void alterarPedido(Pedido pedido) throws RegraException {
         rnPedido.validar(pedido);
+        rnCliente.validaCpf(pedido.getCliente().getCpf());
+        rnVendedor.validaId(pedido.getVendedor().getId());
         rnPedido.alterar(pedido);
     }
 
