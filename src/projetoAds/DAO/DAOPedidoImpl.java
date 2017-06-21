@@ -43,7 +43,7 @@ public class DAOPedidoImpl implements DAOPedido {
     @Override
     public void excluir(Pedido pedido) throws ConexaoException, DAOException {
         Connection c = con.conectar();
-        String sql = "DELETE FROM pedido WHERE (prd_id=?)";
+        String sql = "DELETE FROM pedido WHERE (ped_id=?)";
         try {
             PreparedStatement pstm = c.prepareStatement(sql);
             pstm.setInt(1, pedido.getId());
