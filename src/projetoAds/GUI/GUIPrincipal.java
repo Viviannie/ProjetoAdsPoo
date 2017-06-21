@@ -26,10 +26,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
      */
     public GUIPrincipal() {
         initComponents();
-        
-        DefaultTableModel cliente = (DefaultTableModel) TabelaCliente.getModel();
-        
-        
+
     }
 
     /**
@@ -275,29 +272,15 @@ public class GUIPrincipal extends javax.swing.JFrame {
         TabelaCliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         TabelaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "CPF", "NOME"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        ));
+        TabelaCliente.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                TabelaClienteComponentAdded(evt);
             }
         });
         jScrollPane6.setViewportView(TabelaCliente);
@@ -316,7 +299,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                 .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtNomeCli, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                     .addComponent(txtCpfCli))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ClienteLayout.createSequentialGroup()
                         .addGroup(ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -333,7 +316,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
                         .addComponent(btnNovoCli, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)))
                 .addGap(32, 32, 32))
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
         );
         ClienteLayout.setVerticalGroup(
             ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1557,13 +1540,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoProdutoActionPerformed
 
     private void btnPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarProdutoActionPerformed
-        
+
         Produto produto = new Produto();
-        
+
         produto.setId(Integer.parseInt(txtPesquisarProduto.getText()));
 
         try {
-            produto = fachada.pesquisarProdutoId(produto);            
+            produto = fachada.pesquisarProdutoId(produto);
             txtDescProduto.setText(produto.getDesc());
             txtFabricanteCnpj.setText(produto.getFabricante().getCnpj());
             txtIdProduto.setText(Integer.toString(produto.getId()));
@@ -1908,7 +1891,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         pedido.getVendedor().setNome(txtVendedorNome.getText());
         pedido.setData(txtDataPedido.getText());
 
-        try {            
+        try {
             fachada.salvarPedido(pedido);
             JOptionPane.showMessageDialog(this, "Pedido incluído com sucesso!");
             txtDataPedido.setText(null);
@@ -1947,7 +1930,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void btnAlterarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarPedidoActionPerformed
 
         Pedido pedido = new Pedido();
-      
+
         pedido.setId(Integer.parseInt(txtIdPedido.getText()));
 
         try {
@@ -2084,6 +2067,147 @@ public class GUIPrincipal extends javax.swing.JFrame {
         btnExcluirFab.setEnabled(false);
     }//GEN-LAST:event_btnAlterarFabActionPerformed
 
+    private void txtPesquisarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarCliActionPerformed
+        if (this.txtPesquisarCli.getText().equals("")) {
+            txtPesquisarCli.grabFocus();
+        }
+    }//GEN-LAST:event_txtPesquisarCliActionPerformed
+
+    private void txtCpfCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfCliActionPerformed
+        if (this.txtCpfCli.getText().equals("")) {
+            txtCpfCli.grabFocus();
+        }
+    }//GEN-LAST:event_txtCpfCliActionPerformed
+
+    private void txtNomeCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCliActionPerformed
+        if (this.txtNomeCli.getText().equals("")) {
+            txtNomeCli.grabFocus();
+        }
+    }//GEN-LAST:event_txtNomeCliActionPerformed
+
+    private void txtNomeCliFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeCliFocusGained
+        if (this.txtNomeCli.getText().equals("")) {
+            txtNomeCli.grabFocus();
+        }
+    }//GEN-LAST:event_txtNomeCliFocusGained
+
+    private void btnCancelarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarCliActionPerformed
+        btnCancelarCli.setEnabled(false);
+        btnExcluirCli.setEnabled(false);
+        btnAlterarCli.setEnabled(false);
+        btnIncluirCli.setEnabled(false);
+        txtNomeCli.setEnabled(false);
+        txtCpfCli.setEnabled(false);
+    }//GEN-LAST:event_btnCancelarCliActionPerformed
+
+    private void btnNovoCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoCliActionPerformed
+        btnIncluirCli.setEnabled(true);
+        btnPesquisarCli.setEnabled(true);
+        btnCancelarCli.setEnabled(true);
+        txtNomeCli.setEnabled(true);
+        txtCpfCli.setEnabled(true);
+    }//GEN-LAST:event_btnNovoCliActionPerformed
+
+    private void btnPesquisarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarCliActionPerformed
+
+        Cliente cliente = new Cliente();
+
+        cliente.setCpf(txtPesquisarCli.getText());
+
+        try {
+            cliente = fachada.pesquisarClienteCpf(cliente);
+            txtNomeCli.setText(cliente.getNome());
+            txtCpfCli.setText(cliente.getCpf());
+            txtPesquisarCli.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
+        btnIncluirCli.setEnabled(false);
+        btnCancelarCli.setEnabled(false);
+        txtNomeCli.setEnabled(false);
+        txtCpfCli.setEnabled(false);
+        btnAlterarCli.setEnabled(true);
+        btnExcluirCli.setEnabled(true);
+        btnIncluirCli.setEnabled(false);
+        btnCancelarCli.setEnabled(true);
+        txtNomeCli.setEnabled(true);
+        txtCpfCli.setEnabled(true);
+    }//GEN-LAST:event_btnPesquisarCliActionPerformed
+
+    private void btnIncluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirCliActionPerformed
+       
+        Cliente cliente = new Cliente();
+        DefaultTableModel tabelaCli = (DefaultTableModel) TabelaCliente.getModel();
+
+        cliente.setNome(txtNomeCli.getText());
+        cliente.setCpf(txtCpfCli.getText());
+
+        try {
+            fachada.salvarCliente(cliente);
+            fachada.listarCliente();
+            JOptionPane.showMessageDialog(this, "Cliente incluído com sucesso!");
+            txtNomeCli.setText(null);
+            txtCpfCli.setText(null);
+            
+            Object[] dados = {txtCpfCli.getText(), txtNomeCli.getText()};
+            tabelaCli.addRow(dados);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
+        btnIncluirCli.setEnabled(false);
+        btnCancelarCli.setEnabled(false);
+        txtNomeCli.setEnabled(false);
+        txtCpfCli.setEnabled(false);
+    }//GEN-LAST:event_btnIncluirCliActionPerformed
+
+    private void btnExcluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliActionPerformed
+
+        Cliente cliente = new Cliente();
+
+        cliente.setCpf(txtCpfCli.getText());
+
+        try {
+            fachada.excluirCliente(cliente);
+            JOptionPane.showMessageDialog(this, "Cliente excluído com sucesso!");
+            txtCpfCli.setText(null);
+            txtNomeCli.setText(null);
+            txtPesquisarCli.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, "Cliente não pode ser excluído.");
+        }
+
+        btnIncluirCli.setEnabled(false);
+        btnCancelarCli.setEnabled(false);
+        btnAlterarCli.setEnabled(false);
+        btnExcluirCli.setEnabled(false);
+        txtNomeCli.setEnabled(false);
+        txtCpfCli.setEnabled(false);
+    }//GEN-LAST:event_btnExcluirCliActionPerformed
+
+    private void btnAlterarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarCliActionPerformed
+
+        Cliente cliente = new Cliente();
+
+        cliente.setNome(txtNomeCli.getText());
+        cliente.setCpf(txtCpfCli.getText());
+
+        try {
+            fachada.alterarCliente(cliente);
+            JOptionPane.showMessageDialog(this, "Cliente alterado com sucesso!");
+            txtNomeCli.setText(null);
+            txtCpfCli.setText(null);
+            txtPesquisarCli.setText(null);
+        } catch (RegraException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
+        btnIncluirCli.setEnabled(false);
+        txtNomeCli.setEnabled(false);
+        txtCpfCli.setEnabled(false);
+    }//GEN-LAST:event_btnAlterarCliActionPerformed
+
     private void txtPesquisarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarVendedorActionPerformed
         if (this.txtPesquisarVendedor.getText().equals("")) {
             txtPesquisarVendedor.grabFocus();
@@ -2197,140 +2321,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
         txtNomeVendedor.setEnabled(false);
     }//GEN-LAST:event_btnAlterarVendedorActionPerformed
 
-    private void txtPesquisarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarCliActionPerformed
-        if (this.txtPesquisarCli.getText().equals("")) {
-            txtPesquisarCli.grabFocus();
-        }
-    }//GEN-LAST:event_txtPesquisarCliActionPerformed
+    private void TabelaClienteComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_TabelaClienteComponentAdded
 
-    private void txtCpfCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfCliActionPerformed
-        if (this.txtCpfCli.getText().equals("")) {
-            txtCpfCli.grabFocus();
-        }
-    }//GEN-LAST:event_txtCpfCliActionPerformed
 
-    private void txtNomeCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCliActionPerformed
-        if (this.txtNomeCli.getText().equals("")) {
-            txtNomeCli.grabFocus();
-        }
-    }//GEN-LAST:event_txtNomeCliActionPerformed
-
-    private void txtNomeCliFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeCliFocusGained
-        if (this.txtNomeCli.getText().equals("")) {
-            txtNomeCli.grabFocus();
-        }
-    }//GEN-LAST:event_txtNomeCliFocusGained
-
-    private void btnCancelarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarCliActionPerformed
-        btnCancelarCli.setEnabled(false);
-        btnExcluirCli.setEnabled(false);
-        btnAlterarCli.setEnabled(false);
-        btnIncluirCli.setEnabled(false);
-        txtNomeCli.setEnabled(false);
-        txtCpfCli.setEnabled(false);
-    }//GEN-LAST:event_btnCancelarCliActionPerformed
-
-    private void btnNovoCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoCliActionPerformed
-        btnIncluirCli.setEnabled(true);
-        btnPesquisarCli.setEnabled(true);
-        btnCancelarCli.setEnabled(true);
-        txtNomeCli.setEnabled(true);
-        txtCpfCli.setEnabled(true);
-    }//GEN-LAST:event_btnNovoCliActionPerformed
-
-    private void btnPesquisarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarCliActionPerformed
-
-        Cliente cliente = new Cliente();
-
-        cliente.setCpf(txtPesquisarCli.getText());
-
-        try {
-            cliente = fachada.pesquisarClienteCpf(cliente);
-            txtNomeCli.setText(cliente.getNome());
-            txtCpfCli.setText(cliente.getCpf());
-            txtPesquisarCli.setText(null);
-        } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-
-        btnIncluirCli.setEnabled(false);
-        btnCancelarCli.setEnabled(false);
-        txtNomeCli.setEnabled(false);
-        txtCpfCli.setEnabled(false);
-        btnAlterarCli.setEnabled(true);
-        btnExcluirCli.setEnabled(true);
-        btnIncluirCli.setEnabled(false);
-        btnCancelarCli.setEnabled(true);
-        txtNomeCli.setEnabled(true);
-        txtCpfCli.setEnabled(true);
-    }//GEN-LAST:event_btnPesquisarCliActionPerformed
-
-    private void btnIncluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirCliActionPerformed
-        Cliente cliente = new Cliente();
-
-        cliente.setNome(txtNomeCli.getText());
-        cliente.setCpf(txtCpfCli.getText());
-
-        try {
-            fachada.salvarCliente(cliente);
-            JOptionPane.showMessageDialog(this, "Cliente incluído com sucesso!");
-            txtNomeCli.setText(null);
-            txtCpfCli.setText(null);
-        } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-
-        btnIncluirCli.setEnabled(false);
-        btnCancelarCli.setEnabled(false);
-        txtNomeCli.setEnabled(false);
-        txtCpfCli.setEnabled(false);
-    }//GEN-LAST:event_btnIncluirCliActionPerformed
-
-    private void btnExcluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliActionPerformed
-
-        Cliente cliente = new Cliente();
-
-        cliente.setCpf(txtCpfCli.getText());
-
-        try {
-            fachada.excluirCliente(cliente);
-            JOptionPane.showMessageDialog(this, "Cliente excluído com sucesso!");
-            txtCpfCli.setText(null);
-            txtNomeCli.setText(null);
-            txtPesquisarCli.setText(null);
-        } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, "Cliente não pode ser excluído.");
-        }
-
-        btnIncluirCli.setEnabled(false);
-        btnCancelarCli.setEnabled(false);
-        btnAlterarCli.setEnabled(false);
-        btnExcluirCli.setEnabled(false);
-        txtNomeCli.setEnabled(false);
-        txtCpfCli.setEnabled(false);
-    }//GEN-LAST:event_btnExcluirCliActionPerformed
-
-    private void btnAlterarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarCliActionPerformed
-
-        Cliente cliente = new Cliente();
-
-        cliente.setNome(txtNomeCli.getText());
-        cliente.setCpf(txtCpfCli.getText());
-
-        try {
-            fachada.alterarCliente(cliente);
-            JOptionPane.showMessageDialog(this, "Cliente alterado com sucesso!");
-            txtNomeCli.setText(null);
-            txtCpfCli.setText(null);
-            txtPesquisarCli.setText(null);
-        } catch (RegraException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-
-        btnIncluirCli.setEnabled(false);
-        txtNomeCli.setEnabled(false);
-        txtCpfCli.setEnabled(false);
-    }//GEN-LAST:event_btnAlterarCliActionPerformed
+    }//GEN-LAST:event_TabelaClienteComponentAdded
 
     /**
      * @param args the command line arguments

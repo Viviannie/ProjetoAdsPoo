@@ -134,7 +134,7 @@ public class DAOClienteImpl implements DAOCliente {
             }
             return lista;
         } catch (SQLException e) {
-            throw new DAOException(e);
+            throw new DAOException("Erra na hora de preencher o ArrayList!");
         } finally {
             con.desconectar(c);
         }
